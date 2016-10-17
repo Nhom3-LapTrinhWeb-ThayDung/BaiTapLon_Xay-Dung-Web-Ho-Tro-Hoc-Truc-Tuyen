@@ -1,0 +1,252 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.banner_setup {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+    .banner_setup a {
+        display: block;
+        width: 100%;
+    }
+
+        .banner_setup a img {
+            display: block;
+            width: 100%;
+        }
+
+.intro-setup {
+    margin-bottom: 20px;
+}
+
+.intro-setup-title {
+    color: #14928e;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.intro-content {
+    color: #303030;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+    .intro-content p {
+        color: #303030;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+
+.show-list-setup {
+}
+
+    .show-list-setup .list-setup-h2 {
+        color: #14928e;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+.wrap-list-setup {
+    overflow: hidden;
+    width: 1000px;
+}
+
+.list-setup-item {
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 29px;
+    width: 300px;
+}
+
+.list-setup-img {
+    display: block;
+    height: 150px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+    .list-setup-img img {
+        display: block;
+        height: 150px;
+        width: 100%;
+    }
+
+.list-setup-h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+    .list-setup-h3 a {
+        color: #1b1b1b;
+    }
+
+.list-setup-listen {
+  
+    color: #9e9e9e;
+    display: block;
+    font-size: 14px;
+}
+
+
+.body-setup {
+    overflow: hidden;
+}
+
+.body-setup-left {
+    float: left;
+    width: 630px;
+}
+
+.show-learn-setup {
+}
+
+.show-learn-h3 {
+    color: #14928e;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.wrap-show-learn {
+    border: 1px solid #e1e1e1;
+    max-height:300px;
+    overflow: auto;
+    width: 628px;
+}
+
+.show-learn-item {
+    border-bottom: 1px solid #e1e1e1;
+    color: #1b1b1b !important;
+    display: block;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+    position: relative;
+}
+
+    .show-learn-item.playing {
+        color: #14928e !important;
+        font-weight: bold;
+    }
+.show-learn-item:hover{ color: #14928e !important;
+        text-decoration:none;}
+    .show-learn-item span {
+       background: rgba(0, 0, 0, 0) url("../images/img_setup_01.png") no-repeat scroll right center;
+    color: #9e9e9e;
+    display: block;
+    font-size: 14px;
+    padding-right: 33px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-weight: normal;
+    }
+
+.body-setup-right {
+    float: right;
+    width: 315px;
+}
+
+.learn-setup-other {
+}
+
+.learn-other-title {
+    color: #14928e;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.wrap-learn-other {
+}
+
+.learn-other-item {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.learn-other-img {
+    float: left;
+    height: 68px;
+    width: 120px;
+}
+
+    .learn-other-img img {
+        display: block;
+        height: 68px;
+        width: 120px;
+    }
+
+.learn-other-right {
+    margin-left: 130px;
+}
+
+.learn-other-h3 {
+}
+
+    .learn-other-h3 a {
+        color: #1b1b1b;
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+.learn-other-right span.learn-other-listen {
+   color: #9e9e9e;
+    display: block;
+    font-size: 12px;
+    padding-top: 6px;
+}
+
+.player-setup {
+    margin-bottom: 15px;
+}
+
+.player-setup-title {
+    color: #14928e;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.wrap-player-setup {
+    background: #01141a none repeat scroll 0 0;
+    border: 1px solid #e1e1e1;
+    padding-top: 10px;
+}
+
+.player-setup-h3 {
+    color: #14928e;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 0 10px;
+}
+
+.player-setup-listen {
+    color: #7e7e7e;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 0 10px;
+}
+
+.player-setup-play {
+}
+
+.row-top-play {
+    height: 48px;
+    position: relative;
+}
+
+.title-play-song {
+    display: block;
+    padding-left: 5px;
+    font-weight: bold;
+    padding-top: 27px;
+    color:#ffffff;
+    position:relative;
+    z-index:999;
+    width:260px;
+     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,25 @@
+.process-learn {background-color: #FFFFFF;border: 1px solid #DCDCDC;clear: both;margin-top: 15px;overflow: hidden;padding: 5px 0 0px;position: relative;width: 948px;}
+.process-learn h2.pln-title {color: #00918D;float: left;font-size: 15px;font-weight: bold;height: 35px;line-height: 35px;width: 100%;}
+.process-learn h2.pln-title span {float: left;padding-left: 15px;}
+.pln-filter {color: #777677;float: left;overflow: hidden;padding: 7px 0px;width: 100%;}
+.box-persion h2.bp-title{border-bottom: 1px solid #EEEFEF;}
+.pln-filter p {float: left;margin-left: 15px;}
+.pln-filter p select {border: 1px solid #E0E1E2;color: #777677;margin-left: 5px;padding-left: 5px;width: 184px;}
+.pln-filter p.p-type {margin-left: 150px;}
+.pln-list {float: left;padding-top: 5px;width: 100%;}
+.pln-list .pln-row {border-bottom: 1px solid #EEEFEF;color: #333333;float: left;padding: 7px 0;width: 100%;}
+.pln-list .pln-row .pln-row-lnk {float: left;height: 55px;margin-left: 15px;margin-right: 20px;overflow: hidden;width: 70px;}
+.pln-list .pln-row .pln-row-center {float: left;line-height: 18px;width: 560px;}
+.pln-list .pln-row .pln-row-center .pln-p-content  a{color:#333333;}
+.pln-list .pln-row .pln-row-center .pln-p-content  a:hover{color:#00918D;}
+.pln-list .pln-row .pln-row-center .pln-p-time {color: #9B9B9D;margin-top: 3px;font-size:11px;}
+.pln-list .pln-row .pln-row-center .pln-p-time a.pln-lnk-share { background: url("../images/gd_52.png") no-repeat scroll 0 center transparent;color: #9B9B9D;display: inline-block;margin-left: 5px;padding-left: 17px;}
+.pln-list .pln-row .pln-row-center .pln-p-time a.pln-lnk-share:hover {text-decoration:underline;}
+.pln-list .pln-row .pln-row-right {border-left: 1px solid #A1A2A5;color: #333333;float: right;line-height: 18px;padding-left: 20px;width: 250px;}
+.pln-list .pln-row .pln-row-right span {display: block;}
+.learn-process{float:left;width:100%;margin-top:15px;min-height:450px;}
+.lp-lnk {border: 1px solid #DEDEDE;color: #565656;display: inline-block;font-size: 14px;font-weight: bold;line-height: 18px;margin-right: 10px;
+padding: 17px;text-decoration: none;vertical-align: top;width: 267px;}
+.lp-lnk:hover{color:#00918D}
+.lp-lnk p{margin-top:15px;}
+.lp-lnk img {width: 100%;}
