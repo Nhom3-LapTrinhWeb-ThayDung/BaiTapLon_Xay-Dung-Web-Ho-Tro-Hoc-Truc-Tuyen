@@ -239,7 +239,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <div id="header">
     <div id="header-top">
         <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="index.jsp">
+        <a class="header-logo" href="http://viettelstudy.vn/index.html">
       
            </a>           
         <div class="header-login">
@@ -812,7 +812,7 @@ $('.persion-tab-lnk').click(function() {
                     </div>
 
                         <div class="edit" style="display:none;">
-                        <a href="edit-asignment.jsp"><img style="float:right" src="Images/add-item.png"></a>
+                        <a class="under popup-login" rel="#overlay-add-assignment"><img style="float:right" src="Images/add-item.png"></a>
                         </div>
                     </div>
 
@@ -1315,6 +1315,103 @@ function loadDSBTNop(){
 </script>
 </div>
     </div>
+
+<div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-add-assignment" ><a class="close"></a>
+    <style type="text/css">
+        .sp-remember
+        {
+            float: left;
+            width: 125px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .sp-remember input
+        {
+            margin-right: 5px;
+        }
+    </style>
+    <div class="box-popup2">
+        <a class="popup-close">X </a>
+        <h3 class="bp-title">
+            Add an activity or resource
+        </h3>
+        <div class="bpc-row">
+            <div class="add-source-left" id="style-source">
+            <div class="bpc-row">
+                        <a class="choose-style active" name="BaiTap"><span>Bài tập</span></a>
+                    </div>
+                    <div class="bpc-row">
+                        <a class="choose-style" name="PDF"><span>File PDF</span></a>
+                    </div>
+                    <div class="bpc-row">
+                        <a class="choose-style" name="Work"><span>File Work</span></a>
+                    </div>
+                    <div class="bpc-row">
+                        <a class="choose-style" name="URL"><span>URL</span></a>
+                    </div>
+                    <div class="bpc-row">
+                        <a class="choose-style" name="TracNghiem"><span>Thi trắc nghiệm</span></a>
+                    </div>
+            </div>
+            <div class="add-source-right" id="BaiTap" style="display:block">
+                    <div class="bpc-row">
+                        <span class="sp-left">Thêm bài tập</span>
+                    </div>
+                    <div class="add-footer">
+                          
+                            <input type="submit" name="login$btnDangNhap" value="Add" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-add">
+                        <!--<script type="text/javascript">
+                           function btnDangNhap_OnClientClick() {
+                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
+                                return true;
+                            }
+                        </script>-->
+
+                    </div>
+            </div>
+            
+            <div class="add-source-right" id="PDF">
+                    <div class="bpc-row">
+                        <span class="sp-left">Thêm PDF</span>
+                    </div>
+                    <div class="add-footer">
+                          
+                            <input type="submit" name="login$btnDangNhap" value="Add" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-add">
+                        <!--<script type="text/javascript">
+                           function btnDangNhap_OnClientClick() {
+                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
+                                return true;
+                            }
+                        </script>-->
+
+                    </div>
+            </div>
+        </div>
+        
+    </div>
+    
+   
+   <script>
+	$(document).ready(function(){
+	$('.choose-style').click(function() {
+	    try{
+	    
+	        var id_tab = $(this).attr('name');
+	        if ($(this).hasClass('active')) {
+	
+	        } else {
+	            $('.choose-style').removeClass('active');
+	            $('.add-source-right').hide();
+	            $(this).addClass('active');
+	            $('#' + id_tab).fadeIn("slow");
+	        }
+	    } catch (err) { }
+	        
+	    });    
+	});
+	</script>
+</div>
+
 
 <div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-hocvien" ><a class="close"></a>
     <style type="text/css">

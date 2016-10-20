@@ -255,7 +255,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
 <div id="header">
     <div id="header-top">
 		<a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="index.jsp">
+        <a class="header-logo" href="http://viettelstudy.vn/index.html">
       
            </a>           
         <div class="header-login">
