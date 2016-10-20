@@ -87,8 +87,8 @@ width: 480px;}
 .add-source-left{display:block;float:left; text-align:left; width:150px; border-right: 1px solid #e1e1e1;border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;margin-bottom:5px;
 margin-top:5px;}
 .add-source-right{display:none;float:right; text-align:left; width:348px;border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;margin-bottom:5px;
-margin-top:5px;}
-.add-footer{height:32px;overflow: hidden;position: relative;line-height:32px;padding-left:10px;font-weight:bold;color:#2D2D2D;display:block;text-align:center;}
+margin-top:5px;height:244px }
+.add-footer{height:32px;overflow: hidden;position: relative;line-height:32px;padding-left:10px;font-weight:bold;color:#2D2D2D;display:block;text-align:center;position:relative; top:100px }
 .add-footer .btn-add{background: none repeat scroll 0 0 #14928e;border: 0 none;color: #ffffff;font-weight: bold;height: 35px;line-height:35px;margin-top: 5px;text-align: center;width: 132px;float:center}
 .box-popup2 .bpc-row .add-source-left .bpc-row .choose-style{border-top: 1px solid rgb(226, 226, 226);
     color: rgb(71, 71, 71);
@@ -101,6 +101,8 @@ margin-top:5px;}
 .box-popup2 .bpc-row .add-source-left .bpc-row .active{background: rgb(243, 243, 243) none repeat scroll 0 0;
     color: rgb(20, 146, 142);
     font-weight: bold;}
+.bpc-row span.sp-text{float: left;font-weight: bold;height: 30px;line-height: 30px;padding-left:15px;}
+
 
 
 /*course*/
