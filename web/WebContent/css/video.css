@@ -1,0 +1,47 @@
+#body-content{margin-top:15px;overflow:hidden;width:100%;}
+.left-body{float:left;width:632px;}
+.right-body{float:right;width:318px;}
+.lb-info{background-color:#FFFFFF;float:left;padding:15px 15px 12px;width:602px;}
+.lb-info h3.lb-title{color:#00918d;float:left;font-size:15px;font-weight:bold;line-height:20px;margin-top:5px;width:100%;}
+.lb-info p.lb-teacher{color:#565656;float:left;font-weight:bold;line-height:18px;margin-top:5px;width:100%;overflow:hidden;height:18px;}
+.lb-info p.lb-content{color:#565656;float:left;width:100%;line-height:18px;margin-top:5px;overflow:hidden;height:90px;}
+.lb-info .lb-btn{background:url("../images/gd_10_b.png") no-repeat scroll left top transparent;color:#ffffff;float:left;font-weight:bold;height:27px;line-height:27px;margin-top:15px;text-align:center;width:160px;text-decoration:none !important;}
+.lb-info .lb-btn:hover ,.lb-info .active{background:url("../images/gd_10_b.png") no-repeat scroll left -27px transparent;color:#ffffff;}
+.lb-info .lb-share{border-top:1px solid #DCDCDC;float:left;margin-top:10px;text-align:right;width:100%;height:40px;overflow:hidden;}
+.lb-wrap{background-color:#FFFFFF;float:left;border:0px;}
+h2.lbw-title{background:url("../images/gd_22.png") repeat-x scroll left top #EFEFEF;border-bottom:1px solid #DCDCDC;color:#00918D;float:left;font-size:14px;line-height:20px;overflow:hidden;padding:5px 0 5px 15px;width:615px;}
+.lbw-player{float:left;padding:10px 20px;width:592px;border:0px;}
+.lb-share .lb-gopy {background: url("../images/gd_10.png") no-repeat scroll left top transparent;color: #FFFFFF;cursor: pointer;float: right;font-weight: bold;height: 27px;line-height: 27px;margin-top: 12px;text-align: center;width: 132px;}
+.lb-share .lb-gopy:hover {background: url("../images/gd_10.png") no-repeat scroll left -27px transparent;color: #FFFFFF;}
+/*.box-video*/
+.box-video {background-color: #FFFFFF;float: left;padding-bottom: 20px;width: 100%;padding-top:5px;margin-bottom:15px;}
+.bv-item {float: left;margin-left: 15px;margin-top: 15px;overflow: hidden;width: 190px; height: 175px;}
+.bv-lnk-img {float: left;height: 107px;overflow: hidden;width: 100%;}
+.bv-lnk-img img {min-height: 107px;width: 100%;}
+.bv-h3-name {float: left;max-height:37px;margin-top: 0px;width: 100%;overflow:hidden;}
+.bv-h3-name a.bv-lnk-name {color: #676767;font-size: 13px;line-height: 18px;margin-top: 10px;}
+.bv-pagging {float: left;margin-top: 15px;padding-right: 15px;text-align: right;width: 612px;}
+.bv-pagging a {color: #565656;display: inline-block;font-weight: bold;height: 20px;line-height: 20px;text-align: center;width: 20px;font-size:14px;margin-left:3px;}
+.bv-title {color: #00918D;float: left;font-size: 16px;width: 100%;height:26px;line-height:30px;}
+.bv-title span {margin-left: 15px;}
+.bv-pagging a:hover,.bv-pagging a.active {color:#ffffff;background-color: #00918D;}
+/*box-video-right*/
+.box-video-right {background-color: #FFFFFF;float: left;padding:10px 0px 15px;width: 100%;margin-top:15px;}
+.bvr-item {float: left;margin-top: 10px;overflow: hidden;width: 100%;}
+.bvr-lnk-img {float: left;height: 67px;margin-left: 10px;margin-right: 15px;overflow: hidden;width: 135px;}
+.bvr-lnk-img img {min-height: 107px;width: 100%;}
+.bvr-h3-name {height: 55px;overflow: hidden;padding-right: 10px;}
+.bvr-h3-name a.bvr-lnk-name {color: #676767;font-size: 13px;line-height: 18px;margin-top: 10px;}
+h2.bvr-title {color: #00918D;float: left;font-size: 16px;width: 100%;}
+h2.bvr-title span {margin-left: 15px;}
+/*adv*/
+.rb-adv01 {background-color: #FFFFFF;float: left;padding: 13px;width: 292px;margin-bottom:15px;}
+.rb-adv01 .rb-adv01-lnk {float: left;overflow: hidden;width: 290px;}
+.rb-adv01 .rb-adv01-lnk img {width: 290px;}
+.bv-lnk-img, .bvr-lnk-img{position:relative;}
+.bv-item:hover .bv-h3-name a.bv-lnk-name,.bvr-item:hover .bvr-h3-name a.bvr-lnk-name{color:#00918D;}
+.bv-lnk-img .sp-play, .bvr-lnk-img .sp-play{background: url("../images/icon_play.png") no-repeat scroll left top transparent;bottom: 5px;height: 25px;position: absolute;right: 5px;width: 25px;}
+.div-more-video{float:left;width:100%;text-align:center;}
+.div-more-video .lnk-view-video{background:url("../images/gd_14.png") no-repeat scroll left top transparent;color:#ffffff;display:inline-block;font-size:14px;font-weight:bold;height:35px;line-height:35px;margin-top:20px;text-align:center;width:102px;}
+.div-more-video .lnk-view-video:hover, .test-course .div-more-test .active{background:url("../images/gd_14.png") no-repeat scroll left -35px transparent;color:#ffffff;}
+

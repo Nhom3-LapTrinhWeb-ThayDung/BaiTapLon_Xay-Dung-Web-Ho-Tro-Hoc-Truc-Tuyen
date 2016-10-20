@@ -1,0 +1,5 @@
+.box-popup-content .button{cursor: pointer;border: none;}
+.box-popup-content h3.title {text-transform: uppercase;}
+form .error_list{color: red; font-style: italic;}
+form .error {color: red; font-style: italic;}
+
