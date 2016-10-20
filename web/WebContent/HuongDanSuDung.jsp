@@ -44,15 +44,15 @@ function __doPostBack(eventTarget, eventArgument) {
 <div id="header">
     <div id="header-top">
         <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+        <a class="header-logo" href="index.jsp">
       
            </a>           
         <div class="header-login">
              
             <p class="p-login">
                 Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Thay tên chỗ này</a>
-                | <a href="http://viettelstudy.vn/thoat.html">Thoát</a>
+                    Đăng ký</a>
+                | <a href="http://viettelstudy.vn/thoat.html">Đăng Nhập</a>
             </p>
         </div>
         <div class="study-search">

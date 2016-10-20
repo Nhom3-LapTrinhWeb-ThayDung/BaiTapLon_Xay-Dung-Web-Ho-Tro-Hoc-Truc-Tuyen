@@ -1,9 +1,0 @@
-.box-test-online{background-color:#FFFFFF;clear:both;margin-top:15px;overflow:hidden;padding:10px 0px 10px 10px;position:relative;width:950px;}
-.box-test-online .h2-to-title{border-bottom:1px solid #DCDCDC;color:#00918D;float:left;font-size:15px;font-weight:bold;height:35px;line-height:35px;padding-left:10px;width:928px;}
-.to-content{float:left;width:100%;}
-.to-c-left{border:1px solid #DCDCDC;float:left;width:890px;}/*margin-top:20px;*/
-.to-c-left .to-c-l-tile{background:url("../images/gd_22.png") repeat-x scroll left top #EFEFEF;border-bottom:1px solid #DCDCDC;color:#00918d;float:left;font-size:14px;line-height:22px;padding:5px 0px 5px 10px;width:880px;}
-.to-c-left p.p-list{border-bottom:1px solid #DCDCDC;color:#565656;float:left;font-size:14px;font-weight:bold;height:30px;line-height:30px;padding-left:10px;width:880px;}
-.to-c-l-list{float:left;}
-.to-c-l-list .row{border-bottom:1px solid #DCDCDC;float:left;margin-bottom:1px;padding:10px 10px 10px 10px;width:870px;}
-.to-c-l-list .row:hover, .to-c-l-list .row-active{color:#00918D !important;}

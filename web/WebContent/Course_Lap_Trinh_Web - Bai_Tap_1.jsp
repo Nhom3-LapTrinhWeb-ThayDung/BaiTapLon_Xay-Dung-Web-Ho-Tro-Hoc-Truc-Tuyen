@@ -238,7 +238,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <div id="header">
     <div id="header-top">
        
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+        <a class="header-logo" href="index.jsp">
       
            </a>           
         <div class="header-login">
