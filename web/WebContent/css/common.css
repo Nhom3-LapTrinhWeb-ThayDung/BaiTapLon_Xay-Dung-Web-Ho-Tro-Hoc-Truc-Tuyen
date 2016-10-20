@@ -19,7 +19,7 @@ a.under:hover{text-decoration:underline;}
 /*header*/
 #header{width:960px;margin-left:auto;margin-right:auto;position: relative;}
 #header-top{ clear: both;height:95px;position: relative;width: 960px;}
-#header-top a.header-logo{float:left;width:255px;background:url("../Images/logo-StudyFunny.png") no-repeat left top; height:95px;margin-left:10px;display:inline;}
+#header-top a.header-logo{float:left;width:255px;background:url(../Images/logo-StudyFunny.png) no-repeat left top; height:95px;margin-left:10px;display:inline;}
 #header-top .header-login {float: right;}
 #header-top .header-login .p-login {color:#5E5E5E;float: right;margin-top: 35px;}
 #header-top .header-login .p-login a {color:#00918D ;}
@@ -67,6 +67,7 @@ width: 370px;}
 .bpc-row span.sp-right .bpc-txtarea {background: url("../images/gd_35.png") repeat-x scroll left top transparent;border: 1px solid #DCDCDC;color: #656565;float: left;height: 100px;padding: 0 5px;width: 238px;}
 .bpc-row span.sp-right input.bpc-capcha{width:136px;}
 .bpc-row span.sp-right .btn-login {background: none repeat scroll 0 0 #14928e;border: 0 none;color: #ffffff;float: left;font-weight: bold;height: 35px;line-height:35px;margin-right: 10px;margin-top: 5px;text-align: center;width: 132px;}
+.bpc-row span.sp-right .btn-add {background: none repeat scroll 0 0 #14928e;border: 0 none;color: #ffffff;float: left;font-weight: bold;height: 35px;line-height:35px;margin-right: 10px;margin-top: 5px;text-align: center;width: 132px;}
 .bpc-row span.sp-right .lnk-foget {color: #565656;float: left;line-height: 27px;margin-top: 5px;}
 .bpc-row span.sp-right .lnk-regis {color: #00918d;}
 a.ttc-next:hover {background:url("../images/gd_11.png") no-repeat scroll 0px -44px transparent !important}
@@ -76,6 +77,31 @@ a.ttc-pre:hover {background:url("../images/gd_11.png") no-repeat scroll 0px -66p
 .study-search {display: inline;float: left;margin-left: 30px;margin-top: 24px;position: relative;}
 .study-search .ssh-input {background-color: #ffffff;border: 1px solid #c6c6c6;color: #ababab;height: 37px;padding-left: 10px;padding-right: 50px;width: 325px;}
 .study-search .ssh-btn-search {border:0px;border-left:1px solid #c6c6c6;background: url("../images/btn_search.png") no-repeat scroll center center transparent;cursor: pointer;height: 38px;position: absolute;right: 0;top: 0;width: 50px;}
+
+/*popup add resource*/
+.box-popup2 {background-color: #FFFFFF;overflow: hidden;width: 500px;padding-bottom:10px;color:#565656;position:relative;}
+.box-popup2 .popup-close{color: #D6D6D6;cursor: pointer;font-family: arial;font-weight: bold;position: absolute;right: 10px;top: 6px;}
+.box-popup2 .popup-close:hover{color:#ffffff;}
+.box-popup2 .bp-title {background:none repeat scroll 0 0 #14928e;color: #FFFFFF;float: left;font-size: 15px;height: 35px;line-height: 35px;padding-left: 20px;
+width: 480px;}
+.add-source-left{display:block;float:left; text-align:left; width:150px; border-right: 1px solid #e1e1e1;border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;margin-bottom:5px;
+margin-top:5px;}
+.add-source-right{display:none;float:right; text-align:left; width:348px;border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;margin-bottom:5px;
+margin-top:5px;}
+.add-footer{height:32px;overflow: hidden;position: relative;line-height:32px;padding-left:10px;font-weight:bold;color:#2D2D2D;display:block;text-align:center;}
+.add-footer .btn-add{background: none repeat scroll 0 0 #14928e;border: 0 none;color: #ffffff;font-weight: bold;height: 35px;line-height:35px;margin-top: 5px;text-align: center;width: 132px;float:center}
+.box-popup2 .bpc-row .add-source-left .bpc-row .choose-style{border-top: 1px solid rgb(226, 226, 226);
+    color: rgb(71, 71, 71);
+    float: left;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    width: 100%;}
+.box-popup2 .bpc-row .add-source-left .bpc-row .active{background: rgb(243, 243, 243) none repeat scroll 0 0;
+    color: rgb(20, 146, 142);
+    font-weight: bold;}
+
 
 /*course*/
 .coursertitle{}

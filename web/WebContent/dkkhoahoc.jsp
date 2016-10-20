@@ -3,7 +3,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 <head id="Head1"><link rel="canonical" href="http://viettelstudy.vn//tieng-anh-cho-tre-em.html"></link>
 <link rel="stylesheet" href="css/oneOfCourse.css" type="text/css"></link>
