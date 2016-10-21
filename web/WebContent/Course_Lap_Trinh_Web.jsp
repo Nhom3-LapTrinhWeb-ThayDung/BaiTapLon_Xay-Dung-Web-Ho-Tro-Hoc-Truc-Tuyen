@@ -219,13 +219,13 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 </a>
         </h3>
         <div class="wrap-vt-gadget">
-                <h2 class="vt-gadget-h1-hotline">Hotline 198 <br>
-<span style="font-size:15px">(miễn phí)</span></h2>
-                <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">ViettelStudy@viettel.com.vn</a></p>
-                <p class="vt-gadget-p-content">
-                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách nộp học phí trên ViettelStudy
-                </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
         </div>
     </div>
          <a class="vts-gadget-lnk show-popup" title="Liên hệ">
@@ -307,43 +307,13 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 return false;
             }
         }
-    }  
+    }    
     
-    
-</script>
-
-<script type="text/javascript">
-    function open_keeng() {
-        window.open("http://keeng.vn")
-    }
-    function open_tiin() {
-        window.open("http://tiin.vn")
-    }
-    function open_tinngan() {
-        window.open("http://tinngan.vn")
-    }
-
-    function open_link(url) {
-        window.open(url)
-    }
-
-    function SearchOnFocus(field) {
-        if (field.value == 'Từ khóa tìm kiếm') { field.value = ''; }
-    }
-
-    function SearchOnBlur(field) {
-        if (field.value == '') { field.value = 'Từ khóa tìm kiếm'; }
-    }
-
 </script>
 
 <script type="text/javascript">
     $('.menu_active').parent().css('background', '#00b7b2');
 </script>
-
-
-
-<script type="text/javascript" src="http://viettelstudy.vn/js_20141104/search.js"></script>
 
 <script type="text/javascript">
 
@@ -371,26 +341,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?random=1475390474186&amp;cv=8&amp;fst=1475390474186&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=420&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A%2F%2Fviettelstudy.vn%2Fcanhan.html&amp;ref=http%3A%2F%2Fviettelstudy.vn%2Findex.html&amp;tiba=Trang%20ti%E1%BA%BFn%20tr%C3%ACnh%20thi%20-%20ViettelStudy" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe>
 
-<noscript>
-    &lt;div style="display: inline;"&gt;
-        &lt;img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?value=0&amp;amp;guid=ON&amp;amp;script=0" /&gt;
-    &lt;/div&gt;
-</noscript>
-<!-- Facebook Pixel Code -->
-
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','//connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '362635017276287');
-fbq('track', "PageView");</script>
-
-<noscript>
-    &lt;img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=362635017276287&amp;ev=PageView&amp;noscript=1" /&gt;</noscript>
-<!-- End Facebook Pixel Code -->
 
 
 
@@ -976,40 +926,7 @@ $('.persion-tab-lnk').click(function() {
       </td></tr>
       </tbody>
       </table>
-      <div class="bv-pagging">
-                        <style>
-                            .bv-pagging
-                            {
-                                float: left;
-                                margin-top: 5px;
-                                margin-bottom: 10px; ;padding-right:15px;text-align:right;width:890px;}
-                            .bv-pagging a
-                            {
-                                color: #565656;
-                                display: inline-block;
-                                font-size: 14px;
-                                font-weight: bold;
-                                height: 20px;
-                                line-height: 20px;
-                                margin-left: 3px;
-                                text-align: center;
-                                width: 20px;
-                            }
-                            .bv-pagging a:hover, .bv-pagging a.active
-                            {
-                                background-color: #00918D;
-                                color: #FFFFFF;
-                            }
-                        </style>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                            &lt;</a>
-                        
-                        <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                            1</a>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
-                            &gt;</a>
-                        
-                    </div>
+      
                     
         </div>
 
@@ -1217,21 +1134,7 @@ $('.persion-tab-lnk').click(function() {
                                 <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
                                     &gt;</a>
                             </div>
-        </div>
-
-    <!--<a href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=2" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Monhoc/201504/20150408/thumb11_121263958.jpg                      " alt="Các khóa học Phổ Thông">
-        <p>
-           Các khóa học Phổ Thông</p>
-    </a><a href="http://tienganh1.viettelstudy.vn/viettel/public/user/process-detail" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201306/20130604/thumb11_322104176.jpg" alt="Tiến trình học Tiếng Anh">
-        <p>
-            Tiến trình học Tiếng Anh</p>
-    </a><a class="lp-lnk" href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=3">
-        <img alt="Khóa học Kỹ năng sống" src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201408/20140825/thumb11_187d2312d4.png">
-        <p>
-            Khóa học Kỹ năng sống</p>
-    </a>-->
+        </div>   
     <script>
 $(document).ready(function(){
 $('.lnk-menu-header').click(function() {
@@ -1570,7 +1473,6 @@ function loadDSBTNop(){
         }
     }
 </script>
-
 <script type="text/javascript">
 
     function setCookie(name, value, expires, path, domain, secure) {
@@ -1581,9 +1483,6 @@ function loadDSBTNop(){
               ((secure) ? "; secure" : "");
         document.cookie = curCookie;
     }
-
-
-
     function ckv_user(vl) {
         var cookieName = 'v_user';
         var today = new Date();
@@ -1600,14 +1499,6 @@ function loadDSBTNop(){
         setCookie(cookieName, vl, tomorrow, '/', '', '');
     }
 </script>
-
-
-
-    
-
-
-
-    
 
 <script type="text/javascript">
 //<![CDATA[
@@ -1627,12 +1518,6 @@ Sys.Application.add_init(function() {
 //]]>
 </script>
 </form>
-    
-    
-    
-
-
-
 <script type="text/javascript">
 
 function EnterKeyPress(id,e) {
@@ -1641,7 +1526,6 @@ function EnterKeyPress(id,e) {
      document.getElementById(id).click();
    }
 }
-
 </script>
 
 </body></html>

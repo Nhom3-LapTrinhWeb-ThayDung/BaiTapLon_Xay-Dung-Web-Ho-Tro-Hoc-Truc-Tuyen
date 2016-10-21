@@ -408,32 +408,16 @@ fbq('track', "PageView");</script>
 <noscript>
     &lt;img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=362635017276287&amp;ev=PageView&amp;noscript=1" /&gt;</noscript>
 <!-- End Facebook Pixel Code -->
-
-
-
         <!--end-header-->
         <div id="body">
         <!--Alert-->
         
-
 <div class="study-notice">
 
-    <span class="sne-sp">Thông báo: </span>
-    
-        
-        
+    <span class="sne-sp">Thông báo: </span> 
         <a id="alert_likAlert" class="sne-lnk">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
-    
-    
-    
-    
-    
-    
 </div>
 
-
-
-            
 <script>
 $(document).ready(function(){
 $('.persion-tab-lnk').click(function() {
@@ -640,14 +624,12 @@ $('.persion-tab-lnk').click(function() {
             <div class="persion-avatar">
                 <div id="ctl14_LoadUser_upUserLoad">
 	
-        <img src="./hocvien_files/saved_resource" alt="" class="persion-avatar-img">
+        <img src="./Images/hocvien/avatar_01678868567.jpg" alt="" class="persion-avatar-img">
         <h3 class="persion-info">
             <span class="bold">
                 841678868567</span><br>
         </h3>
-    
 </div>
-
             </div>
             <div class="persion-tab">
                 <div class="wrap-tab">
@@ -656,80 +638,28 @@ $('.persion-tab-lnk').click(function() {
                     <a class="persion-tab-lnk lnk-tab-persion" name="TienTrinhHocNew" onclick="loadUserControl(&#39;TienTrinhHocNew&#39;)" href="dkkhoahoc.jsp">
                         <span>Đăng ký khóa học</span>
                     </a>
-<!--
-                    <a class="persion-right persion-detail"" name="CacKhoaHocDaDangKy ">
-                        <span>Danh sách khóa học đang học</span>
-                    </a>                                        
-                    -->
                     <a class="persion-tab-lnk lnk-tab-persion" name="CacKhoaHocDaDangKy">
                         <span>Danh sách khóa học đang học</span>
                         </a>
-
                     <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)">
                         <span>Lịch sử đăng ký</span>
                     </a> 
                     <a class="persion-tab-lnk lnk-tab-change" name="DetailDMK">
                         <span>Đổi mật khẩu</span>
-
-                    </a>
-
-                   
-                    
+                    </a>                                 
                 </div>
             </div>
             <div>
             </div>
-        </div>
-        <!--
-        <div class="persion-right persion-detail" id="TienTrinhHocNew">
-        </div>
-        -->
+        </div>        
           <div class="persion-right persion-detail" id="QuanLyCommentNew" style="display: none;">
         </div>
           <div class="persion-right persion-detail" id="LichSuGiaoDichNew" style="display: none;">
-        </div>
-        
+        </div>        
         <div class="persion-right" id="DetailThi" style="display: none;">
             <div id="ctl14_TienTrinhThi_upThi">
-	
-
-<div class="box-persion process-exam">
-<div class="pln-filter">
-    <p class="p-subject">
-            CHỌN LOẠI
-            <select name="ctl14$TienTrinhThi$ddlType" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl14$TienTrinhThi$ddlType\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl14_TienTrinhThi_ddlType">
-		<option selected="selected" value="0">Tất cả</option>
-		<option value="5">Thi đại học</option>
-		<option value="23">Thi THPT Quốc Gia</option>
-		<option value="4">Thi tốt nghiệp</option>
-		<option value="2">Kiểm tra chuyên đề</option>
-
-	</select>
-        </p>
-    <p class="p-type">
-        CHỌN MÔN
-        <select name="ctl14$TienTrinhThi$ddlMon" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl14$TienTrinhThi$ddlMon\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl14_TienTrinhThi_ddlMon">
-		<option selected="selected" value="0">Tất cả</option>
-
-	</select>
-    </p>
-    
-</div>
-
-
-                
-
-
 
 </div>
-<div id="ctl14_TienTrinhThi_UpdateProgress1" style="display:none;">
-
-</div> 
-
-
-</div>
-
-
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -740,9 +670,7 @@ $('.persion-tab-lnk').click(function() {
 			var url = "https://www.facebook.com/sharer/sharer.php?u=http://viettelstudy.vn/" + path + "&amp;t=ViettelStudy";
 			window.open(url, '_blank');
 			return false;
-		});
-
-		
+		});		
 	});
 </script>
 
@@ -816,41 +744,7 @@ $('.persion-tab-lnk').click(function() {
                             $("#TienTrinhHocNew").load(url);
                         }
 
-                    </script> 
-                    <div class="bv-pagging">
-                        <style>
-                            .bv-pagging
-                            {
-                                float: left;
-                                margin-top: 5px;
-                                margin-bottom: 10px; ;padding-right:15px;text-align:right;width:612px;}
-                            .bv-pagging a
-                            {
-                                color: #565656;
-                                display: inline-block;
-                                font-size: 14px;
-                                font-weight: bold;
-                                height: 20px;
-                                line-height: 20px;
-                                margin-left: 3px;
-                                text-align: center;
-                                width: 20px;
-                            }
-                            .bv-pagging a:hover, .bv-pagging a.active
-                            {
-                                background-color: #00918D;
-                                color: #FFFFFF;
-                            }
-                        </style>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                            &lt;</a>
-                        
-                        <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                            1</a>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
-                            &gt;</a>
-                        
-                    </div>
+                    </script>                     
                     
                 </div>
                 
@@ -858,22 +752,6 @@ $('.persion-tab-lnk').click(function() {
 
             </div>
         </div>
-
-
-    <!--<a href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=2" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Monhoc/201504/20150408/thumb11_121263958.jpg                      " alt="Các khóa học Phổ Thông">
-        <p>
-           Các khóa học Phổ Thông</p>
-    </a><a href="http://tienganh1.viettelstudy.vn/viettel/public/user/process-detail" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201306/20130604/thumb11_322104176.jpg" alt="Tiến trình học Tiếng Anh">
-        <p>
-            Tiến trình học Tiếng Anh</p>
-    </a><a class="lp-lnk" href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=3">
-        <img alt="Khóa học Kỹ năng sống" src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201408/20140825/thumb11_187d2312d4.png">
-        <p>
-            Khóa học Kỹ năng sống</p>
-    </a>-->
-
 </div></div>
         
 <div class="persion-right" id="DetailDMK" style="display: none;">
@@ -1155,16 +1033,14 @@ $('.persion-tab-lnk').click(function() {
                         <div class="bpt-item-right">
                             <input name="ctl14$ThongTinHocVien$txtEmail" type="text" maxlength="50" id="ctl14_ThongTinHocVien_txtEmail" class="bpt-txt">
                         </div>
-                    </div>
-                
+                    </div>                
 </div>
             <div class="bpt-row bpt-row-line">
                 <div class="bpt-item-left">
                     Ảnh đại diện:</div>
                 <div class="bpt-item-right">
                     <div class="bpt-img-avarta">
-                        <img src="./hocvien_files/saved_resource" alt="" height="48px">
-                        
+                        <img src="Images/hocvien/avatar_01678868567.jpg" alt="" height="48px">                        
                     </div>
                     <input name="ctl14$ThongTinHocVien$UserImage1" type="file" id="ctl14_ThongTinHocVien_UserImage1" class="file" style="width: 210px">
                     <p class="bpt-note-img">
@@ -1172,8 +1048,7 @@ $('.persion-tab-lnk').click(function() {
                     </p>
                     
                 </div>
-            </div>
-            
+            </div>            
             
             <div class="bpt-row">
                 <div class="bpt-item-left">
@@ -1187,14 +1062,11 @@ $('.persion-tab-lnk').click(function() {
                     Mã bảo mật</div>
                 <div class="bpt-item-right">
                     <input name="ctl14$ThongTinHocVien$txtCapcha" type="text" maxlength="10" id="ctl14_ThongTinHocVien_txtCapcha" class="bpt-txt" autocomplete="off" style="width:120px;">
-                        <a onclick="refreshCaptcha(&#39;ThongTinHocVien&#39;,&#39;5&#39;)" style="float:left;width:100px;">
-                        
+                        <a onclick="refreshCaptcha(&#39;ThongTinHocVien&#39;,&#39;5&#39;)" style="float:left;width:100px;">                        
 
 <div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="./hocvien_files/capchaImage(1).aspx" title="Lấy mã khác" alt="Study Funny"> 
-     
+    <img class="capcha" src="./hocvien_files/capchaImage(1).aspx" title="Lấy mã khác" alt="Study Funny">      
 </div>
-
                         </a>
                 </div>
             </div>
@@ -1245,12 +1117,8 @@ function refreshCaptcha(capchaid, capchlength) {
                 }
             });
         }
-
     }
-
 </script> 
-
-
             
         </div>
         <!--end-body-->
@@ -1259,17 +1127,7 @@ function refreshCaptcha(capchaid, capchlength) {
     z-index: 9999;" rel="nofollow">
     <img alt="Go to top!" src="images/gototop.png"></a>
 <div id="footer">
-    <div id="footer-menu">
-        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
-            <div class="footer-menu-new">
+              <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
   <span style="float: right; line-height: 39px;">
@@ -1289,7 +1147,7 @@ function refreshCaptcha(capchaid, capchlength) {
         <!--<a class="logo-gd-footer"></a>-->
 
         <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
-            margin-top: 4px; text-align: center; width: 640px;>
+            margin-top: 4px; text-align: center; width: 640px">
             Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
             Nhóm sinh viên thực hiện: <br>
             Nguyễn Tuấn Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
@@ -1301,10 +1159,8 @@ function refreshCaptcha(capchaid, capchlength) {
 
         <p class="gd-copyright">
         </p>
-    </div>
-  
+    </div>  
 </div>
-
 
 <style>
 .footer-menu-new span {
@@ -1317,7 +1173,6 @@ function refreshCaptcha(capchaid, capchlength) {
      margin-right: 20px;
 }
 </style>
-
 <script>
 
     $(function() {
@@ -1377,8 +1232,7 @@ function refreshCaptcha(capchaid, capchlength) {
     <div style="width:392px;display:none;" id="overlay-test">
         <a class="close"></a>  
         <div class="box-popup" id="box_popup"></div>
-    </div>
-    
+    </div>    
 
 <div style="width: 392px; display: none" id="overlay-login">
     <style type="text/css">
@@ -1400,129 +1254,7 @@ function refreshCaptcha(capchaid, capchlength) {
         <h3 class="bp-title">
             Đăng nhập
         </h3>
-        <div class="bp-content">
-            <p style="padding-left: 15px;">
-                Bạn vui lòng đăng nhập để tiếp tục học tập trên ViettelStudy</p>
-            <div id="login_pnLogin">
-	
-                    <div class="bpc-row">
-                        <span class="sp-left">Số điện thoại</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
-                        </span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Mật khẩu</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)"></span>
-                    </div>
-                    
-                    <div class="bpc-row">
-                        <span class="sp-left"></span><span class="sp-right">
-                            
-                            <span class="sp-remember">
-                                <input id="login_cbkRLogin" type="checkbox" name="login$cbkRLogin"><label for="login_cbkRLogin">Duy trì đăng nhập</label></span>
-                            <span class="sp-forget-pass" style="">
-                            <p class="btn-forget under" style="margin: 0px; line-height: 28px">
-                                Quên mật khẩu?</p> 
-                            <span class="infor-forget">Khách hàng Viettel, soạn: <strong>VTS</strong>
-                                    gửi <strong>5005</strong> (0đ)<br>
-                                    
-                                </span></span></span>
-                        <style>
-                            .regis-info, .sp-forget-pass
-                            {
-                                position: relative;
-                                display: inline-block;
-                                padding-bottom: 10px;
-                            }
-                            .infor-forget
-                            {
-                                background: #ffffff none repeat scroll 0 0;
-                                border: 1px solid #acacac;
-                                color: #333333;
-                                display: none;
-                                font-size: 13px;
-                                line-height: 20px;
-                                padding: 10px;
-                                position: absolute;
-                                right: 0;
-                                top: 25px;
-                                width: 310px;
-                                z-index: 99;
-                            }
-                            .regis-info .infor-forget
-                            {
-                                bottom: 28px;
-                                right: -33px;
-                                top: auto;
-                            }
-                            .regis-info
-                            {
-                                padding-top: 5px;
-                            }
-                            .sp-forget-pass:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                            .regis-info:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                        </style>
-                    </div>
-                    <div class="bpc-row" style="margin-top: 0px;">
-                        <span class="sp-error">
-                            <span id="login_lblErr"></span>
-                        </span>
-                    </div>
-                    <div class="bpc-row" style="margin-top: 0px;">
-                        <span class="sp-left"></span><span class="sp-right">
-                            <input type="submit" name="login$btnDangNhap" value="Đăng nhập" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
-                            <input type="hidden" name="TokenCSRF_Login" value="30B28695BF8042E3FBC9E3DC89E3F9D32B7DBF50E5B4CE33A182EF9FC944661299E4A5E837B6788F2155662BB73AA7D78ADE9EF66DE9F590A5F4A0C18ACD7D6C">
-                        </span>
-
-                        <script type="text/javascript">
-                            function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>
-
-                    </div>
-                    <div class="group-login-fb" style="display: none;">
-                        <p class="login-fb-notice">
-                            Hoặc đăng nhập bằng tài khoản
-                        </p>
-                        <p class="p-login-fb">
-                            <a href="http://viettelstudy.vn/LoginExtension/FacebookConnect.aspx">
-                                <img src="./hocvien_files/vts_new_06.png"></a> <a class="lnk-g" style="display: none" href="http://viettelstudy.vn/LoginExtension/GoogleConnect.aspx">
-                                    <img src="./hocvien_files/vts_new_07.png"></a>
-                        </p>
-                        <div id="status" style="display: none;">
-                        </div>
-                    </div>
-                
-</div>
-            <div id="login_UpdateProgress1" style="display:none;">
-	
-                    <div class="bpc-row">
-                        <span class="sp-left"></span><span class="sp-right">
-                            <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
-                        </span>
-                    </div>
-                
-</div>
-            <div class="bpc-row">
-                <span class="sp-right" style="width: 335px;"><span class="pbc-p" style="padding: 0px 0px 10px 15px;
-                    font-size: 14px;">Bạn chưa có tài khoản? Mời đăng ký <span class="regis-info">
-                    <span class="lnk-regis under">TẠI ĐÂY</span> 
-                    <span class="infor-forget" style="font-weight:normal;">Khách hàng Viettel, soạn: <strong>VTS</strong>
-                            gửi <strong>5005</strong> (0đ)<br>
-                            
-                        </span></span></span></span>
-            </div>
-        </div>
+        
     </div>
 </div>
 
@@ -1532,7 +1264,6 @@ function refreshCaptcha(capchaid, capchlength) {
 
         $('.capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
     }
-    
     
     function clickButton(e, buttonid) {
         var evt = e ? e : window.event;
@@ -1569,16 +1300,12 @@ function refreshCaptcha(capchaid, capchlength) {
               ((secure) ? "; secure" : "");
         document.cookie = curCookie;
     }
-
-
-
     function ckv_user(vl) {
         var cookieName = 'v_user';
         var today = new Date();
         var tomorrow = new Date();
         tomorrow.setDate(today.getHours + 3);
-        setCookie(cookieName, vl, tomorrow, '/', '', '');
-    }
+        setCookie(cookieName, vl, tomorrow, '/', '', '');    }
 
     function ck_cou(vl) {
         var cookieName = 'cou';
@@ -1588,14 +1315,6 @@ function refreshCaptcha(capchaid, capchlength) {
         setCookie(cookieName, vl, tomorrow, '/', '', '');
     }
 </script>
-
-
-
-    
-
-
-
-    
 
 <script type="text/javascript">
 //<![CDATA[
@@ -1615,12 +1334,6 @@ Sys.Application.add_init(function() {
 //]]>
 </script>
 </form>
-    
-    
-    
-
-
-
 <script type="text/javascript">
 
 function EnterKeyPress(id,e) {
