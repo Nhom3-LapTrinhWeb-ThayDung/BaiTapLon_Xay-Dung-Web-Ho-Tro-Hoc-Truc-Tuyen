@@ -307,18 +307,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
                DANH SÁCH LỚP HỌC </a>   
                <div class="vts-submenu submenu-245">
                     <ul class="submenu1"> 
-                         <li><a href="dkkhoahoc.jsp">
-                                 Công Nghệ Phần Mềm</a> </li>
-                         <li><a href="dkkhoahoc.jsp">
-                                  Lập trình web</a> </li>
-                         <li><a href="dkkhoahoc.jsp">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                         <li><a href="dkkhoahoc.jsp">
-                                  Điện tử căn bản </a> </li>
-                         <li><a href="dkkhoahoc.jsp">
-                                    Thực tập điện tử căn bản</a> </li>
-                         <li><a href="dkkhoahoc.jsp">
-                                    Lập trình WinDow From </a> </li>
+                         <li><a href="Course_Lap_Trinh_Web.jsp">
+                                 Lập trình web</a> </li>
+                                    <li><a>
+                                  Kỹ thuật lập trình</a> </li>
+                                <li><a >
+                                  Công nghệ phần mềm </a> </li>                                
                     </ul>
                 </div>             
             </li> 

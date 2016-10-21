@@ -2,7 +2,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<!-- saved from url=(0034)http://viettelstudy.vn/canhan.html -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -154,7 +153,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                             
 
 <div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="ViettelStudy"> 
+    <img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="Study Funny"> 
      
 </div>
 
@@ -259,10 +258,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
            </a>           
         <div class="header-login">
              
-            <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
+             <p class="p-login">
+                Xin chào: <a href="hocvien.jsp">
                     01678868567</a>
-                | <a href="http://viettelstudy.vn/thoat.html">Thoát</a>
+                | <a href="index.jsp">Thoát</a>
             </p>
             
         </div>
@@ -282,193 +281,30 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     
     </div>
     <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
+        <a class="lnk-hm-home menu_active">
         </a>
         <ul class="ul-menu-header">
             
-            <li class="li-menu-header"><a class="lnk-menu-header ">
+            <li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header ">
                 TRANG CHỦ </a>                
             </li>
             
-            <li class="li-menu-header"><a class="lnk-menu-header ">
+            <li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
                 HƯỚNG DẪN SỬ DỤNG </a>                
             </li>  
             <li class="li-menu-header"><a class="lnk-menu-header">
                DANH SÁCH LỚP HỌC </a>   
                <div class="vts-submenu submenu-245">
                     <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
+                         <li><a href="Course_Lap_Trinh_Web.jsp">
+                                 Lập trình web</a> </li>
+                                    <li><a>
+                                  Kỹ thuật lập trình</a> </li>
+                                <li><a >
+                                  Công nghệ phần mềm </a> </li>                                
                     </ul>
                 </div>             
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-              THƯ VIỆN </a>
-
-              <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-                <!--
-                  <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-pho-thong.html">
-                            Trung học phổ thông <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-12.html">Lớp
-                                    12</a> </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-11.html">Lớp
-                                    11</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-10.html">Lớp
-                                    10</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-10.html">
-                            Ôn luyện vào lớp 10<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/41/Luyen-thi-lop-10-mon-Toan-hoc">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/43/Luyen-thi-lop-10-mon-Ngu-van">
-                                    Ngữ văn</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/42/Luyen-thi-lop-10-mon-Anh-van">
-                                    Tiếng Anh</a> </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-co-so.html">
-                            Trung học cơ sở <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-9.html">Lớp 9</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-8.html">Lớp 8</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-7.html">Lớp 7</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-6.html">Lớp 6</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-6.html">
-                            Ôn luyện vào lớp 6<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/98/Luyen-thi-vao-lop-6-mon-Toan">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/105/Luyen-thi-vao-lop-6-mon-Tieng-Viet">
-                                    Tiếng Việt</a> </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-tieu-hoc.html">Tiểu
-                            học <span class="arrow"></span></a>
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-5.html">Lớp 5</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-4.html">Lớp 4</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-3.html">Lớp 3</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-2.html">Lớp 2</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-1.html">Lớp 1</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-la.html">Lớp
-                                    lá</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                -->
-                </li>
-           
-            <li class="li-menu-header"><a class="lnk-menu-header " href="http://tintuc.viettelstudy.vn/tin-tuc/home.html">
-                TIN TỨC </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin giáo
-                            dục</a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2" style="display:none">
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin học đường</a>
-                                </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-                                    tin tuyển sinh</a> </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du học</a>
-                                
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc chia
-                    sẻ </a>
-                    <!-- Courses in category -->
-                    <ul class="submenu2" style="display:none">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh nghiệm</a></li>
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên đọc</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin dịch vụ</a>
-                    <!-- Courses in category -->
-                    
-                </li>
-            </ul>
-        </div>
-    </li>
+            </li>        
     
     
     </ul>
@@ -586,7 +422,7 @@ fbq('track', "PageView");</script>
     
         
         
-        <a id="alert_likAlert" class="sne-lnk" href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc/Diem-chuan-dai-hoc-2016-136-truong-da-cong-bo-i4556c3.html">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
+        <a id="alert_likAlert" class="sne-lnk">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
     
     
     
@@ -1355,7 +1191,7 @@ $('.persion-tab-lnk').click(function() {
                         
 
 <div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="./hocvien_files/capchaImage(1).aspx" title="Lấy mã khác" alt="ViettelStudy"> 
+    <img class="capcha" src="./hocvien_files/capchaImage(1).aspx" title="Lấy mã khác" alt="Study Funny"> 
      
 </div>
 
@@ -1370,7 +1206,12 @@ $('.persion-tab-lnk').click(function() {
                 </div>
             </div>
             <div class="bpt-row bpt-row-save" style="margin-top: 0px;">
+             <!--
                 <a id="ctl14_ThongTinHocVien_btnChapNhan" class="bpt-lnk-save" href="javascript:__doPostBack(&#39;ctl14$ThongTinHocVien$btnChapNhan&#39;,&#39;&#39;)">
+                        Chấp nhận
+                </a>
+              -->
+              	<a id="ctl14_ThongTinHocVien_btnChapNhan" class="bpt-lnk-save">
                         Chấp nhận
                 </a>
             </div>
@@ -1419,7 +1260,7 @@ function refreshCaptcha(capchaid, capchlength) {
     <img alt="Go to top!" src="images/gototop.png"></a>
 <div id="footer">
     <div id="footer-menu">
-        <a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
+        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
         <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
             ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
                 THI TRỰC TUYẾN</a> &nbsp;|&nbsp;

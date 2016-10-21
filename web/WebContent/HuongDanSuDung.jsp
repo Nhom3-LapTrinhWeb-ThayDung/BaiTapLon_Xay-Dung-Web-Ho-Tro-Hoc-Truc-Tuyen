@@ -8,12 +8,10 @@
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
 <link rel="stylesheet" href="css/khanh.css" type="text/css">
-<title>Bootstrap 101 Template</title>
+<title>Hướng dẫn sử dụng - Study Funny</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="js/jquery-3.1.1.min.js">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>
-    Hỗ trợ học trực tuyến
-</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
     <link rel="publisher" href="https://plus.google.com/112426293146006228836">
@@ -44,15 +42,15 @@ function __doPostBack(eventTarget, eventArgument) {
 <div id="header">
     <div id="header-top">
         <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+        <a class="header-logo" href="index.jsp">
       
            </a>           
         <div class="header-login">
              
             <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Thay tên chỗ này</a>
-                | <a href="http://viettelstudy.vn/thoat.html">Thoát</a>
+                Xin chào: <a href="hocvien.jsp">
+                    01678868567</a>
+                | <a href="index.jsp">Thoát</a>
             </p>
         </div>
         <div class="study-search">
@@ -79,81 +77,17 @@ function __doPostBack(eventTarget, eventArgument) {
                 DANH SÁCH LỚP HỌC</a>
                 <div class="vts-submenu submenu-245">
                     <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
+                         <li><a href="Course_Lap_Trinh_Web.jsp">
+                                 Lập trình web</a> </li>
+                                    <li><a>
+                                  Kỹ thuật lập trình</a> </li>
+                                <li><a >
+                                  Công nghệ phần mềm </a> </li>                                
                     </ul>
                 </div>
             </li>  
              
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                THƯ VIỆN </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-            </li>
-    
+            
     </ul>
 </div>
 </div>
@@ -184,13 +118,13 @@ fbq('track', "PageView");</script>
 
 
         <div  style  class="btn-group-vertical" type= "color:red"> 
-            <a  style  href="lienhe.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Giới thiệu</a>
+            <a  style  href="lienhe.jsp" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Giới thiệu</a>
              <a href="hocvien.html" class= role="button" aria-disabled="true">Đăng kí học</a>
              <a href="hocvien.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Đăng kí giảng viên</a>
              <a href="hocvien.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Thắc mắc</a>
-             <a href="hocvien.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Sử dụng tài liệu</a>
+             <a href="SuDungTaiLieu.jsp" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Sử dụng tài liệu</a>
              <a href="hocvien.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Đăng kí/Đăng nhập</a>
-             <a href="lienhe.html" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Liên hệ</a>
+             <a href="LienHe.jsp" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Liên hệ</a>
 
       </div>
 

@@ -238,15 +238,15 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <div id="header">
     <div id="header-top">
        
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+        <a class="header-logo" href="index.jsp">
       
            </a>           
         <div class="header-login">
              
             <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Hải </a>
-                | <a href="index.html">Thoát</a>
+                Xin chào: <a href="hocvien.jsp">
+                    01678868567</a>
+                | <a href="index.jsp">Thoát</a>
             </p>
             
         </div>
@@ -266,11 +266,11 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     
     </div>
     <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
+        <a class="lnk-hm-home menu_active" href="index.jsp">
         </a>
         <ul class="ul-menu-header">
             
-            <li class="li-menu-header"><a class="lnk-menu-header ">
+            <li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header ">
                 TRANG CHỦ </a>                
             </li>
             
@@ -281,18 +281,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                DANH SÁCH LỚP HỌC </a>     
                <div class="vts-submenu submenu-245">
                     <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
+                         <li><a href="Course_Lap_Trinh_Web.jsp">
+                                 Lập trình web</a> </li>
+                                    <li><a>
+                                  Kỹ thuật lập trình</a> </li>
+                                <li><a >
+                                  Công nghệ phần mềm </a> </li>                                
                     </ul>
                 </div>           
             </li> 
@@ -761,11 +755,10 @@ $('.persion-tab-lnk').click(function() {
         </div>
         <div class="learn-process process-study">
             <div id="header-menu" style="background: rgb(0, 183, 178);">
-                <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
-                </a>
+                
                 <ul class="ul-menu-header">
                 
-                    <li class="li-menu-header "><a class="lnk-menu-header menu_active"  name="Course">
+                    <li class="li-menu-header "><a href="Course_Lap_Trinh_Web.jsp" class="lnk-menu-header menu_active"  name="Course">
                         View course </a>
                     </li>
                     
