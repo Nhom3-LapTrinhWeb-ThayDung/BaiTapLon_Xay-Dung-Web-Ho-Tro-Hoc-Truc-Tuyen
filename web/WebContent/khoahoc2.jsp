@@ -1874,10 +1874,8 @@
 					$(document).ready(function() {
 						$('.choose-style').click(function() {
 							try {
-
 								var id_tab = $(this).attr('name');
 								if ($(this).hasClass('active')) {
-
 								} else {
 									$('.choose-style').removeClass('active');
 									$('.add-source-right').hide();
@@ -1886,7 +1884,6 @@
 								}
 							} catch (err) {
 							}
-
 						});
 					});
 				</script>

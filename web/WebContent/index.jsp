@@ -29,7 +29,7 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="index.html" id="form1">
+    <form name="form1" method="post" action="index.jsp" id="form1">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -213,7 +213,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
     
     function exitpopup() {
         setTimeout(function() {
-        window.location.href = '/index.html'; //will redirect to your blog page (an ex: blog.html)
+        window.location.href = '/index.jsp'; //will redirect to your blog page (an ex: blog.html)
         }
         , 2000);
         
@@ -1052,7 +1052,7 @@ width: 950px; display:none">
     <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
 <div id="footer">
     <div id="footer-menu">
-        <a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
+        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
         <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
             ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
                 THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
@@ -1119,33 +1119,16 @@ width: 950px; display:none">
         }
         $("#btnRegisterRevMail").click(function() {
 
-            var txtEmail = $("#femail").val();
+            var txtEmail = $("#femail-register").val();
             if (validateEmail(txtEmail)) {
-                $.post('http://viettelstudy.vn/Ajax/RegisterEmail.aspx',
-                {
-                    mEmail: txtEmail,
-                    TokenEmail: "05F7A57248A0A2B25320E6499116C83378903CADEE91760595B5C5CF884982A345D9A210A2529005309BB3332B0D6B0E300441CB3D9E3C5544247E7A471E8096"
-                },
-                function(data, status) { 
-                    if (data == '200') {
-                        alert('Bạn đã Đăng ký nhận email thành công');
-                        location.reload();
-                    }
-                    else if (data == '201') {
-                        alert('Bạn đã Đăng ký nhận email trước đó');
-                        location.reload();
-                    }
-                    else if (data == '403') {
-                        alert('Hiện tại đang gặp vấn đề về dữ liệu! Hãy thử lại sau! Cảm ơn!');
-                        location.reload();
-                    }
-                });
+            	alert('Đăng ký thành công');
             } else {
-                alert('Hãy nhập đúng địa chỉ email để nhận được tài liệu vô cùng bổ ích từ ViettelStudy');
+            	alert('Email không hợp lệ')
+            	location.reload();
             }
         });
 
-        $("#femail").keypress(function(e) {
+        $("#femail-register").keypress(function(e) {
             if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
                 $("#btnRegisterRevMail").click();
                 //                $('button[type=submit] .default').click();
@@ -1644,7 +1627,7 @@ width: 950px; display:none">
 
                     <div class="bpc-row" style="margin-top: 0px;">
                         <span class="sp-left"></span><span class="sp-right">
-                            <input type="submit" name="login$btnDangNhap" value="Đăng Ký" onclick="btnDangNhap_OnClientClick3();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
+                            <input type="button" name="login$btnDangNhap" value="Đăng Ký" onclick="btnDangNhap_OnClientClick3();" id="femail-register" class="bpt-lnk-save btn-login">
                             <input type="hidden" name="TokenCSRF_Login" value="2DD198B4D0477D16C8AB6B14113805916D4D4A2C47920F250C937FCF58A650768E3E20D43C90E47FD0468883979CCD326D1B1D033440F3758B864548D669DABB">
                         </span>
 
@@ -1656,7 +1639,7 @@ width: 950px; display:none">
                         </script>-->
                         <script type="text/javascript">
                            function btnDangNhap_OnClientClick3() {
-                            alert('Bạn đã đăng ký tài khoản thành công!')
+                        	   $("#btnRegisterRevMail").click();
                             }
                         </script>
 
@@ -1720,7 +1703,7 @@ width: 950px; display:none">
             window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
             return true;
         } else {
-            window.parent.location = 'index.html';
+            window.parent.location = 'index.jsp';
             return true;
         }
     }

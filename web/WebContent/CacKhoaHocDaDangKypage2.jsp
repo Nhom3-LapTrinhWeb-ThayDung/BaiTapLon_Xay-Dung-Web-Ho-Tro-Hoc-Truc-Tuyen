@@ -609,132 +609,18 @@ fbq('track', "PageView");</script>
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
-                        
-                                <div class="row">
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                1
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                               Lập trình web</span>
-                                        </p>
-                                    </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web">
-                                    <a class="to-l-btn">
-                                       <span class="to-l-btn">Xem chi tiết</span>
-                                    </a>
-                                    </div>
-                                </div>
                             
                                 <div class="row">
                                     <a  >
                                         <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                2
+                                            <span class="sp-text">BÀI THI </span><span class="sp-number">
+                                                9
                                             </span>
                                         </p>
                                     </a><a  >
                                         <p class="to-l-p-name">
                                             <span class="bold">
-                                                Kỹ thuật lập trình</span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC 3 </span><span class="sp-number">
-                                                3
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Công nghệ phần mềm </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  class="lnk-logout under popup-login" rel="#overlay-DeThiTOEIC">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                4
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-DeThiTOEIC">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Đề thi TOEIC </span>
-                                        </p>
-                                    </a>
-                                   
-                                    <a href="XemDeCuong_DeThiTOEIC.html"  class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                   
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                5
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Toán rời rạc và lý thuyết đồ thị </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                6
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Kỹ năng xây dựng kế hoạch</span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                7
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="italic">
-                                                Giao tiếp cơ bản </span>
+                                                Mạng máy tính căn bản</span>
                                         </p>
                                     </a>
                                     <a class="to-l-btn" >
@@ -746,20 +632,19 @@ fbq('track', "PageView");</script>
                                     <a  >
                                         <p class="to-l-p-img">
                                             <span class="sp-text">BÀI THI </span><span class="sp-number">
-                                                8
+                                                10
                                             </span>
                                         </p>
                                     </a><a  >
                                         <p class="to-l-p-name">
                                             <span class="bold">
-                                                Cấu trúc dữ liệu &amp; giải thuật </span>
+                                                Nhập môn lập trình</span>
                                         </p>
                                     </a>
                                     <a class="to-l-btn" >
                                        Xem chi tiết
                                     </a>
-                                </div>
-                                                     
+                                </div>                            
                     </div>
                     
                     <div class="bv-pagging">
@@ -790,10 +675,10 @@ fbq('track', "PageView");</script>
                         <a href="CacKhoaHocDaDangKy.jsp">
                             &lt;</a>
                         
-                        <a class="active" href="CacKhoaHocDaDangKy.jsp">
+                        <a  href="CacKhoaHocDaDangKy.jsp">
                             1</a>
                         
-                        <a href="CacKhoaHocDaDangKypage2.jsp">
+                        <a class="active" href="CacKhoaHocDaDangKypage2.jsp">
                             2</a>
                         
                         <a href="CacKhoaHocDaDangKypage2.jsp">

@@ -1568,7 +1568,7 @@ $('.persion-tab-lnk').click(function() {
                         <div class="bpt-item-left">
                             Giới tính:</div>
                         <div class="bpt-item-right">
-                            <select name="ctl14$ThongTinHocVien$ddlGioiTinh" id="ctl14_ThongTinHocVien_ddlGioiTinh" class="bpt-sl-sex">
+                            <select name="ctl14$ThongTinGiangVien$ddlGioiTinh" id="ctl14_ThongTinGiangVien_ddlGioiTinh" class="bpt-sl-sex">
         <option selected="selected" value="0">Chọn giới tính</option>
         <option value="1">Nam</option>
         <option value="2">Nữ</option>
