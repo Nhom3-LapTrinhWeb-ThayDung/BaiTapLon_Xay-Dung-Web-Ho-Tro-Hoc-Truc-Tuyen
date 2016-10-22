@@ -964,7 +964,7 @@
 											</div>
 
 											<div class="box-resources">
-												<br> <a href="BaiTestSo1.jsp"><p
+												<br> <a href="LamBaiThi.jsp"><p
 														style="margin-left: 20px">
 														<img src="Images/pdf-24.png">&nbsp;Bài test số
 														1&nbsp;&nbsp;&nbsp;&nbsp;<span class="edit"
@@ -1778,16 +1778,10 @@
 							</div>
 							<div class="add-footer">
 
-								<input type="submit" name="login$btnDangNhap" value="Add"
-									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
-									class="bpt-lnk-save btn-add">
-								<!--<script type="text/javascript">
-                           function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>-->
-
+								<a href="edit-assignment.jsp"><input type="button" name="" value="Add"
+									 id=""
+									class="bpt-lnk-save btn-add"></a>
+								
 							</div>
 						</div>
 
@@ -1853,16 +1847,10 @@
 							</div>
 							<div class="add-footer">
 
-								<input type="submit" name="login$btnDangNhap" value="Add"
-									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
-									class="bpt-lnk-save btn-add">
-								<!--<script type="text/javascript">
-                           function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>-->
-
+								<a href="edit-quiz.jsp"><input type="button" name="" value="Add"
+									 id=""
+									class="bpt-lnk-save btn-add"></a>
+								
 							</div>
 						</div>
 					</div>
