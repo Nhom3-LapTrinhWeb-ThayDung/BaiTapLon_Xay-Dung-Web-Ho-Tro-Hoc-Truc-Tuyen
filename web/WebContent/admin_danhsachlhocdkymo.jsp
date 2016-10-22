@@ -20,15 +20,15 @@
   <title>
    Quản trị khoá học - Study Funny
   </title>
-  <meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image" />
-    <link rel="icon" href="http://viettelstudy.vn/images/favicon.ico" />
+  <meta content="" name="og:image" />
+    <link rel="icon" href="" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
     <script type="text/javascript" src="js/overlay2.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
+    <form name="form1" method="post" action="" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -134,7 +134,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                   <input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt">
                         <a class="captcha-img" onclick="refreshCaptcha(&#39;GopY&#39;,&#39;5&#39;)" style="float:left;width:100px;">
 				<div style="float:left;padding-left:8px;padding-right:20px">
-    		<img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="ViettelStudy"> 
+    		<img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt=""> 
  			 </div>
                      </a>
                   <input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy(&#39;Header_Widget_GopY_txtNoiDung&#39;);" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send">
@@ -150,7 +150,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="./hocvien_files/ajax-loader.gif" alt="">
                     </span>
                 </div>
 			</div>       
@@ -196,7 +196,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         <div class="wrap-vt-gadget">
             <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
               <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p>Email: <a href="" style="color:#14928E">StudyFunny@gmail.com</a></p>
                   <p class="vt-gadget-p-content">
                     Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
                   </p>
@@ -206,20 +206,19 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 
-
 <div id="header">
     <div id="header-top">
 <!--
-    <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a> -->
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+    <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="">Hướng dẫn</a> -->
+        <a class="header-logo" href="">
       
            </a>           
         <div class="header-login">
              
             <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
+                Xin chào: <a href="">
                     Adminstration</a>
-                | <a href="index.jsp">Thoát</a>
+                | <a href="index.jsp">Thoát</a>	
             </p>
             
         </div>
@@ -237,7 +236,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </script>
     </div>
     <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
+        <a class="lnk-hm-home menu_active" href="">
         </a>
         <ul class="ul-menu-header">
               <li class="li-menu-header"><a href="admin_quanlytaikhoan.jsp" class="lnk-menu-header ">
@@ -296,7 +295,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-39998057-1']);
-    _gaq.push(['_setDomainName', 'viettelstudy.vn']);
+    _gaq.push(['_setDomainName', '']);
     _gaq.push(['_trackPageview'])
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -639,7 +638,7 @@ $('.persion-tab-lnk').click(function() {
     $('.pln-lnk-share').live('click', function(e) {
       e.preventDefault();
       var path = $(this).attr('exam-url');
-      var url = "https://www.facebook.com/sharer/sharer.php?u=http://viettelstudy.vn/" + path + "&amp;t=ViettelStudy";
+      var url = "";
       window.open(url, '_blank');
       return false;
     });   
@@ -714,7 +713,7 @@ $('.persion-tab-lnk').click(function() {
     <div class="bpt-row">
         <div class="bpt-item-left"></div>
         <div class="bpt-item-right">
-            <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
+            <img src="./hocvien_files/ajax-loader.gif" alt="">
         </div>
     </div>
 </div> 
@@ -754,20 +753,12 @@ function refreshCaptcha(capchaid, capchlength) {
 </script>          
         </div>
         <!--end-body-->        
-<a id="to_top" href="http://viettelstudy.vn/canhan.html#" style="display: none; bottom: 20px; position: fixed; right: 20px;
+<a id="to_top" href="" style="display: none; bottom: 20px; position: fixed; right: 20px;
     z-index: 9999;" rel="nofollow">
     <img alt="Go to top!" src="./hocvien_files/gototop.png"></a>
 <div id="footer">
-    <div id="footer-menu">
-        <a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;       
-    </div> 
-            <div class="footer-menu-new">
+    
+  <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
   <span style="float: right; line-height: 39px;">
@@ -818,7 +809,7 @@ function refreshCaptcha(capchaid, capchlength) {
 
             var txtEmail = $("#femail").val();
             if (validateEmail(txtEmail)) {
-                $.post('http://viettelstudy.vn/Ajax/RegisterEmail.aspx',
+                $.post('http://studyfunny.vn/Ajax/RegisterEmail.aspx',
                 {
                     mEmail: txtEmail,
                     TokenEmail: "749C233A417A0B0053F154ECF4E456E72DC701200886B4B4A1E48B725F2C616FEE070005EF7C50DE481719A74C72A222D092B46C0A37517C5858B823D88C6F54"
@@ -838,7 +829,7 @@ function refreshCaptcha(capchaid, capchlength) {
                     }
                 });
             } else {
-                alert('Hãy nhập đúng địa chỉ email để nhận được tài liệu vô cùng bổ ích từ ViettelStudy');
+                alert('Hãy nhập đúng địa chỉ email để nhận được tài liệu vô cùng bổ ích từ StudyFunny');
             }
         });
 
@@ -888,7 +879,7 @@ function refreshCaptcha(capchaid, capchlength) {
         </h3>
         <div class="bp-content">
             <p style="padding-left: 15px;">
-                Bạn vui lòng đăng nhập để tiếp tục học tập trên ViettelStudy</p>
+                Bạn vui lòng đăng nhập để tiếp tục học tập trên StudyFunny</p>
             <div id="login_pnLogin">
   
                     <div class="bpc-row">
@@ -911,10 +902,7 @@ function refreshCaptcha(capchaid, capchlength) {
                             <span class="sp-forget-pass" style="">
                             <p class="btn-forget under" style="margin: 0px; line-height: 28px">
                                 Quên mật khẩu?</p> 
-                            <span class="infor-forget">Khách hàng Viettel, soạn: <strong>VTS</strong>
-                                    gửi <strong>5005</strong> (0đ)<br>
-                                    
-                                </span></span></span>
+                           </span></span>
                         <style>
                             .regis-info, .sp-forget-pass
                             {
@@ -981,8 +969,8 @@ function refreshCaptcha(capchaid, capchlength) {
                             Hoặc đăng nhập bằng tài khoản
                         </p>
                         <p class="p-login-fb">
-                            <a href="http://viettelstudy.vn/LoginExtension/FacebookConnect.aspx">
-                                <img src="./hocvien_files/vts_new_06.png"></a> <a class="lnk-g" style="display: none" href="http://viettelstudy.vn/LoginExtension/GoogleConnect.aspx">
+                            <a href="">
+                                <img src="./hocvien_files/vts_new_06.png"></a> <a class="lnk-g" style="display: none" href="">
                                     <img src="./hocvien_files/vts_new_07.png"></a>
                         </p>
                         <div id="status" style="display: none;">
@@ -994,7 +982,7 @@ function refreshCaptcha(capchaid, capchlength) {
   
                     <div class="bpc-row">
                         <span class="sp-left"></span><span class="sp-right">
-                            <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
+                            <img src="./hocvien_files/ajax-loader.gif" alt="">
                         </span>
                     </div>                
 </div>
@@ -1002,7 +990,7 @@ function refreshCaptcha(capchaid, capchlength) {
                 <span class="sp-right" style="width: 335px;"><span class="pbc-p" style="padding: 0px 0px 10px 15px;
                     font-size: 14px;">Bạn chưa có tài khoản? Mời đăng ký <span class="regis-info">
                     <span class="lnk-regis under">TẠI ĐÂY</span> 
-                    <span class="infor-forget" style="font-weight:normal;">Khách hàng Viettel, soạn: <strong>VTS</strong>
+                    <span class="infor-forget" style="font-weight:normal;">Khách hàng , soạn: <strong>VTS</strong>
                             gửi <strong>5005</strong> (0đ)<br>       
                         </span></span></span></span>
             </div>
@@ -1030,7 +1018,7 @@ function refreshCaptcha(capchaid, capchlength) {
 <script type="text/javascript">
     function ShowBoxTA() {
         if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
+            window.parent.location = '';
             return true;
         } else {
             window.parent.location = 'index.html';

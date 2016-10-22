@@ -199,9 +199,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
          
-            <a class="vts-gadget-lnk show-popup" title="Góp ý">
             
-            </a>
             
          
     </div>
@@ -228,9 +226,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
         </div>
     </div>
-         <a class="vts-gadget-lnk show-popup" title="Liên hệ">
             
-         </a>   
     </div>
 </div>
 
@@ -245,7 +241,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
              
             <p class="p-login">
                 Xin chào: <a href="hocvien.jsp">
-                    01678868567</a>
+                    Adminstration</a>
                 | <a href="index.jsp">Thoát</a>
             </p>
             
@@ -686,170 +682,42 @@ $('.persion-tab-lnk').click(function() {
       <tr><td height="4" colspan="4"></td></tr>
       <tr><td><table cellspacing="0" cellpadding="0" width="100%">
         <tbody>
+  			<tr>
+              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Người nhận</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="40%" style="text-align:center">Nội dung</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Thời gian</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi tiết</td></tr>
 
-      <tr><td class="studyprogram_tabledetails_td_header_dl" width="5%" style="text-align:center">STT</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="15%" style="text-align:center">Mã Học viên</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="25%" style="text-align:center">Tên</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Email</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="15%" style="text-align:center">Ngày sinh</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi Tiết</td>
+            <tr>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
 
-      <tr>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;1</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110001</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Tuấn Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyentuananh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;09/04/1994</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="under popup-login" rel="#overlay-chitiet-hocvien">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;2</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Ngọc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;2/11/1996</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;3</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Quốc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;20/10/1995</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;4</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Gia Trung</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;2/12/1996</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;5</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm Trung Dũng</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;22/1/1996</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;6</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Nam</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;6/4/</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-      
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;7</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Ngọc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;8</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Quốc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;9</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Gia Trung</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;10</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm Trung Dũng</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;11</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Nam</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;12</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Ngọc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;13</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Quốc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;14</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Gia Trung</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;15</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm Trung Dũng</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;16</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Nam</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;17</td>
-
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Ngọc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;18</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn Quốc Anh</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;19</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Gia Trung</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;20</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm Trung Dũng</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;21</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-      <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê Nam</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
-
-      
-
+			<tr>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Giảng viên : PonLongPon</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+				
+			<tr>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Nguyễn Văn Khánh</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Có Test4Week 7 rồi kìa</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;21/10/2016, 0:0</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+				
+			<tr>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Trung Khựa</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Mai Lin mời đi ăn đồ nướng</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+				
       </tbody>
       </table>
       </td></tr>
       </tbody>
       </table>
-      <div class="bv-pagging">
+      	<div class="bv-pagging">
                         <style>
                             .bv-pagging
                             {
@@ -882,12 +750,13 @@ $('.persion-tab-lnk').click(function() {
                         <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
                             &gt;</a>
                         
+                        
                     </div>
                     
         </div>
 			<!-- Hộp thư đi  -->
         <div class="body" id="Outbox" style="margin-left:10px">
-            <h1 style="color: blue;"><span>Danh sách bài tập cần phải hoàn thành</span></h1>
+            <h1 style="color: blue;"><span>Danh sách các tin nhắn đã gửi</span></h1>
             <table cellspacing="1" cellpadding="1" width="100%">
               <tbody>
               <tr><td height="4" colspan="4"></td></tr>
@@ -896,21 +765,21 @@ $('.persion-tab-lnk').click(function() {
                 <tbody>
 
               <tr>
-              <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Topic</td>
-              <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Tên Bài Tập</td>
-              <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Hạn Nộp</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Người nhận</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="40%" style="text-align:center">Nội dung</td>
+              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Thời gian</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi tiết</td></tr>
 
               <tr>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương 3. JQUERY</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các chức năng chứa jquery trong BTL</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="lnk-logout under" href="Course_Lap_Trinh_Web_Bai_Tap_1.jsp" target="_blank">Chi tiết</a></td></tr>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
 
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương 4. AJAX</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Những chức năng có thể dùng được AJAX trong BTL</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Giảng viên : AJAX</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Gần xong rồi nha</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;7/11/2016, 12:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="lnk-logout under" target="_blank">Chi tiết</a></td></tr>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="l" target="_blank">Chi tiết</a></td></tr>
 
               </tbody>
               </table>
