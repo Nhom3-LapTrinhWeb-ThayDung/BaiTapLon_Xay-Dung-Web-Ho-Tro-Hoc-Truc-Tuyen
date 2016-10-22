@@ -1,10 +1,10 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-<head id="Head1"><link rel="canonical" href="http://viettelstudy.vn//tieng-anh-cho-tre-em.html"></link>
+<head id="Head1">
+
 <link rel="stylesheet" href="css/oneOfCourse.css" type="text/css"></link>
 <link rel="stylesheet" href="css/coder_update.css" type="text/css"></link>
 <link rel="stylesheet" href="css/home.css" type="text/css"></link>
@@ -17,17 +17,6 @@
 </title>
 <meta content="images/share_fb_img.jpg" name="og:image" />
 <link rel="icon" href="images/favicon.ico" />
-<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-<meta name="DC.title" content="Học Trực Tuyến, Elearning, Luyện Thi Đại Học Miễn Phí" />
-<meta name="DC.identifier" content="http://viettelstudy.vn/huongdan.aspx" />
-<meta name="DC.description" content="Học trực tuyến với các bài giảng miễn phí, chương trình luyện thi đại học và thi thử đại học." />
-<meta name="DC.subject" content="Học Trực Tuyến, Elearning, Luyện Thi Đại Học Miễn Phí‎" />
-<meta name="geo.region" content="VN-HN" />
-<meta name="geo.placename" content="Hà Nội" />
-<meta name="geo.position" content="21.033333;105.85" />
-<meta name="ICBM" content="21.033333, 105.85" />
-<meta name="keywords" content="Học trực tuyến, luyện thi và thi thử đại học, thư viện đề thi và kiểm traViettelStudy" />
-<meta name="description" content="Học trực tuyến với các bài giảng miễn phí, chương trình luyện thi đại học và thi thử đại học tốt nhất trên ViettelStudy.vn" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/organictabs.jquery.js"></script>
@@ -36,47 +25,11 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="/tieng-anh-cho-tre-em.html" id="form1" autocomplete="off">
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-
-</div>
-
-<script type="text/javascript">
-//<![CDATA[
-var theForm = document.forms['form1'];
-if (!theForm) {
-    theForm = document.form1;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
-}
-//]]>
-</script>
-
-
-<script src="/WebResource.axd?d=L1xj5Ylo1Zl1fvy-xvPpnGuNs3kIFO2KKp2xaFvogG-fMqmhH718MD6c-VZXW0ck9S1rBNVhOqjvCwj-v2L9yIfTKSg1&amp;t=634244902260000000" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=5dqp5x42Fbor1p4SQKp1g8f4dMRVVerUgaYAhzZh_vK9-tYYhjG7By875uyuaBK7Rv7Z3mqeGx0_kEuqlsSeC1hFNGV9g55gaBykAjTxjHnvBQXErWY8yZUBwvgN9WxLh35rWm14XXUOX13RvY7Su6LXULM1&amp;t=fffffffff9d85fa6" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F7bvtnsMU-_pTaQdhlAOC0EMwhndSZAeIktgc938tio1MGg410TEN6SRrMONvNWiRapagwMC0LPO5T5qtFkWYwRoNaTU3irfJbIV6uLw900GcBMTKZ0pX_cueZD6TaJzTsBdTmw15iFyB4HqqkQmclULKXNnQcLDl-8cte2IzE3ZR_1r0&amp;t=fffffffff9d85fa6" type="text/javascript"></script>
+    
 <div>
 
-	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ZJBScJxUNEofliC9ModDdrmWCkzLHPQLw9LEYlbAwlCs0HG17al1/A9W6wnEBJbS4rWw32PdS3MUhIW8a6cIbW1akf7/SQ9kYDfAOa8XEWHf8FCpRnEWxmLJQeApTy5os6de75dTE/gX9bs8+e0LMhBVb6WBfXaHA69B3eWF/IEAggNT" />
 </div>
-    <script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('sm', document.getElementById('form1'));
-Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$GopY$pnGopY','tlogin$pnLogin'], [], [], 90);
-//]]>
-</script>
-
+   
     <div id="overlay-header">
         <div id="overlay-left">
         </div>
@@ -84,43 +37,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
         </div>
     </div>
     <div id="wrapper">
-        
-  <style type="text/css">
-        .p-login .infor-forget{top:55px;}
-         .p-login .lnk-user .infor-forget{display:none;}
-        .p-login .lnk-user:hover .infor-forget{display:block;}
-        .p-login .lnk-user{padding-bottom:3px;}
-  </style>
-
-
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-        $('.show-popup').click(function() {
-                if (!$(this).hasClass('active')) {
-                    $('.vt-gadget').hide();
-                    $('.vts-gadget-lnk').removeClass('active');
-                }
-                $(this).parent().find('.vt-gadget').slideToggle();
-                $(this).toggleClass('active');
-            });
-            $('.vt-gadget-close').click(function() {
-                $('.vt-gadget').hide();
-                $('.vts-gadget-lnk').removeClass('active');
-            })
-            $('.vt-gadget-close').click();
-        })
-    </script>
     
-<div class="vts-gadget" >
-   
-    
-     
+<div class="vts-gadget" >           
      <div class="vts-gadget-item vts-gadget-comment">
-    	 
-    	 
-
-
+    	 	 
 <div class="vt-gadget gadget-comment">
     	<span class="vt-gadget-more">
         	
@@ -175,21 +95,15 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
                         <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy" />
                     </span>
                 </div>
-            
-</div>
-            
-            
+            </div>                     
         </div>
-    </div>
-    
-    
-    
+    </div>  
+        
 <script type="text/javascript">
     function refreshCaptcha(capchaid, capchlength) {
         $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
     }
-    
-    function exitpopup() {
+        function exitpopup() {
         setTimeout(function() {
         window.location.href = '/tieng-anh-cho-tre-em.html'; //will redirect to your blog page (an ex: blog.html)
         }
@@ -210,10 +124,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
           }  
         }  
     </script>
-
-
-
-    	 
          
          <a class="vts-gadget-lnk popup-login" rel="#overlay-login" title="Góp ý">
          	
@@ -258,8 +168,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
       
            </a>           
         <div class="header-login">
-            
-            
+                        
             <p class="p-login">
                 Xin chào: <a href="hocvien.jsp">
                     01678868567</a>
@@ -307,144 +216,21 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
                     </ul>
                 </div>             
             </li>        
-            
-           
-
-    
+                     
     </ul>
 </div>
 </div>
 
+<script type="text/javascript" src="js/search.js"></script>
 
-<script type="text/javascript">
-
-    function clickButton(e, buttonid) {
-        var evt = e ? e : window.event;
-        var bt = document.getElementById(buttonid);
-
-        if (bt) {
-            if (evt.keyCode == 13) {
-                bt.click();
-                return false;
-            }
-        }
-    }  
-    
-    
-</script>
-
-<script type="text/javascript">
-    function open_keeng() {
-        window.open("http://keeng.vn")
-    }
-    function open_tiin() {
-        window.open("http://tiin.vn")
-    }
-    function open_tinngan() {
-        window.open("http://tinngan.vn")
-    }
-
-    function open_link(url) {
-        window.open(url)
-    }
-
-    function SearchOnFocus(field) {
-        if (field.value == 'Từ khóa tìm kiếm') { field.value = ''; }
-    }
-
-    function SearchOnBlur(field) {
-        if (field.value == '') { field.value = 'Từ khóa tìm kiếm'; }
-    }
-
-</script>
-
-<script type="text/javascript">
-    $('.menu_active').parent().css('background', '#00b7b2');
-</script>
-
-
-
-<script type="text/javascript" src="http://viettelstudy.vn/js_20141104/search.js"></script>
-
-<script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-39998057-1']);
-    _gaq.push(['_setDomainName', 'viettelstudy.vn']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-</script>
-
-<script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 960383489;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-</script>
-
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-
-<noscript>
-    <div style="display: inline;">
-        <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?value=0&amp;guid=ON&amp;script=0" />
-    </div>
-</noscript>
-<!-- Facebook Pixel Code -->
-
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','//connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '362635017276287');
-fbq('track', "PageView");</script>
-
-<noscript>
-    <img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=362635017276287&ev=PageView&noscript=1" /></noscript>
-<!-- End Facebook Pixel Code -->
-
-
-
-        <!--end-header-->
+     <!--end-header-->
         <div id="body">
-            <!--Alert-->
-            
+            <!--Alert-->          
 
 <div class="study-notice">
-
-    <span class="sne-sp">Thông báo: </span>
-    
-        
-        
+    <span class="sne-sp">Thông báo: </span>        
          <a id="alert_likAlert" class="sne-lnk">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
-    
-    
-    
-    
-    
-    
 </div>
-
-
-<div class="Breadcrumb">
-    <style>
-        .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
-        .Breadcrumb .sne-lnk{color:#00918D;font-weight:normal;line-height:20px;background:}
-    </style>
-   
-</div>
-
-
             <div class="banner-news">
                 
 <div class="vts-highlight">
@@ -541,10 +327,7 @@ fbq('track', "PageView");</script>
                     </a>
                     &nbsp;<p class="vts-highlight-statistic">
                         
-                </div>
-        
-               
-        
+                </div>    
     </div>
 </div>
             </div>
@@ -555,16 +338,7 @@ fbq('track', "PageView");</script>
     z-index: 9999;" rel="nofollow">
     <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"/></a>
 <div id="footer">
-    <div id="footer-menu">
-        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
+   
             <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>

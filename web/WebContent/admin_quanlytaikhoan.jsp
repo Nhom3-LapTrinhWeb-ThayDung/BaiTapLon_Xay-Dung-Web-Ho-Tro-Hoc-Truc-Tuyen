@@ -270,14 +270,15 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
         </a>
         <ul class="ul-menu-header"> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">QUẢN LÝ TÀI KHOẢN </a>
-                </li>
-
-            <li class="li-menu-header"><a class="lnk-menu-header" href="admin_danhsachlhocdkymo.html">
-              DANH SÁCH LỚP HỌC ĐANG MỞ ĐĂNG KÝ </a>
-                </li>
-            <li class="li-menu-header"><a class="lnk-menu-header ">TIN NHẮN </a>
-                </li>
+               <li class="li-menu-header"><a href="admin_quanlytaikhoan.jsp" class="lnk-menu-header ">
+                QUẢN LÝ TÀI KHOẢN</a>                
+            </li>           
+            <li class="li-menu-header"><a href="admin_danhsachlhocdkymo.jsp" class="lnk-menu-header ">
+                DANH SÁCH LỚP HỌC ĐĂNG KÝ MỞ </a>                
+            </li>  
+             <li class="li-menu-header"><a href="admin_nhantin.jsp" class="lnk-menu-header ">
+                TIN NHẮN </a>                
+            </li>
     </ul>
 </div>
 </div>
