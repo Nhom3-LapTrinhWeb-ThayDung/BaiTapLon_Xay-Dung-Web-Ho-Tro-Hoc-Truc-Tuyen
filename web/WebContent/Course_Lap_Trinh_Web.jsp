@@ -28,80 +28,13 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="#" id="form1" enctype="multipart/form-data">
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
-<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
-</div>
-
-<script type="text/javascript">
-//<![CDATA[
-var theForm = document.forms['form1'];  
-if (!theForm) {
-    theForm = document.form1;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
-}
-//]]>
-</script>
-
-
-<script src="/WebResource.axd?d=L1xj5Ylo1Zl1fvy-xvPpnGuNs3kIFO2KKp2xaFvogG-fMqmhH718MD6c-VZXW0ck9S1rBNVhOqjvCwj-v2L9yIfTKSg1&amp;t=634244902260000000" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=5dqp5x42Fbor1p4SQKp1g8f4dMRVVerUgaYAhzZh_vK9-tYYhjG7By875uyuaBK7Rv7Z3mqeGx0_kEuqlsSeC1hFNGV9g55gaBykAjTxjHnvBQXErWY8yZUBwvgN9WxLh35rWm14XXUOX13RvY7Su6LXULM1&amp;t=fffffffff9d85fa6" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F7bvtnsMU-_pTaQdhlAOC0EMwhndSZAeIktgc938tio1MGg410TEN6SRrMONvNWiRapagwMC0LPO5T5qtFkWYwRoNaTU3irfJbIV6uLw900GcBMTKZ0pX_cueZD6TaJzTsBdTmw15iFyB4HqqkQmclULKXNnQcLDl-8cte2IzE3ZR_1r0&amp;t=fffffffff9d85fa6" type="text/javascript"></script>
-<div>
-
-    <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
-    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="6PvCLtEQEyCg+x4GzvdqwZu+Z8XZc1+nvd0JDNL7tbgIQzqBLB7aso9xsi8wHa/ob3itAAryG+kA/sbK68mwl48SL8nD39QR1TU4OAwFlU27mKZCfh9mPYTUAxaxIVdFydiuCHHSycdIdkFwBY4t021oNh1iXbDBXwMPxhHAtEpCSJftDrRR2VvFJBj8RRlroWbboJGUL/CeQ/kABu9paFdjAw05tTXeTPy3+WVbsOXvZDGvsKSgEOUciSyG+tkQaZyzZ1sq7bjUEXpdzqa19CRSjN0zgjxgMWJONJ33RWktsa4U9lfASw5xmKDhw7uG+aLOOiKosjF6D0QolWQvNCKEdKZq9VxZUzCdfmi6bLa17K1GB9OMn6naThpsNzKIBHwUfsqrzZG6mzB3vWwMd/WZEB/RdHDOhWJcI3shZqfZiq1TuV3/BeJARhXWSf3tjgjqKYRlYzZhb/bl0yIue5PIxEO8ERAIE0GSsyxlRL/x/2a5sZ8rJ+oaX+nymBd3OI5YlxPgRSWxnRK/cWHQA8Uz+e2eSe0GpljmaLbosLEOKcsvR54GBzIPq4zz6/tqlEKIK7b5/3Sh3yP96rttusrVkeAhOKI8/IAeHDHwL2y8uHeh065E9hirBHpim4p4nJKgAiii4dyxaXMK3TNNPN3y5KDPRkBFJPik772RQnpP4Eh5Eoup7UMhaNKh9NxAY/Iyx2/vUHU5Qle3XZJQZkSOZympijsjGwUeAbLJVGQ+dXJDE+Ch3GgGPM2eT2yjOQxshs5RIgSBdEdZqR2QxM7ZYZ6mevx3nFD0oUKFyouACnK0jvCqwnIwOBHZMW48Su6ilgKDcdvY2z4xvuxeFJkGm/3O7Cnp9CtXWTsrepYnXzjEpBPvKuMI1u5mxkhgAqOMp4AP4MBJfr/8GYG4G1Z4PfdX+TqRJsBsPYGWRPw797QpfPwZSN7FqLFbNLTnbgEgkqPif/wMU/TxW0TSjAdzSFON4ZzdxhMMIwLpPWOz91v20vWoDTF6SLg1x9LJq2TfAq3KP+zr07wztPNw6BbUt0FkP8fVzJQdODW+wcoW/fUD5ItmecBtGhoHiNnDDk3RqUCWhNiUU3g9rZcmKxOcHrjON9tpn7ijERe5sdE1KY5Vi6h+iZmguFK6VF6lhEzfqgpBXNBdElVQHP41Ov1Y5unhGGZqxPd2brahwS3aBY3ECJZ8s2eOMJ93VDM1/CzlplUKpmGfNoaNzn+x93h5LghtjRcWQxH1XbI9GEsNm4XSwR/cmW2oLrr/fuR/nT9+6NNNEb3nAhWJMD/E4ZxRVRH9sgCQl7G4z/S1GHN8yy8ZoGMbxu/aPzlYAnY1rQNTC0vBkqXQw/V2Wr5kGg/mZB9fgqEDyO0L4o6i5aYxCz9QkG8CEdPTMCofWWfX1C9lycyjQtUoBz8DZ1j0HvrBJc8pYIf47mhX5Bk53acUQTFIKKWXsS9Zr8CPPRo17vpzYT/7+jo6vkwvWP2S9Nt6KDmDNGba8tOFMyQx9dK9JkRLA9f1rpW7T9bq/Rer73i7rSTVCW4naM7VAq7NW5/+gG/v1PYzsWTZ7Im9qV94wuu4yG77enI7MMGNgz3+fgkVPOJYYzHeyG+I4kb2QDXCy4HgvY9eTUmr4JH2D9JMYL4vHbL7lRPTGqU3SpEzot8fOPAH1N/cPwoDTKTtCZq/30dIbpOphDNho069JTzbvhLoZHRhDGwH86qZfyo0STj0Iae4ZTI13Pcgwtinr0HLLa9h5hB3YacJAJ+YB81SL+lh+F5AOPmNt+kK3rG2g9cL+XXVYRQN2seaP5/Vt3nF624OfWzlCEdq5+N+rslwV9Fc9gdSYkOmPCIwQD4OPqf6fayJ7D3z6DuHm3MO24t+yOXcLF1j2/wqRw5zpoxeDKp7">
-</div>
- <script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
-Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$GopY$pnGopY','tlogin$pnLogin','tctl14$LoadUser$upUserLoad','tctl14$TienTrinhThi$upThi','tctl14$DoiMatKhau$upDoiMK','tctl14$ThongTinHocVien$pnInfo'], [], [], 90);
-//]]>
-</script>
-
+ 
  <div id="overlay-header">
         <div id="overlay-left"> </div>
         <div id="overlay-right"> </div>
     </div>
     <div id="wrapper">
-        
-  <style type="text/css">
-        .p-login .infor-forget{top:55px;}
-         .p-login .lnk-user .infor-forget{display:none;}
-        .p-login .lnk-user:hover .infor-forget{display:block;}
-        .p-login .lnk-user{padding-bottom:3px;}
-  </style>
-
-
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-        $('.show-popup').click(function() {
-                if (!$(this).hasClass('active')) {
-                    $('.vt-gadget').hide();
-                    $('.vts-gadget-lnk').removeClass('active');
-                }
-                $(this).parent().find('.vt-gadget').slideToggle();
-                $(this).toggleClass('active');
-            });
-            $('.vt-gadget-close').click(function() {
-                $('.vt-gadget').hide();
-                $('.vts-gadget-lnk').removeClass('active');
-            })
-            $('.vt-gadget-close').click();
-        })
-    </script>
+ 
     <div class="vts-gadget">
    
      
@@ -219,13 +152,13 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 </a>
         </h3>
         <div class="wrap-vt-gadget">
-            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
-              <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
-                  <p class="vt-gadget-p-content">
-                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
-                  </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
+                <h2 class="vt-gadget-h1-hotline">Hotline 198 <br>
+<span style="font-size:15px">(miễn phí)</span></h2>
+                <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">ViettelStudy@viettel.com.vn</a></p>
+                <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách nộp học phí trên ViettelStudy
+                </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
         </div>
     </div>
          <a class="vts-gadget-lnk show-popup" title="Liên hệ">
@@ -238,8 +171,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <div id="header">
     <div id="header-top">
         
-        <a class="header-logo" href="index.jsp">
-      
+        <a class="header-logo" href="index.jsp">      
            </a>           
         <div class="header-login">
              
@@ -289,60 +221,29 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                                   Công nghệ phần mềm </a> </li>                                
                     </ul>
                 </div>             
-            </li>        
+            </li>                     
+    
     </ul>
 </div>
 </div>
 
 
 <script type="text/javascript">
-
     function clickButton(e, buttonid) {
         var evt = e ? e : window.event;
         var bt = document.getElementById(buttonid);
-
         if (bt) {
             if (evt.keyCode == 13) {
                 bt.click();
                 return false;
             }
         }
-    }    
+    }  
+    
     
 </script>
 
-<script type="text/javascript">
-    $('.menu_active').parent().css('background', '#00b7b2');
-</script>
-
-<script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-39998057-1']);
-    _gaq.push(['_setDomainName', 'viettelstudy.vn']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-</script>
-
-<script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 960383489;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-</script>
-
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?random=1475390474186&amp;cv=8&amp;fst=1475390474186&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=420&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A%2F%2Fviettelstudy.vn%2Fcanhan.html&amp;ref=http%3A%2F%2Fviettelstudy.vn%2Findex.html&amp;tiba=Trang%20ti%E1%BA%BFn%20tr%C3%ACnh%20thi%20-%20ViettelStudy" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe>
-
-
-
+<script type="text/javascript" src="js/search.js"></script>
 
         <!--end-header-->
         <div id="body">
@@ -360,7 +261,6 @@ $('.persion-tab-lnk').click(function() {
     
         var id_tab = $(this).attr('name');
         if ($(this).hasClass('active')) {
-
         } else {
             $('.persion-tab-lnk').removeClass('active');
             $('.persion-right').hide();
@@ -558,18 +458,14 @@ $('.persion-tab-lnk').click(function() {
 #doimk {
     display: none;
 }
-
 .box-text{
-
 }
 .box-resources{
-
 }
 .body{
     width: 890px;
     display: none;
 }
-
 </style>
 
 
@@ -596,7 +492,6 @@ $('.persion-tab-lnk').click(function() {
         {
             $('.course').attr('style','display:none')
         }
-
         function loadCourse()
         {
             $('.course').attr('style','display:block')
@@ -610,7 +505,8 @@ $('.persion-tab-lnk').click(function() {
         </div>
         <div class="learn-process process-study">
             <div id="header-menu" style="background: rgb(0, 183, 178);">
-                
+                <a class="lnk-hm-home menu_active" href="index.jsp">
+                </a>
                 <ul class="ul-menu-header">
                 
                     <li class="li-menu-header "><a class="lnk-menu-header menu_active"  name="Course">
@@ -953,48 +849,14 @@ $('.persion-tab-lnk').click(function() {
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương 4. AJAX</td>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Những chức năng có thể dùng được AJAX trong BTL</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;7/11/2016, 12:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="lnk-logout under" target="_blank">Chi tiết</a></td></tr>
-
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="lnk-logout under" href="#"" target="_blank">Chi tiết</a></td></tr>
               </tbody>
               </table>
               </td></tr>
               </tbody>
               </table>
-              <div class="bv-pagging">
-                                <style>
-                                    .bv-pagging
-                                    {
-                                        float: left;
-                                        margin-top: 5px;
-                                        margin-bottom: 10px; ;padding-right:15px;text-align:right;width:890px;}
-                                    .bv-pagging a
-                                    {
-                                        color: #565656;
-                                        display: inline-block;
-                                        font-size: 14px;
-                                        font-weight: bold;
-                                        height: 20px;
-                                        line-height: 20px;
-                                        margin-left: 3px;
-                                        text-align: center;
-                                        width: 20px;
-                                    }
-                                    .bv-pagging a:hover, .bv-pagging a.active
-                                    {
-                                        background-color: #00918D;
-                                        color: #FFFFFF;
-                                    }
-                                </style>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    &lt;</a>
-                                
-                                <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    1</a>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
-                                    &gt;</a>
-                            </div>
+              
         </div>
-
         <div class="body" id="XemKeHoachHocTap" style="margin-left:10px">
             <h1 style="color: blue;"><span>Kế hoạch học tập</span></h1>
             <table cellspacing="1" cellpadding="1" width="100%">
@@ -1002,65 +864,28 @@ $('.persion-tab-lnk').click(function() {
               <tr><td height="4" colspan="4"></td></tr>
               <tr><td><table cellspacing="0" cellpadding="0" width="100%">
                 <tbody>
-
               <tr>
               <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Thời gian</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Đường dẫn</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="30%" style="text-align:center">Mô tả</td>
              </tr>
-
               <tr>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;December 2016</td>
               <td class="studyprogram_tabledetails_td_content_dl"><a href="http://jquery.com/"> &nbsp;http://jquery.com/ </a> </td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;Đây là phần nội dung kiến thức cơ bản của Jquery</td>
               </tr>
-
               <tr>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;October 2016</td>
               <td class="studyprogram_tabledetails_td_content_dl"> <a href="https://vi.wikipedia.org/wiki/Ajax_(l%E1%BA%ADp_tr%C3%ACnh)"> &nbsp;https://vi.wikipedia.org/wiki/Ajax_(l%E1%BA%ADp_tr%C3%ACnh) </a> </td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;Đây là phần nội dung kiến thức cơ bản của Jquery</td>
               </tr>
-
               </tbody>
               </table>
               </td></tr>
               </tbody>
               </table>
-              <div class="bv-pagging">
-                                <style>
-                                    .bv-pagging
-                                    {
-                                        float: left;
-                                        margin-top: 5px;
-                                        margin-bottom: 10px; ;padding-right:15px;text-align:right;width:890px;}
-                                    .bv-pagging a
-                                    {
-                                        color: #565656;
-                                        display: inline-block;
-                                        font-size: 14px;
-                                        font-weight: bold;
-                                        height: 20px;
-                                        line-height: 20px;
-                                        margin-left: 3px;
-                                        text-align: center;
-                                        width: 20px;
-                                    }
-                                    .bv-pagging a:hover, .bv-pagging a.active
-                                    {
-                                        background-color: #00918D;
-                                        color: #FFFFFF;
-                                    }
-                                </style>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    &lt;</a>
-                                
-                                <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    1</a>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
-                                    &gt;</a>
-                            </div>
+              
         </div>
-
         <div class="body" id="DSBTNop" margin-left:10px>
             <h1 style="color: blue;"><span>Danh sách bài tập đã nộp</span></h1>
             <table cellspacing="1" cellpadding="1" width="100%">
@@ -1068,7 +893,6 @@ $('.persion-tab-lnk').click(function() {
               <tr><td height="4" colspan="4"></td></tr>
               <tr><td><table cellspacing="0" cellpadding="0" width="100%">
                 <tbody>
-
               <tr>
               <td class="studyprogram_tabledetails_td_header_dl" width="15%" style="text-align:center">Topic</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="25%" style="text-align:center">Tên Bài Tập</td>
@@ -1077,7 +901,6 @@ $('.persion-tab-lnk').click(function() {
               <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Thời Điểm Nộp</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="5%" style="text-align:center">Điểm</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi Tiết</td></tr>
-
               <tr>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương 3. JQUERY</td>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các chức năng chứa jquery trong BTL</td>
@@ -1086,7 +909,6 @@ $('.persion-tab-lnk').click(function() {
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;10/10/2016, 9:45</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl"></td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="under popup-login" rel="#overlay-chitiet-btnop">Chi tiết</a></td></tr>
-
               <tr>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương 3. JQUERY</td>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các chức năng chứa jquery trong BTL</td>
@@ -1095,46 +917,14 @@ $('.persion-tab-lnk').click(function() {
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;10/10/2016, 19:26</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;9</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="under popup-login" rel="#overlay-chitiet-btnop">Chi tiết</a></td></tr>
-
               </tbody>
               </table>
               </td></tr>
               </tbody>
               </table>
-              <div class="bv-pagging">
-                                <style>
-                                    .bv-pagging
-                                    {
-                                        float: left;
-                                        margin-top: 5px;
-                                        margin-bottom: 10px; ;padding-right:15px;text-align:right;width:890px;}
-                                    .bv-pagging a
-                                    {
-                                        color: #565656;
-                                        display: inline-block;
-                                        font-size: 14px;
-                                        font-weight: bold;
-                                        height: 20px;
-                                        line-height: 20px;
-                                        margin-left: 3px;
-                                        text-align: center;
-                                        width: 20px;
-                                    }
-                                    .bv-pagging a:hover, .bv-pagging a.active
-                                    {
-                                        background-color: #00918D;
-                                        color: #FFFFFF;
-                                    }
-                                </style>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    &lt;</a>
-                                
-                                <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
-                                    1</a>
-                                <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
-                                    &gt;</a>
-                            </div>
-        </div>   
+              
+        </div>
+    
     <script>
 $(document).ready(function(){
 $('.lnk-menu-header').click(function() {
@@ -1142,7 +932,6 @@ $('.lnk-menu-header').click(function() {
     
         var id_tab = $(this).attr('name');
         if ($(this).hasClass('menu_active')) {
-
         } else {
             $('.lnk-menu-header').removeClass('menu_active');
             $('.body').hide();
@@ -1170,7 +959,6 @@ function loadDSBTNop(){
 </script>
 </div>
     </div>
-
 <div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-hocvien" ><a class="close"></a>
     <style type="text/css">
         .sp-remember
@@ -1289,24 +1077,13 @@ function loadDSBTNop(){
         </div>
     </div>
 </div>
-
-
 </div>
         <!--end-body-->
          
 <a id="to_top" href="#" style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;" rel="nofollow">
     <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
 <div id="footer">
-    <div id="footer-menu">
-        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
+    
             <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
@@ -1321,11 +1098,8 @@ function loadDSBTNop(){
   <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
 </span>
     </div> 
-
     <div id="footer-bottom">
-
         <!--<a class="logo-gd-footer"></a>-->
-
         <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
             margin-top: 4px; text-align: center; width: 640px">
             Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
@@ -1334,16 +1108,12 @@ function loadDSBTNop(){
             Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                      
                    
         </p>
-
         <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
-
         <p class="gd-copyright">
         </p>
     </div>
   
 </div>
-
-
 <style>
 .footer-menu-new span {
     color: #ffffff;
@@ -1355,9 +1125,7 @@ function loadDSBTNop(){
      margin-right: 20px;
 }
 </style>
-
 <script>
-
     $(function() {
         function validateEmail(email) {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -1442,9 +1210,7 @@ function loadDSBTNop(){
 </div>
 
 <script type="text/javascript">
-
     function refreshCaptcha(capchaid, capchlength) {
-
         $('.capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
     }
     
@@ -1452,7 +1218,6 @@ function loadDSBTNop(){
     function clickButton(e, buttonid) {
         var evt = e ? e : window.event;
         var bt = document.getElementById(buttonid);
-
         if (bt) {
             if (evt.keyCode == 13) {
                 bt.click();
@@ -1462,64 +1227,11 @@ function loadDSBTNop(){
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
-<script type="text/javascript">
 
-    function setCookie(name, value, expires, path, domain, secure) {
-        var curCookie = name + "=" + encodeURI(value) +
-              ((expires) ? "; expires=" + expires.toGMTString() : "") +
-              ((path) ? "; path=" + path : "") +
-              ((domain) ? "; domain=" + domain : "") +
-              ((secure) ? "; secure" : "");
-        document.cookie = curCookie;
-    }
-    function ckv_user(vl) {
-        var cookieName = 'v_user';
-        var today = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(today.getHours + 3);
-        setCookie(cookieName, vl, tomorrow, '/', '', '');
-    }
-
-    function ck_cou(vl) {
-        var cookieName = 'cou';
-        var today = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(today.getHours + 3);
-        setCookie(cookieName, vl, tomorrow, '/', '', '');
-    }
-</script>
-
-<script type="text/javascript">
-//<![CDATA[
-Sys.Application.initialize();
-Sys.Application.add_init(function() {
-    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"Header_Widget_GopY_pnGopY","displayAfter":500,"dynamicLayout":true}, null, null, $get("Header_Widget_GopY_UpdateProgress1"));
-});
-Sys.Application.add_init(function() {
-    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl14_TienTrinhThi_upThi","displayAfter":500,"dynamicLayout":true}, null, null, $get("ctl14_TienTrinhThi_UpdateProgress1"));
-});
-Sys.Application.add_init(function() {
-    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl14_DoiMatKhau_upDoiMK","displayAfter":500,"dynamicLayout":true}, null, null, $get("ctl14_DoiMatKhau_UpdateProgress1"));
-});
-Sys.Application.add_init(function() {
-    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"login_pnLogin","displayAfter":500,"dynamicLayout":true}, null, null, $get("login_UpdateProgress1"));
-});
-//]]>
-</script>
 </form>
+    
+    
 <script type="text/javascript">
-
 function EnterKeyPress(id,e) {
   if (window.event) { e = window.event; }
    if (e.keyCode == 13 || e.keyCode == 121) {

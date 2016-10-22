@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!DOCTYPE html>
+
 <html  dir="ltr" lang="en" xml:lang="en" class="no-js">
 <head>
     <title>Phiếu khảo sát - Đánh giá nội dung bài giảng chương 3</title>
