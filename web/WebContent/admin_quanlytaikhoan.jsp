@@ -234,17 +234,18 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 
+
 <div id="header">
     <div id="header-top">
 <!--
     <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a> -->
-        <a class="header-logo" href="">
+        <a class="header-logo" href="http://viettelstudy.vn/index.html">
       
            </a>           
         <div class="header-login">
              
             <p class="p-login">
-                Xin chào: <a data-toggle="modal" data-target="#ModalAdminstration">
+                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
                     Adminstration</a>
                 | <a href="index.jsp">Thoát</a>
             </p>
@@ -329,6 +330,8 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     $('.menu_active').parent().css('background', '#00b7b2');
 </script>
 
+
+
 <script type="text/javascript" src="./hocvien_files/search.js.tải xuống"></script>
 
 <script type="text/javascript">
@@ -356,6 +359,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 <script type="text/javascript" src="./hocvien_files/conversion.js.tải xuống">
 </script>
+<!--
+<iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./hocvien_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">
+</iframe>
+-->
 
 <noscript>
     &lt;div style="display: inline;"&gt;
@@ -377,32 +384,6 @@ fbq('track', "PageView");</script>
 <noscript>
     &lt;img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=362635017276287&amp;ev=PageView&amp;noscript=1" /&gt;</noscript>
 <!-- End Facebook Pixel Code -->
-
-<!-- Thông tin tài khoản Admistration -->
-      <div class="modal fade" id="ModalAdminstration" role="dialog">
-                    <div class="modal-dialog modal-sm">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Thông tin Adminstration</h4>
-                        </div>
-                        <div class="modal-body">
-                           <div class="lable">Mã tài khoản : <o>Admin001</div>
-                           <div class="bpt-item">Họ Tên : Phạm Trung Dũng</div>
-                           <div class="bpt-item">Ngày Sinh : 11/02/1996</div>
-                           <div class="bpt-item">Email : trungdungit45@gmail.com</div>
-                           <div class="bpt-item">Tài khoản: trungdung@admin.studyfunny.edu.vn	</div>
-                           <div class="bpt-item">Loại tài khoản: Mood </div>
-                          <!-- Modal -->
-                        </div>
-                        <div class="modal-footer">
-                        	<button type="button" class="btn btn-success">Đổi mật khẩu</button>
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
 
         <!--end-header-->
 <div id="body">
@@ -434,7 +415,7 @@ fbq('track', "PageView");</script>
                     </div>
                   </div>
                   <!-- Thêm mới -->
-                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
+                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
                   <div class="modal fade" id="myModal2" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
@@ -469,30 +450,6 @@ fbq('track', "PageView");</script>
                     </div>
                   </div>
       </div>
-      <!-- Chi tiết tài khoản -->
-      <div class="modal fade" id="ModalThongtinchitiet" role="dialog">
-                    <div class="modal-dialog modal-sm">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Thông tin chi tiết tài khoản</h4>
-                        </div>
-                        <div class="modal-body">
-                           <div class="lable">Mã tài khoản : <o>14110001</div>
-                           <div class="bpt-item">Họ Tên : Nguyễn Tuấn Anh</div>
-                           <div class="bpt-item">Ngày Sinh : 09/04/1996</div>
-                           <div class="bpt-item">Email : nguyentuananh9496@gmail.com</div>
-                           <div class="bpt-item">Tài khoản: 14110001@student.studyfunny.edu.vn	</div>
-                           <div class="bpt-item">Loại tài khoản: Học viên</div>
-                          <!-- Modal -->
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
 
       <td style="width:1%;">&nbsp;</td><td style="width:99%;">
       <table cellspacing="1" cellpadding="1" width="100%">
@@ -516,7 +473,7 @@ fbq('track', "PageView");</script>
       <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyentuananh@gmail.com</td>
       <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110001@student.studyfunny.edu.vn</td>
       <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;Học viên</td>
-      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a data-toggle="modal" data-target="#ModalThongtinchitiet">Chi tiết</a></td></tr>
+      <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a href="" target="_blank">Chi tiết</a></td></tr>
 
       <tr><td class="studyprogram_tabledetails_td_content_dl">&nbsp;2</td>
       <td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
