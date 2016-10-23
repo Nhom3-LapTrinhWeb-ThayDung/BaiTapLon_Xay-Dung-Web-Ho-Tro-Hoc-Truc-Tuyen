@@ -11,15 +11,20 @@
 <link rel="stylesheet" href="css/oneOfCourse.css" type="text/css">
 <link rel="stylesheet" href="css/testOnline2.css" type="text/css">
 <link rel="stylesheet" href="./css/Default.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
 
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476174513860_237" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/cssbutton/cssbutton-min.css">
 
 <title>
     Tin nhắn 
-</title><meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image">
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
+</title>
+<meta content="" name="og:image">
+<link rel="icon" href="">
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -196,11 +201,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         }  
     </script>
 
-
-
-         
-            
-            
+   
          
     </div>
      <div class="vts-gadget-item vts-gadget-contact">
@@ -276,6 +277,8 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
             </li>
       
     </ul>
+    
+    
 </div>
 </div>
 
@@ -630,8 +633,7 @@ $('.persion-tab-lnk').click(function() {
         <div class="row">
             <h1 class="learn-process-h3">
                 <span>Tin nhắn</span>
-            </h1>
-            
+            </h1>           
         </div>
         <div class="learn-process process-study">
             <div id="header-menu" style="background: rgb(0, 183, 178);">
@@ -660,9 +662,22 @@ $('.persion-tab-lnk').click(function() {
         <div class="box-test-online martop_0">
             <div class="to-content">
                 <div class="to-c-left">
-                   <div class="to-c-l-list" style="font-size:18px">
-                 
-               
+                   <div class="to-c-l-list" style="font-size:13px">                	
+					<div class="input-group">
+					  <span class="input-group-addon" id="sizing-addon2">Người nhận</span>
+					  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+					</div>
+					<div class="col lg-10">
+					  <span class="input-group-addon" id="sizing-addon2">Nội dung</span>  
+					</div>
+					<input class="form-control input-lg" type="text" placeholder="Nội dung tin nhắn">			                 	
+                 	<div class="btn-group">
+					  <button class="btn btn-primary " type="button" >
+					    Gửi tin nhắn
+					  </button>
+								  
+					</div>
+                 	
                     <div class="edit" style="display:none">
                         <div class="row">
                             <p style="text-align: right"><a><img src="Images/switch_plus.svg"></a> <a><img src="Images/switch_minus.svg"></a></p>
@@ -742,10 +757,10 @@ $('.persion-tab-lnk').click(function() {
                                 color: #FFFFFF;
                             }
                         </style>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+                        <a href="">
                             &lt;</a>
                         
-                        <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+                        <a class="active" href="">
                             1</a>
                         <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
                             &gt;</a>
@@ -764,23 +779,22 @@ $('.persion-tab-lnk').click(function() {
               <table cellspacing="0" cellpadding="0" width="100%">
                 <tbody>
 
-              <tr>
+             <tr>
               <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Người nhận</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="40%" style="text-align:center">Nội dung</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Thời gian</td>
               <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi tiết</td></tr>
 
-              <tr>
+            <tr>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
               <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
               <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
-
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Giảng viên : AJAX</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Gần xong rồi nha</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;7/11/2016, 12:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="l" target="_blank">Chi tiết</a></td></tr>
-
+ 			<tr>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
+              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Làm testforWeek đi</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
               </tbody>
               </table>
               </td></tr>
@@ -993,40 +1007,34 @@ function loadDSBTNop(){
         &nbsp;|&nbsp;
         
     </div> 
-            <div class="footer-menu-new">
+  <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
   <span style="float: right; line-height: 39px;">
-  <input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
+  <input type="email" name="femail" id="femail" style=" 
+  	background: #d4e7e3 none repeat scroll 0 0;
     border: 1px solid #d4e7e3;
     border-radius: 5px;
     height: 25px;
     margin-right: 16px;
-     padding: 1px 10px;
+    padding: 1px 10px;
     width: 260px;">
   <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-</span>
-    </div> 
-
-    <div id="footer-bottom">
-
+	</span>
+  </div> 
+  <div id="footer-bottom">
         <!--<a class="logo-gd-footer"></a>-->
-
         <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
             margin-top: 4px; text-align: center; width: 640px">
             Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
             Nhóm sinh viên thực hiện: <br>
             Nguyễn Tuấn Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
-            Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                      
-                   
+            Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                                
         </p>
-
         <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
-
         <p class="gd-copyright">
         </p>
-    </div>
-  
+    </div>  
 </div>
 
 
@@ -1092,7 +1100,7 @@ function loadDSBTNop(){
         <!--end-footer-->
         <div id="overlay-footer">
             <div id="overlay-footer-left"> </div>
-            <div id="overlay-footer-right"> </div>
+            <div id="overlaya-footer-right"> </div>
         </div>
         <!--end-overlay-footer-->
         
