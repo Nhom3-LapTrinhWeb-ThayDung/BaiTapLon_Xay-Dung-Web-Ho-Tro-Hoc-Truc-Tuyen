@@ -22,13 +22,17 @@
 <link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
+
+
+
 </head>
 <body>
- 
+
  <div id="overlay-header">
         <div id="overlay-left"> </div>
         <div id="overlay-right"> </div>
@@ -40,57 +44,57 @@
      
      <div class="vts-gadget-item vts-gadget-comment">
 <div class="vt-gadget gadget-comment" style="display: none;">
-        <span class="vt-gadget-more">
-            
+    	<span class="vt-gadget-more">
+        	
         </span>
-        <h3 class="vt-gadget-title">
-                <span class="vt-gadget-sp">
-                    GÓP Ý 
+    	<h3 class="vt-gadget-title">
+        		<span class="vt-gadget-sp">
+                	GÓP Ý 
                 </span>
                 <a class="vt-gadget-close">
-                    X
+                	X
                 </a>
         </h3>
         <div class="wrap-vt-gadget">
-            <div id="Header1_Widget_GopY_pnGopY">
-    
+            <div id="Header_Widget_GopY_pnGopY">
+	
             <div class="vt-gadget-div-form">
-                <span class="vt-gadget-label">
-                    Nội dung
+            	<span class="vt-gadget-label">
+                	Nội dung
                 </span>
                 <p class="vt-gadget-p">
-                    <textarea name="Header1$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header1_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
+                    <textarea name="Header$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
                 </p>
             </div>
             <div class="vt-gadget-div-form gadget-captcha">
-                <span class="vt-gadget-label">
-                    Mã bảo mật
+            	<span class="vt-gadget-label">
+                	Mã bảo mật
                 </span>
                 <div class="vt-gadget-p">
-                    <input name="Header1$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header1_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt">
-                        <a class="captcha-img" onclick="refreshCaptcha('GopY','5')" style="float:left;width:100px;">
+                	<input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt">
+                        <a class="captcha-img" onclick="refreshCaptcha(&#39;GopY&#39;,&#39;5&#39;)" style="float:left;width:100px;">
                             
 
 <div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&amp;id=GopY" title="Lấy mã khác" alt="ViettelStudy"> 
+    <img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="Study Funny"> 
      
 </div>
 
                         </a>
-                    <input type="submit" name="Header1$Widget$GopY$btnGui" value="Gửi" onclick="validgopy('Header1_Widget_GopY_txtNoiDung');" id="Header1_Widget_GopY_btnGui" class="vt-gadget-btn-send">
-                    <input type="hidden" name="TokenCSRF_GopYBaiHoc" value="458C4C43173C5771E7B5DA7BCE64635FD5BDF85C67F55B51B5C10248572A874BCBCF5EA4C652DFE55EDFA687BAC0A9F1FA0BE9ADC425CD6D0317A8CC61520C5B">
+                	<input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy(&#39;Header_Widget_GopY_txtNoiDung&#39;);" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send">
+                	<input type="hidden" name="TokenCSRF_GopYBaiHoc" value="A22CE296A4B92D31E24BCE525C2E36784E42767F7C4C04695685016F7C0B618803359C7DDC2192DA4A1731E89BAAB8F65BF2C0F989EDB8091EA18B22EDEAAC24">
                 </div>
             </div>
-            <span id="Header1_Widget_GopY_lblErr" style="color:Red;"></span>
-            <span id="Header1_Widget_GopY_lblSucc"></span>
+            <span id="Header_Widget_GopY_lblErr" style="color:Red;"></span>
+            <span id="Header_Widget_GopY_lblSucc"></span>
             
 </div>  
-            <div id="Header1_Widget_GopY_UpdateProgress1" style="display:none;">
-    
+            <div id="Header_Widget_GopY_UpdateProgress1" style="display:none;">
+	
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
                     </span>
                 </div>
             
