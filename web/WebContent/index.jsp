@@ -285,6 +285,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
         <div class="study-search">
             <input name="Header1$search_query" type="text" maxlength="100" id="Header1_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header1_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
             <input type="submit" name="Header1$btnSearch1" value="" onclick="checkdata('Header1_btnSearch1');" id="Header1_btnSearch1" class="ssh-btn-search">
+            
         </div>
         <div style="display: none;" id="suggestions" class="suggestion">
     </div>
