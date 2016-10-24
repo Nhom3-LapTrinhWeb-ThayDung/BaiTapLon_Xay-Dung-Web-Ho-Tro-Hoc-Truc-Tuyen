@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link rel="stylesheet" href="css/multiChoice.css" type="text/css">
 <link rel="stylesheet" href="css/essential.css" type="text/css">
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
 <link rel="stylesheet" href="css/comment.css" type="text/css">
@@ -746,12 +747,12 @@ $('.persion-tab-lnk').click(function() {
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
-        <h2 style="color:blue">Edit course settings</h2>
+        <h2 style="color:blue">Edit Quiz settings</h2>
         <form autocomplete="off" action="https://lms.hcmute.edu.vn/calendar/event.php" method="post" accept-charset="utf-8" id="mform1" class="mform">
             <fieldset class="clearfix collapsible" id="id_general">
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Course name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Quiz name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
 
                 </div>
 
@@ -775,7 +776,11 @@ $('.persion-tab-lnk').click(function() {
 
 
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course start date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"/> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color">
+                    <div class="fitemtitle">
+                    <div class="fgrouplabel">
+                    <label>Quiz start date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"/> </label></div></div>
+                    <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -974,7 +979,12 @@ $('.persion-tab-lnk').click(function() {
                         <option value="2050">2050</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course finish date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color">
+                    <div class="fitemtitle"><div class="fgrouplabel">
+                    <label>Quiz finish date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
+                    <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
+                    <label class="accesshide" for="id_timestart_day">Day</label>
+                    <select name="timestart[day]" id="id_timestart_day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -1174,16 +1184,9 @@ $('.persion-tab-lnk').click(function() {
                     </select>&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Scheduling<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>start<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
+                    
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
+                    <label>time<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
                         <option value="0">00</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -1223,98 +1226,135 @@ $('.persion-tab-lnk').click(function() {
                         <option value="55">55</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>finish<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
-                        <option value="0">00</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23" selected="selected">23</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_minute">Minute</label><select name="timestart[minute]" id="id_timestart_minute">
-                        <option value="0">00</option>
-                        <option value="5" selected="selected">05</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
-                    </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
-
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
+                    <label>Question count <img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_question_count">
+                        <option value="1"  selected="selected">1</option>
+                        
+                    </select></fieldset></div>
+					<script type="text/javascript">
+						$(document).ready(function(){
+							   for (var int = 2; int <= 120; int++) {
+									$('#id_question_count').append(
+											'<option value="'+int+'">' +int+'</option>');
+								}
+						 });
+					</script>
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>
                         <textarea class="txt-input" name="txtAddedContent" style="height:300px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
                     </div>
-
-                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div>
-                    </div>
+					<!-- end mô tả -->
+	
+	<div class="box-multiChoice" style="width: 850px;">
+    <div class="question" style="width: 836px;">
+        <h3 class="h3q-title" style="width: 821px;">
+            ĐỀ BÀI
+        </h3>
+        <div class="question-list" id="baithi">
+            
+            
+        <div class="ql-row" style="width: 804px;">
+                        <div class="stt-left">
+                            
+                            <span class='sttl-sp'>1</span>
+                        </div>
+         <div class="ct-right" style="width: 720px;">
+                            <div class="ctr-recommend">
+                                <textarea class="txt-input" name="txtAddedContent" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>
+                                
+                                
+                                <input type="hidden" name="ctl15$rptCauHoi$ctl00$hdIsRoot" id="ctl15_rptCauHoi_ctl00_hdIsRoot" />
+                                <input type="hidden" name="ctl15$rptCauHoi$ctl00$hdSTT" id="ctl15_rptCauHoi_ctl00_hdSTT" value="1" />
+                            </div>
+             <div class="ctr-choice" style=''>
+                                <span class="sp-choice"> Chọn <b>1</b> câu trả lời đúng</span>
+                                
+                 <table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">
+                        <tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_0">A: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703527" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_1">B: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703529" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_2">C: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703530" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_3">D: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr>
+                 </table>
+                                
+                        
+        </div>
+        </div>
+           
+            
+    </div>
+    
+        <script type="text/javascript">
+						
+							/* var number = $('#id_question_count').find(":selected").val(); */
+							/* var number = $("#id_question_count option:selected").val(); */
+							var number =1;
+						 $("#id_question_count").change(function(){
+							 
+								 $("#baithi").empty();
+							   number = $(this).val();
+							   /* alert("value: "+$(this).val()); */
+							   for (var int = 1; int <= number; int++) {
+								   /*$().appendTo('div#baithi'); */
+									$('#baithi').append(
+										'<div class="ql-row" style="width: 804px;">'
+										+ '<div class="stt-left">'
+										+ '<span class="sttl-sp">' +int+ '</span>'
+										+ '</div>'
+										+ '<div class="ct-right" style="width: 720px;">'
+										+ '<div class="ctr-recommend">'
+										+ '<textarea class="txt-input" name="txtAddedContent" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>'
+										+ '<input type="hidden" name="ctl15$rptCauHoi$ctl00$hdIsRoot" id="ctl15_rptCauHoi_ctl00_hdIsRoot" />'
+										+ '<input type="hidden" name="ctl15$rptCauHoi$ctl00$hdSTT" id="ctl15_rptCauHoi_ctl00_hdSTT" value="1" />'
+										+ '</div>'
+										+ '<div class="ctr-choice">'
+										+ '<span class="sp-choice">' +'Chọn '+ '<b>' +'1'+ '</b>' +' câu trả lời đúng'+ '</span>'
+										+ '<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">'
+										+ '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'A:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'B:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'C:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'D:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			               
+										+ '</table>'
+										+ '</div>'
+										+ '</div>'
+										+ '</div>'
+											);
+							   }
+							});
+					</script>
+</div>
+					
+                    
                 </div>
-                <!-- end mô tả -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </div>
+<div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div>
+                    </div>
 
 
 
@@ -1325,63 +1365,8 @@ $('.persion-tab-lnk').click(function() {
 </div> 
 <!-- end edit section -->
 
-<div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-hocvien" ><a class="close"></a>
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Thông tin chi tiết
-        </h3>
-        <div class="bp-content">
-            <div id="login_pnLogin">
-                    <div class="bpc-row">
-                        <span class="sp-left">Tên:</span> <span class="sp-right">Nguyễn Tuấn Anh</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">SĐT:</span> <span class="sp-right">0986127612</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Giới tính:</span> <span class="sp-right">Nam</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Ngày sinh:</span> <span class="sp-right"> 09/04/1994</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Email:</span> <span class="sp-right">nguyentuananh@gmail.com</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Ảnh đại diện:</span> <div class="bpt-img-avarta">
-                        <img src="http://media.viettelstudy.vn/" alt="" height="48px">
-                        
-                    </div>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Địa chỉ:</span> <span class="sp-right">TPHCM</span>
-                    </div>
-                    
-                    <div class="bpc-row" style="margin-top: 20px;">
-                        <span class="sp-left"></span>
-                        <span class="sp-right">
-                            <a class="close"><input type="submit" value="Ok" " id="btnforget" class="bpt-lnk-save btn-login" ></a>
-                        </span>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 <div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-btnop" ><a class="close"></a>
     <style type="text/css">

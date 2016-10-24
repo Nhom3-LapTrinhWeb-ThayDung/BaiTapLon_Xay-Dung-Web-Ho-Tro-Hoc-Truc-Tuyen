@@ -775,7 +775,11 @@ $('.persion-tab-lnk').click(function() {
                         <textarea class="txt-input" name="txtAddedContent" style="height:300px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
                     </div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Allow submissions from<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
+                    <label>Allow submissions from<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
+                    <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
+                    <label class="accesshide" for="id_timestart_day">Day</label>
+                    <select name="timestart[day]" id="id_timestart_day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
