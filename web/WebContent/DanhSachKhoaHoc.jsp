@@ -793,10 +793,10 @@ fbq('track', "PageView");</script>
                         <a class="active" href="CacKhoaHocDaDangKy.jsp">
                             1</a>
                         
-                        <a href="CacKhoaHocDaDangKypage2.jsp">
+                        <a href="DanhSachKhoaHocpage2.jsp">
                             2</a>
                         
-                        <a href="CacKhoaHocDaDangKypage2.jsp">
+                        <a href="DanhSachKhoaHocpage2.jsp">
                             &gt;</a>
                         
                     </div>
