@@ -641,14 +641,17 @@ $('.persion-tab-lnk').click(function() {
                 <ul class="ul-menu-header">
                 
                     <li class="li-menu-header "><a class="lnk-menu-header menu_active"  name="Messenger">
+                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
                         Soạn tin nhắn</a>
                     </li>
-                    
+            
                     <li class="li-menu-header"><a class="lnk-menu-header "  name="Inbox">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                         Hộp thư đến </a>                
                     </li>  
 
                     <li class="li-menu-header"><a class="lnk-menu-header" name="Outbox">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                        Hộp thư đi </a>                            
                     </li> 
                     <li class="li-menu-header" style="margin-left:370px">
@@ -661,77 +664,81 @@ $('.persion-tab-lnk').click(function() {
             <a onclick="showedit()"><img style="display: none;float:right; " src="Images/settings2.png"></a>
         <div class="box-test-online martop_0">
             <div class="to-content">
-                <div class="to-c-left">
-                   <div class="to-c-l-list" style="font-size:13px">                	
-					<div class="input-group">
-					  <span class="input-group-addon" id="sizing-addon2">Người nhận</span>
-					  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
-					</div>
-					<div class="col lg-10">
-					  <span class="input-group-addon" id="sizing-addon2">Nội dung</span>  
-					</div>
-					<input class="form-control input-lg" type="text" placeholder="Nội dung tin nhắn">			                 	
-                 	<div class="btn-group">
-					  <button class="btn btn-primary " type="button" >
-					    Gửi tin nhắn
-					  </button>
-								  
-					</div>
-                 	
-                    <div class="edit" style="display:none">
-                        <div class="row">
-                            <p style="text-align: right"><a><img src="Images/switch_plus.svg"></a> <a><img src="Images/switch_minus.svg"></a></p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-                
+               <div class="panel panel-primary" style ="width: 800px">
+  				<div class="panel-body "> 
+	                        <div class="form-group" style="width: 700px">               
+	                            <lable for="contactMa">Người nhận</lable>               
+	                            <input class="form-control input-sm" style="width:600px" type="text">
+	                            <span id="helpBlock" style ="font-size: 14px" class="help-block">Nhập mã tài khoản người nhận.</span>   
+	                        </div>     
+	                        <div class="form-group">               
+	                            <lable for="contactNoidung">Nội dung tin nhắn</lable>
+	                            <textarea class="form-control" style="max-width: 600px" id="contactNoidung" rows="5"></textarea>
+	                        </div>                             
+	                        <div class="btn-group">
+	                          <button class="btn btn-primary " type="button" id="btnSendMessenger" >
+	                            Gửi tin nhắn
+	                          </button>                       
+	                        </div>
+	                    
+	                        <div class="edit" style="display:none">
+	                            <div class="row">
+	                                <p style="text-align: right"><a><img src="Images/switch_plus.svg"></a> <a><img src="Images/switch_minus.svg"></a></p>
+	                            </div>
+	                        </div>
+               
+  				</div>
+	
+				</div>	         
             </div>
         </div>
         </div>
 			<!-- Hộp thư đến  -->
-        <div class="body" id="Inbox" style="margin-left:10px">
-            <h1 style="color: blue;"><span>Danh sách học viên của khóa</span></h1>
-            <table cellspacing="1" cellpadding="1" width="100%">
-      <tbody>
-      <tr><td height="4" colspan="4"></td></tr>
-      <tr><td><table cellspacing="0" cellpadding="0" width="100%">
-        <tbody>
-  			<tr>
-              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Người nhận</td>
-              <td class="studyprogram_tabledetails_td_header_dl" width="40%" style="text-align:center">Nội dung</td>
-              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Thời gian</td>
-              <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi tiết</td></tr>
-
-            <tr>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
-
-			<tr>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Giảng viên : PonLongPon</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
-				
-			<tr>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Nguyễn Văn Khánh</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Có Test4Week 7 rồi kìa</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;21/10/2016, 0:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
-				
-			<tr>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Trung Khựa</td>
-              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Mai Lin mời đi ăn đồ nướng</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
-              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
-				
-      </tbody>
-      </table>
-      </td></tr>
-      </tbody>
-      </table>
+        <div class="body" id="Inbox" style="margin-left:10px">     
+     	 <form class="form-horizontal">
+      	 	<h3 style="color: blue;"><span>Danh sách học viên của khóa</span></h3>
+         	  <table cellspacing="1" cellpadding="1" width="100%">
+     	 		<tbody>
+      			<tr><td height="4" colspan="4"></td></tr>
+		  		<tr><td><table cellspacing="0" cellpadding="0" width="100%">
+		        <tbody>
+		            <tr>
+		              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Người nhận</td>
+		              <td class="studyprogram_tabledetails_td_header_dl" width="40%" style="text-align:center">Nội dung</td>
+		              <td class="studyprogram_tabledetails_td_header_dl" width="20%" style="text-align:center">Thời gian</td>
+		              <td class="studyprogram_tabledetails_td_header_dl" width="10%" style="text-align:center">Chi tiết</td></tr>
+		
+		            <tr>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Sinh viên : Nguyễn Tuấn Anh</td>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+		
+		            <tr>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Giảng viên : PonLongPon</td>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Hoàn thành admin nhanh lên</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+		                
+		            <tr>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Nguyễn Văn Khánh</td>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Có Test4Week 7 rồi kìa</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;21/10/2016, 0:0</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+		                
+		            <tr>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Học viên : Trung Khựa</td>
+		              <td class="studyprogram_tabledetails_td_content_dl">&nbsp;Mai Lin mời đi ăn đồ nướng</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016, 0:0</td>
+		              <td class="studyprogram_tabledetails_td_content_aligncenter_dl"><a class="" href="" target="_blank">Chi tiết</a></td></tr>
+		                
+		      </tbody>
+		      </table>
+		      </td></tr>
+		      </tbody>
+     	 </table>
+		</form>
+     
       	<div class="bv-pagging">
                         <style>
                             .bv-pagging
@@ -1134,6 +1141,29 @@ function loadDSBTNop(){
         </h3>
     </div>
 </div>
+
+
+<script>
+function validateText(id)
+{
+if($("#"+id).val()==null||$("#"+id)=="")
+	{
+	alert("Bạn chưa nhập mã người nhận !!");
+	return false;
+	}
+}
+$(document).ready(
+		function()
+		{
+			$("#btnSendMessenger").click(function()
+					{
+					validateText("contactMa");
+					});
+		}
+		)
+
+</script>
+
 
 <script type="text/javascript">
 
