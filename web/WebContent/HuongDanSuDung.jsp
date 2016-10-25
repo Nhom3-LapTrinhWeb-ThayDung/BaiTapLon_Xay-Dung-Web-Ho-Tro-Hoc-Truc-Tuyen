@@ -15,7 +15,6 @@
     
     <link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
     <link rel="publisher" href="https://plus.google.com/112426293146006228836">
-    <
     <link href="http://www.viettelstudy.vn/" rel="canonical">
 </head>
 <body>

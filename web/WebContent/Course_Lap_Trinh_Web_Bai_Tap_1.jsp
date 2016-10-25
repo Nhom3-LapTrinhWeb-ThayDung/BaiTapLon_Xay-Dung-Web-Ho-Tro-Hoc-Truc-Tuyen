@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="css/testOnline2.css" type="text/css">
 <link rel="stylesheet" href="./css/Default.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
+<link rel="stylesheet" type="text/css" href="css/yui-moodlesimple-min.css">
 
-<link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476174513860_237" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/cssbutton/cssbutton-min.css">
+<link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476174513860_237" href="css/cssbutton-min.css">
 
 <title>
     Khóa Học

@@ -296,10 +296,10 @@
 						href="index.jsp"> </a>
 					<ul class="ul-menu-header">
 
-						<li class="li-menu-header"><a class="lnk-menu-header ">
+						<li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header">
 								TRANG CHỦ </a></li>
 
-						<li class="li-menu-header"><a class="lnk-menu-header ">
+						<li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
 								HƯỚNG DẪN SỬ DỤNG </a></li>
 						<li class="li-menu-header"><a class="lnk-menu-header">
 								DANH SÁCH LỚP HỌC </a>
