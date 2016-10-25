@@ -17,8 +17,8 @@
   <title>
   	Trang cá nhân - Study Funny
   </title>
-  <meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image" />
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico" />
+
+<link rel="icon" href="Images/favicon.ico" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
@@ -236,7 +236,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         <div class="wrap-vt-gadget">
             <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
               <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p>Email: <a href="mailto:mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
                   <p class="vt-gadget-p-content">
                     Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
                   </p>

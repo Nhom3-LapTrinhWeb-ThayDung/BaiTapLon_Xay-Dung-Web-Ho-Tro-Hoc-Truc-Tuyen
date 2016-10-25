@@ -1230,8 +1230,8 @@ $('.persion-tab-lnk').click(function() {
                     <label>Question count <img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_question_count">
                         <option value="1"  selected="selected">1</option>
                         
-                    </select></fieldset></div>
-					<script type="text/javascript">
+                    </select></fieldset>
+                    <script type="text/javascript">
 						$(document).ready(function(){
 							   for (var int = 2; int <= 120; int++) {
 									$('#id_question_count').append(
@@ -1239,6 +1239,8 @@ $('.persion-tab-lnk').click(function() {
 								}
 						 });
 					</script>
+					</div>
+					
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>

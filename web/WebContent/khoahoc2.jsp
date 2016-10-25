@@ -15,17 +15,15 @@
 <link rel="stylesheet" href="./css/Default.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css"
-	href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
+	href="css/yui-moodlesimple-min.css">
 
 <link charset="utf-8" rel="stylesheet"
 	id="yui_3_15_0_2_1476174513860_237"
-	href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/cssbutton/cssbutton-min.css">
+	href="css/cssbutton-min.css">
 
 <title>Khóa Học</title>
-<meta content="http://viettelstudy.vn/images/share_fb_img.jpg"
-	name="og:image">
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
-<script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
+<link rel="icon" href="Images/favicon.ico">
+<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async=""
 	src="http://www.google-analytics.com/ga.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -100,21 +98,7 @@
 		<div id="wrapper">
 
 			<style type="text/css">
-.p-login .infor-forget {
-	top: 55px;
-}
 
-.p-login .lnk-user .infor-forget {
-	display: none;
-}
-
-.p-login .lnk-user:hover .infor-forget {
-	display: block;
-}
-
-.p-login .lnk-user {
-	padding-bottom: 3px;
-}
 </style>
 
 
@@ -192,8 +176,7 @@
 
 								<div class="bpc-row">
 									<span class="sp-left"></span> <span class="sp-right"> <img
-										src="http://viettelstudy.vn/images/ajax-loader.gif"
-										alt="ViettelStudy">
+										src="Images/ajax-loader.gif">
 									</span>
 								</div>
 
@@ -217,7 +200,7 @@
 
 						function exitpopup() {
 							setTimeout(function() {
-								window.location.href = '/index.html'; //will redirect to your blog page (an ex: blog.html)
+								window.location.href = 'index.jsp'; //will redirect to your blog page (an ex: blog.html)
 							}, 2000);
 
 						}
@@ -241,31 +224,33 @@
 
 
 				</div>
-				<div class="vts-gadget-item vts-gadget-contact">
-					<div class="vt-gadget vt-hotline" style="display: none;">
-						<span class="vt-gadget-more"> </span>
-						<h3 class="vt-gadget-title">
-							<span class="vt-gadget-sp"> LIÊN HỆ </span> <a
-								class="vt-gadget-close"> X </a>
-						</h3>
-						<div class="wrap-vt-gadget">
-							<h2 class="vt-gadget-h1-hotline">
-								Hotline 198 <br> <span style="font-size: 15px">(miễn
-									phí)</span>
-							</h2>
-							<p>
-								Email: <a href="mailto:ViettelStudy@viettel.com.vn"
-									style="color: #14928E">ViettelStudy@viettel.com.vn</a>
-							</p>
-							<p class="vt-gadget-p-content">Hỗ trợ giải đáp tất cả thắc
-								mắc về các khóa học cách học và cách nộp học phí trên
-								ViettelStudy</p>
-							<a rel="nofollow" class="vt-gadget-lnk-fb"
-								href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
-						</div>
-					</div>
-					<a class="vts-gadget-lnk show-popup" title="Liên hệ"> </a>
-				</div>
+				 <div class="vts-gadget-item vts-gadget-contact">
+     	<div class="vt-gadget vt-hotline" style="display: none;">
+    	<span class="vt-gadget-more">
+        	
+        </span>
+    	<h3 class="vt-gadget-title">
+        		<span class="vt-gadget-sp">
+                	LIÊN HỆ 
+                </span>
+                <a class="vt-gadget-close">
+                	X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
+        </div>
+    </div>
+    	 <a class="vts-gadget-lnk show-popup" title="Liên hệ">
+         	
+         </a>	
+    </div>
 			</div>
 
 
@@ -273,14 +258,14 @@
 				<div id="header-top">
 					<a
 						style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
-						href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a> <a
-						class="header-logo" href="http://viettelstudy.vn/index.html">
+						href="HuongDanSuDung.jsp">Hướng dẫn</a> <a
+						class="header-logo" href="index.jsp">
 
 					</a>
 					<div class="header-login">
 
 						<p class="p-login">
-							Xin chào: <a href="http://viettelstudy.vn/canhan.html"> Hải </a>
+							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
 							| <a href="index.jsp">Thoát</a>
 						</p>
 
@@ -308,7 +293,7 @@
 				</div>
 				<div id="header-menu" style="background: rgb(0, 183, 178);">
 					<a class="lnk-hm-home menu_active"
-						href="http://viettelstudy.vn/index.html"> </a>
+						href="index.jsp"> </a>
 					<ul class="ul-menu-header">
 
 						<li class="li-menu-header"><a class="lnk-menu-header ">
@@ -321,139 +306,29 @@
 							<div class="vts-submenu submenu-245">
 								<ul class="submenu1">
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
+										href="DanhSachKhoaHoc.jsp">
 											Công Nghệ Phần Mềm</a></li>
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
+										href="DanhSachKhoaHoc.jsp">
 											Lập trình web</a></li>
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
+										href="DanhSachKhoaHoc.jsp">
 											Hệ quản trị cơ sở dữ liệu </a></li>
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
+										href="DanhSachKhoaHoc.jsp">
 											Điện tử căn bản </a></li>
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
+										href="DanhSachKhoaHoc.jsp">
 											Thực tập điện tử căn bản</a></li>
 									<li><a
-										href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
+										href="DanhSachKhoaHoc.jsp">
 											Lập trình WinDow From </a></li>
 								</ul>
 							</div></li>
-						<li class="li-menu-header"><a class="lnk-menu-header ">
-								THƯ VIỆN </a>
-
-							<div class="vts-submenu">
-								<ul class="submenu1">
-									<li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc
-											nghiệm <span class="arrow"></span>
-									</a> <!-- Courses in category -->
-										<ul class="submenu2">
-											<li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc
-													nghiệm IQ</a></li>
-											<li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc
-													nghiệm EQ</a></li>
-											<li><a
-												href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc
-													nghiệm tính cách MBTI</a></li>
-											<li><a
-												href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc
-													nghiệm định hướng nghề nghiệp</a></li>
-											<li><a
-												href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html">
-													Trắc nghiệm 8 loại trí thông minh</a></li>
-										</ul></li>
-									<li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư
-											viện video <span class="arrow"></span>
-									</a> <!-- Courses in category -->
-										<ul class="submenu2">
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-													Tư vấn Vì tương lai</a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-													Tọa đàm bản lĩnh trẻ</a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-													Thư viện cuộc sống</a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-													Khám phá Việt Nam</a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-													Khám phá thế giới</a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-													tạo</a></li>
-
-										</ul></li>
-									<li><a
-										href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài
-											tập - Bài giải<span class="arrow"></span>
-									</a> <!-- Courses in category -->
-										<ul class="submenu2">
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-													Công nghệ thông tin </a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-													Điện tử </a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-													Tiếng Anh </a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-													Chế tạo máy </a></li>
-											<li><a
-												href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-													Công mghệ may và thời trang </a></li>
-										</ul></li>
-									<!-- Courses in category --></li>
+						
 					</ul>
 				</div>
-
-				</li>
-
-				<li class="li-menu-header"><a class="lnk-menu-header "
-					href="http://tintuc.viettelstudy.vn/tin-tuc/home.html"> TIN TỨC
-				</a>
-					<div class="vts-submenu">
-						<ul class="submenu1">
-							<li><a
-								href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin
-									giáo dục</a> <!-- Courses in category -->
-								<ul class="submenu2" style="display: none">
-									<li><a
-										href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin
-											học đường</a></li>
-									<li><a
-										href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-											tin tuyển sinh</a></li>
-									<li><a
-										href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du
-											học</a></li>
-								</ul></li>
-							<li><a
-								href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc
-									chia sẻ </a> <!-- Courses in category -->
-								<ul class="submenu2" style="display: none">
-									<li><a
-										href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh
-											nghiệm</a></li>
-									<li><a
-										href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên
-											đọc</a></li>
-								</ul></li>
-							<li><a
-								href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin
-									dịch vụ</a> <!-- Courses in category --></li>
-						</ul>
-					</div></li>
-
-
-				</ul>
 			</div>
-		</div>
 
 
 		<script type="text/javascript">
@@ -505,7 +380,7 @@
 
 
 		<script type="text/javascript"
-			src="http://viettelstudy.vn/js_20141104/search.js"></script>
+			src="js/search.js"></script>
 
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
@@ -630,34 +505,6 @@
 	width: 262px;
 }
 
-.persion-avatar {
-	background: rgb(255, 255, 255) none repeat scroll 0 0;
-	border-bottom: 1px solid rgb(226, 226, 226);
-	float: left;
-	padding-bottom: 15px;
-	width: 100%;
-}
-
-.persion-avatar-img {
-	border-radius: 84px;
-	float: left;
-	height: 164px;
-	margin-bottom: 2px;
-	margin-left: 53px;
-	margin-right: auto;
-	margin-top: 15px;
-	width: 164px;
-}
-
-.persion-info {
-	float: left;
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 21px;
-	margin-top: 10px;
-	text-align: center;
-	width: 100%;
-}
 
 .persion-tab {
 	float: left;
@@ -897,7 +744,7 @@
 				<div class="learn-process process-study">
 					<div id="header-menu" style="background: rgb(0, 183, 178);">
 						<a class="lnk-hm-home menu_active"
-							href="http://viettelstudy.vn/index.html"> </a>
+							href="khoahoc2.jsp"> </a>
 						<ul class="ul-menu-header">
 
 							<li class="li-menu-header "><a
@@ -964,16 +811,17 @@
 											</div>
 
 											<div class="box-resources">
-												<br> <a href="LamBaiThi.jsp"><p
-														style="margin-left: 20px">
-														<img src="Images/pdf-24.png">&nbsp;Bài test số
-														1&nbsp;&nbsp;&nbsp;&nbsp;<span class="edit"
-															style="display: none"></a> <select class="bpt-sl-date">
-													<option value="0">edit</option>
-													<option value="1" onselect="sua()"><a
-															onclick="sua()">Sửa</a></option>
-													<option value="2" href="">xóa</option>
-												</select> </span>
+												<br>
+												<p style="margin-left: 20px">
+													<a href="LamBaiThi.jsp"><img src="Images/quiz.png">&nbsp;Bài test số 1
+													&nbsp;&nbsp;&nbsp;&nbsp;</a><span class="edit"
+														style="display: none"> <select class="bpt-sl-date">
+															<option value="0">edit</option>
+															<option value="1" onselect="sua()"><a
+																	onclick="sua()">Sửa</a></option>
+															<option value="2" href="">xóa</option>
+													</select>
+													</span>
 												</p>
 											</div>
 
@@ -1021,8 +869,8 @@
 												</h2>
 											</div>
 											<div class="box-resources">
-												<br> <a href="Chi-Tiet-Bai-Tap.jsp"><p
-														style="margin-left: 20px">
+												<br> <a href="Chi-Tiet-Bai-Tap.jsp">
+												<p style="margin-left: 20px">
 														<img src="Images/icon-baitap.svg">&nbsp; Các chức
 														năng chứa jquery trong BTL&nbsp;&nbsp;&nbsp;&nbsp;<span
 															class="edit" style="display: none"></a> <select
@@ -1442,11 +1290,11 @@
 }
 </style>
 							<a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								&lt;</a> <a class="active"
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								1</a> <a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
+								href="#">
 								&gt;</a>
 
 						</div>
@@ -1538,16 +1386,16 @@
 }
 </style>
 							<a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								&lt;</a> <a class="active"
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								1</a> <a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
+								href="#">
 								&gt;</a>
 						</div>
 					</div>
 
-					<div class="body" id="DSBTNop" margin-left:10px>
+					<div class="body" id="DSBTNop" style="margin-left:10px">
 						<h1 style="color: blue;">
 							<span>Danh sách bài tập đã nộp</span>
 						</h1>
@@ -1653,28 +1501,15 @@
 }
 </style>
 							<a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								&lt;</a> <a class="active"
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+								href="#">
 								1</a> <a
-								href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
+								href="#">
 								&gt;</a>
 						</div>
 					</div>
 
-					<!--<a href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=2" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Monhoc/201504/20150408/thumb11_121263958.jpg                      " alt="Các khóa học Phổ Thông">
-        <p>
-           Các khóa học Phổ Thông</p>
-    </a><a href="http://tienganh1.viettelstudy.vn/viettel/public/user/process-detail" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201306/20130604/thumb11_322104176.jpg" alt="Tiến trình học Tiếng Anh">
-        <p>
-            Tiến trình học Tiếng Anh</p>
-    </a><a class="lp-lnk" href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=3">
-        <img alt="Khóa học Kỹ năng sống" src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201408/20140825/thumb11_187d2312d4.png">
-        <p>
-            Khóa học Kỹ năng sống</p>
-    </a>-->
 					<script>
 						$(document)
 								.ready(
@@ -1923,8 +1758,7 @@
 							<div class="bpc-row">
 								<span class="sp-left">Ảnh đại diện:</span>
 								<div class="bpt-img-avarta">
-									<img src="http://media.viettelstudy.vn/" alt="" height="48px">
-
+									<img src="media.studyfunny.vn" alt="" height="48px">
 								</div>
 							</div>
 							<div class="bpc-row">
@@ -2022,16 +1856,10 @@
 		<a id="to_top" href="#"
 			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
 			rel="nofollow"> <img alt="Go to top!"
-			src="http://viettelstudy.vn/images/gototop.png"></a>
+			src="Images/gototop.png"></a>
 		<div id="footer">
 			<div id="footer-menu">
-				<a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
-				<a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN
-					THI ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a
-					href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html"> THI
-					TRỰC TUYẾN</a> &nbsp;|&nbsp; <a
-					href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-				&nbsp;|&nbsp;
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
 
 			</div>
 			<div class="footer-menu-new">
@@ -2082,58 +1910,6 @@
 }
 </style>
 
-		<script>
-			$(function() {
-				function validateEmail(email) {
-					var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-					return re.test(email);
-				}
-				$("#btnRegisterRevMail")
-						.click(
-								function() {
-
-									var txtEmail = $("#femail").val();
-									if (validateEmail(txtEmail)) {
-										$
-												.post(
-														'http://viettelstudy.vn/Ajax/RegisterEmail.aspx',
-														{
-															mEmail : txtEmail,
-															TokenEmail : "8696A65FE9D1506D9FF55A14CE2C74FF940A0657B505EEE910B35B6514F3CD2939FCE72FB59FD35685CD442A01FFCF21BF75BCC039FF727EF38C9139427F9416"
-														},
-														function(data, status) {
-															if (data == '200') {
-																alert('Bạn đã Đăng ký nhận email thành công');
-																location
-																		.reload();
-															} else if (data == '201') {
-																alert('Bạn đã Đăng ký nhận email trước đó');
-																location
-																		.reload();
-															} else if (data == '403') {
-																alert('Hiện tại đang gặp vấn đề về dữ liệu! Hãy thử lại sau! Cảm ơn!');
-																location
-																		.reload();
-															}
-														});
-									} else {
-										alert('Hãy nhập đúng địa chỉ email để nhận được tài liệu vô cùng bổ ích từ ViettelStudy');
-									}
-								});
-
-				$("#femail").keypress(
-						function(e) {
-							if ((e.which && e.which == 13)
-									|| (e.keyCode && e.keyCode == 13)) {
-								$("#btnRegisterRevMail").click();
-								//                $('button[type=submit] .default').click();
-								return false;
-							} else {
-								return true;
-							}
-						});
-			});
-		</script>
 		<!--end-footer-->
 		<div id="overlay-footer">
 			<div id="overlay-footer-left"></div>
@@ -2195,17 +1971,6 @@
 			}
 		</script>
 
-		<script type="text/javascript">
-			function ShowBoxTA() {
-				if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-					window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-					return true;
-				} else {
-					window.parent.location = 'index.html';
-					return true;
-				}
-			}
-		</script>
 
 		<script type="text/javascript">
 			function setCookie(name, value, expires, path, domain, secure) {
