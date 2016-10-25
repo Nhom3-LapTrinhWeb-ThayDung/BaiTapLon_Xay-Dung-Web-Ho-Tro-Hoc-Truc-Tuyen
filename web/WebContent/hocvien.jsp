@@ -636,13 +636,13 @@ $('.persion-tab-lnk').click(function() {
                 <div class="wrap-tab">
                     <a class="persion-tab-lnk lnk-tab-info active" name="DetailUser" onclick="loadUserControl(&#39;ThongTinCaNhanNew&#39;)">
                         <span>Thông tin cá nhân</span> </a>
-                    <a class="persion-tab-lnk lnk-tab-persion" name="TienTrinhHocNew" onclick="loadUserControl(&#39;TienTrinhHocNew&#39;)" href="dkkhoahoc.jsp">
+                    <a class="persion-tab-lnk lnk-tab-persion" name="TienTrinhHocNew" onclick="loadUserControl(&#39;TienTrinhHocNew&#39;)" href="DanhSachKhoaHoc.jsp">
                         <span>Đăng ký khóa học</span>
                     </a>
                     <a class="persion-tab-lnk lnk-tab-persion" name="CacKhoaHocDaDangKy">
                         <span>Danh sách khóa học đang học</span>
                         </a>
-                    <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)">
+                    <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)" href="CacKhoaHocDaDangKy.jsp">
                         <span>Lịch sử đăng ký</span>
                     </a> 
                     <a class="persion-tab-lnk lnk-tab-change" name="DetailDMK">
@@ -1279,17 +1279,6 @@ function refreshCaptcha(capchaid, capchlength) {
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
 
 <script type="text/javascript">
 

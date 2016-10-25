@@ -23,7 +23,7 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html" id="form1">
+    <!-- <form name="form1" method="post" action="/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html" id="form1">-->
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
@@ -1051,7 +1051,7 @@ fbq('track', "PageView");</script>
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
 
-                            <input type="submit" name="login$btnDangNhap" value="Đăng ký" id="login_btnDangKy" class="bpt-lnk-save btn-login">
+                            <input type="submit"  value="Đăng ký" id="login_btnDangKy" class="bpt-lnk-save btn-login">
                         </span>
 
                         <script type="text/javascript">
@@ -1387,17 +1387,6 @@ fbq('track', "PageView");</script>
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
 
 <script type="text/javascript">
 
