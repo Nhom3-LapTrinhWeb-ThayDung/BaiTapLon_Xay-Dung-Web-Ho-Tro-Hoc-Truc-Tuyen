@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link rel="stylesheet" href="css/multiChoice.css" type="text/css">
 <link rel="stylesheet" href="css/essential.css" type="text/css">
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
 <link rel="stylesheet" href="css/comment.css" type="text/css">
@@ -14,19 +15,17 @@
 <link rel="stylesheet" href="css/testOnline2.css" type="text/css">
 <link rel="stylesheet" href="./css/Default.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
-<link rel="stylesheet" type="text/css" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
-<link rel="stylesheet" type="text/css" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css">
-<link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_288" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/cssbutton/cssbutton-min.css">
+
+<link rel="stylesheet" type="text/css" href="css/yui-moodlesimple-min.css">
+<link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_288" href="css/cssbutton-min.css">
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_388" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/tabview/assets/skins/sam/tabview.css">
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_652" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/datatable-base/assets/skins/sam/datatable-base.css&amp;3.15.0/datatable-message/assets/skins/sam/datatable-message.css&amp;3.15.0/datatable-sort/assets/skins/sam/datatable-sort.css&amp;3.15.0/resize-base/assets/skins/sam/resize-base.css">
 
-<link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476174513860_237" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/cssbutton/cssbutton-min.css">
 
 <title>
     Edit
-</title><meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image">
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
+</title><meta content="Images/share_fb_img.jpg" name="og:image">
+<link rel="icon" href="Images/favicon.ico">
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -164,7 +163,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="Images/ajax-loader.gif" alt="StudyFunny">
                     </span>
                 </div>
             
@@ -226,13 +225,13 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 </a>
         </h3>
         <div class="wrap-vt-gadget">
-                <h2 class="vt-gadget-h1-hotline">Hotline 198 <br>
-<span style="font-size:15px">(miễn phí)</span></h2>
-                <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">ViettelStudy@viettel.com.vn</a></p>
-                <p class="vt-gadget-p-content">
-                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách nộp học phí trên ViettelStudy
-                </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
         </div>
     </div>
          <a class="vts-gadget-lnk show-popup" title="Liên hệ">
@@ -243,164 +242,80 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 <div id="header">
-    <div id="header-top">
-        <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
-      
-           </a>           
-        <div class="header-login">
-             
-            <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Hải </a>
-                | <a href="index.html">Thoát</a>
-            </p>
-            
-        </div>
-        <div class="study-search">
-            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
-                
-            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1" class="ssh-btn-search">
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-   
-    
-    </div>
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
-        </a>
-        <ul class="ul-menu-header">
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                TRANG CHỦ </a>                
-            </li>
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header">
-               DANH SÁCH LỚP HỌC </a>     
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
-                    </ul>
-                </div>           
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-              THƯ VIỆN </a>
+				<div id="header-top">
+					<a
+						style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
+						href="HuongDanSuDung.jsp">Hướng dẫn</a> <a
+						class="header-logo" href="index.jsp">
 
-              <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-                
-                </li>
-           
-            <li class="li-menu-header"><a class="lnk-menu-header " href="http://tintuc.viettelstudy.vn/tin-tuc/home.html">
-                TIN TỨC </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin giáo
-                            dục</a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2" style="display:none">
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin học đường</a>
-                                </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-                                    tin tuyển sinh</a> </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du học</a>
-                                
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc chia
-                    sẻ </a>
-                    <!-- Courses in category -->
-                    <ul class="submenu2" style="display:none">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh nghiệm</a></li>
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên đọc</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin dịch vụ</a>
-                    <!-- Courses in category -->
-                    
-                </li>
-            </ul>
-        </div>
-    </li>
-    
-    
-    </ul>
-</div>
-</div>
+					</a>
+					<div class="header-login">
+
+						<p class="p-login">
+							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
+							| <a href="index.jsp">Thoát</a>
+						</p>
+
+					</div>
+					<div class="study-search">
+						<input name="Header$search_query" type="text" maxlength="100"
+							id="Header_search_query"
+							class="searchInput has_default_text ssh-input"
+							onkeypress="return clickButton(event,'Header_btnSearch1')"
+							onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+							value="Từ khóa tìm kiếm" autocomplete="off"> <input
+							type="submit" name="Header$btnSearch1" value=""
+							onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1"
+							class="ssh-btn-search">
+					</div>
+					<div style="display: none;" id="suggestions" class="suggestion">
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							suggesstionFunc();
+						});
+					</script>
+
+
+				</div>
+				<div id="header-menu" style="background: rgb(0, 183, 178);">
+					<a class="lnk-hm-home menu_active"
+						href="index.jsp"> </a>
+					<ul class="ul-menu-header">
+
+						<li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header">
+								TRANG CHỦ </a></li>
+
+						<li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
+								HƯỚNG DẪN SỬ DỤNG </a></li>
+						<li class="li-menu-header"><a class="lnk-menu-header">
+								DANH SÁCH LỚP HỌC </a>
+							<div class="vts-submenu submenu-245">
+								<ul class="submenu1">
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Công Nghệ Phần Mềm</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Lập trình web</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Hệ quản trị cơ sở dữ liệu </a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Điện tử căn bản </a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Thực tập điện tử căn bản</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Lập trình WinDow From </a></li>
+								</ul>
+							</div></li>
+						
+					</ul>
+				</div>
+			</div>
 
 
 <script type="text/javascript">
@@ -451,7 +366,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 
-<script type="text/javascript" src="http://viettelstudy.vn/js_20141104/search.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 
 <script type="text/javascript">
 
@@ -746,12 +661,12 @@ $('.persion-tab-lnk').click(function() {
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
-        <h2 style="color:blue">Edit course settings</h2>
+        <h2 style="color:blue">Edit Quiz settings</h2>
         <form autocomplete="off" action="https://lms.hcmute.edu.vn/calendar/event.php" method="post" accept-charset="utf-8" id="mform1" class="mform">
             <fieldset class="clearfix collapsible" id="id_general">
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Course name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Quiz name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
 
                 </div>
 
@@ -775,7 +690,11 @@ $('.persion-tab-lnk').click(function() {
 
 
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course start date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"/> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color">
+                    <div class="fitemtitle">
+                    <div class="fgrouplabel">
+                    <label>Quiz start date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"/> </label></div></div>
+                    <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -974,7 +893,12 @@ $('.persion-tab-lnk').click(function() {
                         <option value="2050">2050</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course finish date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">Day</label><select name="timestart[day]" id="id_timestart_day">
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color">
+                    <div class="fitemtitle"><div class="fgrouplabel">
+                    <label>Quiz finish date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
+                    <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
+                    <label class="accesshide" for="id_timestart_day">Day</label>
+                    <select name="timestart[day]" id="id_timestart_day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -1174,16 +1098,9 @@ $('.persion-tab-lnk').click(function() {
                     </select>&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Scheduling<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>start<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
+                    
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
+                    <label>time<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
                         <option value="0">00</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -1223,98 +1140,137 @@ $('.persion-tab-lnk').click(function() {
                         <option value="55">55</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>finish<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
-                        <option value="0">00</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23" selected="selected">23</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_minute">Minute</label><select name="timestart[minute]" id="id_timestart_minute">
-                        <option value="0">00</option>
-                        <option value="5" selected="selected">05</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
-                    </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
-
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
+                    <label>Question count <img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_question_count">
+                        <option value="1"  selected="selected">1</option>
+                        
+                    </select></fieldset>
+                    <script type="text/javascript">
+						$(document).ready(function(){
+							   for (var int = 2; int <= 120; int++) {
+									$('#id_question_count').append(
+											'<option value="'+int+'">' +int+'</option>');
+								}
+						 });
+					</script>
+					</div>
+					
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>
                         <textarea class="txt-input" name="txtAddedContent" style="height:300px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
                     </div>
-
-                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div>
-                    </div>
+					<!-- end mô tả -->
+	
+	<div class="box-multiChoice" style="width: 850px;">
+    <div class="question" style="width: 836px;">
+        <h3 class="h3q-title" style="width: 821px;">
+            ĐỀ BÀI
+        </h3>
+        <div class="question-list" id="baithi">
+            
+            
+        <div class="ql-row" style="width: 804px;">
+                        <div class="stt-left">
+                            
+                            <span class='sttl-sp'>1</span>
+                        </div>
+         <div class="ct-right" style="width: 720px;">
+                            <div class="ctr-recommend">
+                                <textarea class="txt-input" name="txtAddedContent" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>
+                                
+                                
+                                <input type="hidden" name="ctl15$rptCauHoi$ctl00$hdIsRoot" id="ctl15_rptCauHoi_ctl00_hdIsRoot" />
+                                <input type="hidden" name="ctl15$rptCauHoi$ctl00$hdSTT" id="ctl15_rptCauHoi_ctl00_hdSTT" value="1" />
+                            </div>
+             <div class="ctr-choice" style=''>
+                                <span class="sp-choice"> Chọn <b>1</b> câu trả lời đúng</span>
+                                
+                 <table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">
+                        <tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_0">A: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703527" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_1">B: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703529" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_2">C: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr><tr>
+                            <td><span class="rd"><input id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703530" /><label for="ctl15_rptCauHoi_ctl00_rbtnList_3">D: </label><textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea></span></td>
+                        </tr>
+                 </table>
+                                
+                        
+        </div>
+        </div>
+           
+            
+    </div>
+    
+        <script type="text/javascript">
+						
+							/* var number = $('#id_question_count').find(":selected").val(); */
+							/* var number = $("#id_question_count option:selected").val(); */
+							var number =1;
+						 $("#id_question_count").change(function(){
+							 
+								 $("#baithi").empty();
+							   number = $(this).val();
+							   /* alert("value: "+$(this).val()); */
+							   for (var int = 1; int <= number; int++) {
+								   /*$().appendTo('div#baithi'); */
+									$('#baithi').append(
+										'<div class="ql-row" style="width: 804px;">'
+										+ '<div class="stt-left">'
+										+ '<span class="sttl-sp">' +int+ '</span>'
+										+ '</div>'
+										+ '<div class="ct-right" style="width: 720px;">'
+										+ '<div class="ctr-recommend">'
+										+ '<textarea class="txt-input" name="txtAddedContent" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>'
+										+ '<input type="hidden" name="ctl15$rptCauHoi$ctl00$hdIsRoot" id="ctl15_rptCauHoi_ctl00_hdIsRoot" />'
+										+ '<input type="hidden" name="ctl15$rptCauHoi$ctl00$hdSTT" id="ctl15_rptCauHoi_ctl00_hdSTT" value="1" />'
+										+ '</div>'
+										+ '<div class="ctr-choice">'
+										+ '<span class="sp-choice">' +'Chọn '+ '<b>' +'1'+ '</b>' +' câu trả lời đúng'+ '</span>'
+										+ '<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">'
+										+ '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'A:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'B:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'C:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			                            + '<tr>'
+			                            + '<td>' + '<span class="rd">' + '<input id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ctl15$rptCauHoi$ctl00$rbtnList" value="703528" />'
+			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'D:'+ '</label>'
+			                            + '<textarea class="txt-input" name="txtAddedContent" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '</span>' + '</td>'
+			                            + '</tr>'
+			               
+										+ '</table>'
+										+ '</div>'
+										+ '</div>'
+										+ '</div>'
+											);
+							   }
+							});
+					</script>
+</div>
+					
+                    
                 </div>
-                <!-- end mô tả -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </div>
+<div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div>
+                    </div>
 
 
 
@@ -1325,142 +1281,21 @@ $('.persion-tab-lnk').click(function() {
 </div> 
 <!-- end edit section -->
 
-<div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-hocvien" ><a class="close"></a>
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Thông tin chi tiết
-        </h3>
-        <div class="bp-content">
-            <div id="login_pnLogin">
-                    <div class="bpc-row">
-                        <span class="sp-left">Tên:</span> <span class="sp-right">Nguyễn Tuấn Anh</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">SĐT:</span> <span class="sp-right">0986127612</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Giới tính:</span> <span class="sp-right">Nam</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Ngày sinh:</span> <span class="sp-right"> 09/04/1994</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Email:</span> <span class="sp-right">nguyentuananh@gmail.com</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Ảnh đại diện:</span> <div class="bpt-img-avarta">
-                        <img src="http://media.viettelstudy.vn/" alt="" height="48px">
-                        
-                    </div>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Địa chỉ:</span> <span class="sp-right">TPHCM</span>
-                    </div>
-                    
-                    <div class="bpc-row" style="margin-top: 20px;">
-                        <span class="sp-left"></span>
-                        <span class="sp-right">
-                            <a class="close"><input type="submit" value="Ok" " id="btnforget" class="bpt-lnk-save btn-login" ></a>
-                        </span>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-chitiet-btnop" ><a class="close"></a>
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Thông tin chi tiết
-        </h3>
-        <div class="bp-content">
-            <div id="login_pnLogin">
-                    <div class="bpc-row">
-                        <span class="sp-left">Topic</span> <span class="sp-right">Chương 3. JQUERY</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Tên bài tập</span> <span class="sp-right">Các chức năng chứa jquery trong BTL</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">File bài tập</span> <span class="sp-right"><a class="under">jquery.docx</a></span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Mã học viên:</span> <span class="sp-right">14110002</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Tên học viên:</span> <span class="sp-right"> Nguyễn Tuấn Anh</span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Thời Điểm Nộp:</span> <span class="sp-right">10/10/2016, 9:45 </span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Điểm:</span> <span class="sp-right">
-                            <input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text" value="" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
-                        </span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Đánh giá:</span>
-                            <textarea class="txt-input" name="txtAddedContent" style="height:80px;width: 200px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
-                    </div>
-                    
-                    <div class="bpc-row" style="margin-top: 20px;">
-                        <span class="sp-left"></span>
-                        <span class="sp-right">
-                            <a class="close"><input type="submit" value="Ok" " id="btnforget" class="bpt-lnk-save btn-login" ></a>
-                        </span>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </div>
         <!--end-body-->
          
-<a id="to_top" href="#" style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;" rel="nofollow">
-    <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
-<div id="footer">
-    <div id="footer-menu">
-        <a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
+		<a id="to_top" href="#"
+			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
+			rel="nofollow"> <img alt="Go to top!"
+			src="Images/gototop.png"></a>
+		<div id="footer">
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
+			</div>
             <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
@@ -1480,14 +1315,17 @@ $('.persion-tab-lnk').click(function() {
 
         <!--<a class="logo-gd-footer"></a>-->
 
-        <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
-            margin-top: 4px; text-align: center; width: 640px">
-            Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
-            Nhóm sinh viên thực hiện: <br>
-            Nguyễn Tuấn Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
-            Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                      
-                   
-        </p>
+        <p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
 
         <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
 
@@ -1520,29 +1358,7 @@ $('.persion-tab-lnk').click(function() {
         $("#btnRegisterRevMail").click(function() {
 
             var txtEmail = $("#femail").val();
-            if (validateEmail(txtEmail)) {
-                $.post('http://viettelstudy.vn/Ajax/RegisterEmail.aspx',
-                {
-                    mEmail: txtEmail,
-                    TokenEmail: "8696A65FE9D1506D9FF55A14CE2C74FF940A0657B505EEE910B35B6514F3CD2939FCE72FB59FD35685CD442A01FFCF21BF75BCC039FF727EF38C9139427F9416"
-                },
-                function(data, status) { 
-                    if (data == '200') {
-                        alert('Bạn đã Đăng ký nhận email thành công');
-                        location.reload();
-                    }
-                    else if (data == '201') {
-                        alert('Bạn đã Đăng ký nhận email trước đó');
-                        location.reload();
-                    }
-                    else if (data == '403') {
-                        alert('Hiện tại đang gặp vấn đề về dữ liệu! Hãy thử lại sau! Cảm ơn!');
-                        location.reload();
-                    }
-                });
-            } else {
-                alert('Hãy nhập đúng địa chỉ email để nhận được tài liệu vô cùng bổ ích từ ViettelStudy');
-            }
+            
         });
 
         $("#femail").keypress(function(e) {
@@ -1566,34 +1382,9 @@ $('.persion-tab-lnk').click(function() {
         
     </div>
     <!--end-wrapper-->
-    <div style="width:392px;display:none;" id="overlay-test">
-        <a class="close"></a>  
-        <div class="box-popup" id="box_popup"></div>
-    </div>
+
     
 
-<div style="width: 392px; display: none" id="overlay-login">
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Đăng nhập
-        </h3>
-    </div>
-</div>
 
 <script type="text/javascript">
 
@@ -1616,17 +1407,7 @@ $('.persion-tab-lnk').click(function() {
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
+
 
 <script type="text/javascript">
 

@@ -16,9 +16,9 @@
     Hỗ trợ học trực tuyến
 </title>
     
-    <link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
+    <link rel="icon" href="Images/favicon.ico">
     <link rel="publisher" href="https://plus.google.com/112426293146006228836">
-    <link href="http://www.viettelstudy.vn/" rel="canonical">
+    <link href="index.jsp" rel="canonical">
     
 
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
@@ -194,7 +194,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="Images/ajax-loader.gif" alt="StyduFunny">
                     </span>
                 </div>
             
@@ -258,7 +258,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
         <div class="wrap-vt-gadget">
             <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
               <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p>Email: <a href="mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
                   <p class="vt-gadget-p-content">
                     Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
                   </p>
@@ -370,7 +370,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
 
 
 
-<script type="text/javascript" src="http://viettelstudy.vn/js_20141104/search.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 
 <script type="text/javascript">
 
@@ -1048,20 +1048,15 @@ width: 950px; display:none">
         </div>
         <!--end-body-->
          
-<a id="to_top" href="#" style="display: none; bottom: 20px; position: fixed; right: 20px;
-    z-index: 9999;" rel="nofollow">
-    <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
+<a id="to_top" href="#"
+			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
+			rel="nofollow"> <img alt="Go to top!"
+			src="Images/gototop.png"></a>
 <div id="footer">
-    <div id="footer-menu">
-        <a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
+			</div>
             <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
@@ -1081,14 +1076,17 @@ width: 950px; display:none">
 
         <!--<a class="logo-gd-footer"></a>-->
 
-        <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
-            margin-top: 4px; text-align: center; width: 640px">
-            Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
-            Nhóm sinh viên thực hiện: <br>
-            Nguyễn Tuấn Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
-            Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                      
-                   
-        </p>
+        <p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
 
         <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
 
@@ -1299,7 +1297,7 @@ width: 950px; display:none">
     
                     <div class="bpc-row">
                         <span class="sp-left"></span><span class="sp-right">
-                            <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                            <img src="Images/ajax-loader.gif" alt="StudyFunny">
                         </span>
                     </div>
                 

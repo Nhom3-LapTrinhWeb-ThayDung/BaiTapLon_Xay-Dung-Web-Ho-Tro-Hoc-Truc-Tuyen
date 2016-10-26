@@ -74,7 +74,7 @@ ul.lo-ul li a.lo-lnk span.lo-sp {color: #00918d;font-weight: bold;}
 .question ._question-list {display:none !important;}
 .question .question-list .ql-row {background:url("../images/gd_16.png") repeat-x scroll left bottom #FCFCFC;border: 1px solid #DCDCDC;display: inline;float: left;margin-left: 15px;margin-top: 15px;padding-bottom: 15px;width: 904px;}
 .ql-row .stt-left {float: left;width: 75px;}
-.ql-row .stt-left span.sttl-sp {background: url("../images/gd_29.png") no-repeat scroll left top transparent;color: #FFFFFF;display: inline;float: left;font-size: 18px;font-weight: bold;height: 41px;line-height: 41px;margin-left: 10px;margin-top: 10px;text-align: center;width: 41px;}
+.ql-row .stt-left span.sttl-sp {background: url("../Images/gd_29.png") no-repeat scroll left top transparent;color: #FFFFFF;display: inline;float: left;font-size: 18px;font-weight: bold;height: 41px;line-height: 41px;margin-left: 10px;margin-top: 10px;text-align: center;width: 41px;}
 .ql-row .stt-left span.sp-child{font-size:13px;}
 .ql-row .ct-right {color: #565656;float: left;width: 820px;}
 .ql-row .ct-right .ctr-recommend {border-bottom: 1px solid #DCDCDC;float: left;font-weight: bold;line-height: 18px;margin-top: 15px;padding-bottom: 10px;width: 100%;}

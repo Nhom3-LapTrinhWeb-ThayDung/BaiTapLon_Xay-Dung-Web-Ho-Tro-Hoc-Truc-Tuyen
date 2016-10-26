@@ -16,8 +16,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>
     Trang cá nhân
-</title><meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image">
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico">
+</title><meta content="Images/share_fb_img.jpg" name="og:image">
+<link rel="icon" href="Images/favicon.ico">
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <form name="form1" method="post" action="canhangiangvien.html" id="form1" enctype="multipart/form-data">
+    <form name="form1" method="post" action="canhangiangvien.jsp" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -157,7 +157,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="Images/ajax-loader.gif" alt="StudyFunny">
                     </span>
                 </div>
             
@@ -219,13 +219,13 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 </a>
         </h3>
         <div class="wrap-vt-gadget">
-                <h2 class="vt-gadget-h1-hotline">Hotline 198 <br>
-<span style="font-size:15px">(miễn phí)</span></h2>
-                <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">ViettelStudy@viettel.com.vn</a></p>
-                <p class="vt-gadget-p-content">
-                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách nộp học phí trên ViettelStudy
-                </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/ViettelStudy.vn">Vi tuong lai</a>
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
         </div>
     </div>
          <a class="vts-gadget-lnk show-popup" title="Liên hệ">
@@ -236,227 +236,79 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 <div id="header">
-    <div id="header-top">
-        <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
-      
-           </a>           
-        <div class="header-login">
-             
-            <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Hải </a>
-                | <a href="index.jsp">Thoát</a>
-            </p>
-            
-        </div>
-        <div class="study-search">
-            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
-                
-            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1" class="ssh-btn-search">
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-   
-    
-    </div>
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home" href="http://viettelstudy.vn/index.html">
-        </a>
-        <ul class="ul-menu-header">
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                TRANG CHỦ </a>                
-            </li>
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header">
-               DANH SÁCH LỚP HỌC </a>     
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
-                    </ul>
-                </div>           
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-              THƯ VIỆN </a>
+				<div id="header-top">
+					<a
+						style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
+						href="HuongDanSuDung.jsp">Hướng dẫn</a> <a
+						class="header-logo" href="index.jsp">
 
-              <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-                <!--
-                  <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-pho-thong.html">
-                            Trung học phổ thông <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-12.html">Lớp
-                                    12</a> </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-11.html">Lớp
-                                    11</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-10.html">Lớp
-                                    10</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-10.html">
-                            Ôn luyện vào lớp 10<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/41/Luyen-thi-lop-10-mon-Toan-hoc">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/43/Luyen-thi-lop-10-mon-Ngu-van">
-                                    Ngữ văn</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/42/Luyen-thi-lop-10-mon-Anh-van">
-                                    Tiếng Anh</a> </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-co-so.html">
-                            Trung học cơ sở <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-9.html">Lớp 9</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-8.html">Lớp 8</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-7.html">Lớp 7</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-6.html">Lớp 6</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-6.html">
-                            Ôn luyện vào lớp 6<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/98/Luyen-thi-vao-lop-6-mon-Toan">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/105/Luyen-thi-vao-lop-6-mon-Tieng-Viet">
-                                    Tiếng Việt</a> </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-tieu-hoc.html">Tiểu
-                            học <span class="arrow"></span></a>
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-5.html">Lớp 5</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-4.html">Lớp 4</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-3.html">Lớp 3</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-2.html">Lớp 2</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-1.html">Lớp 1</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-la.html">Lớp
-                                    lá</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                -->
-                </li>
-           
-            <li class="li-menu-header"><a class="lnk-menu-header " href="http://tintuc.viettelstudy.vn/tin-tuc/home.html">
-                TIN TỨC </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin giáo
-                            dục</a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2" style="display:none">
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin học đường</a>
-                                </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-                                    tin tuyển sinh</a> </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du học</a>
-                                
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc chia
-                    sẻ </a>
-                    <!-- Courses in category -->
-                    <ul class="submenu2" style="display:none">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh nghiệm</a></li>
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên đọc</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin dịch vụ</a>
-                    <!-- Courses in category -->
-                    
-                </li>
-            </ul>
-        </div>
-    </li>
-    
-    
-    </ul>
-</div>
+					</a>
+					<div class="header-login">
+
+						<p class="p-login">
+							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
+							| <a href="index.jsp">Thoát</a>
+						</p>
+
+					</div>
+					<div class="study-search">
+						<input name="Header$search_query" type="text" maxlength="100"
+							id="Header_search_query"
+							class="searchInput has_default_text ssh-input"
+							onkeypress="return clickButton(event,'Header_btnSearch1')"
+							onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+							value="Từ khóa tìm kiếm" autocomplete="off"> <input
+							type="submit" name="Header$btnSearch1" value=""
+							onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1"
+							class="ssh-btn-search">
+					</div>
+					<div style="display: none;" id="suggestions" class="suggestion">
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							suggesstionFunc();
+						});
+					</script>
+
+
+				</div>
+				<div id="header-menu" style="background: rgb(0, 183, 178);">
+					<a class="lnk-hm-home menu_active"
+						href="index.jsp"> </a>
+					<ul class="ul-menu-header">
+
+						<li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header">
+								TRANG CHỦ </a></li>
+
+						<li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
+								HƯỚNG DẪN SỬ DỤNG </a></li>
+						<li class="li-menu-header"><a class="lnk-menu-header">
+								DANH SÁCH LỚP HỌC </a>
+							<div class="vts-submenu submenu-245">
+								<ul class="submenu1">
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Công Nghệ Phần Mềm</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Lập trình web</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Hệ quản trị cơ sở dữ liệu </a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Điện tử căn bản </a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Thực tập điện tử căn bản</a></li>
+									<li><a
+										href="DanhSachKhoaHoc.jsp">
+											Lập trình WinDow From </a></li>
+								</ul>
+							</div></li>
+						
+					</ul>
+				</div>
 </div>
 
 
@@ -508,7 +360,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 
-<script type="text/javascript" src="http://viettelstudy.vn/js_20141104/search.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 
 <script type="text/javascript">
 
@@ -774,7 +626,7 @@ $('.persion-tab-lnk').click(function() {
             <div class="persion-avatar">
                 <div id="ctl14_LoadUser_upUserLoad">
     
-        <img src="http://media.viettelstudy.vn/" alt="" class="persion-avatar-img">
+        <img src="media.studyfunny.vn" alt="" class="persion-avatar-img">
         <h3 class="persion-info">
             <span class="bold">
                 Nguyễn Ngọc Hải</span><br>
@@ -900,12 +752,12 @@ $('.persion-tab-lnk').click(function() {
                                 color: #FFFFFF;
                             }
                         </style>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+                        <a href="#">
                             &lt;</a>
                         
-                        <a class="active" href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=1&nam=1">
+                        <a class="active" href="#">
                             1</a>
-                        <a href="http://viettelstudy.vn/baithi.aspx?uc=3&id_mon=40&id_loai_bt=11&page=10&nam=1">
+                        <a href="#">
                             &gt;</a>
                         
                     </div>
@@ -918,19 +770,7 @@ $('.persion-tab-lnk').click(function() {
         </div>
 
 
-    <!--<a href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=2" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Monhoc/201504/20150408/thumb11_121263958.jpg                      " alt="Các khóa học Phổ Thông">
-        <p>
-           Các khóa học Phổ Thông</p>
-    </a><a href="http://tienganh1.viettelstudy.vn/viettel/public/user/process-detail" class="lp-lnk">
-        <img src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201306/20130604/thumb11_322104176.jpg" alt="Tiến trình học Tiếng Anh">
-        <p>
-            Tiến trình học Tiếng Anh</p>
-    </a><a class="lp-lnk" href="http://viettelstudy.vn/tientrinhhoc.aspx?uc=3">
-        <img alt="Khóa học Kỹ năng sống" src="http://media.viettelstudy.vn/archive/imageslead/Khoahoc/201408/20140825/thumb11_187d2312d4.png">
-        <p>
-            Khóa học Kỹ năng sống</p>
-    </a>-->
+    
 
 </div></div>
           <div class="persion-right persion-detail" id="QuanLyCommentNew" style="display: none;">
@@ -1526,7 +1366,7 @@ $('.persion-tab-lnk').click(function() {
     <div class="bpt-row">
         <div class="bpt-item-left"></div>
         <div class="bpt-item-right">
-            <img src="images/ajax-loader.gif" alt="ViettelStudy">
+            <img src="images/ajax-loader.gif" alt="StudyFunny">
         </div>
     </div>
 
@@ -1733,7 +1573,7 @@ $('.persion-tab-lnk').click(function() {
                     Ảnh đại diện:</div>
                 <div class="bpt-item-right">
                     <div class="bpt-img-avarta">
-                        <img src="http://media.viettelstudy.vn/" alt="" height="48px">
+                        <img src="media.StudyFunny.vn" alt="" height="48px">
                         
                     </div>
                     <input name="ctl14$ThongTinHocVien$UserImage1" type="file" id="ctl14_ThongTinHocVien_UserImage1" class="file" style="width: 210px">
@@ -1818,19 +1658,15 @@ function refreshCaptcha(capchaid, capchlength) {
         </div>
         <!--end-body-->
          
-<a id="to_top" href="#" style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;" rel="nofollow">
-    <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
-<div id="footer">
-    <div id="footer-menu">
-        <a href="http://viettelstudy.vn/index.html">TRANG CHỦ</a>&nbsp;|&nbsp;
-        <a href="http://viettelstudy.vn/luyen-thi-dai-hoc-mien-phi.html">LUYỆN THI
-            ĐẠI HỌC MIỄN PHÍ</a>&nbsp;|&nbsp; <a href="http://viettelstudy.vn/kiem-tra-va-thi-thu.html">
-                THI TRỰC TUYẾN</a> &nbsp;|&nbsp;
-        
-        <a href="http://viettelstudy.vn/tientrinhhoc.aspx">TIẾN TRÌNH HỌC</a>
-        &nbsp;|&nbsp;
-        
-    </div> 
+<a id="to_top" href="#"
+			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
+			rel="nofollow"> <img alt="Go to top!"
+			src="Images/gototop.png"></a>
+		<div id="footer">
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
+			</div>
             <div class="footer-menu-new">
   <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
   <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
@@ -1850,14 +1686,17 @@ function refreshCaptcha(capchaid, capchlength) {
 
         <!--<a class="logo-gd-footer"></a>-->
 
-        <p style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px;
-            margin-top: 4px; text-align: center; width: 640px">
-            Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng Thanh Dũng<br>
-            Nhóm sinh viên thực hiện: <br>
-            Nguyễn Tuấn Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
-            Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank" style="color: #14928E! important;" href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email: <a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>                      
-                   
-        </p>
+        <p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
 
         <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
 
@@ -1942,151 +1781,6 @@ function refreshCaptcha(capchaid, capchlength) {
     </div>
     
 
-<div style="width: 392px; display: none" id="overlay-login">
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Đăng nhập
-        </h3>
-        <div class="bp-content">
-            <p style="padding-left: 15px;">
-                Bạn vui lòng đăng nhập để tiếp tục học tập trên ViettelStudy</p>
-            <div id="login_pnLogin">
-    
-                    <div class="bpc-row">
-                        <span class="sp-left">Số điện thoại</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
-                        </span>
-                    </div>
-                    <div class="bpc-row">
-                        <span class="sp-left">Mật khẩu</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
-                    </div>
-                    
-                    <div class="bpc-row">
-                        <span class="sp-left"></span><span class="sp-right">
-                            
-                            <span class="sp-remember">
-                                <input id="login_cbkRLogin" type="checkbox" name="login$cbkRLogin"><label for="login_cbkRLogin">Duy trì đăng nhập</label></span>
-                            <span class="sp-forget-pass" style="">
-                            <p class="btn-forget under" style="margin: 0px; line-height: 28px">
-                                Quên mật khẩu?</p> 
-                            <span class="infor-forget">Khách hàng Viettel, soạn: <strong>VTS</strong>
-                                    gửi <strong>5005</strong> (0đ)<br>
-                                    
-                                </span></span></span>
-                        <style>
-                            .regis-info, .sp-forget-pass
-                            {
-                                position: relative;
-                                display: inline-block;
-                                padding-bottom: 10px;
-                            }
-                            .infor-forget
-                            {
-                                background: #ffffff none repeat scroll 0 0;
-                                border: 1px solid #acacac;
-                                color: #333333;
-                                display: none;
-                                font-size: 13px;
-                                line-height: 20px;
-                                padding: 10px;
-                                position: absolute;
-                                right: 0;
-                                top: 25px;
-                                width: 310px;
-                                z-index: 99;
-                            }
-                            .regis-info .infor-forget
-                            {
-                                bottom: 28px;
-                                right: -33px;
-                                top: auto;
-                            }
-                            .regis-info
-                            {
-                                padding-top: 5px;
-                            }
-                            .sp-forget-pass:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                            .regis-info:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                        </style>
-                    </div>
-                    <div class="bpc-row" style="margin-top: 0px;">
-                        <span class="sp-error">
-                            <span id="login_lblErr"></span>
-                        </span>
-                    </div>
-                    <div class="bpc-row" style="margin-top: 0px;">
-                        <span class="sp-left"></span><span class="sp-right">
-                            <input type="submit" name="login$btnDangNhap" value="Đăng nhập" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
-                            <input type="hidden" name="TokenCSRF_Login" value="47856F874954C46BBA4B080196E7DAE2605598C0EC7BF471041A35027851289894EE9541446422F23E435CFEDB9F9E49AA9661D750599A3E1AAE575855F78583">
-                        </span>
-
-                        <script type="text/javascript">
-                            function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>
-
-                    </div>
-                    <div class="group-login-fb" style="display: none;">
-                        <p class="login-fb-notice">
-                            Hoặc đăng nhập bằng tài khoản
-                        </p>
-                        <p class="p-login-fb">
-                            <a href="http://viettelstudy.vn/LoginExtension/FacebookConnect.aspx">
-                                <img src="http://viettelstudy.vn/images/vts_new_06.png"></a> <a class="lnk-g" style="display: none" href="http://viettelstudy.vn/LoginExtension/GoogleConnect.aspx">
-                                    <img src="http://viettelstudy.vn/images/vts_new_07.png"></a>
-                        </p>
-                        <div id="status" style="display: none;">
-                        </div>
-                    </div>
-                
-</div>
-            <div id="login_UpdateProgress1" style="display:none;">
-    
-                    <div class="bpc-row">
-                        <span class="sp-left"></span><span class="sp-right">
-                            <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
-                        </span>
-                    </div>
-                
-</div>
-            <div class="bpc-row">
-                <span class="sp-right" style="width: 335px;"><span class="pbc-p" style="padding: 0px 0px 10px 15px;
-                    font-size: 14px;">Bạn chưa có tài khoản? Mời đăng ký <span class="regis-info">
-                    <span class="lnk-regis under">TẠI ĐÂY</span> 
-                    <span class="infor-forget" style="font-weight:normal;">Khách hàng Viettel, soạn: <strong>VTS</strong>
-                            gửi <strong>5005</strong> (0đ)<br>
-                            
-                        </span></span></span></span>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
 
@@ -2109,17 +1803,7 @@ function refreshCaptcha(capchaid, capchlength) {
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
+
 
 <script type="text/javascript">
 

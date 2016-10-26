@@ -17,8 +17,8 @@
   <title>
   	Trang cá nhân - Study Funny
   </title>
-  <meta content="http://viettelstudy.vn/images/share_fb_img.jpg" name="og:image" />
-<link rel="icon" href="http://viettelstudy.vn/images/favicon.ico" />
+
+<link rel="icon" href="Images/favicon.ico" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
@@ -236,7 +236,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         <div class="wrap-vt-gadget">
             <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
               <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p>Email: <a href="mailto:mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
                   <p class="vt-gadget-p-content">
                     Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
                   </p>
@@ -636,13 +636,13 @@ $('.persion-tab-lnk').click(function() {
                 <div class="wrap-tab">
                     <a class="persion-tab-lnk lnk-tab-info active" name="DetailUser" onclick="loadUserControl(&#39;ThongTinCaNhanNew&#39;)">
                         <span>Thông tin cá nhân</span> </a>
-                    <a class="persion-tab-lnk lnk-tab-persion" name="TienTrinhHocNew" onclick="loadUserControl(&#39;TienTrinhHocNew&#39;)" href="dkkhoahoc.jsp">
+                    <a class="persion-tab-lnk lnk-tab-persion" name="TienTrinhHocNew" onclick="loadUserControl(&#39;TienTrinhHocNew&#39;)" href="DanhSachKhoaHoc.jsp">
                         <span>Đăng ký khóa học</span>
                     </a>
                     <a class="persion-tab-lnk lnk-tab-persion" name="CacKhoaHocDaDangKy">
                         <span>Danh sách khóa học đang học</span>
                         </a>
-                    <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)">
+                    <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)" href="CacKhoaHocDaDangKy.jsp">
                         <span>Lịch sử đăng ký</span>
                     </a> 
                     <a class="persion-tab-lnk lnk-tab-change" name="DetailDMK">
@@ -1279,17 +1279,6 @@ function refreshCaptcha(capchaid, capchlength) {
     }  
 </script>
 
-<script type="text/javascript">
-    function ShowBoxTA() {
-        if (confirm("Bạn đang được hưởng KM theo chương trình dành riêng cho KH sử dụng gói cước Sinh Viên: miễn phí khoá học Tiếng Anh cơ bản, giảm giá 50% khi đăng ký khoá học tiếng Anh không giới hạn English Study Pro") == true) {
-            window.parent.location = 'http://tienganh1.viettelstudy.vn/viettel/public/course/index/all';
-            return true;
-        } else {
-            window.parent.location = 'index.html';
-            return true;
-        }
-    }
-</script>
 
 <script type="text/javascript">
 

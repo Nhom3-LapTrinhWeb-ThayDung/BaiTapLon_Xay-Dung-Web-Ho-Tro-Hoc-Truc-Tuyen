@@ -672,10 +672,10 @@ fbq('track', "PageView");</script>
                                 color: #FFFFFF;
                             }
                         </style>
-                        <a href="CacKhoaHocDaDangKy.jsp">
+                        <a href="DanhSachKhoaHoc.jsp">
                             &lt;</a>
                         
-                        <a  href="CacKhoaHocDaDangKy.jsp">
+                        <a  href="DanhSachKhoaHoc.jsp">
                             1</a>
                         
                         <a class="active" href="CacKhoaHocDaDangKypage2.jsp">
