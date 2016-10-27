@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="F:/download/Compressed/apache-tomcat-8.0.37/apache-tomcat-8.0.37/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/batna/Downloads/Compressed/mail.jar/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Khanh/Downloads/Compressed/apache-tomcat-8.0.37/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
