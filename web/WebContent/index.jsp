@@ -1402,6 +1402,25 @@ width: 950px; display:none">
 
 </div>
 
+<script type="text/javascript">
+      $(document).ready(function () {
+           var x_timer;
+           $("#username").keyup(function (e) {
+                clearTimeout(x_timer);
+                var user_name = $(this).val();
+                x_timer = setTimeout(function () {
+                    check_username_ajax(user_name);
+                }, 1000);
+                });
+ 
+           function check_username_ajax(username) {
+                $("#user-result").html('<img src="Images/ajax-loader.gif" />');
+                $.post('CheckUserServlet', {'username': username}, function (data) {
+                    $("#user-result").html(data);
+                 });
+           }
+       });
+</script>
 
 <div style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;" id="overlay-register"><a class="close"></a>
     <style type="text/css">
@@ -1430,14 +1449,14 @@ width: 950px; display:none">
     
                     <div class="bpc-row">
                         <span class="sp-left">User</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
+                            <input name="username" type="text" maxlength="15" id="username" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
                             <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
                             <input type="hidden" name="login$hfDem" id="login_hfDem">
-                        </span>
+                        </span><span id="user-result"></span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Password</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
+                            <input name="userpass" type="password" maxlength="30" id="userpass" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Nhập lại</span> <span class="sp-right">
@@ -1445,7 +1464,7 @@ width: 950px; display:none">
                     </div>
                     <div class="bpc-row">
                     <span class="sp-left">Email</span> <span class="sp-right">
-                     <span style="float: right; line-height: 39px;"><input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
+                     <span style="float: right; line-height: 39px;"><input type="email" name="useremail" id="useremail" style=" background: #d4e7e3 none repeat scroll 0 0;
                     border: 1px solid #d4e7e3;
                     border-radius: 5px;
                     height: 25px;
