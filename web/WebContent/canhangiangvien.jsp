@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -246,8 +246,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 					<div class="header-login">
 
 						<p class="p-login">
-							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
-							| <a href="index.jsp">Thoát</a>
+							Xin chào: <c:if test="${not empty sessionScope['loginUser']}">
+    					<c:out value="${sessionScope['loginUser']}" />
+    					&nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
+    				</c:if>
 						</p>
 
 					</div>

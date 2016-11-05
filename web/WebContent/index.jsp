@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@page import="model.Users"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,12 +29,21 @@
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
+
+
 </head>
 <body>
-    <form name="form1" method="post" action="index.jsp" id="form1">
+<%
+	Users users=null;
+	if(session.getAttribute("user")!=null)
+	{
+		users = (Users) session.getAttribute("user");
+	}
+	
+%>
+
+
 <div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
 
 </div>
 
@@ -278,8 +289,31 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
         <a class="header-logo" href="index.jsp"></a>           
         <div class="header-login">
             <p class="p-login">
-                <a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
+            
+                <%-- <a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
                     &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login">Đăng nhập</a>
+                    <c:out value="${sessionScope['loginUser']}" />
+                    <%if(users!=null) {%>
+                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login"><%=users.getUserName() %></a>
+                    <%} %> --%>
+                    
+                    <%-- <c:if test="${empty sessionScope['loginUser']}">
+    	 				<a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
+                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login" name ="" id ="dang-nhap">Đăng nhập</a>
+    				</c:if>
+    				<c:if test="${not empty sessionScope['loginUser']}">
+    					<c:out value="${sessionScope['loginUser']}" />
+    					&nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
+    				</c:if> --%>
+    				<% if(users!=null) {%>
+                    <a class="lnk-logout under popup-login"><%=users.getUserName() %></a>
+                    &nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
+                    <%}
+    				else {%>
+    					<a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
+                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login" name ="" id ="dang-nhap">Đăng nhập</a>
+    				<%}
+    				%>
             </p>
         </div>
         <div class="study-search">
@@ -1137,7 +1171,6 @@ width: 950px; display:none">
             }
         });
     });
-
 </script>
         <!--end-footer-->
         <div id="overlay-footer">
@@ -1180,23 +1213,38 @@ width: 950px; display:none">
         <div class="bp-content">
             <p style="padding-left: 15px;">
                 Bạn vui lòng đăng nhập để tiếp tục học tập trên Study Funny</p>
-            <div class="bpc-row">
+               
+                <%-- <font color="red"><c:if test="${not empty param.errMsg}">	
+	            <c:out value="${param.errMsg}" />
+	            </c:if></font> --%>
+	            <script type="text/javascript">
+	            	$(document).ready(function(){
+	            		String error="";
+	            	})
+	            	
+	            </script>
+	            <% if(request.getParameter("error")!=null){%> 
+	            <div>
+	            <font color="red"> <%=request.getParameter("error") %> </font>
+	            </div>
+	            <%}%>
+            <div class="bpc-row" id="qưe">
              <span class= "sp-left"><input type="radio" name='chucvu' value="2" checked="true">Học Viên</span>
              <span class= "sp-left"><input type="radio" name='chucvu' value="1" >Giảng Viên</span>
              <span class= "sp-left"><input type="radio" name='chucvu' value="0" >Admin</span>
              </div>
+             <form action ="UsersServlet" method="post">
             <div id="login_pnLogin">
-    
+    				
                     <div class="bpc-row">
                         <span class="sp-left">User</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
+                            <input name="username" type="text" maxlength="15" id="username" class="bpc-txt" >
+
                         </span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Password</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
+                            <input name="password" type="password" maxlength="30" id="password" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
                     </div>
                     
                     <div class="bpc-row">
@@ -1256,16 +1304,17 @@ width: 950px; display:none">
                     </div>
                     <div class="bpc-row" style="margin-top: 0px;">
                         <span class="sp-left"></span><span class="sp-right">
-                            <input type="submit" name="login$btnDangNhap" value="Đăng nhập" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
-                            <input type="hidden" name="TokenCSRF_Login" value="2DD198B4D0477D16C8AB6B14113805916D4D4A2C47920F250C937FCF58A650768E3E20D43C90E47FD0468883979CCD326D1B1D033440F3758B864548D669DABB">
+                            <input type="submit" name="login$btnDangNhap" value="Đăng nhập" id="" class="bpt-lnk-save btn-login">
+                            <input type="hidden" name="command" value="login">
                         </span>
-
+						
                         <!--<script type="text/javascript">
                            function btnDangNhap_OnClientClick() {
                                 document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
                                 return true;
                             }
                         </script>-->
+						
                         <script type="text/javascript">
                            function btnDangNhap_OnClientClick() {
                             var rdochecked = $('input[type="radio"]:checked');
@@ -1277,7 +1326,7 @@ width: 950px; display:none">
                                 $('#form1').attr('action','admin_quanlytaikhoan.jsp');
                             }
                         </script>
-
+		
                     </div>
                     <div class="group-login-fb" style="display: none;">
                         <p class="login-fb-notice">
@@ -1292,7 +1341,8 @@ width: 950px; display:none">
                         </div>
                     </div>
                 
-</div>
+			</div>
+		</form>
             <div id="login_UpdateProgress1" style="display:none;">
     
                     <div class="bpc-row">
@@ -1405,20 +1455,35 @@ width: 950px; display:none">
 <script type="text/javascript">
       $(document).ready(function () {
            var x_timer;
-           $("#username").keyup(function (e) {
+           $("#email-register").keyup(function (e) {
                 clearTimeout(x_timer);
-                var user_name = $(this).val();
+                var email = $(this).val();
                 x_timer = setTimeout(function () {
-                    check_username_ajax(user_name);
+                	check_email_ajax(email);
                 }, 1000);
                 });
  
-           function check_username_ajax(username) {
-                $("#user-result").html('<img src="Images/ajax-loader.gif" />');
-                $.post('CheckUserServlet', {'username': username}, function (data) {
-                    $("#user-result").html(data);
-                 });
+           function check_email_ajax(email) {
+                $("#email-register-result").html('<img src="Images/ajax-loader.gif" />');
+                $.post('CheckEmailServlet', {'email-register': email}, function (data) {
+                	$("#email-register-result").html(data);	
+                 },'text');
            }
+           var x_timer;
+           $("#username-register").keyup(function (e) {
+               clearTimeout(x_timer);
+               var user_name = $(this).val();
+               x_timer = setTimeout(function () {
+            	   check_username_ajax(user_name);
+               }, 1000);
+               });
+
+          function check_username_ajax(username) {
+               $("#user-register-result").html('<img src="Images/ajax-loader.gif" />');
+               $.post('CheckUserServlet', {'username': username}, function (data) {
+            	   $("#user-register-result").html(data);	
+                },'text');
+          }
        });
 </script>
 
@@ -1443,54 +1508,51 @@ width: 950px; display:none">
             Đăng ký tài khoản
         </h3>
         <div class="bp-content">
+        <form action="UsersServlet" method="post">
             <p style="padding-left: 15px;">
                 Bạn vui nhập thông tin để đăng ký tài khoản học tập trên Study Funny</p>
             <div id="login_pnLogin">
-    
                     <div class="bpc-row">
                         <span class="sp-left">User</span> <span class="sp-right">
-                            <input name="username" type="text" maxlength="15" id="username" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
-                        </span><span id="user-result"></span>
+                            <input name="username-register" type="text" maxlength="15" id="username-register" class="bpc-txt">
+                        <span id="user-register-result"></span></span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Password</span> <span class="sp-right">
-                            <input name="userpass" type="password" maxlength="30" id="userpass" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
+                            <input name="pass-register"
+                             type="password" maxlength="30" id="pass-register" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Nhập lại</span> <span class="sp-right">
                             <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')"></span>
                     </div>
                     <div class="bpc-row">
-                    <span class="sp-left">Email</span> <span class="sp-right">
-                     <span style="float: right; line-height: 39px;"><input type="email" name="useremail" id="useremail" style=" background: #d4e7e3 none repeat scroll 0 0;
+                    <span class="sp-left">Email</span> 
+                    <span class="sp-right">
+                    <input type="email" name="email-register" id="email-register" style=" background: #d4e7e3 none repeat scroll 0 0;
                     border: 1px solid #d4e7e3;
                     border-radius: 5px;
-                    height: 25px;
-                    margin-right: 16px;
+                    height: 30px;
                      padding: 1px 10px;
-                    width: 260px;">
-                    </span>
+                    width: 238px;">
+                    <span id="email-register-result"></span></span>
                     </div>
                      <div class="bpc-row">
                         <span class="sp-left">Tên</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
+                            <input name="name" type="text" maxlength="15" id="name" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
+                            
                         </span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Số điện thoại</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
-                            <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
-                            <input type="hidden" name="login$hfDem" id="login_hfDem">
+                            <input name="sdt" type="text" maxlength="15" id="sdt" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,'login_btnDangNhap')">
+                            
                         </span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Giới tính</span> <span class="sp-right">
                            <div class="bpt-item-right">
-                            <select name="ctl14$ThongTinHocVien$ddlGioiTinh" id="ctl14_ThongTinHocVien_ddlGioiTinh" class="bpt-sl-sex">
+                            <select name="gioitinh" id="gioitinh" class="bpt-sl-sex">
                         <option selected="selected" value="0">Chọn giới tính</option>
                         <option value="1">Nam</option>
                         <option value="2">Nữ</option>
@@ -1645,8 +1707,8 @@ width: 950px; display:none">
 
                     <div class="bpc-row" style="margin-top: 0px;">
                         <span class="sp-left"></span><span class="sp-right">
-                            <input type="button" name="login$btnDangNhap" value="Đăng Ký" onclick="btnDangNhap_OnClientClick3();" id="femail-register" class="bpt-lnk-save btn-login">
-                            <input type="hidden" name="TokenCSRF_Login" value="2DD198B4D0477D16C8AB6B14113805916D4D4A2C47920F250C937FCF58A650768E3E20D43C90E47FD0468883979CCD326D1B1D033440F3758B864548D669DABB">
+                            <input type="submit" name="login$btnDangNhap" value="Đăng Ký" id="femail-register" class="bpt-lnk-save btn-login">
+                            <input type="hidden" name="command" value="insert">
                         </span>
 
                         <!--<script type="text/javascript">
@@ -1674,8 +1736,7 @@ width: 950px; display:none">
                         <div id="status" style="display: none;">
                         </div>
                     </div>
-                
-</div>
+			</div>
             <div id="login_UpdateProgress1" style="display:none;">
     
                     <div class="bpc-row">
@@ -1693,7 +1754,7 @@ width: 950px; display:none">
         </div>
     </div>
 </div>
-
+</div>
 <script type="text/javascript">
 
     function refreshCaptcha(capchaid, capchlength) {
@@ -1772,7 +1833,5 @@ Sys.Application.add_init(function() {
 });
 //]]>
 </script>
-</form>
-
 
 <script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-83969451-1', 'auto'); ga('send', 'pageview');</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-83969451-1', 'auto'); ga('send', 'pageview');</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-83969451-1', 'auto'); ga('send', 'pageview');</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-83969451-1', 'auto'); ga('send', 'pageview');</script></body></html>
