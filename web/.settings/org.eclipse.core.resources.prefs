@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//src/controller/DoQuestionListServlet.java=UTF-8
+encoding//src/dao/QuestionRadioDAO.java=UTF-8
 encoding//src/dao/UsersDAO.java=UTF-8

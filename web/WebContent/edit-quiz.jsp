@@ -662,11 +662,11 @@ $('.persion-tab-lnk').click(function() {
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
         <h2 style="color:blue">Edit Quiz settings</h2>
-        <form autocomplete="off" action="https://lms.hcmute.edu.vn/calendar/event.php" method="post" accept-charset="utf-8" id="mform1" class="mform">
+        <form action="" method="post">
             <fieldset class="clearfix collapsible" id="id_general">
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Quiz name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
+                <div id="" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id=""><label for="id_name" id="">Quiz name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id=""><input size="50" name="name" type="text" id="id_name"></div>
 
                 </div>
 
