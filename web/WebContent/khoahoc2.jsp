@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,8 +32,8 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-	<form name="form1" method="post" action="#" id="form1"
-		enctype="multipart/form-data">
+	<!-- <form name="form1" method="post" action="#" id="form1"
+		enctype="multipart/form-data"> -->
 		<div>
 			<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 			<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT"
@@ -771,6 +771,9 @@
 						</ul>
 					</div>
 					<div id="Course" class="body" style="display: block">
+					<c:if test="${errorStr != null }">
+						<p style="color: red; font-style: italic;">${errorStr }</p>
+					</c:if>
 						<a onclick="showedit()"><img
 							style="display: block; float: right;" src="Images/settings2.png"></a>
 						<div class="box-test-online martop_0">
@@ -809,12 +812,15 @@
 													<span>Chương 1. Tổng quan</span>
 												</h2>
 											</div>
-
+											<form method="post" action="PracticeServlet" >
 											<div class="box-resources">
 												<br>
 												<p style="margin-left: 20px">
-													<a href="LamBaiThi.jsp"><img src="Images/quiz.png">&nbsp;Bài test số 1
-													&nbsp;&nbsp;&nbsp;&nbsp;</a><span class="edit"
+													
+													<img src="Images/quiz.png">
+													&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="quiz_name" value="Bài Test Số 1" />
+													<input type="hidden" name="command" value="thitracnghiem"/>
+													<span class="edit"
 														style="display: none"> <select class="bpt-sl-date">
 															<option value="0">edit</option>
 															<option value="1" onselect="sua()"><a
@@ -824,6 +830,7 @@
 													</span>
 												</p>
 											</div>
+											</form>
 
 											<div class="edit" style="display: none;">
 												<a href=""><img style="float: right"
@@ -2042,7 +2049,7 @@
 			});
 			//]]>
 		</script>
-	</form>
+	<!-- </form> -->
 
 
 

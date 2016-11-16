@@ -33,15 +33,6 @@
 
 </head>
 <body>
-<%
-	Users users=null;
-	if(session.getAttribute("user")!=null)
-	{
-		users = (Users) session.getAttribute("user");
-	}
-	
-%>
-
 
 <div>
 
@@ -282,78 +273,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
     </div>
 </div>
 
-
-<div id="header">
-    <div id="header-top">
-        <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="HuongDanSuDung.jsp">Hướng dẫn</a>
-        <a class="header-logo" href="index.jsp"></a>           
-        <div class="header-login">
-            <p class="p-login">
-            
-                <%-- <a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
-                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login">Đăng nhập</a>
-                    <c:out value="${sessionScope['loginUser']}" />
-                    <%if(users!=null) {%>
-                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login"><%=users.getUserName() %></a>
-                    <%} %> --%>
-                    
-                    <%-- <c:if test="${empty sessionScope['loginUser']}">
-    	 				<a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
-                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login" name ="" id ="dang-nhap">Đăng nhập</a>
-    				</c:if>
-    				<c:if test="${not empty sessionScope['loginUser']}">
-    					<c:out value="${sessionScope['loginUser']}" />
-    					&nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
-    				</c:if> --%>
-    				<% if(users!=null) {%>
-                    <a class="lnk-logout under popup-login"><%=users.getUserName() %></a>
-                    &nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
-                    <%}
-    				else {%>
-    					<a class="lnk-logout under popup-login" rel="#overlay-register">Đăng ký</a>
-                    &nbsp;|&nbsp;<a class="lnk-logout under popup-login" rel="#overlay-login" name ="" id ="dang-nhap">Đăng nhập</a>
-    				<%}
-    				%>
-            </p>
-        </div>
-        <div class="study-search">
-            <input name="Header1$search_query" type="text" maxlength="100" id="Header1_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header1_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
-            <input type="submit" name="Header1$btnSearch1" value="" onclick="checkdata('Header1_btnSearch1');" id="Header1_btnSearch1" class="ssh-btn-search">
-            
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-    </div>
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="index.jsp"></a>
-        <ul class="ul-menu-header">
-            <li class="li-menu-header"><a class="lnk-menu-header" href="index.jsp">
-                TRANG CHỦ </a>                
-            </li>
-            <li class="li-menu-header"><a class="lnk-menu-header" href="HuongDanSuDung.jsp">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header" href="dkkhoahoc.jsp">
-               DANH SÁCH LỚP HỌC </a>   
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="Course_Lap_Trinh_Web.jsp">
-                                 Lập trình web</a> </li>
-                                    <li><a>
-                                  Kỹ thuật lập trình</a> </li>
-                                <li><a >
-                                  Công nghệ phần mềm </a> </li>                                
-                    </ul>
-                </div>             
-            </li> 
-        </ul>              
-	</div>
-</div>
+<%@ include file="//includes/header.jsp" %>
 
 
 <script type="text/javascript">
@@ -1229,9 +1149,9 @@ width: 950px; display:none">
 	            </div>
 	            <%}%>
             <div class="bpc-row" id="qưe">
-             <span class= "sp-left"><input type="radio" name='chucvu' value="2" checked="true">Học Viên</span>
-             <span class= "sp-left"><input type="radio" name='chucvu' value="1" >Giảng Viên</span>
-             <span class= "sp-left"><input type="radio" name='chucvu' value="0" >Admin</span>
+             <span class= "sp-left"><input type="radio" name='chucvu' value="3" checked="true">Học Viên</span>
+             <span class= "sp-left"><input type="radio" name='chucvu' value="2" >Giảng Viên</span>
+             <span class= "sp-left"><input type="radio" name='chucvu' value="1" >Admin</span>
              </div>
              <form action ="UsersServlet" method="post">
             <div id="login_pnLogin">

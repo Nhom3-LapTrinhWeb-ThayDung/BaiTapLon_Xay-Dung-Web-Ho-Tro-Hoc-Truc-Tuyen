@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Quiz"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -21,8 +22,14 @@
 </head>
 
 <body>
-	<form name="form1" method="post" action="NopBai.jsp" id="form1">
-
+<%
+	Quiz quiz=null;
+	if(session.getAttribute("quiz")!=null)
+	{
+		quiz = (Quiz) session.getAttribute("quiz");
+	}
+	
+%>
 		<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -41,244 +48,187 @@
 }
 </style>
 
-		<div id="header">
-			<div id="header-top">
-				<a
-					style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
-					href="huongdansudung.jsp">Hướng dẫn</a> <a class="header-logo"
-					href="index.jsp"></a>
-				<div class="header-login">
-					<p class="p-login">
-						<a class="lnk-user under">Đăng ký</a> <a
-							class="lnk-logout under popup-login" rel="#overlay-login">Đăng
-							nhập</a>
-					</p>
-				</div>
-				<div class="study-search">
-					<input name="Header$search_query" type="text" maxlength="100"
-						id="Header_search_query"
-						class="searchInput has_default_text ssh-input"
-						onkeypress="return clickButton(event,'Header_btnSearch1')"
-						onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
-						value="Từ khóa tìm kiếm" autocomplete="off" /> <input
-						type="submit" name="Header$btnSearch1" value=""
-						onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1"
-						class="ssh-btn-search" />
-				</div>
-				<div style="display: none;" id="suggestions" class="suggestion"></div>
-			</div>
-			<div id="header-menu">
-				<a class="lnk-hm-home menu_active" href="index.jsp"> </a>
-				<ul class="ul-menu-header">
-					<li class="li-menu-header"><a class="lnk-menu-header">
-							TRANG CHỦ </a></li>
-					<li class="li-menu-header"><a class="lnk-menu-header ">
-							HƯỚNG DẪN SỬ DỤNG </a></li>
-					<li class="li-menu-header"><a class="lnk-menu-header ">
-							DANH SÁCH LỚP HỌC</a>
-						<div class="vts-submenu submenu-245">
-							<ul class="submenu1">
-								<li><a href="#"> Công Nghệ Phần Mềm</a></li>
-								<li><a href="#"> Lập trình web</a></li>
-								<li><a href="#"> Hệ quản trị cơ sở dữ liệu </a></li>
-								<li><a href="#"> Điện tử căn bản </a></li>
-								<li><a href="#"> Thực tập điện tử căn bản</a></li>
-								<li><a href="#"> Lập trình WinDow From </a></li>
-							</ul>
-						</div></li>
-					<li class="li-menu-header"><a class="lnk-menu-header ">THƯ
-							VIỆN </a>
-						<div class="vts-submenu">
-							<ul class="submenu1">
-								<li><a href="LamBaiThi.jsp">Trắc nghiệm <span
-										class="arrow"></span></a> <!-- Courses in category -->
-									<ul class="submenu2">
-										<li><a href="#">Trắc nghiệm IQ</a></li>
-										<li><a href="#">Trắc nghiệm EQ</a></li>
-										<li><a href="#">Trắc nghiệm tính cách MBTI</a></li>
-										<li><a href="#">Trắc nghiệm định hướng nghề nghiệp</a></li>
-										<li><a href="#"> Trắc nghiệm 8 loại trí thông minh</a></li>
-									</ul></li>
-								<li><a href="#">Thư viện video <span class="arrow"></span></a>
-									<!-- Courses in category -->
-									<ul class="submenu2">
-										<li><a href="#"> Tư vấn Vì tương lai</a></li>
-										<li><a href="#"> Tọa đàm bản lĩnh trẻ</a></li>
-										<li><a href="#"> Thư viện cuộc sống</a></li>
-										<li><a href="#"> Khám phá Việt Nam</a></li>
-										<li><a href="#"> Khám phá thế giới</a></li>
-										<li><a href="#">Sáng tạo</a></li>
-
-									</ul></li>
-								<li><a href="#">Bài tập - Bài giải<span class="arrow"></span></a>
-									<!-- Courses in category -->
-									<ul class="submenu2">
-										<li><a href="#"> Công nghệ thông tin </a></li>
-										<li><a href="#"> Điện tử </a></li>
-										<li><a href="#"> Tiếng Anh </a></li>
-										<li><a href="#"> Chế tạo máy </a></li>
-										<li><a href="#"> Công mghệ may và thời trang </a></li>
-									</ul></li>
-								<!-- Courses in category --></li>
-				</ul>
-			</div>
-			</li>
-			</ul>
-		</div>
-		</div>
+		<%@ include file="//includes/header.jsp" %>
 		<!--end-header-->
-		<div id="body">
-			<div class="box-multiChoice">
-				<h2 class="bm-title">BÀI TEST IQ</h2>
-				<c:if test="${errorStr != null }">
-					<p style="color: red; font-style: italic;">${errorStr }</p>
-				</c:if>
-				<div class="question">
-					<h3 class="h3q-title">ĐỀ BÀI</h3>
-					<div class="question-list" id="baithi">
-						<form method="get" action="DoQuestionListServlet">
-							<c:forEach items="${listQuestionRadios }" var="questionRadio">
-								<div class="ql-row">
-									<div class="stt-left">
-										<span class='sttl-sp'>${questionRadio.number }</span>
-									</div>
-									<div class="ct-right">
-										<div class="ctr-recommend">${questionRadio.question }</div>
-										<div class="ctr-choice" style=''>
-											<span class="sp-choice"> Chọn <b>1</b> câu trả lời
-												đúng
-											</span>
-											<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
-												border="0">
-												<tr>
-													<td><span class="rd"><input
-															id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio" name="ans[${questionRadio.number }]" value="A"/> <label
-															for="ctl15_rptCauHoi_ctl00_rbtnList_0">A: ${questionRadio.option1 }</label></span></td>
-												</tr>
-												<tr>
-													<td><span class="rd"><input
-															id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio" name="ans[${questionRadio.number }]" value="B"/> <label
-															for="ctl15_rptCauHoi_ctl00_rbtnList_1">B: ${questionRadio.option1 }</label></span></td>
-												</tr>
-												<tr>
-													<td><span class="rd"><input
-															id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio" name="ans[${questionRadio.number }]" value="C"/> <label
-															for="ctl15_rptCauHoi_ctl00_rbtnList_2">C: ${questionRadio.option1 }</label></span></td>
-												</tr>
-												<tr>
-													<td><span class="rd"><input
-															id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio" name="ans[${questionRadio.number }]" value="D"/> <label
-															for="ctl15_rptCauHoi_ctl00_rbtnList_3">D: ${questionRadio.option1 }</label></span></td>
-												</tr>
-											</table>
+			<div id="body">
+<form method="post" action="DoQuestionListServlet">
+				<div class="box-multiChoice">
+					<h2 class="bm-title">BÀI TEST IQ</h2>
+					<c:if test="${errorStr != null }">
+						<p style="color: red; font-style: italic;">${errorStr }</p>
+					</c:if>
+					<div class="question">
+						<h3 class="h3q-title">ĐỀ BÀI</h3>
+						<div class="question-list" id="baithi">
+							
+								<c:forEach items="${listQuestionRadios }" var="questionRadio">
+									<div class="ql-row">
+										<div class="stt-left">
+											<span class='sttl-sp'>${questionRadio.number }</span>
+										</div>
+										<div class="ct-right">
+											<div class="ctr-recommend">${questionRadio.question }</div>
+											<div class="ctr-choice" style=''>
+												<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+													đúng
+												</span>
+												<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+													border="0">
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_0" type="radio"
+																name="ans[${questionRadio.number}]" value="A" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_0">A:
+																	${questionRadio.option1 }</label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_1" type="radio"
+																name="ans[${questionRadio.number}]" value="B" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_1">B:
+																	${questionRadio.option2 }</label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_2" type="radio"
+																name="ans[${questionRadio.number}]" value="C" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_2">C:
+																	${questionRadio.option3 }</label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_3" type="radio"
+																name="ans[${questionRadio.number}]" value="D" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_3">D:
+																	${questionRadio.option4 }</label></span></td>
+													</tr>
+												</table>
+											</div>
 										</div>
 									</div>
-								</div>
-							</c:forEach>
-						</form>
-
-						<!-- hết câu 1-->
+								</c:forEach>
+							
+							<!-- hết câu 1-->
 
 
-						<!--Hết câu phần câu hỏi-->
+							<!--Hết câu phần câu hỏi-->
+						</div>
+					</div>
+
+					<!-- Tạo nút để nộp bài -->
+					<div class="bpc-row" style="margin-top: 0px;">
+                        <span class="sp-right" style="text-align: center">
+                            <input style="margin-left: 375px;" type="submit" name="login$btnDangNhap" value="Nộp Bài" id="ctl15_btn" class="bpt-lnk-save btn-login"/>
+                        	<input type="hidden" name="command" value="nopbai">
+                        	<input type="hidden"
+								name="quiz_name" value="<%=quiz.getQuiz_name()%>">
+                        </span>
+                        </div>
+					<!-- <div id="ctl15_pnStart">
+						<div>
+							<a onclick="if ( !FinishConfirmation()) return false;"
+								id="ctl15_btnNopBai" class="bm-test-again-lnk" href="DoQuestionListServlet">
+								NỘP BÀI </a> 
+								<input type="submit" name="ctl15$btn" value=""
+								id="ctl15_btn"
+								style="border-width: 0px; height: 0px; width: 0px;" />
+								
+						</div>
+						<div style="text-align: center;">
+							<span id="ctl15_lblErr"></span> <span id="ctl15_LblIdlbt"
+								style="display: none">7</span>
+						</div>
+					</div> -->
+					<div id="line_alert"
+						style="text-align: center; width: 100%; color: red; padding: 10px 0px 5px; overflow: hidden:">
+					</div>
+					<!-- Bạn có muốn nộp bài -->
+					<div id="ctl15_UpdateProgress2" style="display: none;">
+						<div class="bm-test-again">
+							<img src="images/ajax-loader.gif" />
+						</div>
 					</div>
 				</div>
+				<!-- Đếm thời gian nộp bài -->
+				<div id="ctl15_div_time" class="time-remain">
+					<span class="sp-text">Thời gian còn lại</span> <span
+						class="sp-time" id="aTime" class="timeCount"> <script
+							type="text/javascript">
+							<%
+							int hours =Integer.parseInt(quiz.getTime().substring(0, 2)) ;
+							int minute = Integer.parseInt(quiz.getTime().substring(3, 5));
+							int second = Integer.parseInt(quiz.getTime().substring(6, 8));
+							%>
+							timeDisplay('aTime', 0, <%=hours%>, <%=minute%>, <%=second%>, 0, 'ctl15_btn');
+						</script>
 
-				<!-- Tạo nút để nộp bài -->
-				<div id="ctl15_pnStart">
-					<div class="bm-test-again">
-						<a onclick="if ( !FinishConfirmation()) return false;"
-							id="ctl15_btnNopBai" class="bm-test-again-lnk" href="NopBai.jsp">
-							NỘP BÀI </a> <input type="submit" name="ctl15$btn" value=""
-							id="ctl15_btn"
-							style="border-width: 0px; height: 0px; width: 0px;" />
-					</div>
-					<div style="text-align: center;">
-						<span id="ctl15_lblErr"></span> <span id="ctl15_LblIdlbt"
-							style="display: none">7</span>
-					</div>
+					</span>
 				</div>
-				<div id="line_alert"
-					style="text-align: center; width: 100%; color: red; padding: 10px 0px 5px; overflow: hidden:">
-				</div>
-				<!-- Bạn có muốn nộp bài -->
-				<div id="ctl15_UpdateProgress2" style="display: none;">
-					<div class="bm-test-again">
-						<img src="images/ajax-loader.gif" />
-					</div>
-				</div>
-			</div>
-			<!-- Đếm thời gian nộp bài -->
-			<div id="ctl15_div_time" class="time-remain">
-				<span class="sp-text">Thời gian còn lại</span> <span class="sp-time"
-					id="aTime" class="timeCount"> <script type="text/javascript">
-						timeDisplay('aTime', 0, 0, 0, 3, 5, 'ctl15_btn');
-					</script>
-
-				</span>
-			</div>
 
 
-			<script type="text/javascript">
-				Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(
-						startRequest);
-				Sys.WebForms.PageRequestManager.getInstance().add_endRequest(
-						endRequest);
+				<script type="text/javascript">
+					Sys.WebForms.PageRequestManager.getInstance()
+							.add_beginRequest(startRequest);
+					Sys.WebForms.PageRequestManager.getInstance()
+							.add_endRequest(endRequest);
 
-				function startRequest(sender, e) {
-					//disable button during the AJAX call
-					document.getElementById('ctl15_btnNopBai').disabled = true;
-					document.getElementById('ctl15_btnNopBai').value = 'Waiting...';
-				}
-				function endRequest(sender, e) {
-					//re-enable button once the AJAX call has completed
-					document.getElementById('ctl15_btnNopBai').disabled = false;
-					document.getElementById('ctl15_btnNopBai').value = 'Nộp bài';
-				}
-			</script>
-			<!-- 60 request một lần -->
-			<script type="text/javascript">
-				$(function() {
-					setInterval(function() {
-						$.get("KeepAlive.ashx");
-					}, 1000 * 10);
-				});
-			</script>
-
-			<!-- Thông báo chính thức nộp bài -->
-			<script type="text/javascript">
-				function FinishConfirmation() {
-					var line_alert = document.getElementById('line_alert');
-					line_alert.style.visibility = 'hidden';
-					if (confirm("Bạn sẽ không thể sửa bài làm sau khi nộp. Đồng ý?") == true) {
-						document.getElementById('ctl15_btnNopBai').style.visibility = 'hidden';
-						return true;
-					} else {
-						return false;
+					function startRequest(sender, e) {
+						//disable button during the AJAX call
+						document.getElementById('ctl15_btnNopBai').disabled = true;
+						document.getElementById('ctl15_btnNopBai').value = 'Waiting...';
 					}
-				}
-			</script>
-
-			<script language="javascript" type="text/javascript">
-				var i = 10;
-				function time() {
-					if (i >= 0) {
-						document.getElementById("show").innerHTML = "" + i + "";
-						i--;
-						setTimeout("time()", 1000);
-					} else {
+					function endRequest(sender, e) {
+						//re-enable button once the AJAX call has completed
+						document.getElementById('ctl15_btnNopBai').disabled = false;
+						document.getElementById('ctl15_btnNopBai').value = 'Nộp bài';
 					}
-				}
-				window.onload = time;
-			</script>
-			<script type="text/javascript">
-				window.onload = function() {
-					document.onkeydown = function(e) {
-						return (e.which || e.keyCode) != 116;
-					};
-				}
-			</script>
-		</div>
+				</script>
+				<!-- 60 request một lần -->
+				<script type="text/javascript">
+					$(function() {
+						setInterval(function() {
+							$.get("KeepAlive.ashx");
+						}, 1000 * 10);
+					});
+				</script>
+
+				<!-- Thông báo chính thức nộp bài -->
+				<script type="text/javascript">
+					function FinishConfirmation() {
+						var line_alert = document.getElementById('line_alert');
+						line_alert.style.visibility = 'hidden';
+						if (confirm("Bạn sẽ không thể sửa bài làm sau khi nộp. Đồng ý?") == true) {
+							document.getElementById('ctl15_btnNopBai').style.visibility = 'hidden';
+							return true;
+						} else {
+							return false;
+						}
+					}
+				</script>
+
+				<script language="javascript" type="text/javascript">
+					var i = 10;
+					function time() {
+						if (i >= 0) {
+							document.getElementById("show").innerHTML = "" + i
+									+ "";
+							i--;
+							setTimeout("time()", 1000);
+						} else {
+						}
+					}
+					window.onload = time;
+				</script>
+				<script type="text/javascript">
+					window.onload = function() {
+						document.onkeydown = function(e) {
+							return (e.which || e.keyCode) != 116;
+						};
+					}
+				</script>
+				</form>
+				
+			</div>
 		<!--end-body-->
 
 		<a id="to_top" href="#"
@@ -288,16 +238,48 @@
 
 
 		<div id="footer">
-			<div class="footer-menu-new">
-				<span class="font-des">Đăng ký để nhận tài liệu bổ ích từ
-					Study Funny</span> <span style="float: right; line-height: 39px;">
-					<input type="email" name="femail" id='femail'
-					style="background: #d4e7e3 none repeat scroll 0 0; border: 1px solid #d4e7e3; border-radius: 5px; height: 25px; margin-right: 16px; padding: 1px 10px; width: 260px;">
-					<input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ"
-					style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-				</span>
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
 			</div>
-		</div>
+            <div class="footer-menu-new">
+  <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
+  <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
+  <span style="float: right; line-height: 39px;">
+  <input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
+    border: 1px solid #d4e7e3;
+    border-radius: 5px;
+    height: 25px;
+    margin-right: 16px;
+     padding: 1px 10px;
+    width: 260px;">
+  <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
+</span>
+    </div> 
+
+    <div id="footer-bottom">
+
+        <!--<a class="logo-gd-footer"></a>-->
+
+        <p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
+
+        <!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
+
+        <p class="gd-copyright">
+        </p>
+    </div>
+  
+</div>
 
 		<style>
 .footer-menu-new span {
@@ -370,7 +352,6 @@
 </style>
 		</div>
 		</div>
-	</form>
 </body>
 </html>
 

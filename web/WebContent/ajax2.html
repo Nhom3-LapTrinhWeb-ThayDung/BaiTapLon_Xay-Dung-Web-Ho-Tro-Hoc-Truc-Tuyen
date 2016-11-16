@@ -24,3 +24,821 @@ Qua đó, chỉ 285 PHHS có mặt nghe ý kiến và phản ánh những mặt 
 <br>Đọc thêm tại: http://www.vietgiaitri.com/song-tre/hoc-hanh/2016/10/linh-hoat-dieu-chinh-mo-hinh-truong-hoc-moi/#ixzz4NKMGBY4y</p>
 </body>
 </html>
+
+
+
+
+
+<!--<c:forEach items="${listAnswerUsers }" var="answerUser">
+								<c:if test="${questionRadio.number == answerUser.number }">
+									<c:if test="${questionRadio.answer == 'A' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td>
+																	<%-- <img alt="Correct" src="${pageContext.request.contextPath }/Images/available.png" /> --%>
+																	<span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:${questionRadio.option1 }</label></span>
+																</td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+
+
+										<c:if test="${answerUser.answer == 'B' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <%-- <img alt="Correct"
+									src="${pageContext.request.contextPath }/Images/available.png" /> --%>
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <%-- <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" /> --%>
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+
+										<c:if test="${answerUser.answer == 'C' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> 
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <%-- <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" /> --%>
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"><input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+
+
+										<c:if test="${answerUser.answer == 'D' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <%-- <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" /> --%>
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <%-- <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" /> --%>
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+									</c:if>
+
+									 <c:if test="${questionRadio.answer == 'B' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'B' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+
+
+										</c:if>
+									</c:if>
+									<c:if test="${questionRadio.answer == 'C' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+
+										<c:if test="${answerUser.answer == 'B' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_3" type="radio"
+																		name="ans[${questionRadio.number }]" value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+									</c:if>
+
+
+									<c:if test="${questionRadio.answer == 'D' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_0"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'B' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_1"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="In-Correct"
+																		src="${pageContext.request.contextPath }/Images/not-available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_2"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">
+											<div class="ql-row">
+												<div class="stt-left">
+													<span class='sttl-sp'>${questionRadio.number }</span>
+												</div>
+												<div class="ct-right">
+													<div class="ctr-recommend">${questionRadio.question }</div>
+													<div class="ctr-choice" style=''>
+														<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+															đúng
+														</span>
+														<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+															border="0">
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_0" type="radio"
+																		name="ans[${questionRadio.number }]" value="A" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_0">A:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_1" type="radio"
+																		name="ans[${questionRadio.number }]" value="B" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_1">B:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <input
+																		id="ctl15_rptCauHoi_ctl00_rbtnList_2" type="radio"
+																		name="ans[${questionRadio.number }]" value="C" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_2">C:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+															<tr>
+																<td><span class="rd"> <img alt="Correct"
+																		src="${pageContext.request.contextPath }/Images/available.png" />
+																		<input id="ctl15_rptCauHoi_ctl00_rbtnList_3"
+																		type="radio" name="ans[${questionRadio.number }]"
+																		value="D" /> <label
+																		for="ctl15_rptCauHoi_ctl00_rbtnList_3">D:
+																			${questionRadio.option1 }</label></span></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
+										</c:if>
+
+									</c:if> --%>

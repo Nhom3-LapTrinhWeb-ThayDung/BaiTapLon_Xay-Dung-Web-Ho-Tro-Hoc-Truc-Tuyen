@@ -31,113 +31,7 @@
         .p-login .lnk-user:hover .infor-forget{display:block;}
         .p-login .lnk-user{padding-bottom:3px;}
   </style>
-<div id="header">
-    <div id="header-top">
-		<a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="HuongDanSuDung.jsp">Hướng dẫn</a>
-        <a class="header-logo" href="index.jsp">
-           </a>
-                      
-        <div class="header-login">
-              <p class="p-login">              
-                <a class="lnk-user under">Đăng ký</a>
-                    
-                 <a>Đăng nhập</a>
-            </p>
-        </div>
-    </div>
-   
-    <div id="header-menu">
-        <a class="lnk-hm-home menu_active" href="index.jsp">
-        </a>
-        <ul class="ul-menu-header">
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                TRANG CHỦ </a>  
-            </li>
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>  
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                DANH SÁCH LỚP HỌC</a>
-                <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="#">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="#">
-                                  Lập trình web</a> </li>
-                                <li><a href="#">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="#">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="#">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="#">
-                                    Lập trình WinDow From </a> </li>
-                    </ul>
-                </div>
-            </li>                 
-    <li class="li-menu-header"><a class="lnk-menu-header ">
-
-
-                THƯ VIỆN </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="#">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="#">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="#">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="#">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="#">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="#"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="#">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="#">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="#">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="#">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="#">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="#">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="#">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="#">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="#">
-                                    Tiếng Anh </a></li>
-                                <li><a href="#">
-                                    Chế tạo máy </a></li>
-                                <li><a href="#">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-            </li>              
-    </ul>
-</div>
+<%@ include file="//includes/header.jsp" %>
         <!--end-header-->
         <div id="body">
         <!--Alert-->
@@ -148,9 +42,16 @@
 			.td-p-goal {color: #15928e;}
 		</style>
 
+
+
 <div class="box-multiChoice">
+<c:if test="${errorStr != null }">
+					<div>
+						<p style="color: red; font-style: italic; padding-left: 15px">${errorStr }</p>
+					</div>
+				</c:if>
             	<h2 class="bm-title">
-                	BÀI TEST IQ
+                	${quiz_name}
                 </h2>
                 <div class="box-scores">
                 	<div class="bs-left">
@@ -158,21 +59,20 @@
                         	<span>ĐIỂM</span>
                         </h3>
                         <div id="ctl15_pnDiem">
-	
                         <div class="bsl-content">
-                        	<span class="bsl-point">10</span>
+                        	<span class="bsl-point">${diem}</span>
                             <div class="bsl-text">
                             	<span class="bsl-sp-left">
                                 	Số đáp án đúng:
                                 </span>
                                 <span class="bsl-sp-right">
-                                	10/30
+                                	${socaudung}/${tongsocau}
                                 </span>
                                 <span class="bsl-sp-left">
                                 	Tổng thời gian làm bài:
                                 </span>
                                 <span class="bsl-sp-right">
-                                	58 giây
+                                	${thoigianlambai}
                                 </span>
                             </div>
                         </div>             
