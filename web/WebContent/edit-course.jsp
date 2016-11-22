@@ -1182,7 +1182,14 @@ $('.persion-tab-lnk').click(function() {
                         <option value="50">50</option>
                         <option value="55">55</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
-
+					
+					<div>
+                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Place</label></div>
+                        </div>
+                        <textarea class="txt-input" name="txtAddedContent" style="height:100px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
+                    </div>
+					
+					
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>

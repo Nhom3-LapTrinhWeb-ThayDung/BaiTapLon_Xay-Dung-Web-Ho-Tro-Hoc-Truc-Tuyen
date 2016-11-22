@@ -254,81 +254,7 @@
 			</div>
 
 
-			<div id="header">
-				<div id="header-top">
-					<a
-						style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
-						href="HuongDanSuDung.jsp">Hướng dẫn</a> <a
-						class="header-logo" href="index.jsp">
-
-					</a>
-					<div class="header-login">
-
-						<p class="p-login">
-							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
-							| <a href="index.jsp">Thoát</a>
-						</p>
-
-					</div>
-					<div class="study-search">
-						<input name="Header$search_query" type="text" maxlength="100"
-							id="Header_search_query"
-							class="searchInput has_default_text ssh-input"
-							onkeypress="return clickButton(event,'Header_btnSearch1')"
-							onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
-							value="Từ khóa tìm kiếm" autocomplete="off"> <input
-							type="submit" name="Header$btnSearch1" value=""
-							onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1"
-							class="ssh-btn-search">
-					</div>
-					<div style="display: none;" id="suggestions" class="suggestion">
-					</div>
-					<script type="text/javascript">
-						$(document).ready(function() {
-							suggesstionFunc();
-						});
-					</script>
-
-
-				</div>
-				<div id="header-menu" style="background: rgb(0, 183, 178);">
-					<a class="lnk-hm-home menu_active"
-						href="index.jsp"> </a>
-					<ul class="ul-menu-header">
-
-						<li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header">
-								TRANG CHỦ </a></li>
-
-						<li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
-								HƯỚNG DẪN SỬ DỤNG </a></li>
-						<li class="li-menu-header"><a class="lnk-menu-header">
-								DANH SÁCH LỚP HỌC </a>
-							<div class="vts-submenu submenu-245">
-								<ul class="submenu1">
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Công Nghệ Phần Mềm</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Lập trình web</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Hệ quản trị cơ sở dữ liệu </a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Điện tử căn bản </a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Thực tập điện tử căn bản</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Lập trình WinDow From </a></li>
-								</ul>
-							</div></li>
-						
-					</ul>
-				</div>
-			</div>
+			<%@ include file="//includes/header.jsp" %>
 
 
 		<script type="text/javascript">
@@ -1620,7 +1546,7 @@
 							</div>
 							<div class="add-footer">
 
-								<a href="edit-assignment.jsp"><input type="button" name="" value="Add"
+								<a href="edit-exercise.jsp"><input type="button" name="" value="Add"
 									 id=""
 									class="bpt-lnk-save btn-add"></a>
 								

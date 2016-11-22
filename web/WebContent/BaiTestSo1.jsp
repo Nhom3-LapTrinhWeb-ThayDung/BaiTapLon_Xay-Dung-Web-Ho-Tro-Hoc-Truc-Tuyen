@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Quiz"%>
@@ -160,6 +161,11 @@
 							int second = Integer.parseInt(quiz.getTime().substring(6, 8));
 							%>
 							timeDisplay('aTime', 0, <%=hours%>, <%=minute%>, <%=second%>, 0, 'ctl15_btn');
+							var d1= new Date();
+							var d2 = new Date();
+							var d = d2-d1;
+							var x =d1.getDate();
+							alert(x);
 						</script>
 
 					</span>

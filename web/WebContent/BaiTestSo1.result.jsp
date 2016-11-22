@@ -204,6 +204,7 @@
 						<input type="hidden" id="socaudung" name="socaudung" value="0">
 						<input type="hidden"
 								name="quiz_name" value="<%=quiz.getQuiz_name()%>">
+								
 					</span>
 				</div>
 				<div id="line_alert"
@@ -220,7 +221,7 @@
 			<div id="ctl15_div_time" class="time-remain">
 				<span class="sp-text">Thời gian còn lại</span> <span class="sp-time"
 					id="aTime" class="timeCount"> <script type="text/javascript">
-						timeDisplay('aTime', 0, 0, 59, 59, 0, 'ctl15_btn');
+					$('#aTime').html('sadasdsad');
 					</script>
 
 				</span>

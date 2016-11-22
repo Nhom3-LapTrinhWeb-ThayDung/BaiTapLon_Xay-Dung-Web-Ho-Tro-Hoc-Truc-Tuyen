@@ -1000,20 +1000,10 @@ $('.persion-tab-lnk').click(function() {
 								}
 							   
 							   for (var int = 1900; int <= 2050; int++) {
-								   if(int == d.getFullYear())
-									   {
-									   $('#id_timeend_year').append(
-												'<option value="'+int+'" selected="selected"">' +int+'</option>');
-										$('#id_timestart_year').append(
-											'<option value="'+int+'" selected="selected"">' +int+'</option>');
-									   }
-								   else
-									   {
 										$('#id_timeend_year').append(
 											'<option value="'+int+'">' +int+'</option>');
 										$('#id_timestart_year').append(
 												'<option value="'+int+'">' +int+'</option>');
-									   }
 								}
 							   //$('#id_timestart_month option[value=11]').Attr('selected',true);
 							   //$('#id_timestart_month option[value=11]').attr("selected",true); 	   

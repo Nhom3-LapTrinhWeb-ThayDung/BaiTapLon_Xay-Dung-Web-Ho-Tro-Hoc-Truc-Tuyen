@@ -1,14 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="model.Users"%>
+<%@page import="model.User_info"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
 	Users users=null;
-	if(session.getAttribute("user")!=null)
+	User_info user_info = null;
+	if(session.getAttribute("user")!=null && session.getAttribute("user_info")!=null)
 	{
 		users = (Users) session.getAttribute("user");
+		user_info = (User_info) session.getAttribute("user_info");
 	}
-	
 %>
 <div id="header">
 
@@ -22,7 +24,8 @@
 
 
 				<% if(users!=null) {%>
-				<a class="lnk-logout under popup-login"><%=users.getUserName() %></a>
+				<a class="lnk-logout under popup-login" 
+				<%if (user_info.getQuyen()==1) {%>href="canhangiangvien.jsp"<%} else {%>href="hocvien.jsp"<%}%>><%=user_info.getTen() %></a>
 				&nbsp;|&nbsp;<a href="logout.jsp">Thoát</a>
 				<%}
     				else {%>
