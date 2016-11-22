@@ -663,7 +663,7 @@
 									<img src="media.studyfunny.vn" alt=""
 										class="persion-avatar-img">
 									<h3 class="persion-info">
-										<span class="bold"> Nguyễn Ngọc Hải</span><br>
+										<span class="bold"> ${user_info.getTen() }</span><br>
 									</h3>
 
 								</div>
@@ -1511,26 +1511,34 @@
 											<div class="bpt-row">
 												<div class="bpt-item-left">Tên:</div>
 												<div class="bpt-item-right">
-													<input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text"
+													<input name="ten" type="text"
 														value="${user_info.getTen()}" maxlength="100"
-														id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
+														id="ten" class="bpt-txt">
 													<span id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span>
 													<input type="hidden" id="usermame"  name = "username" value="${users.getUserName()}"/>
 												</div>
 											</div>
 											<div class="bpt-row">
+						                        <div class="bpt-item-left">
+						                            Chức vụ</div>
+						                        <div class="bpt-item-right">
+						                            <input name="chucvu" type="text" value="Giảng viên" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" disabled="disabled" class="bpt-txt">
+						                            <span id="chucvu"></span>
+						                        </div>
+						                    </div>
+											<div class="bpt-row">
 												<div class="bpt-item-left">Số điện thoại:</div>
 												<div class="bpt-item-right">
-													<input name="ctl14$ThongTinHocVien$txtTaiKhoan" type="text"
+													<input name="sodienthoai" type="text"
 														value="${user_info.getSodienthoai() }" maxlength="15"
-														id="ctl14_ThongTinHocVien_txtTaiKhoan" class="bpt-txt">
+														id="sodienthoai" class="bpt-txt">
 												</div>
 											</div>
 											<div class="bpt-row">
 												<div class="bpt-item-left">Giới tính:</div>
 												<div class="bpt-item-right">
-													<select name="ThongTinGiangVienGioiTinh"
-														id="ThongTinGiangVienGioiTinh" class="bpt-sl-sex">
+													<select name="gioitinh"
+														id="gioitinh" class="bpt-sl-sex">
 														<option>Chọn giới tính</option>
 														<option value="0">Nam</option>
 														<option value="1">Nữ</option>
@@ -1616,11 +1624,11 @@
 											<div class="bpt-item-left">Ảnh đại diện:</div>
 											<div class="bpt-item-right">
 												<div class="bpt-img-avarta">
-													<img src="media.StudyFunny.vn" alt="" height="48px">
+													<img src="media.StudyFunny.vn" id="anhdaidien" alt="" height="48px">
 
 												</div>
-												<input name="ctl14$ThongTinHocVien$UserImage1" type="file"
-													id="ctl14_ThongTinHocVien_UserImage1" class="file"
+												<input name="button_anhdaidien" type="file"
+													id="button_anhdaidien" class="file"
 													style="width: 210px">
 												<p class="bpt-note-img">
 													<span id="ctl14_ThongTinHocVien_lblErrImage"></span>

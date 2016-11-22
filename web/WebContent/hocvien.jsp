@@ -1,6 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="model.Users"%>
+<%@page import="model.User_info"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,6 +17,8 @@
   <link rel="stylesheet" href="./css/reset.css" type="text/css">
   <link rel="stylesheet" href="css/oneOfCourse.css" type="text/css"></link>
   <link rel="stylesheet" href="css/testOnline.css" type="text/css"></link>
+
+
 
   <title>
   	Trang cá nhân - Study Funny
@@ -248,72 +254,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
          </a>	
     </div>
 </div>
-
-
-<div id="header">
-    <div id="header-top">
-<!--
-		<a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a> -->
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
-      
-           </a>           
-        <div class="header-login">
-             
-             <p class="p-login">
-                Xin chào:<a href="hocvien.jsp">
-                    01678868567</a>
-                    <form>
-                    </form>
-                | <a href="index.jsp">Thoát</a>
-            </p>
-            
-        </div>
-        <div class="study-search">
-            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,&#39;Header_btnSearch1&#39;)" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
-                
-            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata(&#39;Header_btnSearch1&#39;);" id="Header_btnSearch1" class="ssh-btn-search">
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-   
-    
-    </div>
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active">
-        </a>
-        <ul class="ul-menu-header">
-            
-            <li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header ">
-                TRANG CHỦ </a>                
-            </li>
-            
-            <li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header">
-               DANH SÁCH LỚP HỌC </a>   
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="Course_Lap_Trinh_Web.jsp">
-                                 Lập trình web</a> </li>
-                                    <li><a>
-                                  Kỹ thuật lập trình</a> </li>
-                                <li><a >
-                                  Công nghệ phần mềm </a> </li>                                
-                    </ul>
-                </div>             
-            </li>        
-    
-    
-    </ul>
-</div>
-</div>
-
+<%@include file="//includes/header.jsp" %>
 
 <script type="text/javascript">
 
@@ -630,7 +571,7 @@ $('.persion-tab-lnk').click(function() {
         <img src="./Images/hocvien/avatar_01678868567.jpg" alt="" class="persion-avatar-img">
         <h3 class="persion-info">
             <span class="bold">
-                841678868567</span><br>
+                ${user_info.getTen()}</span><br>
         </h3>
 </div>
             </div>
@@ -856,185 +797,110 @@ $('.persion-tab-lnk').click(function() {
                         <div class="bpt-item-left">
                             Nick name:</div>
                         <div class="bpt-item-right">
-                            <input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text" value="841678868567" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
-                            <span id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span>
+                            <input name="ten" type="text" value="${user_info.getTen()}" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
+                            <span id="Ten"></span>
                         </div>
                     </div>
                      <div class="bpt-row">
                         <div class="bpt-item-left">
                             Chức vụ</div>
                         <div class="bpt-item-right">
-                            <input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text" value="Học viên" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
-                            <span id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span>
+                            <input name="chucvu" type="text" value="Học viên" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" disabled="disabled" class="bpt-txt">
+                            <span id="chucvu"></span>
                         </div>
                     </div>
                     <div class="bpt-row">
                         <div class="bpt-item-left">
                             Số điện thoại:</div>
                         <div class="bpt-item-right">
-                            <input name="ctl14$ThongTinHocVien$txtTaiKhoan" type="text" value="841678868567" maxlength="15" id="ctl14_ThongTinHocVien_txtTaiKhoan" disabled="disabled" class="bpt-txt">
-                        </div>
+							<input name="sodienthoai" type="text"
+								value="${user_info.getSodienthoai() }" maxlength="15"
+								id="sodienthoai" class="bpt-txt">
+						</div>
                     </div>
                     <div class="bpt-row">
                         <div class="bpt-item-left">
                             Giới tính:</div>
                         <div class="bpt-item-right">
-                            <select name="ctl14$ThongTinHocVien$ddlGioiTinh" id="ctl14_ThongTinHocVien_ddlGioiTinh" class="bpt-sl-sex">
-		<option selected="selected" value="0">Chọn giới tính</option>
-		<option value="1">Nam</option>
-		<option value="2">Nữ</option>
+													<select name="gioitinh"
+														id="gioitinh" class="bpt-sl-sex">
+														<option>Chọn giới tính</option>
+														<option value="0">Nam</option>
+														<option value="1">Nữ</option>
+													</select>
 
-	</select>
-                        </div>
+													<script type="text/javascript">
+														$(document).ready(function() {
+																			var x = ${user_info.getGioitinh()};
+																			$(
+																					'#ThongTinGiangVienGioiTinh option[value='
+																							+ x
+																							+ ']')
+																					.attr(
+																							'selected',
+																							'selected');
+																			//alert(x);
+																			//alert($('#ThongTinGiangVienGioiTinh option[selected="selected"]').attr('value'));
+																		})
+													</script>
+
+
+
+												</div>
                     </div>
                     <div class="bpt-row">
-                        <div class="bpt-item-left">
-                            Ngày/tháng/năm sinh:</div>
-                        <div class="bpt-item-right">
-                            <select name="ctl14$ThongTinHocVien$ddlNgay" id="ctl14_ThongTinHocVien_ddlNgay" class="bpt-sl-date">
-		<option value="0">Ngày</option>
-		<option selected="selected" value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-		<option value="13">13</option>
-		<option value="14">14</option>
-		<option value="15">15</option>
-		<option value="16">16</option>
-		<option value="17">17</option>
-		<option value="18">18</option>
-		<option value="19">19</option>
-		<option value="20">20</option>
-		<option value="21">21</option>
-		<option value="22">22</option>
-		<option value="23">23</option>
-		<option value="24">24</option>
-		<option value="25">25</option>
-		<option value="26">26</option>
-		<option value="27">27</option>
-		<option value="28">28</option>
-		<option value="29">29</option>
-		<option value="30">30</option>
-		<option value="31">31</option>
+												<div class="bpt-item-left">Ngày/tháng/năm sinh:</div>
+												<div class="bpt-item-right">
+													<select name="ngaysinh" id="ngaysinh" class="bpt-sl-date">
+														<option value="0">Ngày</option>
+														<option value="25">25</option>
+													</select> <select name="thangsinh" id="thangsinh" class="bpt-sl-month">
+														<option value="0">Tháng</option>
+													</select> <select name="namsinh" id="namsinh" class="bpt-sl-date">
+														<option value="0">Năm</option>
 
-	</select>
-                            <select name="ctl14$ThongTinHocVien$ddlThang" id="ctl14_ThongTinHocVien_ddlThang" class="bpt-sl-month">
-		<option value="0">Tháng</option>
-		<option selected="selected" value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-
-	</select>
-                            <select name="ctl14$ThongTinHocVien$ddlNam" id="ctl14_ThongTinHocVien_ddlNam" class="bpt-sl-date">
-		<option value="0">Năm</option>
-		<option value="1930">1930</option>
-		<option value="1931">1931</option>
-		<option value="1932">1932</option>
-		<option value="1933">1933</option>
-		<option value="1934">1934</option>
-		<option value="1935">1935</option>
-		<option value="1936">1936</option>
-		<option value="1937">1937</option>
-		<option value="1938">1938</option>
-		<option value="1939">1939</option>
-		<option value="1940">1940</option>
-		<option value="1941">1941</option>
-		<option value="1942">1942</option>
-		<option value="1943">1943</option>
-		<option value="1944">1944</option>
-		<option value="1945">1945</option>
-		<option value="1946">1946</option>
-		<option value="1947">1947</option>
-		<option value="1948">1948</option>
-		<option value="1949">1949</option>
-		<option value="1950">1950</option>
-		<option value="1951">1951</option>
-		<option value="1952">1952</option>
-		<option value="1953">1953</option>
-		<option value="1954">1954</option>
-		<option value="1955">1955</option>
-		<option value="1956">1956</option>
-		<option value="1957">1957</option>
-		<option value="1958">1958</option>
-		<option value="1959">1959</option>
-		<option value="1960">1960</option>
-		<option value="1961">1961</option>
-		<option value="1962">1962</option>
-		<option value="1963">1963</option>
-		<option value="1964">1964</option>
-		<option value="1965">1965</option>
-		<option value="1966">1966</option>
-		<option value="1967">1967</option>
-		<option value="1968">1968</option>
-		<option value="1969">1969</option>
-		<option value="1970">1970</option>
-		<option value="1971">1971</option>
-		<option value="1972">1972</option>
-		<option value="1973">1973</option>
-		<option value="1974">1974</option>
-		<option value="1975">1975</option>
-		<option value="1976">1976</option>
-		<option value="1977">1977</option>
-		<option value="1978">1978</option>
-		<option value="1979">1979</option>
-		<option value="1980">1980</option>
-		<option value="1981">1981</option>
-		<option value="1982">1982</option>
-		<option value="1983">1983</option>
-		<option value="1984">1984</option>
-		<option value="1985">1985</option>
-		<option value="1986">1986</option>
-		<option value="1987">1987</option>
-		<option value="1988">1988</option>
-		<option value="1989">1989</option>
-		<option value="1990">1990</option>
-		<option value="1991">1991</option>
-		<option value="1992">1992</option>
-		<option value="1993">1993</option>
-		<option value="1994">1994</option>
-		<option value="1995">1995</option>
-		<option value="1996">1996</option>
-		<option value="1997">1997</option>
-		<option value="1998">1998</option>
-		<option value="1999">1999</option>
-		<option value="2000">2000</option>
-		<option value="2001">2001</option>
-		<option value="2002">2002</option>
-		<option value="2003">2003</option>
-		<option value="2004">2004</option>
-		<option value="2005">2005</option>
-		<option value="2006">2006</option>
-		<option value="2007">2007</option>
-		<option value="2008">2008</option>
-		<option value="2009">2009</option>
-		<option value="2010">2010</option>
-		<option value="2011">2011</option>
-
-	</select>
-                        </div>
-                    </div>
+													</select>
+													
+													<script type="text/javascript">
+														$(document).ready(function() {
+															<%
+															int nam =Integer.parseInt(user_info.getNgaysinh().substring(0, 4));
+															int thang = Integer.parseInt(user_info.getNgaysinh().substring(5, 7));
+															int ngay = Integer.parseInt(user_info.getNgaysinh().substring(8,10)) ;
+															%>
+																			var d = new Date();
+																			var ngay = <%=ngay%>;
+																			var thang = <%=thang%>;
+																			var nam = <%=nam%>;
+																			for (var int = 1; int <= 31; int++) {
+																				if(int == ngay)
+																					$('#ngaysinh').append('<option value="'+int+'" selected="selected">'+ int+ '</option>');
+																				else
+																					$('#ngaysinh').append('<option value="'+int+'">'+ int+ '</option>');
+																				
+																			}
+																			for (var int = 1; int <= 12; int++) {
+																				if(int == thang)
+																					$('#thangsinh').append('<option value="'+int+'" selected="selected">'+ int+ '</option>');
+																				else
+																					$('#thangsinh').append('<option value="'+int+'">'+ int+ '</option>');
+																			}
+																			for (var int = 1980; int <= d.getFullYear(); int++) {
+																				if(int == nam)
+																					$('#namsinh').append('<option value="'+int+'" selected="selected">'+ int+ '</option>');
+																				else
+																					$('#namsinh').append('<option value="'+int+'">'+ int+ '</option>');
+																			}
+																		});
+														
+													</script>
+												</div>
+											</div>
                     <div class="bpt-row">
                         <div class="bpt-item-left">
                             Email:</div>
                         <div class="bpt-item-right">
-                            <input name="ctl14$ThongTinHocVien$txtEmail" type="text" maxlength="50" id="ctl14_ThongTinHocVien_txtEmail" class="bpt-txt">
+                            <input name="email" type="text" maxlength="50" id="email" value=${user_info.getEmail() } class="bpt-txt">
                         </div>
                     </div>                
 </div>
@@ -1043,9 +909,9 @@ $('.persion-tab-lnk').click(function() {
                     Ảnh đại diện:</div>
                 <div class="bpt-item-right">
                     <div class="bpt-img-avarta">
-                        <img src="Images/hocvien/avatar_01678868567.jpg" alt="" height="48px">                        
+                        <img src="Images/hocvien/avatar_01678868567.jpg" id="anhdaidien" alt="" height="48px">                        
                     </div>
-                    <input name="ctl14$ThongTinHocVien$UserImage1" type="file" id="ctl14_ThongTinHocVien_UserImage1" class="file" style="width: 210px">
+                    <input name="button_anhdaidien" type="file" id="button_anhdaidien" class="file" style="width: 210px">
                     <p class="bpt-note-img">
                         <span id="ctl14_ThongTinHocVien_lblErrImage"></span>
                     </p>
@@ -1055,10 +921,12 @@ $('.persion-tab-lnk').click(function() {
             
             <div class="bpt-row">
                 <div class="bpt-item-left">
-                    Bạn đang học tập tại:</div>
+                    Địa chỉ:</div>
                 <div class="bpt-item-right">
-                    <input name="ctl14$ThongTinHocVien$txtLop" type="text" maxlength="50" id="ctl14_ThongTinHocVien_txtLop" class="bpt-txt">
-                </div>
+					<input name="diachi" type="text"
+						maxlength="200" id="diachi"
+						class="bpt-txt" value="${user_info.getDiachi()}">
+				</div>
             </div>
             <div class="bpt-row">
                 <div class="bpt-item-left">
