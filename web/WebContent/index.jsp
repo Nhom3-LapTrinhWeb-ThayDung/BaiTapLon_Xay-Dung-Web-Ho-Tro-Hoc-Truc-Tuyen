@@ -1629,7 +1629,24 @@ fbq('track', "PageView");</script>
           }
           $('#register').click(function(){
         	  //erorregister = checkemail+ checkuser;
-        	  $('#errorregister').html(errorregister);
+        	  $('#errorregister').empty();
+        	  if(errorregister!="")
+        	  	$('#errorregister').html(errorregister);
+        	  else
+        		  $.post('CheckEmailServlet', {'email-register': email,'checkemail':checkemail}, function (data) {
+                  	//$("#email-register-result").html(data);	
+                  	var txtEmail = $("#email-register").val();
+                  	if(data=="" && validateEmail(txtEmail))
+               		   $("#email-register-result").html("<img src=\"Images/available.png\"/>");
+               	   else
+               		  {
+               		   if(data!="")
+               			errorregister = errorregister + data;
+               		   if(!validateEmail(txtEmail))
+               			errorregister = errorregister +"\nEmail không hợp lệ (exam:study@gmail.com)"
+               			$("#email-register-result").html("<img src=\"Images/not-available.png\"/>");
+               		  }
+                   },'text');
           })
        });
 </script>

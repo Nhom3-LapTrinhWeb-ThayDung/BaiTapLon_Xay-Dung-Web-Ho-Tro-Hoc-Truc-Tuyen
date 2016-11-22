@@ -84,4 +84,19 @@ public class UsersDAO {
 		}
 		return false;
 	}
+	public boolean doimk(String user,String pass)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "update user set user_pass = '"+pass+"' where user_name ='"+user+"'";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

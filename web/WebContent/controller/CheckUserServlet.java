@@ -37,11 +37,15 @@ public class CheckUserServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		if (usersDAO.checkUsername(request.getParameter("username"))) {
-	          response.getWriter().write("<img src=\"Images/not-available.png\"/>");
+			//checkuser="Tên tài khoản đã tồn tại! ";
+	          //response.getWriter().write("<img src=\"Images/not-available.png\"/>");
+			response.getWriter().write("\nTên tài khoản đã tồn tại! ");
 	     } else {
-	          response.getWriter().write("<img src=\"Images/available.png\"/>");
+	          //response.getWriter().write("<img src=\"Images/available.png\"/>");
+	    	 response.getWriter().write("");
 	     }
 	}
 

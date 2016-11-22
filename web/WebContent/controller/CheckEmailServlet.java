@@ -37,11 +37,16 @@ public class CheckEmailServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		//String checkemail="";
 		 if (usersDAO.checkEmail(request.getParameter("email-register"))) {
-	          response.getWriter().write("<img src=\"Images/not-available.png\"/>");
+			 //checkemail="Email đã được sử dụng! ";
+	          //response.getWriter().write("<img src=\"Images/not-available.png\"/>");
+			 response.getWriter().write("\nEmail đã được sử dụng! ");
 	     } else {
-	          response.getWriter().write("<img src=\"Images/available.png\"/>");
+	          //response.getWriter().write("<img src=\"Images/available.png\"/>");
+	    	 response.getWriter().write("");
 	     }
 	}
 

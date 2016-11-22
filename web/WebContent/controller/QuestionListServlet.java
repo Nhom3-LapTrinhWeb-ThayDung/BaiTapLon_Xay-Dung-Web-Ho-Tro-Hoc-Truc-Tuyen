@@ -28,13 +28,17 @@ public class QuestionListServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<QuestionQuiz> listQuestionRadios = new QuestionRadioDAO().getListQuestionRadios();
+    	request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+    	String quiz_name = request.getParameter("quiz_name");
+    	List<QuestionQuiz> listQuestionRadios = new QuestionRadioDAO().getListQuestionRadios(quiz_name);
         request.setAttribute("listQuestionRadios", listQuestionRadios);
         
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/BaiTestSo1.jsp");
