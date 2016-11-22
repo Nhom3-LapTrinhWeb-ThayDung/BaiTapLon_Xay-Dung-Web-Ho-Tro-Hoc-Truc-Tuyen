@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@page import="model.Section"%>
+<%@page import="dao.SectionDAO"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -255,7 +256,14 @@
 
 
 			<%@ include file="//includes/header.jsp" %>
-
+		<%
+			SectionDAO sectionDAO = new SectionDAO();
+			String course_id = "";
+			if(request.getParameter("course_id")!=null)
+			{
+				course_id = request.getParameter("course_id");
+			}
+		%>
 
 		<script type="text/javascript">
 			function clickButton(e, buttonid) {
@@ -661,6 +669,15 @@
 						$('.course').attr('style', 'display:block')
 					}
 				</script>
+				<script>
+				$(document).ready(function() {
+					if(<%=user_info.getQuyen()%>=="1")
+						{
+							$('#header-manager').attr('style','display: block');
+							$('#manager').attr('style','display: block');
+						}
+					});
+			</script>
 				<div class="row">
 					<h1 class="learn-process-h3">
 						<span>Lập trình web</span>
@@ -668,7 +685,8 @@
 
 				</div>
 				<div class="learn-process process-study">
-					<div id="header-menu" style="background: rgb(0, 183, 178);">
+				<div style="display: none" id ="header-manager" >
+					<div id="header-menu" style="background: rgb(0, 183, 178);" >
 						<a class="lnk-hm-home menu_active"
 							href="khoahoc2.jsp"> </a>
 						<ul class="ul-menu-header">
@@ -696,17 +714,18 @@
 							<!-- Courses in category -->
 						</ul>
 					</div>
+				</div>
 					<div id="Course" class="body" style="display: block">
 					<c:if test="${errorStr != null }">
 						<p style="color: red; font-style: italic;">${errorStr }</p>
 					</c:if>
-						<a onclick="showedit()"><img
+						<a onclick="showedit()" id ="manager" style="display: none"><img
 							style="display: block; float: right;" src="Images/settings2.png"></a>
 						<div class="box-test-online martop_0">
 							<div class="to-content">
 								<div class="to-c-left">
 									<div class="to-c-l-list" style="font-size: 18px">
-										<div class="row">
+										<!-- <div class="row">
 											<div class="box-text">
 												<a href="edit-section.jsp"><img
 													style="display: none; float: right" name="edit"
@@ -728,20 +747,26 @@
 												<a class="under popup-login" rel="#overlay-add-assignment"><img
 													style="float: right" src="Images/add-item.png"></a>
 											</div>
-										</div>
-
+										</div> -->
+							
+									<%
+										for (Section s : sectionDAO.getListSection(Long.parseLong(course_id))) {
+									%>
 										<div class="row">
 											<div class="box-text">
 												<a><img style="display: none; float: right" name="edit"
 													src="Images/settings2.png"></a>
 												<h2 style="color: blue">
-													<span>Chương 1. Tổng quan</span>
+													<span><%=s.getSection_name() %></span>
 												</h2>
+												<br>
+												<div>
+													<p><%=s.getSection_content() %></p>
+												</div>
 											</div>
-											<form method="post" action="PracticeServlet" >
 											<div class="box-resources">
 												<br>
-												<p style="margin-left: 20px">
+												<!-- <p style="margin-left: 20px">
 													
 													<img src="Images/quiz.png">
 													&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="quiz_name" value="Bài Test Số 1" />
@@ -754,103 +779,25 @@
 															<option value="2" href="">xóa</option>
 													</select>
 													</span>
-												</p>
+												</p> -->
 											</div>
 											</form>
 
 											<div class="edit" style="display: none;">
-												<a href=""><img style="float: right"
+												<a class="under popup-login" rel="#overlay-add-assignment" onclick="addsourceclick(<%=s.getSection_id()%>)"><img style="float: right"
 													src="Images/add-item.png"></a>
 											</div>
 										</div>
+									<%
+										}
+									%>
 
-										<div class="row">
-											<div class="box-text">
-												<a><img style="display: none; float: right" name="edit"
-													src="Images/settings2.png"></a>
-												<h2 style="color: blue">
-													<span>Chương 2. HTML</span>
-												</h2>
-											</div>
-
-											<div class="box-resources">
-												<br>
-												<p style="margin-left: 20px">
-													<img src="Images/pdf-24.png">&nbsp;Tài liệu hưỡng dẫn
-													html&nbsp;&nbsp;&nbsp;&nbsp;<span class="edit"
-														style="display: none"> <select class="bpt-sl-date">
-															<option value="0">edit</option>
-															<option value="1" onselect="sua()"><a
-																	onclick="sua()">Sửa</a></option>
-															<option value="2" href="">xóa</option>
-													</select>
-													</span>
-												</p>
-											</div>
-
-											<div class="edit" style="display: none;">
-												<a href=""><img style="float: right"
-													src="Images/add-item.png"></a>
-											</div>
-										</div>
-										<div class="row">
-											<div class="box-text">
-												<a><img style="display: none; float: right" name="edit"
-													src="Images/settings2.png"></a>
-												<h2 style="color: blue">
-													<span>Chương 3. JQUERY</span>
-												</h2>
-											</div>
-											<div class="box-resources">
-												<br> <a href="Chi-Tiet-Bai-Tap.jsp">
-												<p style="margin-left: 20px">
-														<img src="Images/icon-baitap.svg">&nbsp; Các chức
-														năng chứa jquery trong BTL&nbsp;&nbsp;&nbsp;&nbsp;<span
-															class="edit" style="display: none"></a> <select
-													class="bpt-sl-date">
-													<option value="0">edit</option>
-													<option value="1" onselect="sua()"><a
-															onclick="sua()">Sửa</a></option>
-													<option value="2" href="">xóa</option>
-												</select> </span>
-												</p>
-											</div>
-											<div class="edit" style="display: none;">
-												<a href=""><img style="float: right"
-													src="Images/add-item.png"></a>
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="box-text">
-												<a><img style="display: none; float: right" name="edit"
-													src="Images/settings2.png"></a>
-												<h2 style="color: blue">
-													<span>Chương 4. AJAX</span>
-												</h2>
-											</div>
-
-											<div class="box-resources">
-												<br>
-												<p style="margin-left: 20px">
-													<img src="Images/icon-baitap.svg">&nbsp;Những chức
-													năng có thể dùng được AJAX trong
-													BTL&nbsp;&nbsp;&nbsp;&nbsp;<span class="edit"
-														style="display: none"> <select class="bpt-sl-date">
-															<option value="0">edit</option>
-															<option value="1" onselect="sua()"><a
-																	onclick="sua()">Sửa</a></option>
-															<option value="2" href="">xóa</option>
-													</select>
-													</span>
-												</p>
-											</div>
-
-											<div class="edit" style="display: none;">
-												<a href=""><img style="float: right"
-													src="Images/add-item.png"></a>
-											</div>
-										</div>
+										<script type="text/javascript">
+										    function addsourceclick(sectionid) {
+										        <%long section_id = Long.parseLong(sectionid)%>
+										        alert('<%=section_id%>');
+										    }
+										</script>
 										<div class="edit" style="display: none">
 											<div class="row">
 												<p style="text-align: right">

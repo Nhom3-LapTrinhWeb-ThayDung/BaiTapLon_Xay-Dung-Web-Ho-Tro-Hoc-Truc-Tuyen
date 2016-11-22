@@ -8,6 +8,7 @@ encoding//src/controller/PracticeServlet.java=UTF-8
 encoding//src/controller/QuestionListServlet.java=UTF-8
 encoding//src/controller/SetListQuestionServlet.java=UTF-8
 encoding//src/controller/UsersServlet.java=UTF-8
+encoding//src/dao/CourseDAO.java=UTF-8
 encoding//src/dao/QuestionRadioDAO.java=UTF-8
 encoding//src/dao/User_infoDAO.java=UTF-8
 encoding//src/dao/UsersDAO.java=UTF-8

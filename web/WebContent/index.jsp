@@ -1415,8 +1415,7 @@ fbq('track', "PageView");</script>
    										window.location.href = url;
    									else
    										{
-   										alert(url);
-                           		   		$("#errorlogin").html(data);	
+                           		   			$("#errorlogin").html(data);	
    										}
    				                 },'text');
                             }
