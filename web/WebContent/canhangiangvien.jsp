@@ -1548,7 +1548,7 @@
 														$(document).ready(function() {
 																			var x = ${user_info.getGioitinh()};
 																			$(
-																					'#ThongTinGiangVienGioiTinh option[value='
+																					'#gioitinh option[value='
 																							+ x
 																							+ ']')
 																					.attr(

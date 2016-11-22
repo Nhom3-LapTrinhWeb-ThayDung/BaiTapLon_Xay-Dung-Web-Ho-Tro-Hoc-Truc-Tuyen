@@ -1557,6 +1557,7 @@ fbq('track', "PageView");</script>
 
 	<script type="text/javascript">
       $(document).ready(function () {
+    	  
     	  var checkuser,checkemail,errorregister;
     	  checkuser="";
     	  checkemail="";
@@ -1576,13 +1577,17 @@ fbq('track', "PageView");</script>
                 	//$("#email-register-result").html(data);	
                 	var txtEmail = $("#email-register").val();
                 	if(data=="" && validateEmail(txtEmail))
-             		   $("#email-register-result").html("<img src=\"Images/available.png\"/>");
+                		{
+             		   		$("#email-register-result").html("<img src=\"Images/available.png\"/>");
+             		   		checkemail="";
+                		}
              	   else
              		  {
-             		   if(data!="")
-             			errorregister = errorregister + data;
+             		   
              		   if(!validateEmail(txtEmail))
-             			errorregister = errorregister +"\nEmail không hợp lệ (exam:study@gmail.com)"
+             			  checkemail = "\nEmail không hợp lệ (exam:study@gmail.com)"
+             			  else if(data!="")
+                			  checkemail =data;
              			$("#email-register-result").html("<img src=\"Images/not-available.png\"/>");
              		  }
                  },'text');
@@ -1618,36 +1623,72 @@ fbq('track', "PageView");</script>
                $("#user-register-result").html('<img src="Images/ajax-loader.gif" />');
                $.post('CheckUserServlet', {'username': username,'checkuser':checkuser}, function (data) {
             	   if(data=="")
-            		   $("#user-register-result").html("<img src=\"Images/available.png\"/>");
+            		   {
+            		   	$("#user-register-result").html("<img src=\"Images/available.png\"/>");
+            		   	checkuser="";
+            		   }
             	   else
             		  {
             			$("#user-register-result").html("<img src=\"Images/not-available.png\"/>");
-            			errorregister = errorregister + data;
+            			checkuser =data;
             		  }
-            	   //alert(checkuser);
                 },'text');
           }
           $('#register').click(function(){
-        	  //erorregister = checkemail+ checkuser;
-        	  $('#errorregister').empty();
+        	  errorregister="";
+        	  errorregister = errorregister + checkuser + checkemail;
+        	  $("#errorregister").empty();
+        	  if(errorregister!="")
+        		  {
+	        	  	$("#errorregister").html(errorregister);
+        		  }
+        	  else
+        		  {
+        		  if($('#email-register').val()=="" || $('#gioitinh').val()=="-1" || $('#namsinh').val()=="0" ||
+        				  $('#thangsinh').val()=="0" || $('#ngaysinh').val()=="0" || $('#name').val()==""||
+        				  $('#sdt').val()=="" || $('#username-register').val()=="" || $('#pass-register').val()=="")
+        			  {
+        			  	$('#errorregister').html("Chưa nhập đủ thông tin! ");
+        			  }
+        		  else if($('#pass-register').val() != $('#pass-register2').val())
+        			  {
+        			  $('#errorregister').html("Xác nhận mật khẩu sai! ");
+        			  }
+        		  else
+        			  {
+        			  alert($('#email-register').val() + $('#gioitinh').val()+ $('#namsinh').val()+
+            				  $('#thangsinh').val()+ $('#ngaysinh').val()+ $('#name').val()+
+            				  $('#sdt').val()+ $('#username-register').val()+ $('#pass-register').val())
+		        		  $.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
+		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
+		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
+		                  	if(data=="")
+		                  		window.location.href="index.jsp";
+		                  	else
+		                  		$('#errorregister').html(data);
+		                   },'text');
+        			  }
+        		  }
+          })
+
+           /* $('#register').click(function(){
+        	  //erorregister = checkemail + checkuser;
+        	  //$("#errorregister").empty();
+        	  $("#errorregister").html(checkemail);
         	  if(errorregister!="")
         	  	$('#errorregister').html(errorregister);
         	  else
-        		  $.post('CheckEmailServlet', {'email-register': email,'checkemail':checkemail}, function (data) {
-                  	//$("#email-register-result").html(data);	
-                  	var txtEmail = $("#email-register").val();
-                  	if(data=="" && validateEmail(txtEmail))
-               		   $("#email-register-result").html("<img src=\"Images/available.png\"/>");
-               	   else
-               		  {
-               		   if(data!="")
-               			errorregister = errorregister + data;
-               		   if(!validateEmail(txtEmail))
-               			errorregister = errorregister +"\nEmail không hợp lệ (exam:study@gmail.com)"
-               			$("#email-register-result").html("<img src=\"Images/not-available.png\"/>");
-               		  }
+        		  {
+        		  $.post('UserServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
+        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh'),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
+        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val(),'email-register':$('#email-register').val()}, function (data) {
+                  	if(data!="")
+                  		window.location.href="index.jsp";
+                  	else
+                  		$('#errorregister').html(data);
                    },'text');
-          })
+        		  } 
+          }) */
        });
 </script>
 
@@ -1697,8 +1738,8 @@ fbq('track', "PageView");</script>
 						</div>
 						<div class="bpc-row">
 							<span class="sp-left">Nhập lại</span> <span class="sp-right">
-								<input name="login$txtmatKhau" type="password" maxlength="30"
-								id="login_txtmatKhau" class="bpc-txt" autocomplete="off"
+								<input name="pass-register2" type="password" maxlength="30"
+								id="pass-register2" class="bpc-txt" autocomplete="off"
 								onkeypress="return clickButton(event,'login_btnDangNhap')">
 							</span>
 						</div>
@@ -1729,7 +1770,7 @@ fbq('track', "PageView");</script>
 							<span class="sp-left">Giới tính</span> <span class="sp-right">
 								<div class="bpt-item-right">
 									<select name="gioitinh" id="gioitinh" class="bpt-sl-sex">
-										<option selected="selected">Chọn giới tính</option>
+										<option value ="-1" selected="selected">Chọn giới tính</option>
 										<option value="0">Nam</option>
 										<option value="1">Nữ</option>
 
@@ -1883,9 +1924,8 @@ fbq('track', "PageView");</script>
 
 							<div class="bpc-row" style="margin-top: 0px;">
 								<span class="sp-left"></span><span class="sp-right"> <a id="register" name="register"
-											class="bpt-lnk-save btn-login"
-											onclick="registerclick()">
-											Đăn Ký </a> <input
+											class="bpt-lnk-save btn-login">
+											Đăng Ký </a> <input
 									type="hidden" name="command" value="insert">
 								</span>
 
