@@ -1,8 +1,15 @@
+
+<%@page import="dao.QuestionRadioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page import="dao.CourseDAO"%>
 <%@page import="model.Section"%>
 <%@page import="dao.SectionDAO"%>
+<%@page import="model.Course"%>
+<%@page import="dao.ExerciseDAO"%>
+<%@page import="model.Exercise"%>
+<%@page import="model.Quiz"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -258,11 +265,18 @@
 			<%@ include file="//includes/header.jsp" %>
 		<%
 			SectionDAO sectionDAO = new SectionDAO();
+			CourseDAO courseDAO = new CourseDAO();
+			ExerciseDAO exerciseDAO = new ExerciseDAO();
+			QuestionRadioDAO questionDAO = new QuestionRadioDAO();
 			String course_id = "";
+			Course course = new Course();
+			//Exercise exercise = new Exercise();
 			if(request.getParameter("course_id")!=null)
 			{
 				course_id = request.getParameter("course_id");
+				course = courseDAO.getCourse(Long.parseLong(course_id));
 			}
+			Section tempsection = new Section();
 		%>
 
 		<script type="text/javascript">
@@ -680,7 +694,7 @@
 			</script>
 				<div class="row">
 					<h1 class="learn-process-h3">
-						<span>Lập trình web</span>
+						<span><%=course.getCourse_name() %></span>
 					</h1>
 
 				</div>
@@ -709,7 +723,7 @@
 									</ul>
 								</div></li>
 							<li class="li-menu-header" style="margin-left: 370px"><a
-								href="edit-course.jsp"><img style="display: block;"
+								href="edit-course.jsp?course_id=<%=course_id%>"><img style="display: block;"
 									src="Images/settings.png"></a></li>
 							<!-- Courses in category -->
 						</ul>
@@ -754,7 +768,7 @@
 									%>
 										<div class="row">
 											<div class="box-text">
-												<a><img style="display: none; float: right" name="edit"
+												<a href="edit-section.jsp?section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" name="edit"
 													src="Images/settings2.png"></a>
 												<h2 style="color: blue">
 													<span><%=s.getSection_name() %></span>
@@ -766,23 +780,40 @@
 											</div>
 											<div class="box-resources">
 												<br>
-												<!-- <p style="margin-left: 20px">
-													
+												<%
+												for (Exercise ex : exerciseDAO.getListExercise(s.getSection_id())) {
+												%>
+												<p style="margin-left: 20px">
+													<a href="Chi-Tiet-Bai-Tap.jsp?exercise_id=<%=ex.getExercise_id() %>">
 													<img src="Images/quiz.png">
-													&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="quiz_name" value="Bài Test Số 1" />
-													<input type="hidden" name="command" value="thitracnghiem"/>
-													<span class="edit"
-														style="display: none"> <select class="bpt-sl-date">
-															<option value="0">edit</option>
-															<option value="1" onselect="sua()"><a
-																	onclick="sua()">Sửa</a></option>
-															<option value="2" href="">xóa</option>
-													</select>
+													<%=ex.getExercise_name()%></a>
+													
+													<span class="edit" style="display: none">
+													 <a class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&exercise_id=<%=ex.getExercise_id() %>">Sửa</a>
+													  &nbsp;|&nbsp;<a class="under" onclick="xoaclick(<%=ex.getExercise_id()%>,'exercise')">Xóa</a>
 													</span>
-												</p> -->
+												</p>
+												<%
+													}
+													for (Quiz q : questionDAO.getListQuiz(s.getSection_id())) {
+												%>
+												<p style="margin-left: 20px">
+													<a href="Chi-Tiet-Bai-Tap.jsp?exercise_id=<%=q.getId() %>">
+													<img src="Images/quiz.png">
+													<%=q.getQuiz_name()%></a>
+													
+													<span class="edit" style="display: none">
+														<a class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&quiz_id=<%=q.getId() %>">Sửa</a> 
+														&nbsp;|&nbsp;<a class="under" onclick="xoaclick(<%=q.getId()%>,'quiz')">Xóa</a>
+														
+													</span>
+												</p>
+												<%
+													}
+												%>
 											</div>
 											</form>
-
+											
 											<div class="edit" style="display: none;">
 												<a class="under popup-login" rel="#overlay-add-assignment" onclick="addsourceclick(<%=s.getSection_id()%>)"><img style="float: right"
 													src="Images/add-item.png"></a>
@@ -791,17 +822,31 @@
 									<%
 										}
 									%>
-
+									
+								<input type="hidden" id="currentsectionid" value=""/>
 										<script type="text/javascript">
 										    function addsourceclick(sectionid) {
-										        <%long section_id = Long.parseLong(sectionid)%>
-										        alert('<%=section_id%>');
+										    	var currentsectionid = sectionid;
+										        $('#currentsectionid').val(sectionid);
 										    }
+										    
+										    
+										    function xoaclick(id,type){
+										    	if(type=="exercise")
+										    	{
+										    		alert("exercise_id="+id);
+										    	}
+										    	if(type=="quiz")
+										    	{
+										    		alert("quiz_id" +id);
+										    	}
+										    }
+										    
 										</script>
 										<div class="edit" style="display: none">
 											<div class="row">
 												<p style="text-align: right">
-													<a><img src="Images/switch_plus.svg"></a> <a><img
+													<a href="create-section.jsp?course_id=<%=course_id%>"><img src="Images/switch_plus.svg"></a> <a><img
 														src="Images/switch_minus.svg"></a>
 												</p>
 											</div>
@@ -1493,7 +1538,7 @@
 							</div>
 							<div class="add-footer">
 
-								<a href="edit-exercise.jsp"><input type="button" name="" value="Add"
+								<a onclick="addclick(1)"><input type="button" name="" value="Add"
 									 id=""
 									class="bpt-lnk-save btn-add"></a>
 								
@@ -1562,7 +1607,7 @@
 							</div>
 							<div class="add-footer">
 
-								<a href="edit-quiz.jsp"><input type="button" name="" value="Add"
+								<a onclick="addclick(4)"><input type="button" name="" value="Add"
 									 id=""
 									class="bpt-lnk-save btn-add"></a>
 								
@@ -1572,7 +1617,7 @@
 
 				</div>
 
-
+	
 				<script>
 					$(document).ready(function() {
 						$('.choose-style').click(function() {
@@ -1588,7 +1633,16 @@
 							} catch (err) {
 							}
 						});
+						
 					});
+				</script>
+				<script type="text/javascript">
+				function addclick(data){
+					if(data==1)
+						window.location.href = "create-exercise.jsp?course_id="+<%=course_id%>+"&section_id=" + $('#currentsectionid').val();
+					else if(data==4)
+						window.location.href = "create-quiz.jsp?course_id="+<%=course_id%>+"&section_id=" + $('#currentsectionid').val();
+				}
 				</script>
 			</div>
 

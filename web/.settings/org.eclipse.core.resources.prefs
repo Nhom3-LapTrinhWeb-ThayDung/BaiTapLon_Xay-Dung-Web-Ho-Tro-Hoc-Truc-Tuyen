@@ -4,6 +4,7 @@ encoding//src/controller/CheckEmailServlet.java=UTF-8
 encoding//src/controller/CheckUserServlet.java=UTF-8
 encoding//src/controller/CourseServlet.java=UTF-8
 encoding//src/controller/DoQuestionListServlet.java=UTF-8
+encoding//src/controller/ExerciseServlet.java=UTF-8
 encoding//src/controller/PracticeServlet.java=UTF-8
 encoding//src/controller/QuestionListServlet.java=UTF-8
 encoding//src/controller/SetListQuestionServlet.java=UTF-8
