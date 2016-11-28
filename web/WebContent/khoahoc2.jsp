@@ -1,5 +1,5 @@
 
-<%@page import="dao.QuestionRadioDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,6 +10,7 @@
 <%@page import="dao.ExerciseDAO"%>
 <%@page import="model.Exercise"%>
 <%@page import="model.Quiz"%>
+<%@page import="dao.QuestionRadioDAO"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -798,7 +799,7 @@
 													for (Quiz q : questionDAO.getListQuiz(s.getSection_id())) {
 												%>
 												<p style="margin-left: 20px">
-													<a href="Chi-Tiet-Bai-Tap.jsp?exercise_id=<%=q.getId() %>">
+													<a href="LamBaiThi.jsp?quiz_id=<%=q.getId() %>">
 													<img src="Images/quiz.png">
 													<%=q.getQuiz_name()%></a>
 													
@@ -838,7 +839,7 @@
 										    	}
 										    	if(type=="quiz")
 										    	{
-										    		alert("quiz_id" +id);
+										    		alert("quiz_id=" +id);
 										    	}
 										    }
 										    

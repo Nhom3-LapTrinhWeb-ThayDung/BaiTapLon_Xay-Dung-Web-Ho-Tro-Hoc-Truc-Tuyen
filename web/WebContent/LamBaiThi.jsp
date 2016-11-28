@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Quiz"%>
-
+<%@page import="dao.QuestionRadioDAO"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -15,14 +15,7 @@
 <title>BÀI TEST IQ SỐ 1 - ViettelStudy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
-	<%
-	Quiz quiz=null;
-	if(session.getAttribute("quiz")!=null)
-	{
-		quiz = (Quiz) session.getAttribute("quiz");
-	}
 	
-%>
 	<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -41,7 +34,18 @@
 }
 </style>
 	<%@include file="//includes/header.jsp"%>
-
+	<%
+		Quiz quiz = new Quiz();
+		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
+		String quiz_id="";
+		if(request.getParameter("quiz_id")!=null)
+		{
+			
+			quiz_id = request.getParameter("quiz_id");
+			quiz = quizDAO.getQuiz(Long.parseLong(quiz_id));
+		}
+	
+	%>
 
 	<!--end-header-->
 	<form method="get" action="QuestionListServlet">
@@ -73,18 +77,13 @@
 						<p class="ttl-p2 bold"></p>
 						<p class="ttl-p3"></p>
 					</div>
-					<div id="ctl14_pnStart">
-						<div style="text-align: center;">
-							<span id="ctl14_lblErr"></span>
-						</div>
-						<div class="bpc-row" style="margin-top: 0px;">
-							<span class="sp-right" style="text-align: center"> <input
-								style="margin-left: 375px;" type="submit"
-								name="login$btnDangNhap" value="Bắt đầu làm bài" id=""
-								class="bpt-lnk-save btn-login" /> <input type="hidden"
-								name="quiz_name" value="<%=quiz.getQuiz_name()%>">
-							</span>
-						</div>
+					<div class="tt-start">
+			            <input type="hidden" name="ctl14$hftenKhongDau" id="ctl14_hftenKhongDau" value="BAI-TEST-IQ-SO-1">
+			            <a id="ctl14_btnstart" class="tt-tart-lnk" href="BaiTestSo1.jsp?quiz_id=<%=quiz_id%>">
+			                Bắt đầu làm bài
+			            </a>
+			            <input type="hidden" name="TokenCSRF_Thi_XacNhan" value="CBE0FA6BD3791332169A0FD70DBFD53C74BA9688109B11460FAAA1A63543C3E466B88A5CBDD478D9E8C9EA8BEB06D5813C852745461CA083B9FE24234847D5E4">
+			            
 					</div>
 				</div>
 				<!--end-start-test-->

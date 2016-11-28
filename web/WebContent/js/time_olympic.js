@@ -58,12 +58,12 @@ function timeDisplay(txtTimeDislay, days, hours, minute, second, delay, btSave)
 
         //        document.getElementById(txtTimeDislay).innerHTML = 'Còn '+days+' ngày '+hoursStr + ':' + minuteStr + ':' + secondStr; 
         document.getElementById(txtTimeDislay).innerHTML = '' + hoursStr + ':' + minuteStr + ':' + secondStr;
-
        _setTimeout = setTimeout('timeDisplay(\'' + txtTimeDislay + '\',' + days + ',' + hoursStr + ',' + minuteStr + ',' + secondStr + ',' + delay + ')', 1000);
     }
     else {
         document.getElementById(txtTimeDislay).innerHTML = 'Đã hết thời gian';
         //document.getElementById(paramSave).attr("disabled", "disabled");
+        //tự động nộp bài
         document.getElementById(paramSave).click();
 
     }

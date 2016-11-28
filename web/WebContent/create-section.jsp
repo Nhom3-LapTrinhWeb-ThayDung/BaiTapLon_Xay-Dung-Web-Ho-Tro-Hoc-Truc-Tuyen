@@ -1,7 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@page import="dao.CourseDAO"%>
+<%@page import="model.Course"%>
+<%@page import="dao.SectionDAO"%>
+<%@page import="model.Section"%>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <link rel="stylesheet" href="css/essential.css" type="text/css">
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -239,82 +242,18 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 </div>
 
 
-<div id="header">
-				<div id="header-top">
-					<a
-						style="color: #00918d; font-size: 14px; position: absolute; right: 0px; bottom: 10px"
-						href="HuongDanSuDung.jsp">Hướng dẫn</a> <a
-						class="header-logo" href="index.jsp">
-
-					</a>
-					<div class="header-login">
-
-						<p class="p-login">
-							Xin chào: <a href="canhangiangvien.jsp"> Hải </a>
-							| <a href="index.jsp">Thoát</a>
-						</p>
-
-					</div>
-					<div class="study-search">
-						<input name="Header$search_query" type="text" maxlength="100"
-							id="Header_search_query"
-							class="searchInput has_default_text ssh-input"
-							onkeypress="return clickButton(event,'Header_btnSearch1')"
-							onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
-							value="Từ khóa tìm kiếm" autocomplete="off"> <input
-							type="submit" name="Header$btnSearch1" value=""
-							onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1"
-							class="ssh-btn-search">
-					</div>
-					<div style="display: none;" id="suggestions" class="suggestion">
-					</div>
-					<script type="text/javascript">
-						$(document).ready(function() {
-							suggesstionFunc();
-						});
-					</script>
-
-
-				</div>
-				<div id="header-menu" style="background: rgb(0, 183, 178);">
-					<a class="lnk-hm-home menu_active"
-						href="index.jsp"> </a>
-					<ul class="ul-menu-header">
-
-						<li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header">
-								TRANG CHỦ </a></li>
-
-						<li class="li-menu-header"><a href="HuongDanSuDung.jsp" class="lnk-menu-header ">
-								HƯỚNG DẪN SỬ DỤNG </a></li>
-						<li class="li-menu-header"><a class="lnk-menu-header">
-								DANH SÁCH LỚP HỌC </a>
-							<div class="vts-submenu submenu-245">
-								<ul class="submenu1">
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Công Nghệ Phần Mềm</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Lập trình web</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Hệ quản trị cơ sở dữ liệu </a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Điện tử căn bản </a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Thực tập điện tử căn bản</a></li>
-									<li><a
-										href="DanhSachKhoaHoc.jsp">
-											Lập trình WinDow From </a></li>
-								</ul>
-							</div></li>
-						
-					</ul>
-				</div>
-</div>
-
+			<%@include file="//includes/header.jsp" %>
+			<%
+			SectionDAO sectionDAO = new SectionDAO();
+			CourseDAO courseDAO = new CourseDAO();
+			String course_id = "";
+			Course course = new Course();
+			if(request.getParameter("course_id")!=null)
+			{
+				course_id = request.getParameter("course_id");
+				course = courseDAO.getCourse(Long.parseLong(course_id));
+			}
+			%>
 
 <script type="text/javascript">
 
@@ -659,37 +598,45 @@ $('.persion-tab-lnk').click(function() {
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
-        <h2 style="color:blue">Chương 1</h2>
+        <h2 style="color:blue"><%=course.getCourse_name() %></h2>
         <form autocomplete="off" action="https://lms.hcmute.edu.vn/calendar/event.php" method="post" accept-charset="utf-8" id="mform1" class="mform">
             <fieldset class="clearfix collapsible" id="id_general">
+                <div >
+										<p style="color: red; font-style: italic; padding-left: 15px"
+											id="errorsection" name="errorsection"></p>
+									</div>
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Section name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="name" type="text" id="id_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Section name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="section_name" type="text" id="section_name"></div>
                 </div>
-
-
-
-
-
-                <!-- mô tả -->
+                <!-- place -->
                 <div>
-                    <!-- <div class="fitemtitle" id="yui_3_15_0_2_1476453284347_966"><label for="id_description" id="yui_3_15_0_2_1476453284347_412">Description </label></div>
-                        <div class="atto_group collapse_group" id="yui_3_15_0_2_1476453284347_630"><button type="button" class="atto_collapse_button highlight" tabindex="0" title="Show fewer buttons" id="yui_3_15_0_2_1476453284347_456"><img class="icon" aria-hidden="true" role="presentation" width="16" height="16" src="https://lms.hcmute.edu.vn/theme/image.php/essential/atto_collapse/1476366384/icon" id="yui_3_15_0_2_1476453284347_2022"></button></div>
-
-                        <div class="atto_group style1_group" id="yui_3_15_0_2_1476453284347_1093"><button class="atto_title_button atto_hasmenu" tabindex="-1" type="button" title="Paragraph styles"><img class="icon" aria-hidden="true" role="presentation" width="16" height="16" style="background-color:transparent;" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/e/styleprops"><img class="icon" aria-hidden="true" role="presentation" width="16" height="16" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/t/expanded"></button><button type="button" class="atto_bold_button_bold" tabindex="-1" title="Bold [Ctrl + b]" id="yui_3_15_0_2_1476453284347_1092"><img class="icon" aria-hidden="true" role="presentation" width="16" height="16" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/e/bold" id="yui_3_15_0_2_1476453284347_1094"></button><button type="button" class="atto_italic_button_italic" tabindex="-1" title="Italic [Ctrl + i]"><img class="icon" aria-hidden="true" role="presentation" width="16" height="16" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/e/italic"></button></div>
-                    
-                        <div class="editor_atto_toolbar" role="toolbar" aria-live="off" aria-labelledby="yui_3_15_0_2_1476453284347_412" id="yui_3_15_0_2_1476453284347_454" aria-activedescendant="yui_3_15_0_2_1476453284347_456"></div> -->
-                        
-
                     <div>
-                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
+                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Content</label></div>
                         </div>
-                        <textarea class="txt-input" name="txtAddedContent" style="height:300px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
+                        <textarea class="txt-input" name="section_content" style="height:300px;width: 394px;" id="section_content" placeholder="Nội dung"></textarea>
                     </div>
-                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div></div>
+                    <!-- <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="btnsave" value="Save changes" type="button" id="btnsave"></div></div> -->
+                		<div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
+                    <a id="btnsave"><input name="submitbutton" value="Save changes" type="button" id="id_submitbutton"></a></div>
                 </div>
                 <!-- end mô tả -->
-
+				<script type="text/javascript">
+					$('#btnsave').click(function(){
+						<%-- alert("<%=course_id%>"+ $('#section_name').val()+"------"+$('#section_content').val()) --%>
+						$.post('SectionServlet', {'command':"insert",'section_name':$('#section_name').val(),
+							'section_content':$('#section_content').val(),'course_id':"<%=course_id%>"
+							}, function (data) {
+								//$('#errorexercise').html(data);
+								if(data=="Thêm section thành công!")
+								{
+									window.location.href = "khoahoc2.jsp?course_id="+<%=course_id%>;
+								}
+								else
+									$('#errorsection').html(data);
+							},'text');
+					})
+				</script>
 
 
 
@@ -742,27 +689,22 @@ $('.persion-tab-lnk').click(function() {
          
 <a id="to_top" href="#"
 			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
-			rel="nofollow"> <img alt="Go to top!"
-			src="Images/gototop.png"></a>
+			rel="nofollow"> <img alt="Go to top!" src="Images/gototop.png"></a>
 		<div id="footer">
 			<div id="footer-menu">
 				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
 
 			</div>
             <div class="footer-menu-new">
-  <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
-  <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
-  <span style="float: right; line-height: 39px;">
-  <input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
-    border: 1px solid #d4e7e3;
-    border-radius: 5px;
-    height: 25px;
-    margin-right: 16px;
-     padding: 1px 10px;
-    width: 260px;">
-  <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-</span>
-    </div> 
+				<span class="title">ĐĂNG KÝ NHẬN EMAIL</span> <span class="font-des">Đăng
+					ký để nhận tài liệu bổ ích từ StudyFunny.com</span> <span
+					style="float: right; line-height: 39px;"> <input
+					type="email" name="femail" id="femail"
+					style="background: #d4e7e3 none repeat scroll 0 0; border: 1px solid #d4e7e3; border-radius: 5px; height: 25px; margin-right: 16px; padding: 1px 10px; width: 260px;">
+					<input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ"
+					style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
+				</span>
+			</div>
 
     <div id="footer-bottom">
 

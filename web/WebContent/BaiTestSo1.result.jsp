@@ -1,7 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Users"%>
 <%@page import="model.Quiz"%>
+<%@page import="model.Quiz"%>
+<%@page import="dao.QuestionRadioDAO"%>
+<%@page import="model.QuestionQuiz"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -23,14 +27,6 @@
 </head>
 
 <body>
-<%
-	Quiz quiz=null;
-	if(session.getAttribute("quiz")!=null)
-	{
-		quiz = (Quiz) session.getAttribute("quiz");
-	}
-	
-%>
 	<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -50,6 +46,17 @@
 </style>
 
 	<%@ include file="//includes/header.jsp" %>
+	<%
+		Quiz quiz = new Quiz();
+		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
+		String quiz_id="";
+		if(request.getParameter("quiz_id")!=null)
+		{
+			
+			quiz_id = request.getParameter("quiz_id");
+			quiz = quizDAO.getQuiz(Long.parseLong(quiz_id));
+		}
+	%>
 	<!--end-header-->
 	<% int dung = 0; %>
 	<form method="post" action="DoQuestionListServlet">
@@ -59,8 +66,8 @@
 				<h2 class="bm-title">BÀI TEST IQ</h2>
 				<br> <br>
 				<c:if test="${errorStr != null }">
-					<div>
-						<p style="color: red; font-style: italic; padding-left: 15px">${errorStr }</p>
+					<div >
+						<p style="color: red; font-style: italic; padding-left: 15px" id ="errorStr">${errorStr }</p>
 					</div>
 				</c:if>
 				<c:forEach items="${listQuestionRadios }" var="questionRadio">
@@ -134,58 +141,221 @@
 											</div>
 										</div>
 									</div>
+									<!-- nếu đáp án là A -->
 									<c:if test="${questionRadio.answer == 'A' }">
 										<c:if test="${answerUser.answer == 'A' }">
-
 											<script type="text/javascript">
 												$(document).ready(function() {
 													var x = ${questionRadio.number};
-													 $('span#A'+x).append('<img alt="Correct" src="Images/available.png" />')
+													 $('span#A'+x).append('<img alt="Correct" src="Images/available.png" />');
 													 $('#A'+x+' input[type="radio"][name=ans['+x+']][value=A]').attr('checked','checked');
 													 <% dung=dung+1;%>;
-													 $('#socaudung').attr('value',<%= dung%>);
-													 alert($('#socaudung').attr('value'));
+													$('#socaudung').attr('value','<%=dung%>');
 												});
 											</script>
 										</c:if>
 										<c:if test="${answerUser.answer == 'B' }">
-
 											<script type="text/javascript">
 											$(document).ready(function() {
 												var x = ${questionRadio.number};
 												 $('#A'+x).append('<img alt="Correct" src="Images/available.png" />')
 												 $('#B'+x+' input[type="radio"][name=ans['+x+']][value=B]').attr('checked','checked');
-												 $('#B'+x).append('<img alt="Correct" src="Images/not-available.png" />')
-											 })
-											
+												 $('#B'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
 											</script>
 										</c:if>
 										<c:if test="${answerUser.answer == 'C' }">
-
 											<script type="text/javascript">
 											$(document).ready(function() {
 												var x = ${questionRadio.number};
 												 $('#A'+x).append('<img alt="Correct" src="Images/available.png" />')
 												 $('#C'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
-												 $('#C'+x).append('<img alt="Correct" src="Images/not-available.png" />')
-											 })
-											
+												 $('#C'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
 											</script>
 										</c:if>
-										<c:if test="${answerUser.answer == 'D' }">
-
+										<c:if test="${answerUser.answer == 'D' }">	
 											<script type="text/javascript">
 											$(document).ready(function() {
 												var x = ${questionRadio.number};
 												 $('#A'+x).append('<img alt="Correct" src="Images/available.png" />')
 												 $('#D'+x+' input[type="radio"][name=ans['+x+']][value=D]').attr('checked','checked');
-												 $('#D'+x).append('<img alt="Correct" src="Images/not-available.png" />')
-											 })
-											
+												 $('#D'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
 											</script>
 										</c:if>
-										
+										<c:if test="${answerUser.answer == 'E' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#A'+x).append('<img alt="Correct" src="Images/available.png" />')
+											});
+											</script>
 										</c:if>
+										</c:if>
+										
+										<!-- nếu đáp án là B -->
+										<c:if test="${questionRadio.answer == 'B' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<script type="text/javascript">
+												$(document).ready(function() {
+													var x = ${questionRadio.number};
+													$('#B'+x).append('<img alt="Correct" src="Images/available.png" />')
+													 $('#A'+x+' input[type="radio"][name=ans['+x+']][value=A]').attr('checked','checked');
+													 $('#A'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+												});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'B' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 
+												 $('span#B'+x).append('<img alt="Correct" src="Images/available.png" />');
+												 $('#B'+x+' input[type="radio"][name=ans['+x+']][value=B]').attr('checked','checked');
+												 <% dung=dung+1;%>;
+												$('#socaudung').attr('value','<%=dung%>');
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#B'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#C'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
+												 $('#C'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#B'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#D'+x+' input[type="radio"][name=ans['+x+']][value=D]').attr('checked','checked');
+												 $('#D'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'E' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#B'+x).append('<img alt="Correct" src="Images/available.png" />')
+											});
+											</script>
+										</c:if>
+										</c:if>
+										
+										<!-- nếu đáp án là C -->
+										<c:if test="${questionRadio.answer == 'C' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<script type="text/javascript">
+												$(document).ready(function() {
+													var x = ${questionRadio.number};
+													$('#C'+x).append('<img alt="Correct" src="Images/available.png" />')
+													 $('#A'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
+													 $('#A'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+												});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'B' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#C'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#B'+x+' input[type="radio"][name=ans['+x+']][value=B]').attr('checked','checked');
+												 $('#B'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 
+												 $('span#C'+x).append('<img alt="Correct" src="Images/available.png" />');
+												 $('#C'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
+												 <% dung=dung+1;%>;
+												$('#socaudung').attr('value','<%=dung%>');
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#C'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#D'+x+' input[type="radio"][name=ans['+x+']][value=D]').attr('checked','checked');
+												 $('#D'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'E' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#C'+x).append('<img alt="Correct" src="Images/available.png" />')
+											});
+											</script>
+										</c:if>
+										</c:if>
+										
+										<!-- nếu đáp án là D -->
+										<c:if test="${questionRadio.answer == 'D' }">
+										<c:if test="${answerUser.answer == 'A' }">
+											<script type="text/javascript">
+												$(document).ready(function() {
+													var x = ${questionRadio.number};
+													$('#D'+x).append('<img alt="Correct" src="Images/available.png" />')
+													 $('#A'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
+													 $('#A'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+												});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'B' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#D'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#B'+x+' input[type="radio"][name=ans['+x+']][value=B]').attr('checked','checked');
+												 $('#B'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'C' }">
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												('#D'+x).append('<img alt="Correct" src="Images/available.png" />')
+												 $('#C'+x+' input[type="radio"][name=ans['+x+']][value=C]').attr('checked','checked');
+												 $('#C'+x).append('<img alt="InCorrect" src="Images/not-available.png" />')
+												 
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'D' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												$('span#D'+x).append('<img alt="Correct" src="Images/available.png" />');
+												 $('#D'+x+' input[type="radio"][name=ans['+x+']][value=D]').attr('checked','checked');
+												 <% dung=dung+1;%>;
+												$('#socaudung').attr('value','<%=dung%>');
+											});
+											</script>
+										</c:if>
+										<c:if test="${answerUser.answer == 'E' }">	
+											<script type="text/javascript">
+											$(document).ready(function() {
+												var x = ${questionRadio.number};
+												 $('#D'+x).append('<img alt="Correct" src="Images/available.png" />')
+											});
+											</script>
+										</c:if>
+										</c:if>
+										
 										</c:if>
 										</c:forEach>
 										</c:forEach>
@@ -202,9 +372,10 @@
 						value="Chấm Điểm" id="" class="bpt-lnk-save btn-login" />
 						<input type="hidden" name="command" value="chamdiem">
 						<input type="hidden" id="socaudung" name="socaudung" value="0">
-						<input type="hidden"
-								name="quiz_name" value="<%=quiz.getQuiz_name()%>">
-								
+						<input type="hidden" name="quiz_id" value="<%=quiz.getId()%>">
+						<input type="hidden" name="hourssubmit" id = "hourssubmit" value="${hourssubmit}">
+             			<input type="hidden" name="minutesubmit" id = "minutesubmit" value="${minutesubmit}">
+             			<input type="hidden" name="secondsubmit" id = "secondsubmit" value="${secondsubmit}">
 					</span>
 				</div>
 				<div id="line_alert"
@@ -220,10 +391,10 @@
 			<!-- Đếm thời gian nộp bài -->
 			<div id="ctl15_div_time" class="time-remain">
 				<span class="sp-text">Thời gian còn lại</span> <span class="sp-time"
-					id="aTime" class="timeCount"> <script type="text/javascript">
-					$('#aTime').html('sadasdsad');
-					</script>
-
+					id="aTime" class="timeCount"><!--  <script type="text/javascript">
+					document.getElementById('aTime').innerHTML = '' + hourslimit + ':' + minutelimit + ':' + secondlimit;
+					</script> -->
+				${hourssubmit}:${minutesubmit}:${secondsubmit}
 				</span>
 			</div>
 
@@ -233,7 +404,6 @@
 						startRequest);
 				Sys.WebForms.PageRequestManager.getInstance().add_endRequest(
 						endRequest);
-
 				function startRequest(sender, e) {
 					//disable button during the AJAX call
 					document.getElementById('ctl15_btnNopBai').disabled = true;

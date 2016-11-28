@@ -212,7 +212,7 @@ span.sp-vote{float:left;margin-left:10px;display:inline;}
 /*time-remain*/
 .time-remain {font-weight: bold;position: fixed;right: 10px;top: 50%;width: 120px;}
 .time-remain span.sp-text {color: #565656;float: left;font-size: 14px;line-height: 18px;}
-.time-remain span.sp-time {background: url("../images/gd_36.png") no-repeat scroll left top transparent;color: #00918d;float: left;font-size: 18px;height: 23px;line-height: 24px;
+.time-remain span.sp-time {background: url("../Images/gd_36.png") no-repeat scroll left top transparent;color: #00918d;float: left;font-size: 18px;height: 23px;line-height: 24px;
 margin-top: 2px;padding-left: 30px;}
 /*form-send*/
 .form-recomment {margin-top: 10px;width: 308px;overflow:hidden;display:none;}

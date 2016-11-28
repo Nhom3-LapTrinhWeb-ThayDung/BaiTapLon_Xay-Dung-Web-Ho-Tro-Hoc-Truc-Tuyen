@@ -1,4 +1,11 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Users"%>
+<%@page import="model.Quiz"%>
+<%@page import="model.QuizResult"%>
+<%@page import="dao.QuestionRadioDAO"%>
+<%@page import="model.QuestionQuiz"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -32,6 +39,22 @@
         .p-login .lnk-user{padding-bottom:3px;}
   </style>
 <%@ include file="//includes/header.jsp" %>
+
+		<%
+		Quiz quiz = new Quiz();
+		String quiz_id="";
+		QuizResult quizresult = new QuizResult();
+		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
+		String result_id="";
+		if(request.getParameter("result_id")!=null && request.getParameter("quiz_id")!=null)
+		{
+			
+			result_id = request.getParameter("result_id");
+			quizresult= quizDAO.getQuizResult(Long.parseLong(result_id));
+			quiz_id = request.getParameter("quiz_id");
+			quiz = quizDAO.getQuiz(Long.parseLong(quiz_id));
+		}
+	%>
         <!--end-header-->
         <div id="body">
         <!--Alert-->
@@ -51,7 +74,7 @@
 					</div>
 				</c:if>
             	<h2 class="bm-title">
-                	${quiz_name}
+                	<%=quiz.getQuiz_name() %>
                 </h2>
                 <div class="box-scores">
                 	<div class="bs-left">
@@ -60,19 +83,19 @@
                         </h3>
                         <div id="ctl15_pnDiem">
                         <div class="bsl-content">
-                        	<span class="bsl-point">${diem}</span>
+                        	<span class="bsl-point"><%=quizresult.getScores() %></span>
                             <div class="bsl-text">
                             	<span class="bsl-sp-left">
                                 	Số đáp án đúng:
                                 </span>
                                 <span class="bsl-sp-right">
-                                	${socaudung}/${tongsocau}
+                                	<%=quizresult.getSocaudung() %>/<%=quizresult.getTongsocau() %>
                                 </span>
                                 <span class="bsl-sp-left">
                                 	Tổng thời gian làm bài:
                                 </span>
                                 <span class="bsl-sp-right">
-                                	${thoigianlambai}
+                                	<%=quizresult.getTimework() %>
                                 </span>
                             </div>
                         </div>             

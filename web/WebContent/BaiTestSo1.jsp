@@ -1,7 +1,11 @@
 <%@page import="java.sql.Date"%>
+<%@page import="java.util.List"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Quiz"%>
+<%@page import="dao.QuestionRadioDAO"%>
+<%@page import="model.QuestionQuiz"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -23,14 +27,6 @@
 </head>
 
 <body>
-<%
-	Quiz quiz=null;
-	if(session.getAttribute("quiz")!=null)
-	{
-		quiz = (Quiz) session.getAttribute("quiz");
-	}
-	
-%>
 		<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -50,25 +46,41 @@
 </style>
 
 		<%@ include file="//includes/header.jsp" %>
+		<%
+		Quiz quiz = new Quiz();
+		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
+		String quiz_id="";
+		if(request.getParameter("quiz_id")!=null)
+		{
+			
+			quiz_id = request.getParameter("quiz_id");
+			quiz = quizDAO.getQuiz(Long.parseLong(quiz_id));
+			
+		}
+	
+		%>
 		<!--end-header-->
 			<div id="body">
-<form method="post" action="DoQuestionListServlet">
+<form method="post" action="DoQuestionListServlet" id ="form1">
 				<div class="box-multiChoice">
 					<h2 class="bm-title">BÀI TEST IQ</h2>
 					<c:if test="${errorStr != null }">
 						<p style="color: red; font-style: italic;">${errorStr }</p>
 					</c:if>
+					<p style="color: red; font-style: italic;" id="123"></p>
 					<div class="question">
 						<h3 class="h3q-title">ĐỀ BÀI</h3>
 						<div class="question-list" id="baithi">
 							
-								<c:forEach items="${listQuestionRadios }" var="questionRadio">
+								<%
+									for(QuestionQuiz q : quizDAO.getListQuestionRadios(Long.parseLong(quiz_id))){
+								%>
 									<div class="ql-row">
 										<div class="stt-left">
-											<span class='sttl-sp'>${questionRadio.number }</span>
+											<span class='sttl-sp'><%=q.getNumber() %></span>
 										</div>
 										<div class="ct-right">
-											<div class="ctr-recommend">${questionRadio.question }</div>
+											<div class="ctr-recommend"><%=q.getQuestion() %></div>
 											<div class="ctr-choice" style=''>
 												<span class="sp-choice"> Chọn <b>1</b> câu trả lời
 													đúng
@@ -77,37 +89,39 @@
 													border="0">
 													<tr>
 														<td><span class="rd"><input
-																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_0" type="radio"
-																name="ans[${questionRadio.number}]" value="A" /> <label
-																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_0">A:
-																	${questionRadio.option1 }</label></span></td>
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0" type="radio"
+																name="ans[<%=q.getNumber()%>]" value="A" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">A:
+																	<%=q.getOption1() %></label></span></td>
 													</tr>
 													<tr>
 														<td><span class="rd"><input
-																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_1" type="radio"
-																name="ans[${questionRadio.number}]" value="B" /> <label
-																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_1">B:
-																	${questionRadio.option2 }</label></span></td>
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_1" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="B" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_1">B:
+																	<%=q.getOption2() %>}</label></span></td>
 													</tr>
 													<tr>
 														<td><span class="rd"><input
-																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_2" type="radio"
-																name="ans[${questionRadio.number}]" value="C" /> <label
-																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_2">C:
-																	${questionRadio.option3 }</label></span></td>
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_2" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="C" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_2">C:
+																	<%=q.getOption3() %></label></span></td>
 													</tr>
 													<tr>
 														<td><span class="rd"><input
-																id="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_3" type="radio"
-																name="ans[${questionRadio.number}]" value="D" /> <label
-																for="ctl15_rptCauHoi_ctl00_rbtnList_${questionRadio.number}_3">D:
-																	${questionRadio.option4 }</label></span></td>
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_3" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="D" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_3">D:
+																	<%=q.getOption4() %></label></span></td>
 													</tr>
 												</table>
 											</div>
 										</div>
 									</div>
-								</c:forEach>
+								<%
+									}
+								%>
 							
 							<!-- hết câu 1-->
 
@@ -117,29 +131,38 @@
 					</div>
 
 					<!-- Tạo nút để nộp bài -->
-					<div class="bpc-row" style="margin-top: 0px;">
+					<%-- <div class="bpc-row" style="margin-top: 0px;">
                         <span class="sp-right" style="text-align: center">
+                        
                             <input style="margin-left: 375px;" type="submit" name="login$btnDangNhap" value="Nộp Bài" id="ctl15_btn" class="bpt-lnk-save btn-login"/>
                         	<input type="hidden" name="command" value="nopbai">
                         	<input type="hidden"
-								name="quiz_name" value="<%=quiz.getQuiz_name()%>">
+								name="quiz_id" value="<%=quiz.getId()%>">
                         </span>
-                        </div>
-					<!-- <div id="ctl15_pnStart">
-						<div>
-							<a onclick="if ( !FinishConfirmation()) return false;"
-								id="ctl15_btnNopBai" class="bm-test-again-lnk" href="DoQuestionListServlet">
-								NỘP BÀI </a> 
-								<input type="submit" name="ctl15$btn" value=""
-								id="ctl15_btn"
-								style="border-width: 0px; height: 0px; width: 0px;" />
+                        </div> --%>
+					<div id="ctl15_pnStart">
+				<!-- nút nộp bài -->
+            <div class="bm-test-again">
+             <input type="hidden" name="hourssubmit" id = "hourssubmit" value="">
+             <input type="hidden" name="minutesubmit" id = "minutesubmit" value="">
+             <input type="hidden" name="secondsubmit" id = "secondsubmit" value="">
+            <input type="hidden" name="command" value="nopbai">
+            <input type="hidden"
+								name="quiz_id" value="<%=quiz.getId()%>">
 								
-						</div>
-						<div style="text-align: center;">
-							<span id="ctl15_lblErr"></span> <span id="ctl15_LblIdlbt"
-								style="display: none">7</span>
-						</div>
-					</div> -->
+                <input type="hidden" name="TokenCSRF_Thi_NopBai" value="A01BDD2E459BCE3EF490BC2F9FF779880D17A320D13D9E7BB97908E2942997EBEE17A055CBAEA4D61F0CB4C1EB87D52969CACF8D3107C2C4600139D3DD11ADB7">
+                <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" href="javascript:__doPostBack()">
+            NỘP BÀI
+                </a>
+                <input type="submit" name="ctl15$btn" value="" id="ctl15_btn" style="border-width:0px;height:0px;width:0px;">
+            </div>
+            
+            <div style="text-align: center;">
+                <span id="ctl15_lblErr"></span>
+                <span id="ctl15_LblIdlbt" style="display:none">7</span>
+            </div>
+        
+			</div>
 					<div id="line_alert"
 						style="text-align: center; width: 100%; color: red; padding: 10px 0px 5px; overflow: hidden:">
 					</div>
@@ -161,11 +184,19 @@
 							int second = Integer.parseInt(quiz.getTime().substring(6, 8));
 							%>
 							timeDisplay('aTime', 0, <%=hours%>, <%=minute%>, <%=second%>, 0, 'ctl15_btn');
-							var d1= new Date();
+							/* var d1= new Date();
 							var d2 = new Date();
 							var d = d2-d1;
 							var x =d1.getDate();
-							alert(x);
+							alert(x); */
+							function __doPostBack()
+							{
+								//document.getElementById('123').innerHTML = '' + hourslimit + ':' + minutelimit + ':' + secondlimit;
+								$('#hourssubmit').attr('value',hourslimit);
+								$('#minutesubmit').attr('value',minutelimit);
+								$('#secondsubmit').attr('value',secondlimit-1);
+								$('#form1').submit();
+							}
 						</script>
 
 					</span>
