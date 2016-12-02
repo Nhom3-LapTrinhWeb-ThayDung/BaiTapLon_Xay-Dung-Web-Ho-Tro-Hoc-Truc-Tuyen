@@ -605,7 +605,7 @@ $('.persion-tab-lnk').click(function() {
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
-        <h2 style="color:blue"><%=course.getCourse_name() %></h2>
+        <h2 style="color:blue"><%=section.getSection_name() %></h2>
         <form action="SectionServlet" method="post">
         <div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
                     <a id="btnsave" onclick="if ( ! FinishConfirmation()) return false;"><input name="submitbutton" value="Delete section" type="submit" id="id_submitbutton"></a></div>
