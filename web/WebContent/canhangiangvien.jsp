@@ -712,7 +712,7 @@
                 <div class="to-c-left">
                    <div class="to-c-l-list">
 		                        <%	int i=0;
-		                        	for (Course course : courseDAO.getListCourse(1)) 
+		                        	for (Course course : courseDAO.getListCourse(user_info.getId())) 
 		                        	{
 		                        		i++;
 		                        %>

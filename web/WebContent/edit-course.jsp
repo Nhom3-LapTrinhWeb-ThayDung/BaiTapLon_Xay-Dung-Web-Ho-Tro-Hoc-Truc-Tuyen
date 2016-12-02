@@ -239,6 +239,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 <%@include file = "//includes/header.jsp" %>
+<%
+	
+%>
 
 
 <script type="text/javascript">
@@ -607,7 +610,7 @@ $('.persion-tab-lnk').click(function() {
 
 
                     <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Scheduling<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>start<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
+                    <label class="accesshide" for="id_timestart_day">weekdays</label><select name="course_schedulingday" id="course_schedulingday">
                         <option value="1" selected="selected">Monday</option>
                         <option value="2">Tuesday</option>
                         <option value="3">Wednesday</option>
@@ -615,8 +618,9 @@ $('.persion-tab-lnk').click(function() {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                         <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
-                        <option value="0">00</option>
+                    </select>
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>start lession<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
+                    <label class="accesshide" for="id_timestart_hour">startlession</label><select name="course_startlession" id="course_startlession">
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -629,42 +633,10 @@ $('.persion-tab-lnk').click(function() {
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23" selected="selected">23</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_minute">Minute</label><select name="timestart[minute]" id="id_timestart_minute">
-                        <option value="0">00</option>
-                        <option value="5" selected="selected">05</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
-                    </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
+                    </select>&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>finish<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><select name="timestart[day]" id="id_timestart_day">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_hour">Hour</label><select name="timestart[hour]" id="id_timestart_hour">
-                        <option value="0">00</option>
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>end lession<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><label class="accesshide" for="id_timestart_minute">endlession</label>
+                    <select name="course_endlession" id="course_endlession">
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -677,88 +649,50 @@ $('.persion-tab-lnk').click(function() {
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23" selected="selected">23</option>
-                    </select>&nbsp;<label class="accesshide" for="id_timestart_minute">Minute</label><select name="timestart[minute]" id="id_timestart_minute">
-                        <option value="0">00</option>
-                        <option value="5" selected="selected">05</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
                     </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
 					
 					<div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Place</label></div>
                         </div>
-                        <textarea class="txt-input" name="txtAddedContent" style="height:100px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
+                        <textarea class="txt-input" name="course_place" style="height:100px;width: 394px;" id="course_place" placeholder="Nội dung"></textarea>
                     </div>
 					
 					
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>
-                        <textarea class="txt-input" name="txtAddedContent" style="height:300px;width: 394px;" id="txtAddedContent" placeholder="Nội dung"></textarea>
+                        <textarea class="txt-input" name="course_description" style="height:300px;width: 394px;" id="course_description" placeholder="Nội dung"></textarea>
                     </div>
 
-                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></div>
-                    </div>
+                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
+                    <a id="btnsave"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></a></div></div>
                 </div>
                 <!-- end mô tả -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <script type="text/javascript">
+					<%-- $('#btnsave').click(function() {
+						/* alert($('#exercise_name').val()+$('#exercise_startdate').val()+
+								$('#exercise_starttime').val()+$('#exercise_enddate').val()+$('#exercise_endtime').val()
+								+ $('#exercise_content').val()) */
+								var section_id = "";
+								$.post('ExerciseServlet', {'command':"insert",'exercise_name':$('#exercise_name').val(),'exercise_startdate':$('#exercise_startdate').val(),
+							'exercise_starttime':$('#exercise_starttime').val(),'exercise_enddate':$('#exercise_enddate').val(),'exercise_endtime':$('#exercise_endtime').val(),
+							'section_id':section_id,'exercise_content':$('#exercise_content').val()}, function (data) {
+								//$('#errorexercise').html(data);
+								if(data=="Thêm bài tập thành công!")
+								{
+									window.location.href = "khoahoc2.jsp?course_id="+<%=course_id%>;
+								}
+								else
+									$('#errorexercise').html(data);
+							},'text');
+					}); --%>
+				</script>
+                
+                
+                
+                
+                </div>
             </fieldset>
-        </form>
     </div>
 </section>
 </div> 
