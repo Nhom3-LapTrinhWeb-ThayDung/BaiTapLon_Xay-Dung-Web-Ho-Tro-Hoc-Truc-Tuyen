@@ -78,6 +78,44 @@ public class SectionDAO {
 		}
 		return false;
 	}
+	
+	public boolean update(Section s)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "update section set section_name=?,section_content=? where section_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			
+			ps.setString(1, s.getSection_name());
+			ps.setString(2, s.getSection_content());
+			ps.setLong(3, s.getSection_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean delete(long section_id)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "delete from section where section_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, section_id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		/*// TODO Auto-generated method stub
 		Long c_id = Long.parseLong("1479799303858");

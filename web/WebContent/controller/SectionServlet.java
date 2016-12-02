@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,16 +45,18 @@ public class SectionServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
 		ExerciseDAO exerciseDAO = new ExerciseDAO();
+		Section section = new Section();
+		boolean f;
+		String url="";
+		RequestDispatcher rd ;
 		switch(command){
 		case "insert":
-			Section section = new Section();
-
 			section.setSection_id(new java.util.Date().getTime());
 			section.setSection_name(request.getParameter("section_name"));
 			section.setSection_content(request.getParameter("section_content"));
 			section.setCourse_id(Long.parseLong(request.getParameter("course_id")));
 			
-			boolean f = sectionDAO.insert(section);
+			f = sectionDAO.insert(section);
 			if(f)
 				response.getWriter().write("Thêm section thành công!");
 			else
@@ -63,6 +67,35 @@ public class SectionServlet extends HttpServlet {
 				response.getWriter().write("Thêm section không thành công!");
 			
 			break;
+		case "update":
+			url="";
+			section.setSection_id(Long.parseLong(request.getParameter("section_id")));
+			section.setSection_name(request.getParameter("section_name"));
+			section.setSection_content(request.getParameter("section_content"));
+			section.setCourse_id(Long.parseLong(request.getParameter("course_id")));
+			
+			f = sectionDAO.update(section);
+			if(f)
+				url="khoahoc2.jsp?course_id="+section.getCourse_id();
+			else
+				url="edit-section.jsp?course_id="+section.getCourse_id()+"&section_id="+section.getSection_id();
+			rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
+			break;
+		case "delete":
+			url="";
+			
+			String section_id = request.getParameter("section_id");
+			String course_id = request.getParameter("course_id");
+			f = sectionDAO.delete(Long.parseLong(section_id));
+			if(f)
+				url="khoahoc2.jsp?course_id="+course_id;
+			else
+				url="edit-section.jsp?course_id="+course_id+"&section_id="+section_id;
+			rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
+			break;
+			
 		}
 	}
 

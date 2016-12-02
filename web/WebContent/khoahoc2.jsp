@@ -745,7 +745,7 @@
 					<c:if test="${errorStr != null }">
 						<p style="color: red; font-style: italic;">${errorStr }</p>
 					</c:if>
-					<p style="color: red; font-style: italic;" id ="errorkh">/p>
+					<p style="color: red; font-style: italic;" id ="errorkh"></p>
 						<a onclick="showedit()" id ="manager" style="display: none"><img
 							style="display: block; float: right;" src="Images/settings2.png"></a>
 						<div class="box-test-online martop_0">
@@ -823,9 +823,9 @@
 										    function xoaclick(id,type){
 										    	if(type=="exercise")
 										    	{
-										    		if (confirm("Chắc chắn xóa. Đồng ý?") == true) {
+										    		if (confirm("Chắc chắn xóa bài tập. Đồng ý?") == true) {
 										    			$.post('ExerciseServlet', {'command':"delete",'exercise_id':id}, function (data) {
-															if(data=="Xóa bài tập không thành công!!")
+															if(data=="Xóa bài tập không thành công!")
 																{
 																	$('#errorkh').html(data);
 																}
@@ -836,7 +836,16 @@
 										    	}
 										    	if(type=="quiz")
 										    	{
-										    		alert("quiz_id=" +id);
+										    		if (confirm("Chắc chắn xóa bài test. Đồng ý?") == true) {
+										    			$.post('SetListQuestionServlet', {'command':"delete",'quiz_id':id}, function (data) {
+										    				if(data=="Xóa bài test không thành công!")
+															{
+																$('#errorkh').html(data);
+															}
+														else
+															window.location.reload();
+														},'text');
+										    		} else {}
 										    	}
 										    }
 										    
@@ -1386,6 +1395,7 @@
 	display: inline;
 }
 </style>
+
 				<div class="box-popup">
 					<a class="popup-close">X </a>
 					<h3 class="bp-title">Thông tin chi tiết</h3>
@@ -1462,6 +1472,7 @@
 	display: inline;
 }
 </style>
+				<form action="ExerciseServlet" method="post">
 				<div class="box-popup">
 					<a class="popup-close">X </a>
 					<h3 class="bp-title">Thông tin chi tiết</h3>
@@ -1490,30 +1501,57 @@
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Điểm:</span> <span class="sp-right">
-									<input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text"
-									value="<%=exu.getScore() %>" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu"
+									<input name="score<%=exu.getResult_id() %>" type="text"
+									value="<%=exu.getScore() %>" maxlength="100" id="score<%=exu.getResult_id() %>"
 									class="bpt-txt">
 								</span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Đánh giá:</span>
-								<textarea class="txt-input" name="txtAddedContent"
-									style="height: 80px; width: 200px;" id="txtAddedContent"
+								<textarea class="txt-input" name="review<%=exu.getResult_id() %>"
+									style="height: 80px; width: 200px;" id="review<%=exu.getResult_id() %>"
 									placeholder="Nội dung"><%=exu.getReview() %></textarea>
 							</div>
 
 							<div class="bpc-row" style="margin-top: 20px;">
-								<span class="sp-left"></span> <span class="sp-right"> <a
-									class="close"><input type="submit" value="Ok"
-										" id="btnforget" class="bpt-lnk-save btn-login"></a>
+								<span class="sp-left"></span> <span class="sp-right">
+								 <a><input type="button" value="Ok"
+										   id="chamdiem<%=exu.getResult_id() %>" class="bpt-lnk-save btn-login"></a>
 								</span>
+								<input type="hidden" value="chamdiem" name="command">
 							</div>
+							<script type="text/javascript">
+							$('#chamdiem'+<%=exu.getResult_id() %>).click(function() {
+								if (confirm("Chấm điểm. Đồng ý?") == true) {
+									$.post('ExerciseServlet', {'command':"chamdiem",'result_id':<%=exu.getResult_id()%>,'score':$('#score'+<%=exu.getResult_id()%>).val(),'review':$('#review'+<%=exu.getResult_id()%>).val()}, function (data) {
+										if(data=="Chấm điểm không thành công!")
+										{
+											$('#errorkh').html(data);
+										}
+									else
+										window.location.reload();
+									},'text');
+									<%-- alert($('#score'+<%=exu.getResult_id()%>).val()+$('#review'+<%=exu.getResult_id()%>).val()); --%>
+								} else {}
+								
+							});
+							</script>
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 			<%} %>
-
+<script type="text/javascript">
+					function FinishConfirmationchamdiem() {
+						if (confirm("Chấm điểm. Đồng ý?") == true) {
+							return true;
+						} else {
+							return false;
+						}
+					}
+					
+				</script>
 		</div>
 		<!--end-body-->
 

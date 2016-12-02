@@ -3,12 +3,14 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import connect.DBConnect;
 import model.Exercise;
 import model.Exercise_User;
+import model.QuizResult;
 
 public class Exercise_UserDAO {
 	private Connection conn;
@@ -45,6 +47,27 @@ public class Exercise_UserDAO {
         }
         return null;
     }
+	
+	public boolean chamdiem(long result_id, double score, String review )
+    {
+    	Connection con = DBConnect.getConnecttion();
+		String sql = "update exercise_user set score=?,review=? where result_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setDouble(1, score);
+			ps.setString(2, review);
+			ps.setLong(3, result_id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return false;
+    }
+	
+	
 	public static void main(String[] args) {
 	// TODO Auto-generated method stub
 		Exercise_UserDAO dao = new Exercise_UserDAO();

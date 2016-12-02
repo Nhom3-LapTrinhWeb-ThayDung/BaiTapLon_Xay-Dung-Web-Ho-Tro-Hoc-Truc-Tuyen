@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ExerciseDAO;
+import dao.Exercise_UserDAO;
 import model.Exercise;
 
 /**
@@ -42,6 +43,7 @@ public class ExerciseServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
 		ExerciseDAO exerciseDAO = new ExerciseDAO();
+		boolean f;
 		switch(command){
 		case "insert":
 			Exercise exercise = new Exercise();
@@ -53,7 +55,7 @@ public class ExerciseServlet extends HttpServlet {
 			exercise.setExercise_endtime(request.getParameter("exercise_endtime"));
 			exercise.setSection_id(Long.parseLong(request.getParameter("section_id")));
 			exercise.setExersice_content(request.getParameter("exercise_content"));
-			boolean f = exerciseDAO.insert(exercise);
+			f = exerciseDAO.insert(exercise);
 			if(f)
 				response.getWriter().write("Thêm bài tập thành công!");
 			else
@@ -62,6 +64,22 @@ public class ExerciseServlet extends HttpServlet {
 						 +"~"+ exercise.getExercise_starttime() +"~"+ exercise.getExercise_enddate() +"~"+ exercise.getExercise_endtime()
 						 +"~"+ exercise.getSection_id());*/
 				response.getWriter().write("Thêm bài tập không thành công!");
+			break;
+		case "delete":
+			f = exerciseDAO.delete(Long.parseLong(request.getParameter("exercise_id")));
+			if(f)
+				response.getWriter().write("Xóa bài tập thành công!");
+			else
+				response.getWriter().write("Xóa bài tập không thành công!");
+			break;
+		case "chamdiem":
+			
+			Exercise_UserDAO e_uDAO = new Exercise_UserDAO();
+			f = e_uDAO.chamdiem(Long.parseLong(request.getParameter("result_id")), Double.parseDouble(request.getParameter("score")), request.getParameter("review"));
+			if(f)
+				response.getWriter().write("Chấm điểm thành công!");
+			else
+				response.getWriter().write("Chấm điểm không thành công!");
 			break;
 		}
 	}

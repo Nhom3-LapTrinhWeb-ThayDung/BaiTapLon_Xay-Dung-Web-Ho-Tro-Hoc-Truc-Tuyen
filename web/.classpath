@@ -10,11 +10,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.27.jar"/>
-	<classpathentry kind="lib" path="E:/GITHUB/mysql-connector-java-5.1.23-bin.jar"/>
-	<classpathentry kind="lib" path="E:/GITHUB/mysql-connector-java-5.1.27.jar"/>
-	<classpathentry kind="lib" path="E:/GITHUB/mysql-connector-java-5.1.40-bin.jar"/>
-	<classpathentry kind="lib" path="E:/GITHUB/taglibs-standard-impl-1.2.5.jar"/>
-	<classpathentry kind="lib" path="E:/GITHUB/taglibs-standard-spec-1.2.5.jar"/>
-	<classpathentry kind="lib" path="E:/Phan mem/apache-tomcat-7.0.72/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="F:/download/Compressed/apache-tomcat-8.0.37/apache-tomcat-8.0.37/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

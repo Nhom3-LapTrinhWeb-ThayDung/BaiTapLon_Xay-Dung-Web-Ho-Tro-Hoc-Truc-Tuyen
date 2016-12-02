@@ -47,11 +47,14 @@ public class SetListQuestionServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String errorStr = "";
 		String command = request.getParameter("command");
-		long course_id = Long.parseLong(request.getParameter("course_id"));
+		long course_id;
+		Quiz quiz = new Quiz();
+		QuestionRadioDAO questionRadioDAO = new QuestionRadioDAO();
 		switch (command) {
 		case "insert":
 			//insert quiz
-			Quiz quiz = new Quiz();
+			course_id = Long.parseLong(request.getParameter("course_id"));
+			quiz = new Quiz();
 			long quiz_id =  new java.util.Date().getTime();
 			String quiz_name = request.getParameter("quiz_name");
 			String start_date = request.getParameter("start_date") ;
@@ -98,7 +101,7 @@ public class SetListQuestionServlet extends HttpServlet {
 			if (!errorStr.isEmpty()) {
 
 			} else {
-				QuestionRadioDAO questionRadioDAO = new QuestionRadioDAO();
+				questionRadioDAO = new QuestionRadioDAO();
 
 				boolean f1 = questionRadioDAO.insertQuiz(quiz);
 				if(f1)
@@ -127,7 +130,13 @@ public class SetListQuestionServlet extends HttpServlet {
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khoahoc2.jsp?course_id="+course_id);
 			dispatcher.forward(request, response);
 			break;
-
+		case "delete":
+			boolean f = questionRadioDAO.deleteQuiz(Long.parseLong(request.getParameter("quiz_id")));
+			if(f)
+				response.getWriter().write("Xóa bài test thành công!");
+			else
+				response.getWriter().write("Xóa bài test không thành công!");
+			break;
 		default:
 			break;
 		}

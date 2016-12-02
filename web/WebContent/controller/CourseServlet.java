@@ -52,7 +52,7 @@ public class CourseServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Course course = new Course();
-		
+		boolean f;
 		switch(command){
 		case "insert":
 			long x = new java.util.Date().getTime();
@@ -75,7 +75,7 @@ public class CourseServlet extends HttpServlet {
 					+"-"+ request.getParameter("startdate_ngay"),request.getParameter("enddate_nam")
 					+"-"+ request.getParameter("enddate_thang")
 					+"-"+ request.getParameter("enddate_ngay"),Integer.parseInt(request.getParameter("schedulingday")),Integer.parseInt(request.getParameter("startlession")),Integer.parseInt(request.getParameter("endlession")),request.getParameter("course_place"),request.getParameter("course_description"));*/
-			boolean f = courseDAO.insert(course);
+			f = courseDAO.insert(course);
 			if(f)
 			{
 					f= courseDAO.insertCourse_User(x,Long.parseLong(request.getParameter("idgiangvien")));
@@ -106,54 +106,32 @@ public class CourseServlet extends HttpServlet {
 			break;
 
 		case "update":
-			long y = new java.util.Date().getTime();
-			course.setCourse_id(y);
+			course.setCourse_id(Long.parseLong(request.getParameter("course_id")));
 			course.setCourse_description(request.getParameter("course_description"));
-			course.setCourse_startdate(request.getParameter("startdate_nam")
-				+"-"+ request.getParameter("startdate_thang")
-				+"-"+ request.getParameter("startdate_ngay"));
-			course.setCourse_enddate(request.getParameter("enddate_nam")
-				+"-"+ request.getParameter("enddate_thang")
-				+"-"+ request.getParameter("enddate_ngay"));
+			course.setCourse_startdate(request.getParameter("course_startdate"));
+			course.setCourse_enddate(request.getParameter("course_enddate"));
 			course.setCourse_name(request.getParameter("course_name"));
-			course.setCourse_startlession(Integer.parseInt(request.getParameter("startlession")));
-			course.setCourse_endlession(Integer.parseInt(request.getParameter("endlession")));
+			course.setCourse_startlession(Integer.parseInt(request.getParameter("course_startlession")));
+			course.setCourse_endlession(Integer.parseInt(request.getParameter("course_endlession")));
 			course.setCourse_place(request.getParameter("course_place"));
-			course.setCourse_schedulingday(Integer.parseInt(request.getParameter("schedulingday")));
+			course.setCourse_schedulingday(Integer.parseInt(request.getParameter("course_schedulingday")));
 			
 			/*course = new Course(x,request.getParameter("course_name"),request.getParameter("startdate_nam")
 					+"-"+ request.getParameter("startdate_thang")
 					+"-"+ request.getParameter("startdate_ngay"),request.getParameter("enddate_nam")
 					+"-"+ request.getParameter("enddate_thang")
 					+"-"+ request.getParameter("enddate_ngay"),Integer.parseInt(request.getParameter("schedulingday")),Integer.parseInt(request.getParameter("startlession")),Integer.parseInt(request.getParameter("endlession")),request.getParameter("course_place"),request.getParameter("course_description"));*/
-			boolean f = courseDAO.insert(course);
+			f = courseDAO.update(course);
 			if(f)
 			{
-					f= courseDAO.insertCourse_User(x,Long.parseLong(request.getParameter("idgiangvien")));
-					if(f)
-					{
-						session.setAttribute("course", course);
-						response.getWriter().write("khoahoc2.jsp?course_id="+x);
-						//RequestDispatcher rd = request.getRequestDispatcher(url);
-						//rd.forward(request, response);
-						//response.getWriter().write("Mở khóa học thành công!");
-						//response.sendRedirect("khoahoc2.jsp");  
-						
-					}
-					else
-					{
-						//session.removeAttribute("user");
-						//url="canhangiangvien.jsp";
-						response.getWriter().write("Mở khóa học không thành công!");
-					}
+				url="khoahoc2.jsp?course_id="+course.getCourse_id();
 			}
 			else
 			{
-				//session.removeAttribute("user");
-				//url="canhangiangvien.jsp";
-				response.getWriter().write("Mở khóa học không thành công!");
+				url="edit-course.jsp?course_id="+course.getCourse_id();
 			}
-			
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
 			break;
 		case "getlistcourseofuser":
 			/*int userid=Integer.parseInt(request.getParameter("userid"));

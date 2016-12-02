@@ -40,6 +40,23 @@ public class ExerciseDAO {
 		return false;
 	}
 	
+	
+	public boolean delete(long id)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "delete from exercise where exercise_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	 public List<Exercise> getListExercise(long section_id) {
 	        try {
 	        	Connection conn = DBConnect.getConnecttion();

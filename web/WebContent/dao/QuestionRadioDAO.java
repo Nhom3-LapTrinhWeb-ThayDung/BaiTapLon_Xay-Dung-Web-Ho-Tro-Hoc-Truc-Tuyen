@@ -164,6 +164,22 @@ public class QuestionRadioDAO {
     	return false;
     }
     
+    public boolean deleteQuiz(long quiz_id)
+    {
+    	Connection con = DBConnect.getConnecttion();
+		String sql = "delete from quiz where id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, quiz_id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return false;
+    }
     
     //thêm câu hỏi
     public boolean insertQuestion(QuestionQuiz q)
@@ -260,7 +276,8 @@ public class QuestionRadioDAO {
     	//System.out.println(new java.sql.Date(new java.util.Date().getTime()));
     	//QuizResult qr = new QuizResult(new java.util.Date().getTime(), 3.5, "0:59:2" , new Timestamp(new java.util.Date().getTime()), Long.parseLong("213"), Long.parseLong("45345"));
     	//boolean f = dao.insertQuizResult(qr);
-    	//System.out.println(f);
+    	/*boolean f = dao.deleteQuiz(Long.parseLong("1479875617192"));
+    	System.out.println(f);*/
     	
     	
     }
