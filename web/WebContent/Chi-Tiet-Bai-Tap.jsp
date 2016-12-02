@@ -1,5 +1,11 @@
+<%@page import="dao.ExerciseDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.CourseDAO"%>
+<%@page import="model.Course"%>
+<%@page import="dao.Exercise_UserDAO"%>
+<%@page import="model.Exercise"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -236,165 +242,22 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 </div>
 
 
-<div id="header">
-    <div id="header-top">
-        <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-        <a class="header-logo" href="http://viettelstudy.vn/index.html">
-      
-           </a>           
-        <div class="header-login">
-             
-            <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    Hải </a>
-                | <a href="index.html">Thoát</a>
-            </p>
-            
-        </div>
-        <div class="study-search">
-            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
-                
-            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1" class="ssh-btn-search">
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-   
-    
-    </div>
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
-        </a>
-        <ul class="ul-menu-header">
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                TRANG CHỦ </a>                
-            </li>
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header">
-               DANH SÁCH LỚP HỌC </a>     
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
-                    </ul>
-                </div>           
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-              THƯ VIỆN </a>
-
-              <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-                
-                </li>
-           
-            <li class="li-menu-header"><a class="lnk-menu-header " href="http://tintuc.viettelstudy.vn/tin-tuc/home.html">
-                TIN TỨC </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin giáo
-                            dục</a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2" style="display:none">
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin học đường</a>
-                                </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-                                    tin tuyển sinh</a> </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du học</a>
-                                
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc chia
-                    sẻ </a>
-                    <!-- Courses in category -->
-                    <ul class="submenu2" style="display:none">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh nghiệm</a></li>
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên đọc</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin dịch vụ</a>
-                    <!-- Courses in category -->
-                    
-                </li>
-            </ul>
-        </div>
-    </li>
-    
-    
-    </ul>
-</div>
-</div>
+	<%@ include file="//includes/header.jsp" %>	
+	<%
+	CourseDAO courseDAO = new CourseDAO();
+	String course_id = "";
+	Course course = new Course();
+	String exercise_id="";
+	ExerciseDAO exerciseDAO = new ExerciseDAO();
+	Exercise exercise = new Exercise();
+	if(request.getParameter("course_id")!=null && request.getParameter("exercise_id")!=null )
+	{
+		course_id = request.getParameter("course_id");
+		exercise_id = request.getParameter("exercise_id");
+		course = courseDAO.getCourse(Long.parseLong(course_id));
+		exercise = exerciseDAO.getExercise(Long.parseLong(exercise_id));
+	}
+	%>
 
 
 <script type="text/javascript">
@@ -730,7 +593,7 @@ $('.persion-tab-lnk').click(function() {
         .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
         .Breadcrumb .sne-lnk{color:#00918D;font-weight:normal;line-height:20px;background:}
     </style>
-    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; Lập trình web &gt; Các chức năng chứa jquery trong BTL</a>
+    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; <%=course.getCourse_name() %> &gt; <%=exercise.getExercise_name() %></a>
 </div>
 
 <div class="persion-right2" style="display: block;" id="1">
@@ -756,7 +619,7 @@ $('.persion-tab-lnk').click(function() {
     </script>
         <div class="row">
             <h1 class="learn-process-h3">
-                <span>Lập trình web</span>
+                <span><%=course.getCourse_name() %></span>
             </h1>
             
         </div>
@@ -771,18 +634,18 @@ $('.persion-tab-lnk').click(function() {
 
                     <div class="row">
                         <div class="box-text">
-                        <a ><img style="display: none;float:right" name="edit" src="Images/settings2.png"></a>
+                        <a href="edit-exercise.jsp?course_id=<%=course_id%>&exercise_id<%=exercise_id%>"><img style="display: none; float: right" id="edit" name="edit"
+													src="Images/settings2.png"></a>
                             <h2 style="color:blue">
-                                <span>Các chức năng chứa jquery trong BTL</span>
+                                <span><%=exercise.getExercise_name() %></span>
                             </h2>
                             <br>
-                            <p> Các em liệt kê các phần/chức năng có thể dùng JQUERY. submit file work</p>
-                            <p>Tham khảo tài liệu JQUERY bên dưới</p>
+                            <p><%=exercise.getExersice_content()%></p>
                         </div>
 
                         <div class="box-resources">
                             <br>
-                            <div class="activityinstance">
+                            <!-- <div class="activityinstance">
                                 <a href="" class="instance-color" ><img src="Images/pdf-24.png" class="activityicon">
                                 <span class="instancename">Tài liệu JQUERY</span>
                                 </a>
@@ -793,16 +656,22 @@ $('.persion-tab-lnk').click(function() {
                                     <option value="2" href="">xóa</option>
                                     </select>
                                 </span>
-                            </div>
+                            </div> -->
                         </div>
 
-                        <div class="edit" style="display:none;">
-                        <a href=""><img style="float:right" src="Images/add-item.png"></a>
-                        </div>
+                        <%-- <div class="edit" style="display: none;" name="edit">
+												<a class="under popup-login" rel="#overlay-add-assignment" onclick="addsourceclick(<%=s.getSection_id()%>)"><img style="float: right"
+													src="Images/add-item.png"></a>
+											</div> --%>
                     </div>
                  </div>
                 </div>
-                
+                <script type="text/javascript">
+										    function addsourceclick(sectionid) {
+										    	var currentsectionid = sectionid;
+										        $('#currentsectionid').val(sectionid);
+										    }
+										    </script>
             </div>
         </div>
         </div>

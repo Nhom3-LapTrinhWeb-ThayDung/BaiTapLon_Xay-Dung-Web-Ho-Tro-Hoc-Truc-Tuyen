@@ -5,7 +5,7 @@ package model;
  *
  */
 public class QuestionQuiz {
-	private int id;
+	private long id;
 	private int number;
 	private String question;
     private String option1;
@@ -13,13 +13,13 @@ public class QuestionQuiz {
     private String option3;
     private String option4;
     private String answer;
-    private String quiz_name;
+    private long quiz_id;
 	public QuestionQuiz() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public QuestionQuiz(int id, int number, String question, String option1, String option2, String option3,
-			 String option4,String answer, String quiz_name) {
+	public QuestionQuiz(long id, int number, String question, String option1, String option2, String option3,
+			 String option4,String answer, long quiz_id) {
 		this.id = id;
 		this.number = number;
 		this.question = question;
@@ -28,12 +28,12 @@ public class QuestionQuiz {
 		this.option3 = option3;
 		this.option4 = option4;
 		this.answer = answer;
-		this.quiz_name = quiz_name;
+		this.quiz_id = quiz_id;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public int getNumber() {
@@ -79,13 +79,13 @@ public class QuestionQuiz {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public String getQuiz_name() {
-		return quiz_name;
+	public long getQuiz_id() {
+		return quiz_id;
 	}
-	public void setQuiz_name(String quiz_name) {
-		this.quiz_name = quiz_name;
+	public void setQuiz_id(long quiz_id) {
+		this.quiz_id = quiz_id;
 	}
-	
+
 	
     
 }

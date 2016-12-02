@@ -1,5 +1,7 @@
 
-
+<%@page import="javax.swing.text.Document"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,7 +12,10 @@
 <%@page import="dao.ExerciseDAO"%>
 <%@page import="model.Exercise"%>
 <%@page import="model.Quiz"%>
+<%@page import="model.User_info"%>
 <%@page import="dao.QuestionRadioDAO"%>
+<%@page import="dao.Exercise_UserDAO"%>
+<%@page import="model.Exercise_User"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -268,14 +273,21 @@
 			SectionDAO sectionDAO = new SectionDAO();
 			CourseDAO courseDAO = new CourseDAO();
 			ExerciseDAO exerciseDAO = new ExerciseDAO();
+			Exercise_UserDAO exercise_userDAO = new Exercise_UserDAO();
 			QuestionRadioDAO questionDAO = new QuestionRadioDAO();
 			String course_id = "";
 			Course course = new Course();
+			List<User_info> liststudent = new  ArrayList<User_info>();
+			List<Exercise> listexercise = new ArrayList<Exercise>();
+			List<Exercise_User> listexercise_user = new ArrayList<Exercise_User>();
 			//Exercise exercise = new Exercise();
 			if(request.getParameter("course_id")!=null)
 			{
 				course_id = request.getParameter("course_id");
 				course = courseDAO.getCourse(Long.parseLong(course_id));
+				liststudent = courseDAO.getListStudent(Long.parseLong(course_id));
+				listexercise = courseDAO.getListExercise(Long.parseLong(course_id));
+				listexercise_user = exercise_userDAO.getListExercise_User(Long.parseLong(course_id));
 			}
 			Section tempsection = new Section();
 		%>
@@ -660,7 +672,7 @@
 }
 </style>
 				<a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân
-					&gt; Khóa Học &gt; Lập trình web</a>
+					&gt; Khóa Học &gt; <%=course.getCourse_name() %></a>
 			</div>
 
 			<div class="persion-right2" style="display: block;" id="1">
@@ -703,12 +715,11 @@
 				<div style="display: none" id ="header-manager" >
 					<div id="header-menu" style="background: rgb(0, 183, 178);" >
 						<a class="lnk-hm-home menu_active"
-							href="khoahoc2.jsp"> </a>
+							href="khoahoc2.jsp?course_id=<%=course_id%>"> </a>
 						<ul class="ul-menu-header">
 
 							<li class="li-menu-header "><a
-								class="lnk-menu-header menu_active" name="Course"> View
-									course </a></li>
+								class="lnk-menu-header menu_active" name="Course"> View course </a></li>
 
 							<li class="li-menu-header"><a class="lnk-menu-header "
 								name="DSHV"> Danh sách học viên </a></li>
@@ -740,43 +751,19 @@
 							<div class="to-content">
 								<div class="to-c-left">
 									<div class="to-c-l-list" style="font-size: 18px">
-										<!-- <div class="row">
-											<div class="box-text">
-												<a href="edit-section.jsp"><img
-													style="display: none; float: right" name="edit"
-													src="Images/settings2.png"></a>
-												<h2 style="color: blue">
-													<span>Đề cương chi tiết</span>
-												</h2>
-												<br>
-												<h3 style="color: blue">Chương 1. Tổng quan</h3>
-												<h3 style="color: blue">Chương 2. HTML</h3>
-												<h3 style="color: blue">Chương 3. JQUERY</h3>
-												<h3 style="color: blue">Chương 4. AJAX</h3>
-											</div>
-											<div class="box-resources">
-												<br>
-											</div>
-
-											<div class="edit" style="display: none;">
-												<a class="under popup-login" rel="#overlay-add-assignment"><img
-													style="float: right" src="Images/add-item.png"></a>
-											</div>
-										</div> -->
-							
 									<%
 										for (Section s : sectionDAO.getListSection(Long.parseLong(course_id))) {
 									%>
 										<div class="row">
 											<div class="box-text">
-												<a href="edit-section.jsp?section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" name="edit"
+												<a href="edit-section.jsp?section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" id="edit" name="edit"
 													src="Images/settings2.png"></a>
 												<h2 style="color: blue">
 													<span><%=s.getSection_name() %></span>
 												</h2>
 												<br>
 												<div>
-													<p><%=s.getSection_content() %></p>
+													<p><%=s.getSection_content()%></p>
 												</div>
 											</div>
 											<div class="box-resources">
@@ -784,9 +771,9 @@
 												<%
 												for (Exercise ex : exerciseDAO.getListExercise(s.getSection_id())) {
 												%>
-												<p style="margin-left: 20px">
-													<a href="Chi-Tiet-Bai-Tap.jsp?exercise_id=<%=ex.getExercise_id() %>">
-													<img src="Images/quiz.png">
+												<p style="margin-left: 25px">
+													<a class ="under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id%>&exercise_id=<%=ex.getExercise_id()%>">
+													<img src="Images/icon_news_01.png">
 													<%=ex.getExercise_name()%></a>
 													
 													<span class="edit" style="display: none">
@@ -799,7 +786,7 @@
 													for (Quiz q : questionDAO.getListQuiz(s.getSection_id())) {
 												%>
 												<p style="margin-left: 20px">
-													<a href="LamBaiThi.jsp?quiz_id=<%=q.getId() %>">
+													<a class ="under" href="LamBaiThi.jsp?quiz_id=<%=q.getId() %>">
 													<img src="Images/quiz.png">
 													<%=q.getQuiz_name()%></a>
 													
@@ -815,7 +802,7 @@
 											</div>
 											</form>
 											
-											<div class="edit" style="display: none;">
+											<div class="edit" style="display: none;" name="edit">
 												<a class="under popup-login" rel="#overlay-add-assignment" onclick="addsourceclick(<%=s.getSection_id()%>)"><img style="float: right"
 													src="Images/add-item.png"></a>
 											</div>
@@ -845,14 +832,15 @@
 										    
 										</script>
 										<div class="edit" style="display: none">
-											<div class="row">
-												<p style="text-align: right">
-													<a href="create-section.jsp?course_id=<%=course_id%>"><img src="Images/switch_plus.svg"></a> <a><img
+											<div class="row" >
+												<p style="text-align: right" >
+													<a href="create-section.jsp?course_id=<%=course_id%>"><img src="Images/switch_plus.svg" name = "edit"></a> <a><img
 														src="Images/switch_minus.svg"></a>
 												</p>
 											</div>
 										</div>
 									</div>
+									
 								</div>
 
 							</div>
@@ -871,7 +859,7 @@
 								<tr>
 									<td><table cellspacing="0" cellpadding="0" width="100%">
 											<tbody>
-
+											
 												<tr>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="5%" style="text-align: center">STT</td>
@@ -885,308 +873,49 @@
 														width="15%" style="text-align: center">Ngày sinh</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="10%" style="text-align: center">Chi Tiết</td>
+											<form name="myForm" method="post">
+											<%
+												int stt =0;
+												for(User_info student: liststudent ){
+													stt++;
+												
+											%>
+												
 												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;1</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110001</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Tuấn Anh</td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=stt %></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=student.getId()%></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=student.getTen() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyentuananh@gmail.com</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getEmail() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;09/04/1994</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getNgaysinh() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														class="under popup-login" rel="#overlay-chitiet-hocvien">Chi
-															tiết</a></td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">
+														<div><a
+														class="under popup-login" rel="#overlay-chitiet-hocvien<%=student.getId()%>" onclick="chitietclick('<%=student.getId()%>')">Chi
+															tiết</a>
+															</div></td>
 												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;2</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Ngọc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;2/11/1996</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;3</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Quốc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;20/10/1995</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;4</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Gia Trung</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;2/12/1996</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;5</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm
-														Trung Dũng</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;22/1/1996</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;6</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Nam</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;6/4/</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;7</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Ngọc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;8</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Quốc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;9</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Gia Trung</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;10</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm
-														Trung Dũng</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;11</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Nam</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;12</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Ngọc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;13</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Quốc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Gia Trung</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;15</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm
-														Trung Dũng</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;16</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Nam</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;17</td>
-
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110002</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Ngọc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenngocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002@student.stydyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;18</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110003</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Nguyễn
-														Quốc Anh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;nguyenquocanh@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110003@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;19</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110004</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Gia Trung</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;legiatrung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110004@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;20</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110030</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Phạm
-														Trung Dũng</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;phamtrungdung@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110030@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;21</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;14110176</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Lê
-														Nam</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;lenam@gmail.com</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110176@student.studyfunny.edu.vn</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														href="" target="_blank">Chi tiết</a></td>
-												</tr>
-
-
-
+												
+													<input id="studentid" type="hidden" name ="studentid" value="<%=student.getId()%>">
+												
+												<%} %>
+												</form>
 											</tbody>
 										</table></td>
 								</tr>
 							</tbody>
 						</table>
+						<script type="text/javascript">
+							function chitietclick(stid)
+							{
+								var studentid = stid;
+								
+								$('#studentid').attr('value',stid);
+								
+								//alert($('#studentid').attr('value'));
+							}
+						</script>
 						<div class="bv-pagging">
 							<style>
 .bv-pagging {
@@ -1215,13 +944,9 @@
 	color: #FFFFFF;
 }
 </style>
-							<a
-								href="#">
-								&lt;</a> <a class="active"
-								href="#">
-								1</a> <a
-								href="#">
-								&gt;</a>
+							<a href="#"> &lt;</a> 
+							<a class="active" href="#"> 1</a> 
+							<a href="#"> &gt;</a>
 
 						</div>
 
@@ -1242,41 +967,41 @@
 
 												<tr>
 													<td class="studyprogram_tabledetails_td_header_dl"
-														width="30%" style="text-align: center">Topic</td>
+														width="25%" style="text-align: center">Topic</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
-														width="30%" style="text-align: center">Tên Bài Tập</td>
+														width="25%" style="text-align: center">Tên Bài Tập</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
-														width="30%" style="text-align: center">Hạn Nộp</td>
+														width="10%" style="text-align: center">Bắt đầu</td>
+													<td class="studyprogram_tabledetails_td_header_dl"
+														width="10%" style="text-align: center">Giờ</td>
+													<td class="studyprogram_tabledetails_td_header_dl"
+														width="10%" style="text-align: center">Hạn Nộp</td>
+													<td class="studyprogram_tabledetails_td_header_dl"
+														width="10%" style="text-align: center">Giờ</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="10%" style="text-align: center">Chi tiết</td>
 												</tr>
-
+												<%
+													for(Exercise ex: listexercise){
+												%>
 												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương
-														3. JQUERY</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các
-														chức năng chứa jquery trong BTL</td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=ex.getExersice_content()%></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=ex.getExercise_name() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;1/11/2016,
-														0:0</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=ex.getExercise_startdate() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=ex.getExercise_starttime() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=ex.getExercise_enddate() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=ex.getExercise_endtime() %></td>
+													
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp"
+														class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id %>&exercise_id=<%=ex.getExercise_id() %>"
 														target="_blank">Chi tiết</a></td>
 												</tr>
-
-												<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương
-													4. AJAX</td>
-												<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Những
-													chức năng có thể dùng được AJAX trong BTL</td>
-												<td
-													class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;7/11/2016,
-													12:0</td>
-												<td
-													class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-													class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp"
-													target="_blank">Chi tiết</a></td>
-												</tr>
+												<%} %>
 
 											</tbody>
 										</table></td>
@@ -1338,61 +1063,40 @@
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="15%" style="text-align: center">Topic</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
-														width="25%" style="text-align: center">Tên Bài Tập</td>
+														width="20%" style="text-align: center">Tên Bài Tập</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="15%" style="text-align: center">Mã Học Viên</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="20%" style="text-align: center">Tên Học Viên</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
-														width="10%" style="text-align: center">Thời Điểm Nộp</td>
+														width="15%" style="text-align: center">Thời Điểm Nộp</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="5%" style="text-align: center">Điểm</td>
 													<td class="studyprogram_tabledetails_td_header_dl"
 														width="10%" style="text-align: center">Chi Tiết</td>
 												</tr>
-
+												<%
+													for(Exercise_User exu: listexercise_user ){
+												%>
 												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương
-														3. JQUERY</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các
-														chức năng chứa jquery trong BTL</td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=exu.getSection_name() %></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=exu.getExercise_name() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110002</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=exu.getUser_id() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;Nguyễn
-														Tuấn Anh</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=exu.getUser_name() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;10/10/2016,
-														9:45</td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=exu.getTimesubmit() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"></td>
+														class="studyprogram_tabledetails_td_content_aligncenter_dl"><%=exu.getScore() %></td>
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														class="under popup-login" rel="#overlay-chitiet-btnop">Chi
+														class="under popup-login" rel="#overlay-chitiet-btnop<%=exu.getResult_id()%>">Chi
 															tiết</a></td>
 												</tr>
-
-												<tr>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Chương
-														3. JQUERY</td>
-													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;Các
-														chức năng chứa jquery trong BTL</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;14110091</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;Nguyễn
-														Văn Khánh</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;10/10/2016,
-														19:26</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;9</td>
-													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														class="under popup-login" rel="#overlay-chitiet-btnop">Chi
-															tiết</a></td>
-												</tr>
-
+													<%
+														}
+													%>
 											</tbody>
 										</table></td>
 								</tr>
@@ -1646,11 +1350,15 @@
 				}
 				</script>
 			</div>
-
-
+			<!-- tạo n cái popup chi tiết -->
+			<%
+				for(User_info student: liststudent ){
+					boolean f =false;
+								
+			%>
 			<div
 				style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;"
-				id="overlay-chitiet-hocvien">
+				id="overlay-chitiet-hocvien<%=student.getId()%>">
 				<a class="close"></a>
 				<style type="text/css">
 .sp-remember {
@@ -1674,21 +1382,26 @@
 					<div class="bp-content">
 						<div id="login_pnLogin">
 							<div class="bpc-row">
-								<span class="sp-left">Tên:</span> <span class="sp-right">Nguyễn
-									Tuấn Anh</span>
+								<span class="sp-left">Tên:</span> <span class="sp-right"><%=student.getTen() %></span>
 							</div>
 							<div class="bpc-row">
-								<span class="sp-left">SĐT:</span> <span class="sp-right">0986127612</span>
+								<span class="sp-left">SĐT:</span> <span class="sp-right"><%=student.getSodienthoai() %></span>
 							</div>
+							<% String gioitinh = "";
+								if(student.getGioitinh()==0)
+									gioitinh="Nam";
+								else
+									gioitinh="Nữ";
+							%>
 							<div class="bpc-row">
-								<span class="sp-left">Giới tính:</span> <span class="sp-right">Nam</span>
+								<span class="sp-left">Giới tính:</span> <span class="sp-right"><%=gioitinh %></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Ngày sinh:</span> <span class="sp-right">
-									09/04/1994</span>
+									<%=student.getNgaysinh() %></span>
 							</div>
 							<div class="bpc-row">
-								<span class="sp-left">Email:</span> <span class="sp-right">nguyentuananh@gmail.com</span>
+								<span class="sp-left">Email:</span> <span class="sp-right"><%=student.getEmail() %></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Ảnh đại diện:</span>
@@ -1697,7 +1410,7 @@
 								</div>
 							</div>
 							<div class="bpc-row">
-								<span class="sp-left">Địa chỉ:</span> <span class="sp-right">TPHCM</span>
+								<span class="sp-left">Địa chỉ:</span> <span class="sp-right"><%=student.getDiachi() %></span>
 							</div>
 
 							<div class="bpc-row" style="margin-top: 20px;">
@@ -1706,14 +1419,22 @@
 										" id="btnforget" class="bpt-lnk-save btn-login"></a>
 								</span>
 							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
-
+			<%		
+				}
+			%>
+			
+			
+			<%
+				for(Exercise_User exu: listexercise_user ){
+			%>
 			<div
 				style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;"
-				id="overlay-chitiet-btnop">
+				id="overlay-chitiet-btnop<%=exu.getResult_id()%>">
 				<a class="close"></a>
 				<style type="text/css">
 .sp-remember {
@@ -1737,32 +1458,30 @@
 					<div class="bp-content">
 						<div id="login_pnLogin">
 							<div class="bpc-row">
-								<span class="sp-left">Topic</span> <span class="sp-right">Chương
-									3. JQUERY</span>
+								<span class="sp-left">Topic</span> <span class="sp-right"><%=exu.getSection_name() %></span>
 							</div>
 							<div class="bpc-row">
-								<span class="sp-left">Tên bài tập</span> <span class="sp-right">Các
-									chức năng chứa jquery trong BTL</span>
+								<span class="sp-left">Tên bài tập</span> <span class="sp-right"><%=exu.getExercise_name() %></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">File bài tập</span> <span class="sp-right"><a
-									class="under instance-color">jquery.docx</a></span>
+									class="under instance-color"><%=exu.getFilesubmit() %></a></span>
 							</div>
 							<div class="bpc-row">
-								<span class="sp-left">Mã học viên:</span> <span class="sp-right">14110002</span>
+								<span class="sp-left">Mã học viên:</span> <span class="sp-right"><%=exu.getUser_id() %></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Tên học viên:</span> <span
-									class="sp-right"> Nguyễn Tuấn Anh</span>
+									class="sp-right"><%=exu.getUser_name() %></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Thời Điểm Nộp:</span> <span
-									class="sp-right">10/10/2016, 9:45 </span>
+									class="sp-right"><%=exu.getTimesubmit() %> </span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Điểm:</span> <span class="sp-right">
 									<input name="ctl14$ThongTinHocVien$txtTenDayDu" type="text"
-									value="" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu"
+									value="<%=exu.getScore() %>" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu"
 									class="bpt-txt">
 								</span>
 							</div>
@@ -1770,7 +1489,7 @@
 								<span class="sp-left">Đánh giá:</span>
 								<textarea class="txt-input" name="txtAddedContent"
 									style="height: 80px; width: 200px;" id="txtAddedContent"
-									placeholder="Nội dung"></textarea>
+									placeholder="Nội dung"><%=exu.getReview() %></textarea>
 							</div>
 
 							<div class="bpc-row" style="margin-top: 20px;">
@@ -1783,7 +1502,7 @@
 					</div>
 				</div>
 			</div>
-
+			<%} %>
 
 		</div>
 		<!--end-body-->

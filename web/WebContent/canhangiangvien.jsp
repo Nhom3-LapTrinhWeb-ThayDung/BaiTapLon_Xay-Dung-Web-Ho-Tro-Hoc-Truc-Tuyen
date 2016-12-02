@@ -1279,16 +1279,17 @@
 											$.post('CourseServlet', {'command':"insert",'course_description':$('#course_description').val(),'startdate_nam':$('#startdate_nam').val(),'startdate_thang':$('#startdate_thang').val(),'startdate_ngay':$('#startdate_ngay').val(),
 												'enddate_nam':$('#enddate_nam').val(),'enddate_thang':$('#enddate_thang').val(),'enddate_ngay':$('#enddate_ngay').val(),'course_name':$('#course_name').val(),
 												'startlession':$('#startlession').val(),'endlession':$('#endlession').val(),'course_place':$('#course_place').val(),'schedulingday':$('#schedulingday').val(),'idgiangvien':idgiangvien}, function (data) {
-												if(data=="")
+												if(data=="Mở khóa học không thành công!")
 													{
 													 // similar behavior as an HTTP redirect
 													//window.location.replace("khoahoc2.jsp");
 
 													// similar behavior as clicking on a link
-													window.location.href = "khoahoc2.jsp";
+													$('#errordkkh').html(data);
+													
 													}
 												else
-							                 		$('#errordkkh').html(data);
+													window.location.href = data;
 												},'text');
 							 }
 						 

@@ -46,84 +46,92 @@ public class SetListQuestionServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String errorStr = "";
-		//insert quiz
-		Quiz quiz = new Quiz();
-		int idqz = (int) new java.util.Date().getTime();
-		String quiz_name = request.getParameter("quiz_name");
-		String start_date = request.getParameter("timestart[year]")
-				+"-"+ request.getParameter("timestart[month]")
-				+"-"+ request.getParameter("timestart[day]") ;
-		String end_date = request.getParameter("timeend[year]")
-				+"-"+ request.getParameter("timeend[month]")
-				+"-"+ request.getParameter("timeend[day]") ;
-		String time = request.getParameter("times[hour]")
-				+":"+ request.getParameter("times[minute]"); 
-		int count= Integer.parseInt( request.getParameter("question_count"));
-		String description = request.getParameter("description");
-		if(quiz_name=="" ||start_date==null ||end_date==null ||time==null ||count==0)	
-		{
-			errorStr = "Bạn chưa điền đủ thông tin !";
-		}
-		else
-		{
-			errorStr="";
-			quiz = new Quiz(idqz,quiz_name,start_date,end_date,time,count,description);
-		}
-
-
-		// insert các câu hỏi (question)
-		List<QuestionQuiz> listQuestion =  new ArrayList<QuestionQuiz>();
-		for (int i = 1; i <= count; i++) {
-			//String answerUser = request.getParameter("ans[" + i + "]");
-			int id = (int) new java.util.Date().getTime();
+		String command = request.getParameter("command");
+		long course_id = Long.parseLong(request.getParameter("course_id"));
+		switch (command) {
+		case "insert":
+			//insert quiz
+			Quiz quiz = new Quiz();
+			long quiz_id =  new java.util.Date().getTime();
+			String quiz_name = request.getParameter("quiz_name");
+			String start_date = request.getParameter("start_date") ;
+			String end_date = request.getParameter("end_date");
+			String time = request.getParameter("times[hour]")
+					+":"+ request.getParameter("times[minute]"); 
+			int count= Integer.parseInt( request.getParameter("question_count"));
 			
-			String question = request.getParameter("question["+i+"]");
-			String option1 = request.getParameter("txtoption[1]");
-			String option2 = request.getParameter("txtoption[2]");
-			String option3 = request.getParameter("txtoption[3]");
-			String option4 = request.getParameter("txtoption[4]");
-			String answer = request.getParameter("ans["+i+"]");
-			quiz_name = request.getParameter("quiz_name");
-			if (question == null ||  option1==null || option2==null ||option3==null ||option4==null || answer==null || quiz_name=="")
+			String description = request.getParameter("description");
+			long section_id = Long.parseLong(request.getParameter("section_id"));
+			if(quiz_name=="" ||start_date==null ||end_date==null ||time==null ||count==0)	
 			{
 				errorStr = "Bạn chưa điền đủ thông tin !";
-			} else {
-				errorStr="";
-				QuestionQuiz q = new QuestionQuiz(id,i,question,option1,option2,option3,option4,answer,quiz_name );
-				listQuestion.add(q);
-			}
-		}
-
-		if (!errorStr.isEmpty()) {
-
-		} else {
-			QuestionRadioDAO questionRadioDAO = new QuestionRadioDAO();
-
-			boolean f1 = questionRadioDAO.insertQuiz(quiz);
-			if(f1)
-			{
-				
-			
-				for (QuestionQuiz questionQuiz : listQuestion) {
-					boolean f = questionRadioDAO.insertQuestion(questionQuiz);
-					if(f)
-					{
-						errorStr="thêm bài thi trắc nghiệm thành công";
-					}
-					else
-					{
-						errorStr="thêm bài thi trắc nghiệm không thành công";
-					}
-				}
 			}
 			else
 			{
-				errorStr="thêm quiz không thành công";
+				errorStr="";
+				quiz = new Quiz(quiz_id,quiz_name,start_date,end_date,time,count,description,section_id);
 			}
+
+
+			// insert các câu hỏi (question)
+			List<QuestionQuiz> listQuestion =  new ArrayList<QuestionQuiz>();
+			for (int i = 1; i <= count; i++) {
+				//String answerUser = request.getParameter("ans[" + i + "]");
+				long id =  new java.util.Date().getTime();
+				
+				String question = request.getParameter("question["+i+"]");
+				String option1 = request.getParameter("txtoption[1]");
+				String option2 = request.getParameter("txtoption[2]");
+				String option3 = request.getParameter("txtoption[3]");
+				String option4 = request.getParameter("txtoption[4]");
+				String answer = request.getParameter("ans["+i+"]");
+				if (question == null ||  option1==null || option2==null ||option3==null ||option4==null || answer==null || quiz_name=="")
+				{
+					errorStr = "Bạn chưa điền đủ thông tin !";
+				} else {
+					errorStr="";
+					QuestionQuiz q = new QuestionQuiz(id,i,question,option1,option2,option3,option4,answer,quiz_id );
+					listQuestion.add(q);
+				}
+			}
+
+			if (!errorStr.isEmpty()) {
+
+			} else {
+				QuestionRadioDAO questionRadioDAO = new QuestionRadioDAO();
+
+				boolean f1 = questionRadioDAO.insertQuiz(quiz);
+				if(f1)
+				{
+					
+				
+					for (QuestionQuiz questionQuiz : listQuestion) {
+						boolean f = questionRadioDAO.insertQuestion(questionQuiz);
+						if(f)
+						{
+							errorStr="";
+						}
+						else
+						{
+							errorStr="Thêm bài thi trắc nghiệm không thành công!";
+						}
+					}
+				}
+				else
+				{
+					errorStr="Thêm bài thi trắc nghiệm không thành công!";
+				}
+			}
+			//response.getWriter().write(errorStr);
+			request.setAttribute("errorStr", errorStr);
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khoahoc2.jsp?course_id="+course_id);
+			dispatcher.forward(request, response);
+			break;
+
+		default:
+			break;
 		}
-		request.setAttribute("errorStr", errorStr);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/edit-quiz.jsp");
-		dispatcher.forward(request, response);
+		
 	}
 
 }

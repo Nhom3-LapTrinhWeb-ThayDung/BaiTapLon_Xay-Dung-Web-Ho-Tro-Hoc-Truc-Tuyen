@@ -4,18 +4,19 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Quiz {
-	private int id;
+	private long id;
 	private String quiz_name;
 	private String start_date;
 	private String end_date;
 	private String time;
 	private int count;
 	private String description;
+	private long section_id;
 	public Quiz() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Quiz(int id, String quiz_name, String start_date, String end_date, String time, int count, String description) {
+	public Quiz(long id, String quiz_name, String start_date, String end_date, String time, int count, String description,long section_id) {
 		super();
 		this.id = id;
 		this.quiz_name = quiz_name;
@@ -24,11 +25,12 @@ public class Quiz {
 		this.time = time;
 		this.count = count;
 		this.description = description;
+		this.section_id=section_id;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getQuiz_name() {
@@ -68,6 +70,12 @@ public class Quiz {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public long getSection_id() {
+		return section_id;
+	}
+	public void setSection_id(long section_id) {
+		this.section_id = section_id;
 	}
 	
 	
