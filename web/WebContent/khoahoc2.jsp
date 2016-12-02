@@ -756,7 +756,7 @@
 									%>
 										<div class="row">
 											<div class="box-text">
-												<a href="edit-section.jsp?section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" id="edit" name="edit"
+												<a href="edit-section.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" id="edit" name="edit"
 													src="Images/settings2.png"></a>
 												<h2 style="color: blue">
 													<span><%=s.getSection_name() %></span>
