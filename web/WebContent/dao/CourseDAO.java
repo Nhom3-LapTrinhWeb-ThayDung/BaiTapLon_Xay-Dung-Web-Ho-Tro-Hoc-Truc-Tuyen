@@ -88,7 +88,7 @@ public class CourseDAO {
 		}
 		return false;
 	}
-	//lấy khóa học
+	//lấy 1 khóa học
 	public Course getCourse(long course_id) {
         try {
         	Connection conn = DBConnect.getConnecttion();
@@ -115,8 +115,39 @@ public class CourseDAO {
         return null;
     }
 	
-	// Lấy ra danh sách khóa học 
-    public List<Course> getListCourse(int userid) {
+	// Lấy ra danh sách tất cả khóa
+    public List<Course> getAllListCourse() {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from course";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Course> listCourse = new ArrayList<Course>();
+            while (rs.next()) {
+            	Course c = new Course();
+            	c.setCourse_id(rs.getLong(1));
+            	c.setCourse_name(rs.getString(2));
+            	c.setCourse_startdate(rs.getString(3));
+            	c.setCourse_enddate(rs.getString(4));
+            	c.setCourse_schedulingday(rs.getInt(5));
+            	c.setCourse_startlession(rs.getInt(6));
+            	c.setCourse_endlession(rs.getInt(7));
+            	c.setCourse_place(rs.getString(8));
+            	c.setCourse_description(rs.getString(9));
+
+            	listCourse.add(c);
+            }
+            conn.close();
+            return listCourse;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	
+	// Lấy ra danh sách khóa học của user
+    public List<Course> getListCourse(long userid) {
         try {
         	Connection conn = DBConnect.getConnecttion();
             String sql = "select * from course, course_user where course.course_id=course_user.course_id and course_user.id='"+userid+"'";
@@ -145,6 +176,8 @@ public class CourseDAO {
         }
         return null;
     }
+    
+    
     //lay danh sach hoc vien cua khoa hoc
     public List<User_info> getListStudent(long course_id) {
         try {
@@ -203,6 +236,33 @@ public class CourseDAO {
         }
         return null;
     }
+    
+    //Lay giang vien
+    public User_info getteacher(long course_id) {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from user_info, course_user where user_info.id = course_user.id and quyen=1 and course_id='"+course_id+"'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            User_info u = new User_info();
+            while (rs.next()) {
+            	u.setId(rs.getLong(1));
+            	u.setTen(rs.getString(2));
+            	u.setSodienthoai(rs.getString(3));
+            	u.setGioitinh(rs.getInt(4));
+            	u.setNgaysinh(rs.getString(5));
+            	u.setEmail(rs.getString(6));
+            	
+            	u.setDiachi(rs.getString(8));
+            	u.setQuyen(rs.getInt(9));            	
+            }
+            conn.close();
+            return u;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static void main(String[] args) throws SQLException{
     	CourseDAO dao = new CourseDAO();
     	/*List<Course> lcourse = dao.getListCourse(1);
@@ -214,7 +274,9 @@ public class CourseDAO {
 		}*/
     	/*Course c = new Course(Long.parseLong("1479832606700"),"aaaaaa","1947-02-16","1945-01-16",2,2,4,"asdsadads","sadsadsad");
     	dao.update(c);*/
-    	
+    	/*User_info teach = new User_info();
+    	teach = dao.getteacher(Long.parseLong("1479732694852"));
+    	System.out.println(teach.getTen());*/
     }
     
 }
