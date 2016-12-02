@@ -2,6 +2,8 @@
 
 <%@page import="model.Users"%>
 <%@page import="model.User_info"%>
+<%@page import="model.Course"%>
+<%@page import="dao.CourseDAO"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -93,7 +95,8 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     	
   <style type="text/css">
         .p-login .infor-forget{top:55px;}
-         .p-login .lnk-user .infor-forget{display:none;}
+         .p-login .lnk-user .infor-for
+         get{display:none;}
         .p-login .lnk-user:hover .infor-forget{display:block;}
         .p-login .lnk-user{padding-bottom:3px;}
   </style>
@@ -255,6 +258,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 <%@include file="//includes/header.jsp" %>
+
 
 <script type="text/javascript">
 
@@ -632,55 +636,30 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
-                        
-                                <div class="row" name ="1">
-                                    <a  href ="Course_Lap_Trinh_Web.jsp" name ="1">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                1
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a  href ="Course_Lap_Trinh_Web.jsp" name = "1">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                               Lập trình web</span>
-                                        </p>
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a href = "" onclick="loadCourse()">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                2
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a   name="2">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Kỹ thuật lập trình</span>
-                                        </p>
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                3
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Công nghệ phần mềm </span>
-                                        </p>
-                                    </a>
-                                </div>
-                            
-                    </div>
+	                    <%	int i=0;
+	                    	for (Course course : courseDAO.getListCourse(user_info.getId())) 
+	                    	{
+	                    		i++;
+	                    %>
+	                          <div class="row" name ="1">
+	                              <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name ="1">
+	                                  <p class="to-l-p-img">
+	                                      <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
+	                                          <%=i %>
+	                                      </span>
+	                                  </p>
+	                              </a>
+	                              <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name = "1">
+	                                  <p class="to-l-p-name">
+	                                      <span class="bold">
+	                                         <%=course.getCourse_name()%></span>
+	                                  </p>
+	                              </a>
+	                          </div>
+	                          <%
+	                  			}
+	                          %>
+	                    </div>
                     <script type="text/javascript">
                         function loadCourse() {
                             var url;
@@ -699,90 +678,143 @@ $('.persion-tab-lnk').click(function() {
 </div></div>
         
 <div class="persion-right" id="DetailDMK" style="display: none;">
-              
-  <script>
-      function ChapNhan() {
-          document.getElementById('ctl14_DoiMatKhau_btnDoiMK').click();
-      }
-  </script>
 
-  <div id="ctl14_DoiMatKhau_upDoiMK">
-  	
-  <div style="display: block;" class="bpt-content" id="doimk">
-      <h3 class="learn-process-h3">
-          <span>ĐỔI MẬT KHẨU</span>
-      </h3>
-      <div class="bpt-row">
-          <div class="bpt-item-left">
-              Mật khẩu cũ:</div>
-          <div class="bpt-item-right">
-              <input name="ctl14$DoiMatKhau$txtMatKhauCu" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtMatKhauCu" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
-          </div>
-          <div class="bpt-item-left">
-          </div>
-          <div class="bpt-item-right">
-              <span id="ctl14_DoiMatKhau_lblErrMatKhauCu"></span>
-          </div>
-      </div>
-      <div class="bpt-row">
-          <div class="bpt-item-left">
-              Mật khẩu mới:</div>
-          <div class="bpt-item-right">
-              <input name="ctl14$DoiMatKhau$txtmatKhauMoi" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtmatKhauMoi" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
-          </div>
-          <div class="bpt-item-left">
-          </div>
-          <div class="bpt-item-right">
-              <span id="ctl14_DoiMatKhau_lblErrMatKhauMoi"></span>
-          </div>
-      </div>
-      <div class="bpt-row">
-          <div class="bpt-item-left">
-              Nhập lại mật khẩu</div>
-          <div class="bpt-item-right">
-              <input name="ctl14$DoiMatKhau$txtXnMatKhauMoi" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtXnMatKhauMoi" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
-              
-          </div>
-          <div class="bpt-item-left">
-          </div>
-          <div class="bpt-item-right">
-              <span id="ctl14_DoiMatKhau_lblErrXnMatKhauMoi"></span>
-          </div>
-      </div>
-      
-      <div class="bpt-row" style="margin-top:0px;">
-          <div class="bpt-item-left">
-          </div>
-          <div class="bpt-item-right">
-              <span id="ctl14_DoiMatKhau_lblErr"></span>
-          </div>
-      </div>
-      <div class="bpt-row bpt-row-save" style="margin-top:0px;">
-          <a id="ctl14_DoiMatKhau_btnDoiMK" name="btnDoiMK" class="bpt-lnk-save" href="javascript:__doPostBack(&#39;ctl14$DoiMatKhau$btnDoiMK&#39;,&#39;&#39;)"> Đồng ý </a>
-          <input type="hidden" name="TokenCSRF_Doimk" value="0041A73EF7922FC7BEE66A04DE372592C9CB63049AF5C24FD87AF7F5E6FB68DC964B1FE1CE344ABA35295B4330A087917220EC7E6E90A7EA4DAFC56D07FE9DD6">
-      </div>
-      
-  </div>
+						<script>
+								function ChapNhan() {
+									document.getElementById(
+											'btnDoiMK')
+											.click();
+								}
+							</script>
+						<div id="ctl14_DoiMatKhau_upDoiMK">
 
-  </div>
-  <div id="ctl14_DoiMatKhau_UpdateProgress1" style="display:none;">
-  	
-      <div class="bpt-row">
-          <div class="bpt-item-left"></div>
-          <div class="bpt-item-right">
-              <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
-          </div>
-      </div>
+							<div style="display: block;" class="bpt-content" id="doimk">
+								<h3 class="learn-process-h3">
+									<span>ĐỔI MẬT KHẨU</span>
+								</h3>
+								<%-- <c:if test="${errorStr != null }">  --%>
+								<div class="bpt-item-right">
+									<p style="color: red; font-style: italic; padding-left: 15px"
+										id="errorStr" name="errorStr"></p>
+								</div>
+								<%-- </c:if> --%>
+								<div class="bpt-row">
+									<div class="bpt-item-left">Mật khẩu cũ:</div>
+									<div class="bpt-item-right">
+										<input name="oldpass" type="password" maxlength="30"
+											id="oldpass" class="bpt-txt" autocomplete="off"
+											onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
+									</div>
+									<div class="bpt-item-left"></div>
+									<div class="bpt-item-right">
+										<span id="ctl14_DoiMatKhau_lblErrMatKhauCu"></span>
+									</div>
+								</div>
+								<div class="bpt-row">
+									<div class="bpt-item-left">Mật khẩu mới:</div>
+									<div class="bpt-item-right">
+										<input name="newpass1" type="password" maxlength="30"
+											id="newpass1" class="bpt-txt" autocomplete="off"
+											onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
+									</div>
+									<div class="bpt-item-left"></div>
+									<div class="bpt-item-right">
+										<span id="ctl14_DoiMatKhau_lblErrMatKhauMoi"></span>
+									</div>
+								</div>
+								<div class="bpt-row">
+									<div class="bpt-item-left">Nhập lại mật khẩu</div>
+									<div class="bpt-item-right">
+										<input name="newpass2" type="password" maxlength="30"
+											id="newpass2" class="bpt-txt" autocomplete="off"
+											onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
 
-  </div> 
-                  
-  <script type="text/javascript">
-      function refreshCaptcha(capchaid, capchlength) {
+									</div>
+									<div class="bpt-item-left"></div>
+									<div class="bpt-item-right">
+										<span id="ctl14_DoiMatKhau_lblErrXnMatKhauMoi"></span>
+									</div>
+								</div>
 
-          $('.capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-      }
-  </script>
-</div>
+								<div class="bpt-row" style="margin-top: 0px;">
+									<div class="bpt-item-left"></div>
+									<div class="bpt-item-right">
+										<span id="ctl14_DoiMatKhau_lblErr"></span>
+									</div>
+								</div>
+								<div class="bpt-row bpt-row-save" style="margin-top: 0px;">
+									<a id="btnDoiMK" name="btnDoiMK" class="bpt-lnk-save"
+										onclick="doimk()"> Đồng ý </a> <input type="hidden"
+										name="TokenCSRF_Doimk"
+										value="F1CF4C77CE1C09A32DD6BFE41A41A638CAE5A5A9EC423F90CB6D6858647664589ECFD6FCB25DAE392852A33A114552FB83150825346022B246D482F8B93E6A5C">
+								</div>
+
+							</div>
+						</div>
+
+						<script type="text/javascript">
+								function doimk(){
+									var newpass1,newpass2,oldpass,command, errormk,username;
+									<%-- $('#errorStr').html('<%=users.getUserName()%>');
+									alert('<%=users.getUserName()%>'); --%>
+									username = "<%=users.getUserName()%>"
+									curentpass = "<%=users.getUserPass()%>";
+									oldpass = $('#oldpass').val();
+									newpass1 = $('#newpass1').val();
+									newpass2 = $('#newpass2').val();
+									command = "doimk";
+									errormk="";
+									
+									 if(oldpass != curentpass)
+										{
+											errormk="Mật khẩu không đúng! ";
+											//$('p#errorStr').html('adsad');
+											// hoặc
+											$('#errorStr').html(errormk);
+										}
+									if(newpass1 != newpass2)
+									{
+										errormk= errormk + "Xác nhận mật khẩu không khớp!";
+										//$('p#errorStr').html('adsad');
+										// hoặc
+										$('#errorStr').html(errormk);
+									}
+									if(oldpass == curentpass && newpass1 == newpass2)
+										{
+										//alert(username);
+											$.post('UsersServlet', {'user_name':username,'newpass1':newpass1,'command':command}, function (data) {
+													$("#errorStr").html(data);
+													if(data=="Đổi mật khẩu thành công")
+														location.reload();
+							                 },'text');
+										}
+									//alert(curentpass+oldpass+ newpass1+ newpass2+command);
+									
+								}
+							</script>
+						<div id="ctl14_DoiMatKhau_UpdateProgress1" style="display: none;">
+
+							<div class="bpt-row">
+								<div class="bpt-item-left"></div>
+								<div class="bpt-item-right">
+									<img src="images/ajax-loader.gif" alt="StudyFunny">
+								</div>
+							</div>
+
+						</div>
+
+						<script type="text/javascript">
+								function refreshCaptcha(capchaid, capchlength) {
+
+									$('.capcha').attr(
+											'src',
+											'./uControls/Capcha/capchaImage.aspx'
+													+ '?id=' + capchaid
+													+ '&len=' + capchlength
+													+ '&r=' + Math.random());
+								}
+							</script>
+					</div>
 <div class="persion-right" id="DetailUser" style="display: block;">
             
 <div id="tab_user">
@@ -928,19 +960,7 @@ $('.persion-tab-lnk').click(function() {
 						class="bpt-txt" value="${user_info.getDiachi()}">
 				</div>
             </div>
-            <div class="bpt-row">
-                <div class="bpt-item-left">
-                    Mã bảo mật</div>
-                <div class="bpt-item-right">
-                    <input name="ctl14$ThongTinHocVien$txtCapcha" type="text" maxlength="10" id="ctl14_ThongTinHocVien_txtCapcha" class="bpt-txt" autocomplete="off" style="width:120px;">
-                        <a onclick="refreshCaptcha(&#39;ThongTinHocVien&#39;,&#39;5&#39;)" style="float:left;width:100px;">                        
-
-<div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="./hocvien_files/capchaImage(1).aspx" title="Lấy mã khác" alt="Study Funny">      
-</div>
-                        </a>
-                </div>
-            </div>
+            
             <div class="bpt-row" style="margin-top: 0px;">
                 <div class="bpt-item-left">
                 </div>

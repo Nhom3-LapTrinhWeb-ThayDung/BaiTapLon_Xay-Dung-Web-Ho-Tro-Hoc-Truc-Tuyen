@@ -2,6 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="model.Users"%>
 <%@page import="model.User_info"%>
+<%@page import="model.Course"%>
+<%@page import="dao.CourseDAO"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
 	Users users=null;
@@ -11,6 +13,7 @@
 		users = (Users) session.getAttribute("user");
 		user_info = (User_info) session.getAttribute("user_info");
 	}
+	CourseDAO courseDAO = new CourseDAO();
 %>
 <div id="header">
 
@@ -60,12 +63,17 @@
 			<li class="li-menu-header"><a class="lnk-menu-header"
 				href="HuongDanSuDung.jsp"> HƯỚNG DẪN SỬ DỤNG </a></li>
 			<li class="li-menu-header"><a class="lnk-menu-header"
-				href="dkkhoahoc.jsp"> DANH SÁCH LỚP HỌC </a>
+				href="DanhSachKhoaHoc.jsp"> DANH SÁCH LỚP HỌC </a>
 				<div class="vts-submenu submenu-245">
+					
 					<ul class="submenu1">
-						<li><a href="Course_Lap_Trinh_Web.jsp"> Lập trình web</a></li>
-						<li><a> Kỹ thuật lập trình</a></li>
-						<li><a> Công nghệ phần mềm </a></li>
+						
+						<%	for (Course course : courseDAO.getAllListCourse())
+	                    	{
+	                    %>
+	                    	<li><a> <%=course.getCourse_name()%></a></li>
+	                    
+	                    <%} %>
 					</ul>
 				</div></li>
 		</ul>

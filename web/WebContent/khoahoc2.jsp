@@ -271,7 +271,7 @@
 			<%@ include file="//includes/header.jsp" %>
 		<%
 			SectionDAO sectionDAO = new SectionDAO();
-			CourseDAO courseDAO = new CourseDAO();
+			
 			ExerciseDAO exerciseDAO = new ExerciseDAO();
 			Exercise_UserDAO exercise_userDAO = new Exercise_UserDAO();
 			QuestionRadioDAO questionDAO = new QuestionRadioDAO();

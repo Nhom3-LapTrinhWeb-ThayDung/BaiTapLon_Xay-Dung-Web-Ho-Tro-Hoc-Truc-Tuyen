@@ -268,9 +268,7 @@
 
 
 		<%@ include file="//includes/header.jsp"%>
-		<%
-			CourseDAO courseDAO = new CourseDAO();
-		%>
+
 		<script type="text/javascript">
 				function clickButton(e, buttonid) {
 					var evt = e ? e : window.event;
@@ -697,44 +695,44 @@
 							<span>DANH SÁCH KHÓA HỌC ĐANG DẠY</span>
 						</h3>
 						<style>
-.lp-lnk {
-	margin-bottom: 15px;
-}
-
-.lp-lnk img {
-	height: 152px;
-}
-</style>
+							.lp-lnk {
+								margin-bottom: 15px;
+							}
+							
+							.lp-lnk img {
+								height: 152px;
+							}
+						</style>
 
 						<div class="box-test-online martop_0">
             
             <div class="to-content">
                 <div class="to-c-left">
-                   <div class="to-c-l-list">
-		                        <%	int i=0;
-		                        	for (Course course : courseDAO.getListCourse(user_info.getId())) 
-		                        	{
-		                        		i++;
-		                        %>
-                                <div class="row" name ="1">
-                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name ="1">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                <%=i %>
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name = "1">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                               <%=course.getCourse_name()%></span>
-                                        </p>
-                                    </a>
-                                </div>
-                                <%
-                        			}
-                                %>
-                    </div>
+	                   <div class="to-c-l-list">
+			                        <%	int i=0;
+			                        	for (Course course : courseDAO.getListCourse(user_info.getId())) 
+			                        	{
+			                        		i++;
+			                        %>
+	                                <div class="row" name ="1">
+	                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name ="1">
+	                                        <p class="to-l-p-img">
+	                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
+	                                                <%=i %>
+	                                            </span>
+	                                        </p>
+	                                    </a>
+	                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name = "1">
+	                                        <p class="to-l-p-name">
+	                                            <span class="bold">
+	                                               <%=course.getCourse_name()%></span>
+	                                        </p>
+	                                    </a>
+	                                </div>
+	                                <%
+	                        			}
+	                                %>
+	                    </div>
                     <!-- <div class="bv-pagging">
                         <style>
                             .bv-pagging
@@ -1450,6 +1448,8 @@
 										//alert(username);
 											$.post('UsersServlet', {'user_name':username,'newpass1':newpass1,'command':command}, function (data) {
 													$("#errorStr").html(data);
+													if(data=="Đổi mật khẩu thành công")
+														location.reload();
 							                 },'text');
 										}
 									//alert(curentpass+oldpass+ newpass1+ newpass2+command);

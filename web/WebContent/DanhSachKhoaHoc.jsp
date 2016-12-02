@@ -1,6 +1,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="model.Users"%>
+<%@page import="model.User_info"%>
+<%@page import="model.Course"%>
+<%@page import="dao.CourseDAO"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +16,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css"></link>
   <link rel="stylesheet" href="css/reset.css" type="text/css"></link>
 <title>
-  Đăng ký khóa học | ViettelStudy
+  Đăng ký khóa học | StudyFunny
 </title>
 
 
@@ -242,230 +247,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 
-
-<div id="header">
-    <div id="header-top">
-    
-        <a class="header-logo">      
-           </a>           
-        <div class="header-login">
-             
-            <p class="p-login">
-                Xin chào: <a href="http://viettelstudy.vn/canhan.html">
-                    01678868567</a>
-                | <a href="http://viettelstudy.vn/thoat.html">Thoát</a>
-            </p>
-            
-        </div>
-        <div class="study-search">
-            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,'Header_btnSearch1')" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off" />
-                
-            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata('Header_btnSearch1');" id="Header_btnSearch1" class="ssh-btn-search" />
-        </div>
-        <div style="display: none;" id="suggestions" class="suggestion">
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            suggesstionFunc();
-        });  
-    </script>
-   
-    
-    </div>
-
-    <div id="header-menu" style="background: rgb(0, 183, 178);">
-        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
-        </a>
-        <ul class="ul-menu-header">
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                TRANG CHỦ </a>                
-            </li>
-            
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-                HƯỚNG DẪN SỬ DỤNG </a>                
-            </li>  
-            <li class="li-menu-header"><a class="lnk-menu-header">
-               DANH SÁCH LỚP HỌC </a>     
-               <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                         <li><a href="http://viettelstudy.vn/luyen-thi/133/Luyen-thi-THPT-Quoc-gia-mon-Toan-hoc">
-                                 Công Nghệ Phần Mềm</a> </li>
-                                    <li><a href="http://viettelstudy.vn/luyen-thi/142/Luyen-thi-mon-Toan-danh-rieng-cho-khoi-Xa-hoi">
-                                  Lập trình web</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/127/Luyen-thi-THPT-Quoc-gia-mon-Vat-Ly">
-                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/128/Luyen-thi-THPT-Quoc-gia-mon-Hoa-Hoc">
-                                  Điện tử căn bản </a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/158/Luyen-thi-THPT-Quoc-gia-mon-Sinh">
-                                    Thực tập điện tử căn bản</a> </li>
-                                <li><a href="http://viettelstudy.vn/luyen-thi/126/Luyen-thi-mon-Van-danh-rieng-cho-khoi-Tu-nhien">
-                                    Lập trình WinDow From </a> </li>
-                    </ul>
-                </div>           
-            </li> 
-            <li class="li-menu-header"><a class="lnk-menu-header ">
-              THƯ VIỆN </a>
-
-              <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://viettelstudy.vn/trac-nghiem.html">Trắc nghiệm <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-IQ.html">Trắc nghiệm IQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-EQ.html">Trắc nghiệm EQ</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tinh-cach-mbti.html">Trắc nghiệm tính cách MBTI</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-dhnn.html">Trắc nghiệm định hướng nghề nghiệp</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/trac-nghiem-tri-thong-minh.html"> Trắc nghiệm 8 loại trí thông minh</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/thu-vien-video.html">Thư viện video
-                            <span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/tu-van-vi-tuong-lai-i23.html">
-                                    Tư vấn Vì tương lai</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/toa-dam-ban-linh-tre-i5.html">
-                                    Tọa đàm bản lĩnh trẻ</a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/kinh-nghiem-song-i1.html">
-                                    Thư viện cuộc sống</a> </li>
-                                    <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-viet-nam-i30.html">
-                                   Khám phá Việt Nam</a> </li>
-                                   <li><a href="http://viettelstudy.vn/thu-vien-video/kham-pha-the-gioi-i31.html">
-                                   Khám phá thế giới</a> </li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sang-tao-i8.html">Sáng
-                                    tạo</a> </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/khoa-hoc-thuong-thuc.html">Bài tập - Bài giải<span class="arrow"></span></a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-dong-vat-i10.html">
-                                    Công nghệ thông tin </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/thien-van-i11.html">Thiên
-                                    Điện tử </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/danh-lam-thang-canh-i12.html">
-                                    Tiếng Anh </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/the-gioi-thuc-vat-i13.html">
-                                    Chế tạo máy </a></li>
-                                <li><a href="http://viettelstudy.vn/thu-vien-video/sinh-thai-hoc-i14.html">
-                                    Công mghệ may và thời trang </a></li>
-                            </ul>
-                        </li>          
-                            <!-- Courses in category -->
-                        </li>
-                    </ul>
-                </div>
-                <!--
-                  <div class="vts-submenu submenu-245">
-                    <ul class="submenu1"> 
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-pho-thong.html">
-                            Trung học phổ thông <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-12.html">Lớp
-                                    12</a> </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-11.html">Lớp
-                                    11</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-10.html">Lớp
-                                    10</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-10.html">
-                            Ôn luyện vào lớp 10<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/41/Luyen-thi-lop-10-mon-Toan-hoc">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/43/Luyen-thi-lop-10-mon-Ngu-van">
-                                    Ngữ văn</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/42/Luyen-thi-lop-10-mon-Anh-van">
-                                    Tiếng Anh</a> </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-trung-hoc-co-so.html">
-                            Trung học cơ sở <span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-9.html">Lớp 9</a>
-                                </li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-8.html">Lớp 8</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-7.html">Lớp 7</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-6.html">Lớp 6</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-thi-vao-lop-6.html">
-                            Ôn luyện vào lớp 6<span class="arrow"></span></a>
-                           
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/98/Luyen-thi-vao-lop-6-mon-Toan">
-                                    Toán học</a> </li>
-                                <li><a href="http://viettelstudy.vn/kien-thuc-pho-thong/105/Luyen-thi-vao-lop-6-mon-Tieng-Viet">
-                                    Tiếng Việt</a> </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-tieu-hoc.html">Tiểu
-                            học <span class="arrow"></span></a>
-                            <ul class="submenu2">
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-5.html">Lớp 5</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-4.html">Lớp 4</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-3.html">Lớp 3</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-2.html">Lớp 2</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-1.html">Lớp 1</a></li>
-                                <li><a href="http://viettelstudy.vn/on-luyen-kien-thuc-lop-la.html">Lớp
-                                    lá</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                -->
-                </li>
-           
-            <li class="li-menu-header"><a class="lnk-menu-header " href="http://tintuc.viettelstudy.vn/tin-tuc/home.html">
-                TIN TỨC </a>
-                <div class="vts-submenu">
-                    <ul class="submenu1">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc.html">Tin giáo
-                            dục</a>
-                            <!-- Courses in category -->
-                            <ul class="submenu2" style="display:none">
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/hoc-duong.html">Tin học đường</a>
-                                </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/thong-tin-tuyen-sinh.html">Thông
-                                    tin tuyển sinh</a> </li>
-                                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/du-hoc.html">Du học</a>
-                                
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/goc-chia-se.html">Góc chia
-                    sẻ </a>
-                    <!-- Courses in category -->
-                    <ul class="submenu2" style="display:none">
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/kinh-nghiem.html">Kinh nghiệm</a></li>
-                        <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/nen-doc.html">Nên đọc</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://tintuc.viettelstudy.vn/tin-tuc/dich-vu.html">Tin dịch vụ</a>
-                    <!-- Courses in category -->
-                    
-                </li>
-            </ul>
-        </div>
-    </li>
-    
-    
-    </ul>
-</div>
-</div>
+<%@include file="//includes/header.jsp" %>
+<%
+			User_info teacher = new User_info();
+%>
 
 
 <script type="text/javascript">
@@ -608,159 +393,37 @@ fbq('track', "PageView");</script>
             
             <div class="to-content">
                 <div class="to-c-left">
-                   <div class="to-c-l-list">
-                        
-                                <div class="row">
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web">
+                <div class="to-c-l-list">
+	                    <%	int i=0;
+	                    	for (Course course : courseDAO.getAllListCourse())
+	                    	{
+	                    		i++;
+	                    %>
+	                          <div class="row">
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                1
+                                                <%= i %>
                                             </span>
                                         </p>
                                     </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                               Lập trình web</span>
-                                        </p>
-                                    </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web">
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
+	                                  <p class="to-l-p-name">
+	                                      <span class="bold">
+	                                         <%=course.getCourse_name()%></span>
+	                                  </p>
+	                              </a>
+                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
                                     <a class="to-l-btn">
                                        <span class="to-l-btn">Xem chi tiết</span>
                                     </a>
                                     </div>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                2
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Kỹ thuật lập trình</span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC 3 </span><span class="sp-number">
-                                                3
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Công nghệ phần mềm </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  class="lnk-logout under popup-login" rel="#overlay-DeThiTOEIC">
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                4
-                                            </span>
-                                        </p>
-                                    </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-DeThiTOEIC">
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Đề thi TOEIC </span>
-                                        </p>
-                                    </a>
-                                   
-                                    <a href="XemDeCuong_DeThiTOEIC.html"  class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                   
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                5
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Toán rời rạc và lý thuyết đồ thị </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                6
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Kỹ năng xây dựng kế hoạch</span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-                                                7
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="italic">
-                                                Giao tiếp cơ bản </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                            
-                                <div class="row">
-                                    <a  >
-                                        <p class="to-l-p-img">
-                                            <span class="sp-text">BÀI THI </span><span class="sp-number">
-                                                8
-                                            </span>
-                                        </p>
-                                    </a><a  >
-                                        <p class="to-l-p-name">
-                                            <span class="bold">
-                                                Cấu trúc dữ liệu &amp; giải thuật </span>
-                                        </p>
-                                    </a>
-                                    <a class="to-l-btn" >
-                                       Xem chi tiết
-                                    </a>
-                                </div>
-                                                     
-                    </div>
+                                </div>		
+	                          <%
+	                  			}
+	                          %>
+	                    </div> 
+                   
                     
                     <div class="bv-pagging">
                         <style>
@@ -960,8 +623,13 @@ fbq('track', "PageView");</script>
         <div id="box_popup" class="box-popup">
         </div>
     </div>
-
-<div style="width: 392px; display: none" id="overlay-web">
+<% 
+    
+  	for (Course course : courseDAO.getAllListCourse())
+  	{
+  		 teacher = courseDAO.getteacher(course.getCourse_id());
+    %>
+<div style="width: 392px; display: none" id="overlay-web<%=course.getCourse_id()%>">
     <style type="text/css">
         .sp-remember
         {
@@ -976,18 +644,28 @@ fbq('track', "PageView");</script>
         }
         .LBD_CaptchaDiv{display:inline;}
     </style>
+    
     <div class="box-popup">
         <a class="popup-close">X </a>
         <h3 class="bp-title">
-            Xem chi tiết khóa học - Lập trình web
+            Xem chi tiết khóa học - <%=course.getCourse_name()%>
         </h3>
+        <%
+	        String year_start= course.getCourse_startdate().toString().substring(0, 4);
+	        String month_start= course.getCourse_startdate().toString().substring(5, 7);
+	        String day_start= course.getCourse_startdate().toString().substring(8, 10);
+	        
+	        String year_end= course.getCourse_enddate().toString().substring(0, 4);
+	        String month_end= course.getCourse_enddate().toString().substring(5, 7);
+	        String day_end= course.getCourse_enddate().toString().substring(8, 10);
+        %>
         <div class="bp-content" style="font-size: 20px">
-            <p style="padding-left: 50px;"> Lập trình web </p>
-            <p style="padding-left: 50px;"> Giảng viên: Đặng Thanh Dũng </p>
-            <p style="padding-left: 50px;"> Lịch học: thứ 4, 7h00-11h30 </p>
-            <p style="padding-left: 50px;"> Phòng học: A4 - 303 </p>
-            <p style="padding-left: 50px;"> Ngày bắt đầu: 31/08/2016 </p>
-            <p style="padding-left: 50px;"> Ngày kết thúc: 07/12/2016 </p>
+            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_name()%> </p>
+            <p style="padding-left: 50px;"> Giảng viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=teacher.getTen() %> </p>
+            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=course.getCourse_schedulingday()%>, tiết <%=course.getCourse_startlession()%> - <%=course.getCourse_endlession()%>  </p>
+            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_place()%> </p>
+            <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
+            <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
                        <div id="login_pnLogin">
   
                  
@@ -1089,7 +767,7 @@ fbq('track', "PageView");</script>
         </div>
     </div>
 </div>
-
+<%} %>
 <div style="width: 392px; display: none" id="overlay-DeThiTOEIC">
     <style type="text/css">
         .sp-remember
