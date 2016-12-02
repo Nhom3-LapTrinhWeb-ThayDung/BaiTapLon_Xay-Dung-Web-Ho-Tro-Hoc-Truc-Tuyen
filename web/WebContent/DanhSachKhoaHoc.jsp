@@ -247,10 +247,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 
+
 <%@include file="//includes/header.jsp" %>
 <%
 			User_info teacher = new User_info();
 %>
+
 
 
 <script type="text/javascript">

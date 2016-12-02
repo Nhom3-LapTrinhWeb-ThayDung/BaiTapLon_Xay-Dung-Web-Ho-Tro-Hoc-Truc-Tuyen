@@ -1,8 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Course"%>
-<%@page import="dao.CourseDAO"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page import="dao.CourseDAO"%>
+<%@page import="model.Course"%>
+<%@page import="dao.SectionDAO"%>
+<%@page import="model.Section"%>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <link rel="stylesheet" href="css/essential.css" type="text/css">
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -19,6 +21,7 @@
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_288" href="css/cssbutton-min.css">
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_388" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/tabview/assets/skins/sam/tabview.css">
 <link charset="utf-8" rel="stylesheet" id="yui_3_15_0_2_1476453284347_652" href="https://lms.hcmute.edu.vn/theme/yui_combo.php?3.15.0/datatable-base/assets/skins/sam/datatable-base.css&amp;3.15.0/datatable-message/assets/skins/sam/datatable-message.css&amp;3.15.0/datatable-sort/assets/skins/sam/datatable-sort.css&amp;3.15.0/resize-base/assets/skins/sam/resize-base.css">
+
 
 <title>
     Edit
@@ -160,7 +163,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 <div class="bpc-row">
                     <span class="sp-left"></span>
                     <span class="sp-right">
-                        <img src="Images/ajax-loader.gif" alt="ViettelStudy">
+                        <img src="Images/ajax-loader.gif" alt="StudyFunny">
                     </span>
                 </div>
             
@@ -238,18 +241,26 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 </div>
 
 
-<%@include file = "//includes/header.jsp" %>
-<%
-	String course_id ="";
-	CourseDAO courseDAO = new CourseDAO();
-	Course course = new Course();
-	if(request.getParameter("course_id")!=null)
-	{
-		course_id = request.getParameter("course_id");
-		course= courseDAO.getCourse(Long.parseLong(course_id));
-	}
-%>
-
+			<%@include file="//includes/header.jsp" %>
+			<%
+				SectionDAO sectionDAO = new SectionDAO();
+				CourseDAO courseDAO = new CourseDAO();
+				String course_id = "";
+				String section_id="";
+				Course course = new Course();
+				Section section=new Section();
+				if(request.getParameter("course_id")!=null)
+				{
+					course_id = request.getParameter("course_id");
+					course = courseDAO.getCourse(Long.parseLong(course_id));
+					
+				}
+				if(request.getParameter("section_id")!=null)
+				{
+					section_id = request.getParameter("section_id");
+					section = sectionDAO.getSection(Long.parseLong(section_id));
+				}
+			%>
 
 <script type="text/javascript">
 
@@ -584,7 +595,7 @@ $('.persion-tab-lnk').click(function() {
         .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
         .Breadcrumb .sne-lnk{color:#00918D;font-weight:normal;line-height:20px;background:}
     </style>
-    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; Lập trình web &gt; Edit settings</a>
+    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; <%=course.getCourse_name() %> &gt; <%=section.getSection_name() %></a>
 </div>
 
 
@@ -593,111 +604,89 @@ $('.persion-tab-lnk').click(function() {
 <!-- edit section -->
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">
-    <form action="CourseServlet" method="post">
     <div role="main" id="yui_3_15_0_2_1476453284347_360">
-        <h2 style="color:blue">Edit course settings</h2>
-        <div class="bpt-item-right">
-					<p style="color: red; font-style: italic; padding-left: 15px"
-				id="errorxkh" name="errorxkh"></p>
-			</div>
+        <h2 style="color:blue"><%=section.getSection_name() %></h2>
+        <form action="SectionServlet" method="post">
+        <div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
+                    <a id="btnsave" onclick="if ( ! FinishConfirmation()) return false;"><input name="submitbutton" value="Delete section" type="submit" id="id_submitbutton"></a></div>
+           			<input type="hidden" name="course_id" value="<%=course_id%>">
+                	<input type="hidden" name="section_id" value="<%=section_id%>">
+                	<input type="hidden" name="command" value="delete">
+            </form>
+            <form action="SectionServlet" method="post">
             <fieldset class="clearfix collapsible" id="id_general">
+                <div >
+										<p style="color: red; font-style: italic; padding-left: 15px"
+											id="errorsection" name="errorsection"></p>
+									</div>
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Course name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977">
-                <input size="50" name="course_name" type="text" id="course_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Section name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977">
+                <input size="50" name="section_name" type="text" id="section_name" value="<%=section.getSection_name() %>"></div>
                 </div>
-
-                <!-- mô tả -->
+                <!-- place -->
                 <div>
- 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course start date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"/> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
-                    <input type="date" name ="course_startdate" id = "course_startdate"></fieldset></div>
-
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Course finish date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
-                    <input type="date" name ="course_enddate" id = "course_enddate"></fieldset></div>
-
-
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Scheduling<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
-                    <label class="accesshide" for="id_timestart_day">weekdays</label><select name="course_schedulingday" id="course_schedulingday">
-                        <option value="1" selected="selected">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                    </select>
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>start lession<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
-                    <label class="accesshide" for="id_timestart_hour">startlession</label><select name="course_startlession" id="course_startlession">
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
-
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>end lession<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><label class="accesshide" for="id_timestart_day">weekdays</label><label class="accesshide" for="id_timestart_minute">endlession</label>
-                    <select name="course_endlession" id="course_endlession">
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>&nbsp;&nbsp;<a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset></div>
-					
-					<div>
-                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Place</label></div>
-                        </div>
-                        <textarea class="txt-input" name="course_place" style="height:100px;width: 394px;" id="course_place" placeholder="Nội dung"></textarea>
-                    </div>
-					
-					
                     <div>
-                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
+                        <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Content</label></div>
                         </div>
-                        <textarea class="txt-input" name="course_description" style="height:300px;width: 394px;" id="course_description" placeholder="Nội dung"></textarea>
+                        <textarea class="txt-input" name="section_content" style="height:300px;width: 394px;" id="section_content" placeholder="Nội dung"><%=section.getSection_content() %></textarea>
                     </div>
-
-                    <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
-                    <a id="btnsave"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></a></div></div>
-                	<input type="hidden" name="command" value="update">
+                		<div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
+                    <a id="btnsave"><input name="submitbutton" value="Save changes" type="submit" id="id_submitbutton"></a></div>
                 	<input type="hidden" name="course_id" value="<%=course_id%>">
+                	<input type="hidden" name="section_id" value="<%=section_id%>">
+                	<input type="hidden" name="command" value="update">
                 </div>
                 <!-- end mô tả -->
-                <script type="text/javascript">
-                	$(document).ready(function(){
-                		$('#course_name').val('<%=course.getCourse_name()%>');
-                		$('#course_startdate').val('<%=course.getCourse_startdate()%>');
-                		$('#course_enddate').val('<%=course.getCourse_enddate()%>');
-                		$('#course_schedulingday').val('<%=course.getCourse_schedulingday()%>');
-                		$('#course_startlession').val('<%=course.getCourse_startlession()%>');
-                		$('#course_endlession').val('<%=course.getCourse_endlession()%>');
-                		$('#course_place').val('<%=course.getCourse_place()%>');
-                		$('#course_description').val('<%=course.getCourse_description()%>');
-                	});
+				<script type="text/javascript">
+				
+					function FinishConfirmation() {
+						if (confirm("Xóa section <%=section.getSection_name()%>. Đồng ý?") == true) {
+							return true;
+						} else {
+							return false;
+						}
+					}
 				</script>
-                
-                
-                
-                
-                </div>
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </fieldset>
+        </form>
     </div>
-    </form>
 </section>
 </div> 
 <!-- end edit section -->
@@ -711,27 +700,22 @@ $('.persion-tab-lnk').click(function() {
          
 <a id="to_top" href="#"
 			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
-			rel="nofollow"> <img alt="Go to top!"
-			src="Images/gototop.png"></a>
+			rel="nofollow"> <img alt="Go to top!" src="Images/gototop.png"></a>
 		<div id="footer">
 			<div id="footer-menu">
 				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
 
 			</div>
             <div class="footer-menu-new">
-  <span class="title">ĐĂNG KÝ NHẬN EMAIL</span>
-  <span class="font-des">Đăng ký để nhận tài liệu bổ ích từ StudyFunny.com</span>
-  <span style="float: right; line-height: 39px;">
-  <input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
-    border: 1px solid #d4e7e3;
-    border-radius: 5px;
-    height: 25px;
-    margin-right: 16px;
-     padding: 1px 10px;
-    width: 260px;">
-  <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-</span>
-    </div> 
+				<span class="title">ĐĂNG KÝ NHẬN EMAIL</span> <span class="font-des">Đăng
+					ký để nhận tài liệu bổ ích từ StudyFunny.com</span> <span
+					style="float: right; line-height: 39px;"> <input
+					type="email" name="femail" id="femail"
+					style="background: #d4e7e3 none repeat scroll 0 0; border: 1px solid #d4e7e3; border-radius: 5px; height: 25px; margin-right: 16px; padding: 1px 10px; width: 260px;">
+					<input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ"
+					style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
+				</span>
+			</div>
 
     <div id="footer-bottom">
 
@@ -804,8 +788,10 @@ $('.persion-tab-lnk').click(function() {
         
     </div>
     <!--end-wrapper-->
-   
     
+    
+
+
 
 <script type="text/javascript">
 
@@ -885,7 +871,6 @@ Sys.Application.add_init(function() {
 });
 //]]>
 </script>
-    
     
     
 

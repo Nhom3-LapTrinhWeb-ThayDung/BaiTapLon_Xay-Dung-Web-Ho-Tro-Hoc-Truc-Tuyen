@@ -745,6 +745,7 @@
 					<c:if test="${errorStr != null }">
 						<p style="color: red; font-style: italic;">${errorStr }</p>
 					</c:if>
+					<p style="color: red; font-style: italic;" id ="errorkh">/p>
 						<a onclick="showedit()" id ="manager" style="display: none"><img
 							style="display: block; float: right;" src="Images/settings2.png"></a>
 						<div class="box-test-online martop_0">
@@ -756,7 +757,7 @@
 									%>
 										<div class="row">
 											<div class="box-text">
-												<a href="edit-section.jsp?section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" id="edit" name="edit"
+												<a href="edit-section.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id()%>"><img style="display: none; float: right" id="edit" name="edit"
 													src="Images/settings2.png"></a>
 												<h2 style="color: blue">
 													<span><%=s.getSection_name() %></span>
@@ -777,8 +778,8 @@
 													<%=ex.getExercise_name()%></a>
 													
 													<span class="edit" style="display: none">
-													 <a class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&exercise_id=<%=ex.getExercise_id() %>">Sửa</a>
-													  &nbsp;|&nbsp;<a class="under" onclick="xoaclick(<%=ex.getExercise_id()%>,'exercise')">Xóa</a>
+													 <a style="color:#99CC00;" class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&exercise_id=<%=ex.getExercise_id() %>">Sửa</a>
+													  &nbsp;|&nbsp;<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=ex.getExercise_id()%>,'exercise')">Xóa</a>
 													</span>
 												</p>
 												<%
@@ -791,8 +792,8 @@
 													<%=q.getQuiz_name()%></a>
 													
 													<span class="edit" style="display: none">
-														<a class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&quiz_id=<%=q.getId() %>">Sửa</a> 
-														&nbsp;|&nbsp;<a class="under" onclick="xoaclick(<%=q.getId()%>,'quiz')">Xóa</a>
+														<a style="color:#99CC00;" class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&quiz_id=<%=q.getId() %>">Sửa</a> 
+														&nbsp;|&nbsp;<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=q.getId()%>,'quiz')">Xóa</a>
 														
 													</span>
 												</p>
@@ -822,7 +823,16 @@
 										    function xoaclick(id,type){
 										    	if(type=="exercise")
 										    	{
-										    		alert("exercise_id="+id);
+										    		if (confirm("Chắc chắn xóa. Đồng ý?") == true) {
+										    			$.post('ExerciseServlet', {'command':"delete",'exercise_id':id}, function (data) {
+															if(data=="Xóa bài tập không thành công!!")
+																{
+																	$('#errorkh').html(data);
+																}
+															else
+																window.location.reload();
+															},'text');
+										    		} else {}
 										    	}
 										    	if(type=="quiz")
 										    	{
