@@ -794,7 +794,7 @@
 
 					<!--list khoa hoc dang day-->
 
-					<div class="persion-right" id="DetailThi" style="display: none;">
+					<%-- <div class="persion-right" id="DetailThi" style="display: none;">
 						<form action="CourseServlet" method="post">
 							<div id="ctl14_TienTrinhThi_upThi">
 
@@ -1262,7 +1262,7 @@
 							 }
 						 else
 							 {
-									<%-- var course_description,startdate_nam,startdate_thang,command, errormk,username;
+									var course_description,startdate_nam,startdate_thang,command, errormk,username;
 									$('#errorStr').html('<%=users.getUserName()%>');
 									alert('<%=users.getUserName()%>');
 									username = "<%=users.getUserName()%>"
@@ -1271,7 +1271,7 @@
 									newpass1 = $('#newpass1').val();
 									newpass2 = $('#newpass2').val();
 									command = "doimk";
-									errordkkh="";--%>
+									errordkkh="";
 									var idgiangvien = "<%=user_info.getId()%>";
 										//alert(username);
 											$.post('CourseServlet', {'command':"insert",'course_description':$('#course_description').val(),'startdate_nam':$('#startdate_nam').val(),'startdate_thang':$('#startdate_thang').val(),'startdate_ngay':$('#startdate_ngay').val(),
@@ -1339,7 +1339,7 @@
 												});
 							</script>
 						</form>
-					</div>
+					</div> --%>
 
 					<div class="persion-right" id="DetailDMK" style="display: none;">
 

@@ -10,7 +10,7 @@ public class User_info {
 	private int gioitinh;
 	private String ngaysinh;
 	private String email;
-	private byte[] anhdaidien;
+	private String anhdaidien;
 	private String diachi;
 	private int quyen;
 	public User_info() {
@@ -18,7 +18,7 @@ public class User_info {
 		// TODO Auto-generated constructor stub
 	}
 	public User_info(long id, String ten, String sodienthoai, int gioitinh, String ngaysinh, String email,
-			byte[] anhdaidien, String diachi, int quyen) {
+			String anhdaidien, String diachi, int quyen) {
 		super();
 		this.id = id;
 		this.ten = ten;
@@ -67,10 +67,10 @@ public class User_info {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public byte[] getAnhdaidien() {
+	public String getAnhdaidien() {
 		return anhdaidien;
 	}
-	public void setAnhdaidien(byte[] anhdaidien) {
+	public void setAnhdaidien(String anhdaidien) {
 		this.anhdaidien = anhdaidien;
 	}
 	public String getDiachi() {
