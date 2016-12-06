@@ -22,7 +22,7 @@ public class User_infoDAO {
 			if (rs.next()) {
 				User_info u = new User_info();
 				u.setId(rs.getLong("id"));
-				u.setAnhdaidien(rs.getBytes("anhdaidien"));
+				u.setAnhdaidien(rs.getString("anhdaidien"));
 				u.setDiachi(rs.getString("diachi"));
 				u.setEmail(rs.getString("email"));
 				u.setGioitinh(rs.getInt("gioitinh"));
@@ -52,6 +52,30 @@ public class User_infoDAO {
 			ps.setInt(4,u.getGioitinh());
 			ps.setString(5, u.getNgaysinh());
 			ps.setString(6, u.getEmail());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean updateUser_info(User_info u)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "update user_info set ten=?,sodienthoai=?,gioitinh=?,ngaysinh=?,email=?,anhdaidien=?,diachi=? where id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setString(1, u.getTen());
+			ps.setString(2, u.getSodienthoai());
+			ps.setInt(3,u.getGioitinh());
+			ps.setString(4, u.getNgaysinh());
+			ps.setString(5, u.getEmail());
+			ps.setString(6, u.getAnhdaidien());
+			ps.setString(7, u.getDiachi());
+			ps.setLong(8, u.getId());
 			ps.executeUpdate();
 			return true;
 

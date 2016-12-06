@@ -195,7 +195,7 @@ public class CourseDAO {
             	u.setGioitinh(rs.getInt(4));
             	u.setNgaysinh(rs.getString(5));
             	u.setEmail(rs.getString(6));
-            	u.setAnhdaidien(rs.getBytes(7));
+            	u.setAnhdaidien(rs.getString(7));
             	u.setDiachi(rs.getString(8));
             	u.setQuyen(rs.getInt(9));
             	listStudent.add(u);

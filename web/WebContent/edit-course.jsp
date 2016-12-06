@@ -241,7 +241,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <%@include file = "//includes/header.jsp" %>
 <%
 	String course_id ="";
-	CourseDAO courseDAO = new CourseDAO();
 	Course course = new Course();
 	if(request.getParameter("course_id")!=null)
 	{

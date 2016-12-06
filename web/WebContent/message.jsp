@@ -7,6 +7,7 @@
 <title>Message</title>
 </head>
 <body>
-	<img src="${msg}">
+	<%-- <img src="${msg}"> --%>
+	<input value="${message }">
 </body>
 </html>

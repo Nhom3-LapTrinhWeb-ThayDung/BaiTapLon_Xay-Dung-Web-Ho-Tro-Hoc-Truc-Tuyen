@@ -659,7 +659,7 @@
 						<div class="persion-avatar">
 							<div id="ctl14_LoadUser_upUserLoad">
 
-								<img src="media.studyfunny.vn" alt="" class="persion-avatar-img">
+								<img src="<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
 								<h3 class="persion-info">
 									<span class="bold"> ${user_info.getTen() }</span><br>
 								</h3>
@@ -1479,16 +1479,20 @@
 								}
 							</script>
 					</div>
+					
 					<div class="persion-right" id="DetailUser" style="display: block;">
-
+						<form id = "formuserinfo" action="UploadServlet" method="post" enctype="multipart/form-data">
+						<input type="hidden" value="user" name="command">
 						<div id="tab_user">
 							<h3 class="learn-process-h3">
 								<span>THÔNG TIN CÁ NHÂN</span>
 							</h3>
+							<p style="color: red; font-style: italic; padding-left: 15px"
+										id="errorupdateuser" name="errorupdateuser"></p>
 							<div class="list-wrap">
 								<div class="bpt-content" id="edit">
 									<div id="ctl14_ThongTinHocVien_pnInfo">
-
+										
 										<div class="bpt-row">
 											<div class="bpt-item-left">Tên:</div>
 											<div class="bpt-item-right">
@@ -1599,22 +1603,27 @@
 										</div>
 
 									</div>
+									
 									<div class="bpt-row bpt-row-line">
 										<div class="bpt-item-left">Ảnh đại diện:</div>
 										<div class="bpt-item-right">
 											<div class="bpt-img-avarta">
-												<img src="media.StudyFunny.vn" id="anhdaidien" alt=""
+												<img src="<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
 													height="48px">
 
 											</div>
-											<input name="button_anhdaidien" type="file"
-												id="button_anhdaidien" class="file" style="width: 210px">
+											<input name="uploadFile" type="file"
+												accept="image/*" id="uploadFile" class="file" style="width: 210px">
+												<input name="" type="submit"
+												value="cập nhật ảnh đại diện" style=" width: 150; height: 30;">
 											<p class="bpt-note-img">
 												<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
 											</p>
-
+						
 										</div>
 									</div>
+									
+									
 									<div class="bpt-row">
 										<div class="bpt-item-left">Địa chỉ:</div>
 										<div class="bpt-item-right">
@@ -1631,15 +1640,12 @@
 											<a onclick="refreshCaptcha('ThongTinHocVien','5')"
 												style="float: left; width: 100px;">
 
-
 												<div
 													style="float: left; padding-left: 8px; padding-right: 20px">
 													<img class="capcha"
 														src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&amp;id=StepLogin"
 														title="Lấy mã khác" alt="ViettelStudy">
-
 												</div>
-
 											</a>
 										</div>
 									</div>
@@ -1650,16 +1656,30 @@
 										</div>
 									</div>
 									<div class="bpt-row bpt-row-save" style="margin-top: 0px;">
-										<a id="ctl14_ThongTinHocVien_btnChapNhan" class="bpt-lnk-save"
-											href="javascript:__doPostBack('ctl14$ThongTinHocVien$btnChapNhan','')">
+										<a id="btnupdateuser" class="bpt-lnk-save" onclick="btnupdateuserclick()">
 											Chấp nhận </a>
+											
 									</div>
-									<input type="hidden" name="TokenCSRF_Canhan"
-										value="2BAA3CD3A4585B655BAF137E975E7DFB1113F7F1A3EC1EBA215CD641911491FF4531083F7B50F51CAD86663991A3CB54FD6410C064C61EF30C232ABAAA2A73B6">
 								</div>
 								<!--end-edit-user-->
 							</div>
 						</div>
+						</form>
+						<script type="text/javascript">btnupdate
+							function btnupdateuserclick(){
+									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
+										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
+											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
+											if(data=="update success!")
+												{
+												 	location.reload();
+												}
+											else
+												$('#errorupdateuser').html(data);
+											},'text');
+									}
+						}
+						</script>
 						<script type="text/javascript">
 								function refreshCaptcha(capchaid, capchlength) {
 									$('#capcha').attr(

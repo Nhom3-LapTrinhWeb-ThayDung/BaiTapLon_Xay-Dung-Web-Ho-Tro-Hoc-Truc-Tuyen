@@ -1,8 +1,10 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Time;
+import java.util.List;
 import java.util.Timer;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import dao.User_infoDAO;
 import dao.UsersDAO;
@@ -28,6 +34,18 @@ public class UsersServlet extends HttpServlet {
 	User_infoDAO user_infoDAO = new User_infoDAO();
 	private static final long serialVersionUID = 1L;
 
+	
+	 
+    // location to store file uploaded
+    private static final String UPLOAD_DIRECTORY = "upload";
+ 
+    // upload settings
+    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
+	
+	
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -41,7 +59,6 @@ public class UsersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 	}
 
 	/**
@@ -126,8 +143,38 @@ public class UsersServlet extends HttpServlet {
 				//errorStr="Đổi mật khẩu không thành công";
 				//request.setAttribute("errorStr", errorStr);
 			}
+			Users u= (Users)session.getAttribute("user");
+			u.setUserPass(newpass1);
+			session.setAttribute("user", u);
+			break;
+			
+		case "update":
+			user_info= (User_info)session.getAttribute("user_info");
+			user_info.setEmail(request.getParameter("email"));
+			user_info.setGioitinh(Integer.parseInt(request.getParameter("gioitinh")));
+			user_info.setNgaysinh(request.getParameter("namsinh")
+					+"-"+ request.getParameter("thangsinh")
+					+"-"+ request.getParameter("ngaysinh"));
+			user_info.setTen(request.getParameter("ten"));
+			user_info.setSodienthoai(request.getParameter("sodienthoai"));
+			f = user_infoDAO.updateUser_info(user_info);
+			if(f)
+			{
+					session.removeAttribute("user_info");
+					session.setAttribute("user_info", user_info);
+					
+					response.getWriter().write("update success!");
+			}
+			else
+			{
+				//session.removeAttribute("user");
+				response.getWriter().write("update unsuccessful!");
+			}
+			/*RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);*/
 			break;
 		}
+		
 		
 	}
 
