@@ -11,6 +11,7 @@ import connect.DBConnect;
 import model.Course;
 import model.Exercise;
 import model.QuestionQuiz;
+import model.Resources;
 import model.User_info;
 
 public class CourseDAO {
@@ -236,7 +237,29 @@ public class CourseDAO {
         }
         return null;
     }
-    
+    public List<Resources> getListResources(long section_id) {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select  * from resources where section_id='"+section_id+"'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Resources> listResources = new ArrayList<Resources>();
+            while (rs.next()) {
+            	Resources s = new Resources();
+            	s.setResources_id(rs.getLong(1));
+            	s.setResources_name(rs.getString(2));
+            	s.setResources_type(rs.getString(3));
+            	s.setSection_id(rs.getLong(4));
+            	listResources.add(s);
+            }
+            conn.close();
+            return listResources;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     //Lay giang vien
     public User_info getteacher(long course_id) {
         try {
