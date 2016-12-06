@@ -156,23 +156,11 @@
 									</p>
 								</div>
 								<div class="vt-gadget-div-form gadget-captcha">
-									<span class="vt-gadget-label"> Mã bảo mật </span>
+									
 									<div class="vt-gadget-p">
-										<input name="Header1$Widget$GopY$txtCapcha" type="text"
-											maxlength="10" id="Header1_Widget_GopY_txtCapcha"
-											autocomplete="off" class="vt-gadget-txt"> <a
-											class="captcha-img" onclick="refreshCaptcha('GopY','5')"
-											style="float: left; width: 100px;">
+										
 
-
-											<div
-												style="float: left; padding-left: 8px; padding-right: 20px">
-												<img class="capcha"
-													src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&amp;id=GopY"
-													title="Lấy mã khác" alt="ViettelStudy">
-
-											</div>
-
+											
 										</a> <input type="submit" name="Header1$Widget$GopY$btnGui"
 											value="Gửi"
 											onclick="validgopy('Header1_Widget_GopY_txtNoiDung');"

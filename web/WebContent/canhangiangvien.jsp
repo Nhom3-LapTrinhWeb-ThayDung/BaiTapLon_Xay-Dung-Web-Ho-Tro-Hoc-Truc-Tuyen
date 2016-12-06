@@ -158,24 +158,11 @@
 								</p>
 							</div>
 							<div class="vt-gadget-div-form gadget-captcha">
-								<span class="vt-gadget-label"> Mã bảo mật </span>
+								
 								<div class="vt-gadget-p">
-									<input name="Header1$Widget$GopY$txtCapcha" type="text"
-										maxlength="10" id="Header1_Widget_GopY_txtCapcha"
-										autocomplete="off" class="vt-gadget-txt"> <a
-										class="captcha-img" onclick="refreshCaptcha('GopY','5')"
-										style="float: left; width: 100px;">
-
-
-										<div
-											style="float: left; padding-left: 8px; padding-right: 20px">
-											<img class="capcha"
-												src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&amp;id=GopY"
-												title="Lấy mã khác" alt="ViettelStudy">
-
-										</div>
-
-									</a> <input type="submit" name="Header1$Widget$GopY$btnGui"
+									
+										
+										 <input type="submit" name="Header1$Widget$GopY$btnGui"
 										value="Gửi"
 										onclick="validgopy('Header1_Widget_GopY_txtNoiDung');"
 										id="Header1_Widget_GopY_btnGui" class="vt-gadget-btn-send">
@@ -794,7 +781,7 @@
 
 					<!--list khoa hoc dang day-->
 
-					<div class="persion-right" id="DetailThi" style="display: none;">
+					<%-- <div class="persion-right" id="DetailThi" style="display: none;">
 						<form action="CourseServlet" method="post">
 							<div id="ctl14_TienTrinhThi_upThi">
 
@@ -1262,7 +1249,7 @@
 							 }
 						 else
 							 {
-									<%-- var course_description,startdate_nam,startdate_thang,command, errormk,username;
+									var course_description,startdate_nam,startdate_thang,command, errormk,username;
 									$('#errorStr').html('<%=users.getUserName()%>');
 									alert('<%=users.getUserName()%>');
 									username = "<%=users.getUserName()%>"
@@ -1271,7 +1258,7 @@
 									newpass1 = $('#newpass1').val();
 									newpass2 = $('#newpass2').val();
 									command = "doimk";
-									errordkkh="";--%>
+									errordkkh="";
 									var idgiangvien = "<%=user_info.getId()%>";
 										//alert(username);
 											$.post('CourseServlet', {'command':"insert",'course_description':$('#course_description').val(),'startdate_nam':$('#startdate_nam').val(),'startdate_thang':$('#startdate_thang').val(),'startdate_ngay':$('#startdate_ngay').val(),
@@ -1339,7 +1326,7 @@
 												});
 							</script>
 						</form>
-					</div>
+					</div> --%>
 
 					<div class="persion-right" id="DetailDMK" style="display: none;">
 
@@ -1498,7 +1485,8 @@
 											<div class="bpt-item-right">
 												<input name="ten" type="text" value="${user_info.getTen()}"
 													maxlength="100" id="ten" class="bpt-txt"> <span
-													id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> <input
+													id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> 
+													<input
 													type="hidden" id="usermame" name="username"
 													value="${users.getUserName()}" />
 											</div>
@@ -1628,27 +1616,10 @@
 										<div class="bpt-item-left">Địa chỉ:</div>
 										<div class="bpt-item-right">
 											<input name="diachi" type="text" maxlength="200" id="diachi"
-												class="bpt-txt" value="<%=user_info.getDiachi()%>">
+												class="bpt-txt" value="${user_info.getDiachi()}">
 										</div>
 									</div>
-									<div class="bpt-row">
-										<div class="bpt-item-left">Mã bảo mật</div>
-										<div class="bpt-item-right">
-											<input name="ctl14$ThongTinHocVien$txtCapcha" type="text"
-												maxlength="10" id="ctl14_ThongTinHocVien_txtCapcha"
-												class="bpt-txt" autocomplete="off" style="width: 120px;">
-											<a onclick="refreshCaptcha('ThongTinHocVien','5')"
-												style="float: left; width: 100px;">
-
-												<div
-													style="float: left; padding-left: 8px; padding-right: 20px">
-													<img class="capcha"
-														src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&amp;id=StepLogin"
-														title="Lấy mã khác" alt="ViettelStudy">
-												</div>
-											</a>
-										</div>
-									</div>
+									
 									<div class="bpt-row" style="margin-top: 0px;">
 										<div class="bpt-item-left"></div>
 										<div class="bpt-item-right">
@@ -1669,10 +1640,10 @@
 							function btnupdateuserclick(){
 									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
 										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
-											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val(),'diachi':$('#diachi').val()}, function (data) {
+											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
 											if(data=="update success!")
 												{
-													$('#errorupdateuser').html('Vui lòng đăng nhập lại để thay đổi!');
+												 	location.reload();
 												}
 											else
 												$('#errorupdateuser').html(data);

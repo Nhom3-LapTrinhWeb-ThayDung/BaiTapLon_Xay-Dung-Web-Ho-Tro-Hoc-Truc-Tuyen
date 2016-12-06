@@ -39,7 +39,7 @@
 </head>
 <body>
 
-    <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
+
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -154,20 +154,10 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 </p>
             </div>
             <div class="vt-gadget-div-form gadget-captcha">
-            	<span class="vt-gadget-label">
-                	Mã bảo mật
-                </span>
+            	
                 <div class="vt-gadget-p">
-                	<input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt">
-                        <a class="captcha-img" onclick="refreshCaptcha(&#39;GopY&#39;,&#39;5&#39;)" style="float:left;width:100px;">
-                            
-
-<div style="float:left;padding-left:8px;padding-right:20px">
-    <img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="Study Funny"> 
-     
-</div>
-
-                        </a>
+                	
+                        
                 	<input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy(&#39;Header_Widget_GopY_txtNoiDung&#39;);" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send">
                 	<input type="hidden" name="TokenCSRF_GopYBaiHoc" value="A22CE296A4B92D31E24BCE525C2E36784E42767F7C4C04695685016F7C0B618803359C7DDC2192DA4A1731E89BAAB8F65BF2C0F989EDB8091EA18B22EDEAAC24">
                 </div>
@@ -570,15 +560,16 @@ $('.persion-tab-lnk').click(function() {
 
             </style>
             <div class="persion-avatar">
-                <div id="ctl14_LoadUser_upUserLoad">
-	
-        <img src="./Images/hocvien/avatar_01678868567.jpg" alt="" class="persion-avatar-img">
-        <h3 class="persion-info">
-            <span class="bold">
-                ${user_info.getTen()}</span><br>
-        </h3>
-</div>
-            </div>
+				<div id="ctl14_LoadUser_upUserLoad">
+
+					<img src="<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
+					<h3 class="persion-info">
+						<span class="bold"> ${user_info.getTen() }</span><br>
+					</h3>
+
+				</div>
+
+			</div>
             <div class="persion-tab">
                 <div class="wrap-tab">
                     <a class="persion-tab-lnk lnk-tab-info active" name="DetailUser" onclick="loadUserControl(&#39;ThongTinCaNhanNew&#39;)">
@@ -816,22 +807,29 @@ $('.persion-tab-lnk').click(function() {
 							</script>
 					</div>
 <div class="persion-right" id="DetailUser" style="display: block;">
-            
+<form id = "formuserinfo" action="UploadServlet" method="post" enctype="multipart/form-data">            
+<input type="hidden" value="user" name="command">
 <div id="tab_user">
     <h3 class="learn-process-h3">
         <span>THÔNG TIN CÁ NHÂN</span>
     </h3>
+    <p style="color: red; font-style: italic; padding-left: 15px"
+										id="errorupdateuser" name="errorupdateuser"></p>
     <div class="list-wrap">
         <div class="bpt-content" id="edit">
             <div id="ctl14_ThongTinHocVien_pnInfo">
 	
                     <div class="bpt-row">
                         <div class="bpt-item-left">
-                            Nick name:</div>
+                            Họ và tên:</div>
                         <div class="bpt-item-right">
-                            <input name="ten" type="text" value="${user_info.getTen()}" maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu" class="bpt-txt">
-                            <span id="Ten"></span>
-                        </div>
+												<input name="ten" type="text" value="${user_info.getTen()}"
+													maxlength="100" id="ten" class="bpt-txt"> <span
+													id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> 
+													<input
+													type="hidden" id="usermame" name="username"
+													value="${users.getUserName()}" />
+											</div>
                     </div>
                      <div class="bpt-row">
                         <div class="bpt-item-left">
@@ -936,7 +934,26 @@ $('.persion-tab-lnk').click(function() {
                         </div>
                     </div>                
 </div>
-            <div class="bpt-row bpt-row-line">
+			<div class="bpt-row bpt-row-line">
+										<div class="bpt-item-left">Ảnh đại diện:</div>
+										<div class="bpt-item-right">
+											<div class="bpt-img-avarta">
+												<img src="<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
+													height="48px">
+
+											</div>
+											<input name="uploadFile" type="file"
+												accept="image/*" id="uploadFile" class="file" style="width: 210px">
+												<input name="" type="submit"
+												value="cập nhật ảnh đại diện" style=" width: 150; height: 30;">
+											<p class="bpt-note-img">
+												<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+											</p>
+						
+										</div>
+									</div>
+
+            <!-- <div class="bpt-row bpt-row-line">
                 <div class="bpt-item-left">
                     Ảnh đại diện:</div>
                 <div class="bpt-item-right">
@@ -949,14 +966,13 @@ $('.persion-tab-lnk').click(function() {
                     </p>
                     
                 </div>
-            </div>            
+            </div>     -->        
             
             <div class="bpt-row">
                 <div class="bpt-item-left">
                     Địa chỉ:</div>
                 <div class="bpt-item-right">
-					<input name="diachi" type="text"
-						maxlength="200" id="diachi"
+					<input name="diachi" type="text" maxlength="200" id="diachi"
 						class="bpt-txt" value="${user_info.getDiachi()}">
 				</div>
             </div>
@@ -969,25 +985,31 @@ $('.persion-tab-lnk').click(function() {
                 </div>
             </div>
             <div class="bpt-row bpt-row-save" style="margin-top: 0px;">
-             <!--
-                <a id="ctl14_ThongTinHocVien_btnChapNhan" class="bpt-lnk-save" href="javascript:__doPostBack(&#39;ctl14$ThongTinHocVien$btnChapNhan&#39;,&#39;&#39;)">
-                        Chấp nhận
-                </a>
-              -->
-              	<a id="ctl14_ThongTinHocVien_btnChapNhan" class="bpt-lnk-save">
-                        Chấp nhận
-                </a>
-            </div>
-            <input type="hidden" name="TokenCSRF_Canhan" value="D0417EE37BEC9BA9F222BA26C88E135197DCB78ED80BF3DD6F4331B30D6F3954C9B7247B846E5A799E2AA4E7484B41DA6FFCB3E764E06DD12C2B3CCE42DB4D95">
+				<a id="btnupdateuser" class="bpt-lnk-save" onclick="btnupdateuserclick()">
+					Chấp nhận </a>
+					
+			</div>
+            
         </div>
         <!--end-edit-user---->
     </div>
 </div>
-<script type="text/javascript">
-function refreshCaptcha(capchaid, capchlength) {
-        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-</script>
+</form>>
+										<script type="text/javascript">btnupdate
+							function btnupdateuserclick(){
+									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
+										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
+											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
+											if(data=="update success!")
+												{
+												 	location.reload();
+												}
+											else
+												$('#errorupdateuser').html(data);
+											},'text');
+									}
+						}
+						</script>
         </div>
     </div>
 </div>
@@ -1213,7 +1235,6 @@ Sys.Application.add_init(function() {
 });
 //]]>
 </script>
-</form>
 <script type="text/javascript">
 
 function EnterKeyPress(id,e) {
