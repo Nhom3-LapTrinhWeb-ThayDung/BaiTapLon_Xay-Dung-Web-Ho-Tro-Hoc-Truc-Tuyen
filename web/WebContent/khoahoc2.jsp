@@ -1,4 +1,5 @@
 
+<%@page import="model.Resources"%>
 <%@page import="javax.swing.text.Document"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -16,6 +17,7 @@
 <%@page import="dao.QuestionRadioDAO"%>
 <%@page import="dao.Exercise_UserDAO"%>
 <%@page import="model.Exercise_User"%>
+<%@page import="model.Url"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -808,6 +810,33 @@
 												</p>
 												<%
 													}
+													for (Resources src : courseDAO.getListResources(s.getSection_id())) {
+												%>
+														<p style="margin-left: 20px">
+															<a class ="under" href="upload/<%=src.getResources_name()%>">
+															<img src="Images/<%=src.getResources_type() %>.png">
+															<%=src.getResources_name()%></a>
+															
+															<span class="edit" style="display: none">
+																<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=src.getResources_id()%>,'resources')">Xóa</a>
+																
+															</span>
+														</p>
+												<%
+													}
+													for (Url u : sectionDAO.getListUrl(s.getSection_id())) {
+												%>
+																<p style="margin-left: 20px">
+																	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=u.getUrl_name() %>" frameborder="0" allowfullscreen></iframe>
+																	
+																	<span class="edit" style="display: none">
+																		<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=u.getUrl_id()%>,'resources')">Xóa</a>
+																		
+																	</span>
+																</p>
+												<%
+													}
+															
 												%>
 											</div>
 											
@@ -827,8 +856,16 @@
 										    function addsourceclick(sectionid) {
 										    	var currentsectionid = sectionid;
 										        $('#currentsectionid').val(sectionid);
+										        $('#sectionid').val(sectionid);
+										        $('#sectionidurl').val(sectionid);
 										    }
-										    
+										    function downloadclick(filename)
+										    {
+										    	/* alert(filename); */
+										    	$.post('DownloadServlet', {'filename':filename}, function (data) {
+										    		alert(filename); 
+													},'text');
+										    }
 										    
 										    function xoaclick(id,type){
 										    	if(type=="exercise")
@@ -1278,7 +1315,10 @@
 								
 							</div>
 						</div>
-
+						<form action="UploadServlet" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="command" value="file">
+						<input type="hidden" name="sectionid" value="" id = "sectionid">
+						<input type="hidden" name="courseid" value="<%=course_id %>" id = "courseid">
 						<div class="add-source-right" id="File">
 							<div class="bpc-row">
 								<span class="sp-text">Chọn file đính kèm</span>
@@ -1305,7 +1345,7 @@
 
 							</div>
 						</div>
-
+						</form>
 						<div class="add-source-right" id="URL">
 							<div class="bpc-row">
 								<span class="sp-text">Thêm URL</span>
@@ -1314,14 +1354,15 @@
 							<div class="bpt-row">
 							
 				                <div class="bpt-item-right">
-				                    <input name="ctl14$ThongTinHocVien$txtLop" type="text" maxlength="200" id="ctl14_ThongTinHocVien_txtLop" class="bpt-txt" style="margin-left:15px">
+				                    <input name="url" type="text" maxlength="200" id="url" class="bpt-txt" style="margin-left:15px">
 				               	</div>
 				            </div>
 							
 							<div class="add-footer">
-								<input type="submit" name="login$btnDangNhap" value="Add"
-									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
+								<input type="button" name="btnurl" value="Add"
+									onclick="btnurlclick()" id="btnurl"
 									class="bpt-lnk-save btn-add">
+									<input type="hidden" name="sectionidurl" id="sectionidurl">
 								<!--<script type="text/javascript">
                            function btnDangNhap_OnClientClick() {
                                 document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
@@ -1376,6 +1417,13 @@
 						window.location.href = "create-exercise.jsp?course_id="+<%=course_id%>+"&section_id=" + $('#currentsectionid').val();
 					else if(data==4)
 						window.location.href = "create-quiz.jsp?course_id="+<%=course_id%>+"&section_id=" + $('#currentsectionid').val();
+				}
+				function btnurlclick(){
+					/* alert($('#url').val() + $('#sectionidurl').val() ) */
+					$.post('UrlServlet', {'command':"insert",'section_idurl':$('#sectionidurl').val(),'url':$('#url').val()}, function (data) {
+						if(data=="success!")
+							location.reload();
+                 },'text');
 				}
 				</script>
 			</div>

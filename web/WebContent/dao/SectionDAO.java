@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connect.DBConnect;
+import model.Resources;
 import model.Section;
+import model.Url;
 
 public class SectionDAO {
     private PreparedStatement ps;
@@ -116,6 +118,66 @@ public class SectionDAO {
 		return false;
 	}
 	
+	public boolean insertresources(Resources src)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "insert into resources values(?,?,?,?)";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, src.getResources_id());
+			ps.setString(2, src.getResources_name());
+			ps.setString(3, src.getResources_type());
+			ps.setLong(4, src.getSection_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean insertUrl(Url u)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "insert into url values(?,?,?)";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, u.getUrl_id());
+			ps.setString(2, u.getUrl_name());
+			ps.setLong(3, u.getSection_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public List<Url> getListUrl(long section_id) {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from Url where section_id ='"+section_id+"'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Url> listSection = new ArrayList<Url>();
+            while (rs.next()) {
+            	Url u = new Url();
+            	u.setUrl_id(rs.getLong(1));
+            	u.setUrl_name(rs.getString(2));
+            	u.setSection_id(rs.getLong(3));
+            	listSection.add(u);
+            }
+            conn.close();
+            return listSection;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 	public static void main(String[] args) {
 		/*// TODO Auto-generated method stub
 		Long c_id = Long.parseLong("1479799303858");
@@ -123,6 +185,14 @@ public class SectionDAO {
 		for (Section s : dao.getListSection(c_id)) {
 			System.out.println(s.getCourse_id() +"-"+s.getSection_name());
 		}*/
+		Resources s = new Resources();
+		s.setResources_id(Long.parseLong("231313"));
+		s.setResources_name("asdacdgfdgsd");
+		s.setResources_type(".docx");
+		s.setSection_id(Long.parseLong("2323"));
+		SectionDAO sd = new SectionDAO();
+		boolean f = sd.insertresources(s);
+		System.out.println(f);
 	}
 
 }
