@@ -18,7 +18,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.oreilly.servlet.MultipartRequest;
 
+import dao.SectionDAO;
 import dao.User_infoDAO;
+import model.Resources;
 import model.User_info;
 
 /**
@@ -28,6 +30,7 @@ import model.User_info;
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	User_infoDAO user_infoDAO = new User_infoDAO();
+	SectionDAO sectionDAO = new SectionDAO();
     // location to store file uploaded
     private static final String UPLOAD_DIRECTORY = "upload";
  
@@ -53,6 +56,9 @@ public class UploadServlet extends HttpServlet {
     	User_info uf = new User_info();
 		HttpSession session = request.getSession();
 		uf = (User_info) session.getAttribute("user_info");
+		String srcname="";
+		String srcsectionid="";
+		String course_id="";
         // checks if the request actually contains upload file
         if (!ServletFileUpload.isMultipartContent(request)) {
             // if not, we stop here
@@ -106,11 +112,16 @@ public class UploadServlet extends HttpServlet {
                         request.setAttribute("message",
                                 "Upload has been done successfully >>" + UPLOAD_DIRECTORY + "/" + fileName);
                         uf.setAnhdaidien(UPLOAD_DIRECTORY + "/" + fileName);
+                        srcname = fileName;
                     }
                     else{
                     	i++;
                     	if(i==1)
                     		command = item.getString();
+                    	if(i==2)
+                    		srcsectionid=item.getString();
+                    	if(i==3)
+                    		course_id=item.getString();
                     }
                     
                    } 
@@ -129,10 +140,22 @@ public class UploadServlet extends HttpServlet {
         	else
         		url="/hocvien.jsp";
         	break;
+<<<<<<< HEAD
         
+=======
+        case "file":
+        	Resources src = new Resources();
+        	src.setResources_id(new java.util.Date().getTime());
+        	src.setResources_name(srcname);
+        	src.setSection_id(Long.parseLong(srcsectionid));
+        	src.setResources_type(srcname.substring(srcname.length()-3));
+        	f = sectionDAO.insertresources(src);
+        	url="/khoahoc2.jsp?course_id="+course_id;
+        	break;
+>>>>>>> origin/master
         }
         // redirects client to message page
-        request.setAttribute("message", command);
+        request.setAttribute("message", srcname+srcsectionid);
         getServletContext().getRequestDispatcher(url).forward(
                 request, response);
     }
