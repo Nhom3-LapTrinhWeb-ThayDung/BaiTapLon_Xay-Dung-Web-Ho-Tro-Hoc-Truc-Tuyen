@@ -34,15 +34,7 @@ public class UsersServlet extends HttpServlet {
 	User_infoDAO user_infoDAO = new User_infoDAO();
 	private static final long serialVersionUID = 1L;
 
-	
-	 
-    // location to store file uploaded
-    private static final String UPLOAD_DIRECTORY = "upload";
- 
-    // upload settings
-    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
+
 	
 	
 	
@@ -149,19 +141,22 @@ public class UsersServlet extends HttpServlet {
 			break;
 			
 		case "update":
-			user_info= (User_info)session.getAttribute("user_info");
-			user_info.setEmail(request.getParameter("email"));
-			user_info.setGioitinh(Integer.parseInt(request.getParameter("gioitinh")));
-			user_info.setNgaysinh(request.getParameter("namsinh")
+			User_info u2= (User_info)session.getAttribute("user_info");
+			User_info u1= new User_info();
+			u1.setId(u2.getId());
+			u1.setQuyen(u2.getQuyen());
+			u1.setAnhdaidien(u2.getAnhdaidien());
+			u1.setEmail(request.getParameter("email"));
+			u1.setGioitinh(Integer.parseInt(request.getParameter("gioitinh")));
+			u1.setNgaysinh(request.getParameter("namsinh")
 					+"-"+ request.getParameter("thangsinh")
 					+"-"+ request.getParameter("ngaysinh"));
-			user_info.setTen(request.getParameter("ten"));
-			user_info.setSodienthoai(request.getParameter("sodienthoai"));
-			f = user_infoDAO.updateUser_info(user_info);
+			u1.setTen(request.getParameter("ten"));
+			u1.setSodienthoai(request.getParameter("sodienthoai"));
+			u1.setDiachi(request.getParameter("diachi"));
+			f = user_infoDAO.updateUser_info(u1);
 			if(f)
 			{
-					session.removeAttribute("user_info");
-					session.setAttribute("user_info", user_info);
 					
 					response.getWriter().write("update success!");
 			}
@@ -170,8 +165,6 @@ public class UsersServlet extends HttpServlet {
 				//session.removeAttribute("user");
 				response.getWriter().write("update unsuccessful!");
 			}
-			/*RequestDispatcher rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);*/
 			break;
 		}
 		
