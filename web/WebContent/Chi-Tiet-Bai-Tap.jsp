@@ -1,3 +1,6 @@
+<%@page import="java.sql.Date"%>
+<%@page import="java.util.Date"%>
+<%@page import="model.Exercise_User"%>
 <%@page import="dao.ExerciseDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -35,7 +38,9 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-    <form name="form1" method="post" action="#" id="form1" enctype="multipart/form-data">
+
+
+    
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -244,7 +249,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 	<%@ include file="//includes/header.jsp" %>	
 	<%
-	
+	CourseDAO courseDAO = new CourseDAO();	
+	Exercise_UserDAO euDAO = new Exercise_UserDAO();
+	Exercise_User eu = new Exercise_User();
 	String course_id = "";
 	Course course = new Course();
 	String exercise_id="";
@@ -256,8 +263,18 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 		exercise_id = request.getParameter("exercise_id");
 		course = courseDAO.getCourse(Long.parseLong(course_id));
 		exercise = exerciseDAO.getExercise(Long.parseLong(exercise_id));
+		eu = euDAO.timbaidanop(Long.parseLong(exercise_id), user_info.getId());
 	}
 	%>
+	<script>
+				$(document).ready(function() {
+					if(<%=user_info.getQuyen()%>=="1")
+						{
+							$('#header-manager').attr('style','display: block');
+							$('#manager').attr('style','display: block');
+						}
+					});
+			</script>
 
 
 <script type="text/javascript">
@@ -588,15 +605,26 @@ $('.persion-tab-lnk').click(function() {
 </style>
 
 
-<div class="Breadcrumb">
-    <style>
-        .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
-        .Breadcrumb .sne-lnk{color:#00918D;font-weight:normal;line-height:20px;background:}
-    </style>
-    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; <%=course.getCourse_name() %> &gt; <%=exercise.getExercise_name() %></a>
-</div>
+				<div class="Breadcrumb">
+					<style>
+.Breadcrumb {
+	margin-top: 10px;
+	background: #ffffff;
+	padding: 5px 10px;
+}
 
-<div class="persion-right2" style="display: block;" id="1">
+.Breadcrumb .sne-lnk {
+	color: #00918D;
+	font-weight: normal;
+	line-height: 20px;
+	background:
+}
+</style>
+					<a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân
+						&gt; Khóa Học &gt; <%=course.getCourse_name()%> &gt; <%=exercise.getExercise_name()%></a>
+				</div>
+
+				<div class="persion-right2" style="display: block;" id="1">
 
     <style type="text/css">
         .edit{}
@@ -625,7 +653,7 @@ $('.persion-tab-lnk').click(function() {
         </div>
         <div class="learn-process process-study">
             <div id="Course" class="body" style="display:block">
-            <a onclick="showedit()"><img style="display: block;float:right; " src="Images/settings2.png"></a>
+            <a onclick="showedit()" id ="manager" style="display: none"><img style="display: block;float:right; " src="Images/settings2.png"></a>
         <div class="box-test-online martop_0">
             <div class="to-content">
                 <div class="to-c-left">
@@ -642,8 +670,12 @@ $('.persion-tab-lnk').click(function() {
                             <br>
                             <p><%=exercise.getExersice_content()%></p>
                         </div>
+                        
+                        
+      
 
-                        <div class="box-resources">
+
+												<div class="box-resources">
                             <br>
                             <!-- <div class="activityinstance">
                                 <a href="" class="instance-color" ><img src="Images/pdf-24.png" class="activityicon">
@@ -674,8 +706,147 @@ $('.persion-tab-lnk').click(function() {
 										    </script>
             </div>
         </div>
-        </div>
+        </div>			
+        				<div id="submitexercise">
+			        			<%if(user_info.getQuyen()==2)
+			        			{
+			        				if(eu==null)
+			        				{
+								%>
+								<form  action="SubmitExerciseServlet" method="post" enctype="multipart/form-data">
+													<input type="hidden" name="exercise_id" value="<%=exercise_id%>">
+													<input type="hidden" name="course_id" value="<%=course_id%>">
+													<input type="hidden" name="filename" value="">
+													
+													<div class="bpt-row">
+													<div class="bpt-item-left">Mô tả:</div>
+													<div class="bpt-item-right">
+														<input name="ten" type="text"
+															value="" maxlength="100" id=""
+															class="bpt-txt"> <span
+															id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> <input
+															type="hidden" id="usermame" name="username"
+															value="null" />
+													</div>
+													
+												</div>
+													<div class="row">
+													<div class="bpt-row bpt-row-line">
+														<div class="bpt-item-left">Bài tập:</div>
+														
+														<div class="bpt-item-right">
+															<a>sads.pdf</a>
+															<input name="uploadFile" type="file"
+																id="uploadFile" class="file" style="width: 210px">
+															
+															<p class="bpt-note-img">
+																<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+															</p>
 
+														</div>
+													</div>
+												</div>
+												
+												<div class="bpt-row">
+													<div class="bpt-item-left">Điểm:</div>
+													<div class="bpt-item-right">
+														<input name="ten" type="text" disabled="disabled"
+															value="" maxlength="100" id=""
+															class="bpt-txt">
+													</div>
+													
+												</div>
+												<div class="bpt-row">
+													<div class="bpt-item-left">Đánh giá:</div>
+													<div class="bpt-item-right">
+														<input name="ten" type="text" disabled="disabled"
+															value="" maxlength="100" id=""
+															class="bpt-txt">
+													</div>
+													
+												</div>
+												<div class="bpt-row">
+													<div class="bpt-item-left"></div>
+													<div class="bpt-item-right">
+														<input name="submitexercise" type="submit" value="Cập nhật bài tập" 
+																style="width: 150; height: 30;">
+													</div>
+													
+												</div>
+												
+												</form>
+									<%
+										}else{
+			        				%>
+			        				<form  action="SubmitExerciseServlet" method="post" enctype="multipart/form-data">
+													<input type="hidden" name="exercise_id" value="<%=exercise_id%>">
+													<input type="hidden" name="course_id" value="<%=course_id%>">
+													<input type="hidden" name="filename" value="<%=eu.getFilesubmit()%>">
+													
+													<div class="bpt-row">
+													<div class="bpt-item-left">Mô tả:</div>
+													<div class="bpt-item-right">
+														<input name="ten" type="text"
+															value="<%=eu.getDescription()%>" maxlength="100" id=""
+															class="bpt-txt"> 
+													</div>
+													
+												</div>
+													<div class="row">
+													<div class="bpt-row bpt-row-line">
+														<div class="bpt-item-left">Bài tập:</div>
+														
+														<div class="bpt-item-right">
+															<a class ="under" href="upload/<%=eu.getFilesubmit()%>">
+															<img src="Images/ocx.png">
+															<%=eu.getFilesubmit()%></a>
+															<input name="uploadFile" type="file"
+																id="uploadFile" class="file" style="width: 210px">
+															
+															<p class="bpt-note-img">
+																<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+															</p>
+
+														</div>
+													</div>
+												</div>
+												
+												<div class="bpt-row">
+													<div class="bpt-item-left">Điểm:</div>
+													<div class="bpt-item-right">
+														<input name="ten " type="text" disabled="disabled"
+															value="<%=eu.getScore() %>" maxlength="100" id=""
+															class="bpt-txt" >
+													</div>
+													
+												</div>
+												<div class="bpt-row">
+													<div class="bpt-item-left">Đánh giá:</div>
+													<div class="bpt-item-right">
+														<input name="ten " type="text" disabled="disabled"
+															value="<%=eu.getReview() %>" maxlength="100" id=""
+															class="bpt-txt" >
+													</div>
+													
+												</div>
+												<div class="bpt-row">
+													<div class="bpt-item-left"></div>
+													<div class="bpt-item-right">
+														<input name="submitexercise" type="submit" value="Cập nhật bài tập"
+																style="width: 150; height: 30;">
+													</div>
+													
+												</div>
+												
+												</form>
+									<%
+										}
+									} 
+									%>
+									
+						</div>
+												
+												
         <div class="body" id="DSHV" style="margin-left:10px">
             <h1 style="color: blue;"><span>Danh sách học viên của khóa</span></h1>
             <table cellspacing="1" cellpadding="1" width="100%">
@@ -1193,7 +1364,15 @@ function loadDSBTNop(){
 
 
 </div>
-        <!--end-body-->
+
+
+
+			
+
+
+
+
+			<!--end-body-->
          
 <a id="to_top" href="#" style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;" rel="nofollow">
     <img alt="Go to top!" src="http://viettelstudy.vn/images/gototop.png"></a>
@@ -1430,7 +1609,7 @@ Sys.Application.add_init(function() {
 });
 //]]>
 </script>
-</form>
+
     
     
     

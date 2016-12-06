@@ -813,7 +813,7 @@
 													for (Resources src : courseDAO.getListResources(s.getSection_id())) {
 												%>
 														<p style="margin-left: 20px">
-															<a class ="under" href="upload/<%=src.getResources_name()%>">
+															<a class ="under instance-color" href="upload/<%=src.getResources_name()%>">
 															<img src="Images/<%=src.getResources_type() %>.png">
 															<%=src.getResources_name()%></a>
 															
@@ -1544,7 +1544,9 @@
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">File bài tập</span> <span class="sp-right"><a
-									class="under instance-color"><%=exu.getFilesubmit() %></a></span>
+									class="under instance-color" href="upload/<%=exu.getFilesubmit()%>">
+															<img src="Images/ocx.png">
+															<%=exu.getFilesubmit()%></a></span>
 							</div>
 							<div class="bpc-row">
 								<span class="sp-left">Mã học viên:</span> <span class="sp-right"><%=exu.getUser_id() %></span>

@@ -14,12 +14,13 @@ public class Exercise_User {
 	private double score;
 	private String review;
 	private long course_id;
+	String description;
 	public Exercise_User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Exercise_User(long result_id,long exercise_id, long user_id, String user_name, String section_name, String exercise_name,
-			String filesubmit, Timestamp timesubmit, double score, String review,long course_id) {
+			String filesubmit, Timestamp timesubmit, double score, String review,long course_id,String description) {
 		super();
 		this.result_id=result_id;
 		this.exercise_id = exercise_id;
@@ -32,6 +33,7 @@ public class Exercise_User {
 		this.score = score;
 		this.review = review;
 		this.course_id=course_id;
+		this.description = description;
 	}
 	public long getExercise_id() {
 		return exercise_id;
@@ -98,6 +100,12 @@ public class Exercise_User {
 	}
 	public void setResult_id(long result_id) {
 		this.result_id = result_id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

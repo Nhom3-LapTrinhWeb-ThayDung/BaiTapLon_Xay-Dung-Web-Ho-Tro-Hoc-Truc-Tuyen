@@ -782,7 +782,7 @@
 
 					<!--list khoa hoc dang day-->
 
-					<%-- <div class="persion-right" id="DetailThi" style="display: none;">
+					<div class="persion-right" id="DetailThi" style="display: none;">
 						<form action="CourseServlet" method="post">
 							<div id="ctl14_TienTrinhThi_upThi">
 
@@ -1327,7 +1327,7 @@
 												});
 							</script>
 						</form>
-					</div> --%>
+					</div>
 
 					<div class="persion-right" id="DetailDMK" style="display: none;">
 
