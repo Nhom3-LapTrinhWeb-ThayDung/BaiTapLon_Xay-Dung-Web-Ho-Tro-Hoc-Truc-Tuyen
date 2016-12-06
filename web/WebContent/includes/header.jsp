@@ -13,7 +13,7 @@
 		users = (Users) session.getAttribute("user");
 		user_info = (User_info) session.getAttribute("user_info");
 	}
-	CourseDAO courseDAO = new CourseDAO();
+	CourseDAO courseDAO2 = new CourseDAO();
 %>
 <div id="header">
 
@@ -68,10 +68,10 @@
 					
 					<ul class="submenu1">
 						
-						<%	for (Course course : courseDAO.getAllListCourse())
+						<%	for (Course course2 : courseDAO2.getAllListCourse())
 	                    	{
 	                    %>
-	                    	<li><a> <%=course.getCourse_name()%></a></li>
+	                    	<li><a> <%=course2.getCourse_name()%></a></li>
 	                    
 	                    <%} %>
 					</ul>

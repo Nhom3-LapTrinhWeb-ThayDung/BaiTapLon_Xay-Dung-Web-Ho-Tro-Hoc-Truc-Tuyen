@@ -248,7 +248,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
     </div>
 </div>
 <%@include file="//includes/header.jsp" %>
-
+<%
+	CourseDAO courseDAO = new CourseDAO();
+%>
 
 <script type="text/javascript">
 

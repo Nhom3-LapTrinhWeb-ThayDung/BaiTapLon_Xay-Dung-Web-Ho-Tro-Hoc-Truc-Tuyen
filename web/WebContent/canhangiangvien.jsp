@@ -255,6 +255,7 @@
 
 
 		<%@ include file="//includes/header.jsp"%>
+		<%CourseDAO courseDAO= new CourseDAO();	 %>
 
 		<script type="text/javascript">
 				function clickButton(e, buttonid) {

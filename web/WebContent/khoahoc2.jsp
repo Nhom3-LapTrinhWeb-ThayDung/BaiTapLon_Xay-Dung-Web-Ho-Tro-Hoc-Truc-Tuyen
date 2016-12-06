@@ -46,6 +46,7 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+
 	<!-- <form name="form1" method="post" action="#" id="form1"
 		enctype="multipart/form-data"> -->
 		<div>
@@ -134,9 +135,37 @@
 					$('.vt-gadget-close').click();
 				})
 			</script>
-			<div class="vts-gadget">
+			
 
 
+			<%@ include file="//includes/header.jsp" %>
+			<%
+			SectionDAO sectionDAO = new SectionDAO();
+			
+			CourseDAO courseDAO = new CourseDAO();
+			ExerciseDAO exerciseDAO = new ExerciseDAO();
+			Exercise_UserDAO exercise_userDAO = new Exercise_UserDAO();
+			QuestionRadioDAO questionDAO = new QuestionRadioDAO();	
+			Course course = new Course();
+			String 	course_id="";
+			User_info teacher = new User_info();
+			List<User_info> liststudent = new  ArrayList<User_info>();
+			List<Exercise> listexercise = new ArrayList<Exercise>();
+			List<Exercise_User> listexercise_user = new ArrayList<Exercise_User>();
+			//Exercise exercise = new Exercise();
+			if(request.getParameter("course_id")!=null)
+			{
+				course_id = request.getParameter("course_id");
+				course = courseDAO.getCourse(Long.parseLong(course_id));
+				liststudent = courseDAO.getListStudent(Long.parseLong(course_id));
+				listexercise = courseDAO.getListExercise(Long.parseLong(course_id));
+				listexercise_user = exercise_userDAO.getListExercise_User(Long.parseLong(course_id));
+				teacher = courseDAO.getteacher(Long.parseLong(course_id));
+			}
+			Section tempsection = new Section();
+		%>
+			
+				<div class="vts-gadget">
 				<div class="vts-gadget-item vts-gadget-comment">
 					<div class="vt-gadget gadget-comment" style="display: none;">
 						<span class="vt-gadget-more"> </span>
@@ -147,26 +176,34 @@
 						<div class="wrap-vt-gadget">
 							<div id="Header1_Widget_GopY_pnGopY">
 
+
+
+							
+								<div class="vt-gadget-div-form">
+									<span class="vt-gadget-label"> Người nhận:  <%=teacher.getTen() %></span>
+									<p class="vt-gadget-p">
+										
+									</p>
+								</div>
+								<input type="hidden" value="<%=teacher.getId()%>" name="id_nguoinhan" id="id_nguoinhan">
 								<div class="vt-gadget-div-form">
 									<span class="vt-gadget-label"> Nội dung </span>
 									<p class="vt-gadget-p">
-										<textarea name="Header1$Widget$GopY$txtNoiDung" rows="2"
-											cols="20" id="Header1_Widget_GopY_txtNoiDung"
+										<textarea name="noidung_message" rows="2"
+											cols="20" id="noidung_message"
 											class="vt-gadget-txtarea"></textarea>
 									</p>
 								</div>
+								
+								
 								<div class="vt-gadget-div-form gadget-captcha">
 									
 									<div class="vt-gadget-p">
-										
-
-											
-										</a> <input type="submit" name="Header1$Widget$GopY$btnGui"
+									 <input type="button" name="btnguims"
 											value="Gửi"
-											onclick="validgopy('Header1_Widget_GopY_txtNoiDung');"
-											id="Header1_Widget_GopY_btnGui" class="vt-gadget-btn-send">
-										<input type="hidden" name="TokenCSRF_GopYBaiHoc"
-											value="458C4C43173C5771E7B5DA7BCE64635FD5BDF85C67F55B51B5C10248572A874BCBCF5EA4C652DFE55EDFA687BAC0A9F1FA0BE9ADC425CD6D0317A8CC61520C5B">
+											onclick="btnguimsclick()"
+											id="btnguims" class="vt-gadget-btn-send">
+										
 									</div>
 								</div>
 								<span id="Header1_Widget_GopY_lblErr" style="color: Red;"></span>
@@ -187,7 +224,14 @@
 
 						</div>
 					</div>
-
+					<script type="text/javascript">
+						function btnguimsclick(){
+							/*  alert($('#noidung_message').val()+ $('#id_nguoinhan').val());  */
+							$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#id_nguoinhan').val()}, function (data) {
+								alert(data);
+								},'text'); 
+						}
+					</script>
 
 
 					<script type="text/javascript">
@@ -254,31 +298,8 @@
          </a>	
     </div>
 			</div>
-
-
-			<%@ include file="//includes/header.jsp" %>
-		<%
-			SectionDAO sectionDAO = new SectionDAO();
 			
-			ExerciseDAO exerciseDAO = new ExerciseDAO();
-			Exercise_UserDAO exercise_userDAO = new Exercise_UserDAO();
-			QuestionRadioDAO questionDAO = new QuestionRadioDAO();
-			String course_id = "";
-			Course course = new Course();
-			List<User_info> liststudent = new  ArrayList<User_info>();
-			List<Exercise> listexercise = new ArrayList<Exercise>();
-			List<Exercise_User> listexercise_user = new ArrayList<Exercise_User>();
-			//Exercise exercise = new Exercise();
-			if(request.getParameter("course_id")!=null)
-			{
-				course_id = request.getParameter("course_id");
-				course = courseDAO.getCourse(Long.parseLong(course_id));
-				liststudent = courseDAO.getListStudent(Long.parseLong(course_id));
-				listexercise = courseDAO.getListExercise(Long.parseLong(course_id));
-				listexercise_user = exercise_userDAO.getListExercise_User(Long.parseLong(course_id));
-			}
-			Section tempsection = new Section();
-		%>
+		
 
 		<script type="text/javascript">
 			function clickButton(e, buttonid) {
@@ -789,6 +810,7 @@
 													}
 												%>
 											</div>
+											
 											</form>
 											
 											<div class="edit" style="display: none;" name="edit">
