@@ -678,7 +678,8 @@ $('.persion-tab-lnk').click(function() {
 						<c:if test="${errorStr != null }">
 							<p style="color: red; font-style: italic;">${errorStr }</p>
 						</c:if>
-						<form action="SetListQuestionServlet" method="post">
+						<p style="color: red; font-style: italic;" id ="error"></p>
+						<form id= "form1" action="SetListQuestionServlet" method="post">
 							<fieldset class="clearfix collapsible" id="id_general">
 								<legend class="ftoggler fheader"
 									id="yui_3_15_0_2_1476453284347_725"> </legend>
@@ -873,7 +874,7 @@ $('.persion-tab-lnk').click(function() {
 											</div>
 										</div>
 										<textarea class="txt-input" name="description"
-											style="height: 300px; width: 394px;" id="txtAddedContent"
+											style="height: 300px; width: 394px;" id="description" name ="description"
 											placeholder="Nội dung"></textarea>
 									</div>
 									<!-- end mô tả -->
@@ -946,25 +947,25 @@ $('.persion-tab-lnk').click(function() {
 										+ '<tr>'
 			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="A" />'
 			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'A:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[1]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '<textarea class="txt-input" name="txtoptionA['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
 			                            + '</span>' + '</td>'
 			                            + '</tr>'
 			                            + '<tr>'
 			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="B" />'
 			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'B:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[2]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '<textarea class="txt-input" name="txtoptionB['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
 			                            + '</span>' + '</td>'
 			                            + '</tr>'
 			                            + '<tr>'
 			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="C" />'
 			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'C:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[3]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '<textarea class="txt-input" name="txtoptionC['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
 			                            + '</span>' + '</td>'
 			                            + '</tr>'
 			                            + '<tr>'
 			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="D" />'
 			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'D:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[4]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+			                            + '<textarea class="txt-input" name="txtoptionD['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
 			                            + '</span>' + '</td>'
 			                            + '</tr>'
 			               				
@@ -992,8 +993,8 @@ $('.persion-tab-lnk').click(function() {
 										class="fitem fitem_actionbuttons fitem_fsubmit">
 										<div class="felement fsubmit"
 											id="yui_3_15_0_2_1476546667388_657">
-											<input name="btnsave" value="Save changes" type="submit"
-												id="btnsave">
+											<a onclick="if(!saveclick()) return false;"><input name="btnsave" value="Save changes" type="submit"
+												id="btnsave"></a>
 												<input type="hidden" value="insert" name="command">
 												<input type="hidden" value="<%=section_id%>" name="section_id">
 												<input type="hidden" value="<%=course_id%>" name="course_id">
@@ -1005,9 +1006,32 @@ $('.persion-tab-lnk').click(function() {
 					</section>
 				</div>
 				<script type="text/javascript">
-				$(document).ready(function(){
-					//alert($('#quiz_name').val() + $('#quiz_name').val());
-				});
+					function saveclick()
+					{
+						if(confirm("Tạo khóa học. Đồng ý?"))
+						{
+							var socau= $('#id_question_count').val();
+							var f = true;
+							var rdochecked=null;
+							for(var i =1;i<=socau;i++)
+							{
+								rdochecked = $('input[type="radio"][name="ans['+i+']"]:checked');
+								if(rdochecked.val()==null)
+								{
+									f=false;
+									break;
+								}
+								
+							}
+							if($('#quiz_name').val()=="" || $('#start_date').val()==null ||$('#end_date').val()==null ||$('#id_question_count').val()=="0" || f== false)
+							{
+								$('#error').html('Chưa nhập đủ thông tin!');
+								return false;
+							}
+							else
+								return true;
+						}
+					}
 				</script>
 				<!-- end edit section -->
 

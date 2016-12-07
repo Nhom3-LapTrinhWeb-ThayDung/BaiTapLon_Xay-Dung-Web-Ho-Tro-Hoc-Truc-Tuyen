@@ -44,9 +44,10 @@ public class ExerciseServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		ExerciseDAO exerciseDAO = new ExerciseDAO();
 		boolean f;
+		Exercise exercise = new Exercise();
 		switch(command){
 		case "insert":
-			Exercise exercise = new Exercise();
+			
 			exercise.setExercise_id(new java.util.Date().getTime());
 			exercise.setExercise_name(request.getParameter("exercise_name"));
 			exercise.setExercise_startdate(request.getParameter("exercise_startdate"));
@@ -64,6 +65,25 @@ public class ExerciseServlet extends HttpServlet {
 						 +"~"+ exercise.getExercise_starttime() +"~"+ exercise.getExercise_enddate() +"~"+ exercise.getExercise_endtime()
 						 +"~"+ exercise.getSection_id());*/
 				response.getWriter().write("Thêm bài tập không thành công!");
+			break;
+		case "update":
+			exercise.setExercise_id(Long.parseLong(request.getParameter("exercise_id")));
+			exercise.setExercise_name(request.getParameter("exercise_name"));
+			exercise.setExercise_startdate(request.getParameter("exercise_startdate"));
+			exercise.setExercise_starttime(request.getParameter("exercise_starttime"));
+			exercise.setExercise_enddate(request.getParameter("exercise_enddate"));
+			exercise.setExercise_endtime(request.getParameter("exercise_endtime"));
+			exercise.setSection_id(Long.parseLong(request.getParameter("section_id")));
+			exercise.setExersice_content(request.getParameter("exercise_content"));
+			f = exerciseDAO.update(exercise);
+			if(f)
+				response.getWriter().write("cập nhật bài tập thành công!");
+			else
+				/*response.getWriter().write(exercise.getExercise_id() +"~"+ exercise.getExercise_name()  +"~"+ 
+						 exercise.getExersice_content() +"~"+ exercise.getExercise_startdate()
+						 +"~"+ exercise.getExercise_starttime() +"~"+ exercise.getExercise_enddate() +"~"+ exercise.getExercise_endtime()
+						 +"~"+ exercise.getSection_id());*/
+				response.getWriter().write("cập nhật bài tập không thành công!");
 			break;
 		case "delete":
 			f = exerciseDAO.delete(Long.parseLong(request.getParameter("exercise_id")));

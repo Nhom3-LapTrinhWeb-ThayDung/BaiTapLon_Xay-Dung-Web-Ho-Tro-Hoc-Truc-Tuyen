@@ -21,7 +21,7 @@ public class QuestionRadioDAO {
     private PreparedStatement ps;
     private ResultSet rs;
     
-    // Lấy ra danh sách câu hỏi
+    // Láº¥y ra danh sĂ¡ch cĂ¢u há»�i
     public List<QuestionQuiz> getListQuestionRadios(long quiz_id) {
         try {
             conn = DBConnect.getConnecttion();
@@ -58,7 +58,7 @@ public class QuestionRadioDAO {
         return null;
     }
     
-    // Trả về tổng số câu hỏi có trong bảng
+    // Tráº£ vá»� tá»•ng sá»‘ cĂ¢u há»�i cĂ³ trong báº£ng
     public int getCountRow(long quiz_id) {
         int countRow = 0;
         try {
@@ -83,7 +83,7 @@ public class QuestionRadioDAO {
         return countRow;
     }
     
-    //Lấy quiz
+    //Láº¥y quiz
     public Quiz getQuiz(long quiz_id) {
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from Quiz where id = '"+quiz_id+"'";
@@ -110,7 +110,7 @@ public class QuestionRadioDAO {
 		return null;
 	}
     
-    //lấy ds bài quiz
+    //láº¥y ds bĂ i quiz
     public List<Quiz> getListQuiz(long section_id) {
         try {
             conn = DBConnect.getConnecttion();
@@ -138,7 +138,7 @@ public class QuestionRadioDAO {
         }
 		return null;
     }
-  //thêm bài thi
+  //thĂªm bĂ i thi
     public boolean insertQuiz(Quiz q)
     {
     	Connection con = DBConnect.getConnecttion();
@@ -155,6 +155,30 @@ public class QuestionRadioDAO {
 			ps.setInt(6, q.getCount());
 			ps.setString(7, q.getDescription());
 			ps.setLong(8, q.getSection_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return false;
+    }
+    public boolean update(Quiz q)
+    {
+    	Connection con = DBConnect.getConnecttion();
+		String sql = 
+				"update quiz set quiz_name=?,start_date=?,end_date=?,time=?,count=?,description=?,section_id=? where id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(8, q.getId());
+			ps.setString(1, q.getQuiz_name());
+			ps.setString(2, q.getStart_date());
+			ps.setString(3, q.getEnd_date());
+			ps.setString(4, q.getTime());
+			ps.setInt(5, q.getCount());
+			ps.setString(6, q.getDescription());
+			ps.setLong(7, q.getSection_id());
 			ps.executeUpdate();
 			return true;
 
@@ -181,7 +205,7 @@ public class QuestionRadioDAO {
     	return false;
     }
     
-    //thêm câu hỏi
+    //thĂªm cĂ¢u há»�i
     public boolean insertQuestion(QuestionQuiz q)
     {
     	Connection con = DBConnect.getConnecttion();
@@ -199,6 +223,30 @@ public class QuestionRadioDAO {
 			ps.setString(7, q.getOption4());
 			ps.setString(8, q.getAnswer());
 			ps.setLong(9, q.getQuiz_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return false;
+    }
+    public boolean updateQuestion(QuestionQuiz q)
+    {
+    	Connection con = DBConnect.getConnecttion();
+		String sql = 
+				"update quiz_question set question=?,option1=?,option2=?,option3=?,option4=?,answer=? where id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(7, q.getId());
+			ps.setInt(1, q.getNumber());
+			ps.setString(1, q.getQuestion());
+			ps.setString(2, q.getOption1());
+			ps.setString(3, q.getOption2());
+			ps.setString(4, q.getOption3());
+			ps.setString(5, q.getOption4());
+			ps.setString(6, q.getAnswer());
 			ps.executeUpdate();
 			return true;
 

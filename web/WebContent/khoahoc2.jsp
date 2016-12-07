@@ -784,7 +784,7 @@
 												for (Exercise ex : exerciseDAO.getListExercise(s.getSection_id())) {
 												%>
 												<p style="margin-left: 25px">
-													<a class ="under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id%>&exercise_id=<%=ex.getExercise_id()%>">
+													<a class ="under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id%>&section_id=<%=ex.getSection_id() %>&exercise_id=<%=ex.getExercise_id()%>">
 													<img src="Images/icon_news_01.png">
 													<%=ex.getExercise_name()%></a>
 													
@@ -803,7 +803,7 @@
 													<%=q.getQuiz_name()%></a>
 													
 													<span class="edit" style="display: none">
-														<a style="color:#99CC00;" class="under" href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&quiz_id=<%=q.getId() %>">Sửa</a> 
+														<a style="color:#99CC00;" class="under" href="edit-quiz.jsp?course_id=<%=course_id%>&section_id=<%=s.getSection_id() %>&quiz_id=<%=q.getId() %>">Sửa</a> 
 														&nbsp;|&nbsp;<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=q.getId()%>,'quiz')">Xóa</a>
 														
 													</span>
@@ -1064,7 +1064,7 @@
 													
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
-														class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id %>&exercise_id=<%=ex.getExercise_id() %>"
+														class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id %>&section_id=<%=ex.getSection_id() %>&exercise_id=<%=ex.getExercise_id() %>"
 														target="_blank">Chi tiết</a></td>
 												</tr>
 												<%} %>

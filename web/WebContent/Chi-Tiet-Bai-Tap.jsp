@@ -1,5 +1,4 @@
 <%@page import="java.sql.Date"%>
-<%@page import="java.util.Date"%>
 <%@page import="model.Exercise_User"%>
 <%@page import="dao.ExerciseDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -255,15 +254,17 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 	String course_id = "";
 	Course course = new Course();
 	String exercise_id="";
+	String section_id="";
 	ExerciseDAO exerciseDAO = new ExerciseDAO();
 	Exercise exercise = new Exercise();
-	if(request.getParameter("course_id")!=null && request.getParameter("exercise_id")!=null )
+	if(request.getParameter("course_id")!=null && request.getParameter("exercise_id")!=null && request.getParameter("section_id")!=null)
 	{
 		course_id = request.getParameter("course_id");
 		exercise_id = request.getParameter("exercise_id");
 		course = courseDAO.getCourse(Long.parseLong(course_id));
 		exercise = exerciseDAO.getExercise(Long.parseLong(exercise_id));
 		eu = euDAO.timbaidanop(Long.parseLong(exercise_id), user_info.getId());
+		section_id=request.getParameter("section_id");
 	}
 	%>
 	<script>
@@ -662,7 +663,7 @@ $('.persion-tab-lnk').click(function() {
 
                     <div class="row">
                         <div class="box-text">
-                        <a href="edit-exercise.jsp?course_id=<%=course_id%>&exercise_id<%=exercise_id%>"><img style="display: none; float: right" id="edit" name="edit"
+                        <a href="edit-exercise.jsp?course_id=<%=course_id%>&section_id=<%=section_id %>&exercise_id=<%=exercise_id%>"><img style="display: none; float: right" id="edit" name="edit"
 													src="Images/settings2.png"></a>
                             <h2 style="color:blue">
                                 <span><%=exercise.getExercise_name() %></span>

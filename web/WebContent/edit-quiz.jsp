@@ -1,6 +1,11 @@
+<%@page import="com.sun.mail.util.QEncoderStream"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="dao.QuestionRadioDAO"%>
+<%@page import="model.Quiz"%>
+<%@page import="model.QuestionQuiz"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -270,10 +275,18 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 		<%
 			String course_id = "";
 			String section_id ="";
-			if(request.getParameter("section_id")!=null && request.getParameter("course_id")!=null)
+			String quiz_id="";
+			QuestionRadioDAO qrDAO = new QuestionRadioDAO();
+			Quiz quiz = new Quiz();
+			
+			List<QuestionQuiz> listqq = new  ArrayList<QuestionQuiz>();
+			if(request.getParameter("section_id")!=null && request.getParameter("course_id")!=null && request.getParameter("quiz_id")!=null)
 			{
 				course_id = request.getParameter("course_id");
 				section_id = request.getParameter("section_id");
+				quiz_id = request.getParameter("quiz_id");
+				quiz = qrDAO.getQuiz(Long.parseLong(quiz_id));
+				listqq = qrDAO.getListQuestionRadios(Long.parseLong(quiz_id));
 			}
 		%>
 
@@ -690,7 +703,7 @@ $('.persion-tab-lnk').click(function() {
 										</label>
 									</div>
 									<div class="felement ftext" id="">
-										<input size="50" name="quiz_name" type="text" id="quiz_name">
+										<input size="50" name="quiz_name" type="text" id="quiz_name" value="<%=quiz.getQuiz_name()%>">
 									</div>
 
 								</div>
@@ -731,7 +744,7 @@ $('.persion-tab-lnk').click(function() {
 												href="#"><img alt="Calendar" class="smallicon"
 												title="Calendar"
 												src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a>
-										<input type="date" name ="start_date" id = "start_date">
+										<input value="<%=quiz.getStart_date() %>" type="date" name ="start_date" id = "start_date">
 										</fieldset>
 										
                
@@ -753,7 +766,7 @@ $('.persion-tab-lnk').click(function() {
 												href="#"><img alt="Calendar" class="smallicon"
 												title="Calendar"
 												src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a>
-										<input type="date" name ="end_date" id = "end_date">
+										<input value="<%=quiz.getEnd_date() %>" type="date" name ="end_date" id = "end_date">
 										</fieldset>
 										
 										
@@ -845,8 +858,14 @@ $('.persion-tab-lnk').click(function() {
 						$(document).ready(function(){
 							var d = new Date();
 							   for (var int = 1; int <= 120; int++) {
+								   if(int == <%=quiz.getCount()%>){
 									$('#id_question_count').append(
-											'<option value="'+int+'">' +int+'</option>');
+											'<option value="'+int+'" selected="selected">' +int+'</option>');
+								   }else
+									{
+									   $('#id_question_count').append(
+												'<option value="'+int+'">' +int+'</option>');
+									}
 									
 								}
 							   
@@ -856,12 +875,10 @@ $('.persion-tab-lnk').click(function() {
 										$('#id_timestart_year').append(
 												'<option value="'+int+'">' +int+'</option>');
 								}
-							   //$('#id_timestart_month option[value=11]').Attr('selected',true);
-							   //$('#id_timestart_month option[value=11]').attr("selected",true); 	   
 							   
-							  //$('select#id_timestart_month option[value=' + (month+1)  + ']').attr('selected','selected');
-							   //$('#id_timestart_month').val( today.getMonth() + 1 );
-						 });
+						 
+						
+						});
 					</script>
 									</div>
 
@@ -873,8 +890,8 @@ $('.persion-tab-lnk').click(function() {
 											</div>
 										</div>
 										<textarea class="txt-input" name="description"
-											style="height: 300px; width: 394px;" id="txtAddedContent"
-											placeholder="Nội dung"></textarea>
+											style="height: 300px; width: 394px;" id="description"
+											placeholder="Nội dung"><%=quiz.getDescription() %></textarea>
 									</div>
 									<!-- end mô tả -->
 
@@ -882,7 +899,75 @@ $('.persion-tab-lnk').click(function() {
 										<div class="question" style="width: 836px;">
 											<h3 class="h3q-title" style="width: 821px;">ĐỀ BÀI</h3>
 											<div class="question-list" id="baithi">
-
+										<%
+										int i =0;
+									for(QuestionQuiz q : qrDAO.getListQuestionRadios(Long.parseLong(quiz_id))){
+										i++;
+								%>
+									<input type="hidden" value="<%=q.getId()%>" name="questionid[<%=q.getNumber()%>]">
+									<div class="ql-row">
+										<div class="stt-left">
+											<span class='sttl-sp'><%=q.getNumber() %></span>
+										</div>
+										<div class="ct-right">
+											<div class="ctr-recommend"><textarea class="txt-input" name="question[<%=q.getNumber() %>]" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"><%=q.getQuestion() %></textarea></div>
+											<div class="ctr-choice" style=''>
+												<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+													đúng
+												</span>
+												<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+													border="0">
+													<tr>
+														<%if(q.getAnswer().equals("A")){ %>
+														<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="A" checked="checked"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0" >A:</label>
+																	<textarea class="txt-input" name="txtoptionA[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption1() %></textarea></span></td>
+														<%}else{ %>
+															<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="A"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">A:</label>
+																	<textarea class="txt-input" name="txtoptionA[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption1() %></textarea></span></td>
+														<%} %>
+													</tr>
+													<tr>
+													<%if(q.getAnswer().equals("B")){ %>
+														<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="B" checked="checked"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">B:</label>
+																	<textarea class="txt-input" name="txtoptionB[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption2() %></textarea></span></td>
+													<%}else{ %>
+																	<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="B"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">B:</label>
+																	<textarea class="txt-input" name="txtoptionB[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption2() %></textarea></span></td>
+													<%} %>
+													</tr>
+													<tr>
+													<%if(q.getAnswer().equals("C")){ %>
+														<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="C" checked="checked"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">C:</label>
+																	<textarea class="txt-input" name="txtoptionC[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption3() %></textarea></span></td>
+													<%}else{ %>				
+																	<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="C" > <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">C:</label>
+																	<textarea class="txt-input" name="txtoptionC[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption3() %></textarea></span></td>
+													<%} %>
+													</tr>
+													<tr>
+													<%if(q.getAnswer().equals("D")){ %>
+														<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="D" checked="checked"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">D:</label>
+																	<textarea class="txt-input" name="txtoptionD[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption4() %></textarea></span></td>
+													<%}else{ %>					
+																	<td><span class="rd"><input id="" type="radio" name="ans[<%=q.getNumber() %>]" value="D"> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">D:</label>
+																	<textarea class="txt-input" name="txtoptionD[<%=q.getNumber() %>]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"><%=q.getOption4() %></textarea></span></td>
+													<%} %>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								<%
+									}
+								%>
 
 												<!-- <div class="ql-row" style="width: 804px;">
                         <div class="stt-left">
@@ -931,47 +1016,47 @@ $('.persion-tab-lnk').click(function() {
 							   for (var int = 1; int <= question_count; int++) {
 								   /*$().appendTo('div#baithi'); */
 									$('#baithi').append(
-										'<div class="ql-row" style="width: 804px;">'
-										+ '<div class="stt-left">'
-										+ '<span class="sttl-sp">' +int+ '</span>'
-										+ '</div>'
-										+ '<div class="ct-right" style="width: 720px;">'
-										+ '<div class="ctr-recommend">'
-										+ '<textarea class="txt-input" name="question['+int+']" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>'
-										
-										+ '</div>'
-										+ '<div class="ctr-choice">'
-										+ '<span class="sp-choice">' +'Chọn '+ '<b>' +'1'+ '</b>' +' câu trả lời đúng'+ '</span>'
-										+ '<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">'
-										+ '<tr>'
-			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="A" />'
-			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'A:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[1]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
-			                            + '</span>' + '</td>'
-			                            + '</tr>'
-			                            + '<tr>'
-			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="B" />'
-			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'B:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[2]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
-			                            + '</span>' + '</td>'
-			                            + '</tr>'
-			                            + '<tr>'
-			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="C" />'
-			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'C:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[3]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
-			                            + '</span>' + '</td>'
-			                            + '</tr>'
-			                            + '<tr>'
-			                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="D" />'
-			                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'D:'+ '</label>'
-			                            + '<textarea class="txt-input" name="txtoption[4]" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
-			                            + '</span>' + '</td>'
-			                            + '</tr>'
-			               				
-										+ '</table>'
-										+ '</div>'
-										+ '</div>'
-										+ '</div>'
+											'<div class="ql-row" style="width: 804px;">'
+											+ '<div class="stt-left">'
+											+ '<span class="sttl-sp">' +int+ '</span>'
+											+ '</div>'
+											+ '<div class="ct-right" style="width: 720px;">'
+											+ '<div class="ctr-recommend">'
+											+ '<textarea class="txt-input" name="question['+int+']" style="width:720px" id="txtAddedContent" placeholder="Nội dung câu hỏi"></textarea>'
+											
+											+ '</div>'
+											+ '<div class="ctr-choice">'
+											+ '<span class="sp-choice">' +'Chọn '+ '<b>' +'1'+ '</b>' +' câu trả lời đúng'+ '</span>'
+											+ '<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input" border="0">'
+											+ '<tr>'
+				                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="A" />'
+				                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'A:'+ '</label>'
+				                            + '<textarea class="txt-input" name="txtoptionA['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+				                            + '</span>' + '</td>'
+				                            + '</tr>'
+				                            + '<tr>'
+				                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="B" />'
+				                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'B:'+ '</label>'
+				                            + '<textarea class="txt-input" name="txtoptionB['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+				                            + '</span>' + '</td>'
+				                            + '</tr>'
+				                            + '<tr>'
+				                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="C" />'
+				                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'C:'+ '</label>'
+				                            + '<textarea class="txt-input" name="txtoptionC['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+				                            + '</span>' + '</td>'
+				                            + '</tr>'
+				                            + '<tr>'
+				                            + '<td>' + '<span class="rd">' + '<input id="" type="radio" name="ans['+int+']" value="D" />'
+				                            + '<label for="ctl15_rptCauHoi_ctl00_rbtnList_0">' +'D:'+ '</label>'
+				                            + '<textarea class="txt-input" name="txtoptionD['+int+']" style="width:600px;height:28px" id="txtAddedContent" placeholder="Nội dung câu trả lời"></textarea>'
+				                            + '</span>' + '</td>'
+				                            + '</tr>'
+				               				
+											+ '</table>'
+											+ '</div>'
+											+ '</div>'
+											+ '</div>'
 											);
 							   }
 							});
@@ -992,11 +1077,12 @@ $('.persion-tab-lnk').click(function() {
 										class="fitem fitem_actionbuttons fitem_fsubmit">
 										<div class="felement fsubmit"
 											id="yui_3_15_0_2_1476546667388_657">
-											<input name="btnsave" value="Save changes" type="submit"
-												id="btnsave">
-												<input type="hidden" value="insert" name="command">
+											<a onclick="if(!saveclick()) return false;"><input name="btnsave" value="Save changes" type="submit"
+												id="btnsave"></a>
+												<input type="hidden" value="update" name="command">
 												<input type="hidden" value="<%=section_id%>" name="section_id">
 												<input type="hidden" value="<%=course_id%>" name="course_id">
+												<input type="hidden" value="<%=quiz_id%>" name="quiz_id">
 										</div>
 									</div>
 							</fieldset>
@@ -1005,9 +1091,32 @@ $('.persion-tab-lnk').click(function() {
 					</section>
 				</div>
 				<script type="text/javascript">
-				$(document).ready(function(){
-					//alert($('#quiz_name').val() + $('#quiz_name').val());
-				});
+				function saveclick()
+				{
+					if(confirm("Tạo khóa học. Đồng ý?"))
+					{
+						var socau= $('#id_question_count').val();
+						var f = true;
+						var rdochecked=null;
+						for(var i =1;i<=socau;i++)
+						{
+							rdochecked = $('input[type="radio"][name="ans['+i+']"]:checked');
+							if(rdochecked.val()==null)
+							{
+								f=false;
+								break;
+							}
+							
+						}
+						if($('#quiz_name').val()=="" || $('#start_date').val()==null ||$('#end_date').val()==null ||$('#id_question_count').val()=="0" || f== false)
+						{
+							$('#error').html('Chưa nhập đủ thông tin!');
+							return false;
+						}
+						else
+							return true;
+					}
+				}
 				</script>
 				<!-- end edit section -->
 

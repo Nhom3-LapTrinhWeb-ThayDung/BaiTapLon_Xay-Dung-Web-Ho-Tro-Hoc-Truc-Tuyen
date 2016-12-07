@@ -1,6 +1,9 @@
+<%@page import="dao.Exercise_UserDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Section"%>
 <%@page import="dao.SectionDAO"%>
+<%@page import="dao.ExerciseDAO"%>
+<%@page import="model.Exercise"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -246,22 +249,22 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 		<%@include file="//includes/header.jsp"  %>
 		<%
 			SectionDAO sectionDAO = new SectionDAO();
-			//CourseDAO courseDAO = new CourseDAO();
+			ExerciseDAO exerciseDAO = new ExerciseDAO();
+			Exercise exercise = new Exercise();
+			CourseDAO courseDAO = new CourseDAO();
 			String course_id = "";
-			//Course course = new Course();
+			Course course = new Course();
 			String section_id="";
 			Section section = new Section();
-			if(request.getParameter("course_id")!=null)
+			if(request.getParameter("course_id")!=null&& request.getParameter("section_id")!=null && request.getParameter("exercise_id")!=null )
 			{
 				course_id = request.getParameter("course_id");
-				//course = courseDAO.getCourse(Long.parseLong(course_id));
-			}
-			if(request.getParameter("section_id")!=null)
-			{
+				course = courseDAO.getCourse(Long.parseLong(course_id));
 				section_id = request.getParameter("section_id");
-				//course = courseDAO.getCourse(Long.parseLong(course_id));
 				section  = sectionDAO.getSection(Long.parseLong(section_id));
+				exercise = exerciseDAO.getExercise(Long.parseLong(request.getParameter("exercise_id")));
 			}
+
 			//Section tempsection = new Section();
 		%>
 
@@ -618,7 +621,8 @@ $('.persion-tab-lnk').click(function() {
 									</div>
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Assignment name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="exercise_name" type="text" id="exercise_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Assignment name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977">
+                <input size="50" name="exercise_name" type="text" id="exercise_name" value="<%=exercise.getExercise_name()%>"></div>
 
                 </div>
 
@@ -639,25 +643,27 @@ $('.persion-tab-lnk').click(function() {
                     <div>
                         <div id="fitem_id_name" class="fitem required fitem_ftext instance-color"><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Description</label></div>
                         </div>
-                        <textarea class="txt-input" name="exercise_content" style="height:300px;width: 394px;" id="exercise_content" placeholder="Nội dung"></textarea>
+                        <textarea  class="txt-input" name="exercise_content" style="height:300px;width: 394px;" id="exercise_content" placeholder="Nội dung"><%=exercise.getExersice_content() %></textarea>
                     </div>
 
                     <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
                     <label>Allow submissions from<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
                     <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
                     <a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset>
-                    <input type="date" name ="exercise_startdate" id = "exercise_startdate">
-                    <input type="time" name ="exercise_starttime" id ="exercise_starttime">
+                    <input value="<%=exercise.getExercise_startdate() %>" type="date" name ="exercise_startdate" id = "exercise_startdate">
+                    <input value="<%=exercise.getExercise_starttime() %>" type="time" name ="exercise_starttime" id ="exercise_starttime">
                     </div>
 
                     <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Due date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset>
-                    <input type="date" name ="exercise_enddate" id = "exercise_enddate">
-                    <input type="time" name ="exercise_endtime" id ="exercise_endtime">
+                    <input value="<%=exercise.getExercise_enddate() %>" type="date" name ="exercise_enddate" id = "exercise_enddate">
+                    <input value="<%=exercise.getExercise_endtime() %>" type="time" name ="exercise_endtime" id ="exercise_endtime">
                     </div>
 
 
                     <div id="fitem_id_submitbutton" class="fitem fitem_actionbuttons fitem_fsubmit"><div class="felement fsubmit" id="yui_3_15_0_2_1476546667388_657">
                     <a id="btnsave"><input name="submitbutton" value="Save changes" type="button" id="id_submitbutton"></a></div></div>
+                	<input type="hidden" name="exercise_id" value="<%=exercise.getExercise_id()%>">
+                	<input type="hidden" name="section_id" value="<%=exercise.getSection_id()%>">
                 </div>
                 <!-- end mô tả -->
 				<script type="text/javascript">
@@ -666,13 +672,13 @@ $('.persion-tab-lnk').click(function() {
 								$('#exercise_starttime').val()+$('#exercise_enddate').val()+$('#exercise_endtime').val()
 								+ $('#exercise_content').val()) */
 								var section_id = "<%=section_id%>";
-								$.post('ExerciseServlet', {'command':"insert",'exercise_name':$('#exercise_name').val(),'exercise_startdate':$('#exercise_startdate').val(),
+								$.post('ExerciseServlet', {'command':"update",'exercise_name':$('#exercise_name').val(),'exercise_startdate':$('#exercise_startdate').val(),
 							'exercise_starttime':$('#exercise_starttime').val(),'exercise_enddate':$('#exercise_enddate').val(),'exercise_endtime':$('#exercise_endtime').val(),
-							'section_id':section_id,'exercise_content':$('#exercise_content').val()}, function (data) {
+							'section_id':section_id,'exercise_content':$('#exercise_content').val(),'exercise_id':<%=exercise.getExercise_id()%>,'section_id':<%=exercise.getSection_id()%>}, function (data) {
 								//$('#errorexercise').html(data);
-								if(data=="Thêm bài tập thành công!")
+								if(data=="cập nhật bài tập thành công!")
 								{
-									window.location.href = "khoahoc2.jsp?course_id="+<%=course_id%>;
+									window.location.href = "Chi-Tiet-Bai-Tap.jsp?course_id="+<%=course_id%>+"&section_id="+<%=exercise.getSection_id() %>+"&exercise_id="+<%=exercise.getExercise_id()%>;
 								}
 								else
 									$('#errorexercise').html(data);

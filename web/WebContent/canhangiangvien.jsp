@@ -647,7 +647,7 @@
 						<div class="persion-avatar">
 							<div id="ctl14_LoadUser_upUserLoad">
 
-								<img src="<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
+								<img src="upload/<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
 								<h3 class="persion-info">
 									<span class="bold"> ${user_info.getTen() }</span><br>
 								</h3>
@@ -1597,7 +1597,7 @@
 										<div class="bpt-item-left">Ảnh đại diện:</div>
 										<div class="bpt-item-right">
 											<div class="bpt-img-avarta">
-												<img src="<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
+												<img src="upload/<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
 													height="48px">
 
 											</div>
@@ -1641,10 +1641,10 @@
 							function btnupdateuserclick(){
 									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
 										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
-											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
+											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val(),'diachi':$('#diachi').val()}, function (data) {
 											if(data=="update success!")
 												{
-												 	location.reload();
+												$('#errorupdateuser').html('Vui lòng đăng nhập lại để thay đổi!');
 												}
 											else
 												$('#errorupdateuser').html(data);

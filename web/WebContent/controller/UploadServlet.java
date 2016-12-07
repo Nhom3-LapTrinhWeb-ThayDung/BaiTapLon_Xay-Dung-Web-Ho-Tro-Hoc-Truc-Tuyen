@@ -111,7 +111,7 @@ public class UploadServlet extends HttpServlet {
                         request.setAttribute("msg", UPLOAD_DIRECTORY + "/" + fileName);
                         request.setAttribute("message",
                                 "Upload has been done successfully >>" + UPLOAD_DIRECTORY + "/" + fileName);
-                        uf.setAnhdaidien(UPLOAD_DIRECTORY + "/" + fileName);
+                        uf.setAnhdaidien(fileName);
                         srcname = fileName;
                     }
                     else{

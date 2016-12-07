@@ -61,6 +61,7 @@ public class DoQuestionListServlet extends HttpServlet {
 		int secondsubmit = Integer.parseInt(request.getParameter("secondsubmit"));
 		HttpSession session = request.getSession();
 		User_info user_info = (User_info) session.getAttribute("user_info");
+		int socaudung=0;
 		String errorStr = "";
             switch(command){
     		case "nopbai":
@@ -82,17 +83,67 @@ public class DoQuestionListServlet extends HttpServlet {
     	            }
     	        }
     	        /*request.setAttribute("errorStr", errorStr);*/
-    	        request.setAttribute("errorStr", errorStr);
+    	       /* request.setAttribute("errorStr", errorStr);
                 request.setAttribute("listQuestionRadios", listQuestionRadios);
                 request.setAttribute("listAnswerUsers", listAnswerUsers);
                 request.setAttribute("hourssubmit", hourssubmit);
                 request.setAttribute("minutesubmit", minutesubmit);
-                request.setAttribute("secondsubmit", secondsubmit);
-                 url="/BaiTestSo1.result.jsp?quiz_id="+quiz_id;
-               
+                request.setAttribute("secondsubmit", secondsubmit);*/
+                //url="/BaiTestSo1.result.jsp?quiz_id="+quiz_id;
+    	        Quiz quiz = new Quiz();
+    			quiz = questionRadioDAO.getQuiz(quiz_id);
+    			int hours =Integer.parseInt(quiz.getTime().substring(0, 2)) ;
+				int minute = Integer.parseInt(quiz.getTime().substring(3, 5));
+				int second = Integer.parseInt(quiz.getTime().substring(6, 8));
+				int secondwork = 60-secondsubmit;
+				int minutework = minute -1 - minutesubmit;
+				int hourswork = hours-hourssubmit;
+				if(minutework<0)
+				{
+					minutework+=60;
+					hourswork-=1;
+				}
+    			double diem;
+    			for(QuestionQuiz q: listQuestionRadios)
+    			{
+    				for(AnswerUser a: listAnswerUsers)
+    				{
+    					if(q.getNumber() ==  a.getNumber())
+    					{
+    						if(q.getAnswer().equals(a.getAnswer()))
+    						{
+    							socaudung++;
+    						}
+    					}
+    				}
+    			}
+    			int tongsocau = countRow;
+    			//Time thoigianlambai = Time.parse("thoigianlambai");
+    			diem = (10.0/tongsocau)* socaudung;
+    			QuizResult qr = new QuizResult();
+    			long result_id=new java.util.Date().getTime();
+    			qr.setResult_id(result_id);
+    			qr.setScores(diem);
+    			qr.setQuiz_id(quiz_id);
+    			qr.setSocaudung(socaudung);
+    			qr.setTongsocau(tongsocau);
+    			qr.setTimesubmit(new java.sql.Timestamp(new java.util.Date().getTime()));
+    			//qr.setTimework(hourswork +":"+minutework +":"+secondwork);
+    			qr.setTimework(hourswork +":"+minutework +":"+secondwork);
+    			qr.setUser_id(user_info.getId());
+    			boolean f = questionRadioDAO.insertQuizResult(qr);
+    			if(f)
+    			{
+    				url="/NopBai.jsp?result_id="+result_id;
+    			}
+    			else
+    			{
+    				errorStr= qr.getResult_id()+"|"+qr.getSocaudung()+"|"+qr.getTongsocau()+"|"+qr.getScores()+"|"+qr.getTimework()+"|"+qr.getTimesubmit()+"|"+qr.getQuiz_id()+"|"+qr.getUser_id();
+    				url="/BaiTestSo1.jsp?quiz_id="+quiz_id;
+    			}
     			break;
     		case "chamdiem":
-    			Quiz quiz = new Quiz();
+    			/*Quiz quiz = new Quiz();
     			quiz = questionRadioDAO.getQuiz(quiz_id);
     			int hours =Integer.parseInt(quiz.getTime().substring(0, 2)) ;
 				int minute = Integer.parseInt(quiz.getTime().substring(3, 5));
@@ -106,7 +157,7 @@ public class DoQuestionListServlet extends HttpServlet {
 					hourswork-=1;
 				}
     			double diem;
-    			int socaudung =Integer.parseInt(request.getParameter("socaudung"));
+    			socaudung =Integer.parseInt(request.getParameter("socaudung"));
     			int tongsocau = countRow;
     			//Time thoigianlambai = Time.parse("thoigianlambai");
     			diem = (10.0/tongsocau)* socaudung;
@@ -130,7 +181,7 @@ public class DoQuestionListServlet extends HttpServlet {
     			{
     				errorStr= qr.getResult_id()+"|"+qr.getSocaudung()+"|"+qr.getTongsocau()+"|"+qr.getScores()+"|"+qr.getTimework()+"|"+qr.getTimesubmit()+"|"+qr.getQuiz_id()+"|"+qr.getUser_id();
     				url="/BaiTestSo1.result.jsp?quiz_id="+quiz_id;
-    			}
+    			}*/
     			break;
     		}
             request.setAttribute("errorStr", errorStr);
@@ -151,7 +202,7 @@ public class DoQuestionListServlet extends HttpServlet {
                 String answerUser = request.getParameter("ans[" + i + "]");
                  
                 if (answerUser == null) {
-                    errorStr = "Bạn chưa trả lời hết các câu hỏi! " + countRow;
+                    errorStr = "Báº¡n chÆ°a tráº£ lá»�i háº¿t cĂ¡c cĂ¢u há»�i! " + countRow;
                 } else {
                     AnswerUser au = new AnswerUser(i, answerUser);
                     listAnswerUsers.add(au);

@@ -124,25 +124,7 @@
     </div>
     
     
-    <div class="lectures-other lectures-add " style="width:938px;">
-        <h3 class="lo-title" style="width:923px;">
-            Bài thi và kiểm tra liên quan
-        </h3>
-        <ul class="lo-ul">
-            
-                    <li><a class="lo-lnk under" href="thi_xacnhan.aspx?uc=1&id_bt=13605">
-                        BÀI TEST IQ SỐ 2
-                    </a></li>
-                
-                    <li><a class="lo-lnk under" href="thi_xacnhan.aspx?uc=1&id_bt=13606">
-                        BÀI TEST IQ SỐ 3
-                    </a></li>
-                
-                    <li><a class="lo-lnk under" href="thi_xacnhan.aspx?uc=1&id_bt=13607">
-                        BÀI TEST IQ SỐ 4
-                    </a></li>
-        </ul>
-    </div>
+    
     <!--end-bm-result-->
     
    </div>           
@@ -150,92 +132,64 @@
         
         <!--end-body-->
          
-<div id="footer">
-            <div class="footer-menu-new">
-  			<span class="font-des">Đăng ký để nhận tài liệu bổ ích từ Study Funny</span>
-		   <span style="float: right; line-height: 39px;">
-		   <input type="email" name="femail" id='femail' style=" background: #d4e7e3 none repeat scroll 0 0;
-			    border: 1px solid #d4e7e3;
-			    border-radius: 5px;
-			    height: 25px;
-			    margin-right: 16px;
-			     padding: 1px 10px;
-			    width: 260px;">
-			  <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-		</span>
-    </div> 
-<style>
+<a id="to_top" href="#"
+			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
+			rel="nofollow"> <img alt="Go to top!"
+			src="Images/gototop.png"></a>
+		<div id="footer">
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
+			</div>
+			<div class="footer-menu-new">
+				<span class="title">ĐĂNG KÝ NHẬN EMAIL</span> <span class="font-des">Đăng
+					ký để nhận tài liệu bổ ích từ StudyFunny.com</span> <span
+					style="float: right; line-height: 39px;"> <input
+					type="email" name="femail" id="femail"
+					style="background: #d4e7e3 none repeat scroll 0 0; border: 1px solid #d4e7e3; border-radius: 5px; height: 25px; margin-right: 16px; padding: 1px 10px; width: 260px;">
+					<input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ"
+					style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
+				</span>
+			</div>
+
+			<div id="footer-bottom">
+
+				<!--<a class="logo-gd-footer"></a>-->
+
+				<p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
+
+				<!--<a class="logo_Study-Funny" rel="nofollow"></a>-->
+
+				<p class="gd-copyright"></p>
+			</div>
+
+		</div>
+
+
+		<style>
 .footer-menu-new span {
-    color: #ffffff;
-    font-size: 13px;
-    line-height: 37px; 
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 37px;
 }
+
 .title {
-    font-weight: bold;
-     margin-right: 20px;
+	font-weight: bold;
+	margin-right: 20px;
 }
 </style>
-<style>
-                            .regis-info, .sp-forget-pass
-                            {
-                                position: relative;
-                                display: inline-block;
-                                padding-bottom: 10px;
-                            }
-                            .infor-forget
-                            {
-                                background: #ffffff none repeat scroll 0 0;
-                                border: 1px solid #acacac;
-                                color: #333333;
-                                display: none;
-                                font-size: 13px;
-                                line-height: 20px;
-                                padding: 10px;
-                                position: absolute;
-                                right: 0;
-                                top: 25px;
-                                width: 310px;
-                                z-index: 99;
-                            }
-                            .regis-info .infor-forget
-                            {
-                                bottom: 28px;
-                                right: -33px;
-                                top: auto;
-                            }
-                            .regis-info
-                            {
-                                padding-top: 5px;
-                            }
-                            .sp-forget-pass:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                            .regis-info:hover .infor-forget
-                            {
-                                display: block;
-                            }
-                        </style>
-						<style type="text/css">
-						        .sp-remember
-						        {
-						            float: left;
-						            width: 125px;
-						            margin-top: 5px;
-						            margin-bottom: 5px;
-						        }
-						        .sp-remember input
-						        {
-						            margin-right: 5px;
-						        }
-						        .LBD_CaptchaDiv{display:inline;}
-						    </style>
 
-        <!--end-footer-->
-        
-        <!--end-overlay-footer-->
-        
-    </div>
+
     
     <!--end-wrapper-->
 </form>

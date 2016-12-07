@@ -39,7 +39,29 @@ public class ExerciseDAO {
 		}
 		return false;
 	}
-	
+	public boolean update(Exercise ex)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "update exercise set exercise_name=?,exersice_content=?,exercise_startdate=?,exercise_starttime=?,exercise_enddate=?,exercise_endtime=? where exercise_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			
+			ps.setString(1, ex.getExercise_name());
+			ps.setString(2, ex.getExersice_content());
+			ps.setString(3,ex.getExercise_startdate());
+			ps.setString(4, ex.getExercise_starttime());
+			ps.setString(5, ex.getExercise_enddate());
+			ps.setString(6, ex.getExercise_endtime());
+			ps.setLong(7, ex.getExercise_id());
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public boolean delete(long id)
 	{
