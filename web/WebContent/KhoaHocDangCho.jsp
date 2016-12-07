@@ -5,6 +5,8 @@
 <%@page import="model.User_info"%>
 <%@page import="model.Course"%>
 <%@page import="dao.CourseDAO"%>
+<%@page import="model.CourseWaiting"%>
+<%@page import="dao.CourseWaitingDAO"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
@@ -16,7 +18,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css"></link>
   <link rel="stylesheet" href="css/reset.css" type="text/css"></link>
 <title>
-  Đăng ký khóa học | StudyFunny
+  Khóa học đang chờ | StudyFunny
 </title>
 
 
@@ -251,7 +253,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <%@include file="//includes/header.jsp" %>
 <%
 			CourseDAO courseDAO = new CourseDAO();
+			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
+			User_info student = new User_info();
 %>
 
 
@@ -398,25 +402,25 @@ fbq('track', "PageView");</script>
                 <div class="to-c-left">
                 <div class="to-c-l-list">
 	                    <%	int i=0;
-	                    	for (Course course : courseDAO.getAllListCourse())
+	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
 	                    	{
 	                    		i++;
 	                    %>
 	                          <div class="row">
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
                                                 <%= i %>
                                             </span>
                                         </p>
                                     </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
 	                                  <p class="to-l-p-name">
 	                                      <span class="bold">
-	                                         <%=course.getCourse_name()%></span>
+	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
 	                              </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=course.getCourse_id()%>">
+                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                     <a class="to-l-btn">
                                        <span class="to-l-btn">Xem chi tiết</span>
                                     </a>
@@ -628,11 +632,11 @@ fbq('track', "PageView");</script>
     </div>
 <% 
     
-  	for (Course course : courseDAO.getAllListCourse())
+  	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
   	{
-  		 teacher = courseDAO.getteacher(course.getCourse_id());
+  		 teacher = coursewaitingDAO.getteacher(coursewaiting.getCourse_id());
     %>
-<div style="width: 392px; display: none" id="overlay-web<%=course.getCourse_id()%>">
+<div style="width: 392px; display: none" id="overlay-web<%=coursewaiting.getCourse_id()%>">
     <style type="text/css">
         .sp-remember
         {
@@ -651,22 +655,22 @@ fbq('track', "PageView");</script>
     <div class="box-popup">
         <a class="popup-close">X </a>
         <h3 class="bp-title">
-            Xem chi tiết khóa học - <%=course.getCourse_name()%>
+            Xem chi tiết khóa học - <%=coursewaiting.getCourse_name()%>
         </h3>
         <%
-	        String year_start= course.getCourse_startdate().toString().substring(0, 4);
-	        String month_start= course.getCourse_startdate().toString().substring(5, 7);
-	        String day_start= course.getCourse_startdate().toString().substring(8, 10);
+	        String year_start= coursewaiting.getCourse_startdate().toString().substring(0, 4);
+	        String month_start= coursewaiting.getCourse_startdate().toString().substring(5, 7);
+	        String day_start= coursewaiting.getCourse_startdate().toString().substring(8, 10);
 	        
-	        String year_end= course.getCourse_enddate().toString().substring(0, 4);
-	        String month_end= course.getCourse_enddate().toString().substring(5, 7);
-	        String day_end= course.getCourse_enddate().toString().substring(8, 10);
+	        String year_end= coursewaiting.getCourse_enddate().toString().substring(0, 4);
+	        String month_end= coursewaiting.getCourse_enddate().toString().substring(5, 7);
+	        String day_end= coursewaiting.getCourse_enddate().toString().substring(8, 10);
         %>
         <div class="bp-content" style="font-size: 20px">
-            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_name()%> </p>
+            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_name()%> </p>
             <p style="padding-left: 50px;"> Giảng viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=teacher.getTen() %> </p>
-            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=course.getCourse_schedulingday()%>, tiết <%=course.getCourse_startlession()%> - <%=course.getCourse_endlession()%>  </p>
-            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_place()%> </p>
+            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=coursewaiting.getCourse_schedulingday()%>, tiết <%=coursewaiting.getCourse_startlession()%> - <%=coursewaiting.getCourse_endlession()%>  </p>
+            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_place()%> </p>
             <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
             <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
                        <div id="login_pnLogin">
@@ -732,7 +736,7 @@ fbq('track', "PageView");</script>
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
 
-                            <input type="submit"  value="Đăng ký" id="login_btnDangKy" class="bpt-lnk-save btn-login">
+                            <input onclick="huydangkyclick()" type="button"  value="Đăng ký" id="btnHuyDangKy" class="bpt-lnk-save btn-login" name="btnHuyDangKy" >
                         </span>
 
                         <script type="text/javascript">

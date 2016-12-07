@@ -4,6 +4,8 @@
 <%@page import="model.User_info"%>
 <%@page import="model.Course"%>
 <%@page import="dao.CourseDAO"%>
+<%@page import="model.CourseWaiting"%>
+<%@page import="dao.CourseWaitingDAO"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -250,6 +252,8 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <%@include file="//includes/header.jsp" %>
 <%
 	CourseDAO courseDAO = new CourseDAO();
+	CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
+	User_info teacher = new User_info();
 %>
 
 <script type="text/javascript">
@@ -582,8 +586,8 @@ $('.persion-tab-lnk').click(function() {
                     <a class="persion-tab-lnk lnk-tab-persion" name="CacKhoaHocDaDangKy">
                         <span>Danh sách khóa học đang học</span>
                         </a>
-                    <a class="persion-tab-lnk lnk-tab-persion" name="LichSuGiaoDichNew" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)" href="CacKhoaHocDaDangKy.jsp">
-                        <span>Lịch sử đăng ký</span>
+                    <a class="persion-tab-lnk lnk-tab-persion" name="CacKhoaHocDangCho" onclick="loadUserControl(&#39;LichSuGiaoDichNew&#39;)">
+                        <span>Khóa học đang chờ</span>
                     </a> 
                     <a class="persion-tab-lnk lnk-tab-change" name="DetailDMK">
                         <span>Đổi mật khẩu</span>
@@ -669,6 +673,65 @@ $('.persion-tab-lnk').click(function() {
             </div>
         </div>
 </div></div>
+        
+<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;"><h3 class="learn-process-h3">
+    <span>DANH SÁCH CÁC KHÓA HỌC ĐANG CHỜ</span>
+</h3>
+ <style>
+        .lp-lnk{margin-bottom:15px;}
+        .lp-lnk img{height:152px;}
+ </style>
+<div class="learn-process process-study">
+    <div class="box-test-online martop_0">
+            
+            <div class="to-content">
+                <div class="to-c-left">
+                   <div class="to-c-l-list">
+	                    <%	i = 0;
+	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
+	                    	{
+	                    		i++;
+	                    %>
+	                          <div class="row">
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                        <p class="to-l-p-img">
+                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
+                                                <%= i %>
+                                            </span>
+                                        </p>
+                                    </a>
+                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+	                                  <p class="to-l-p-name">
+	                                      <span class="bold">
+	                                         <%=coursewaiting.getCourse_name()%></span>
+	                                  </p>
+	                              </a>
+                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="to-l-btn">
+                                       <span class="to-l-btn">Xem chi tiết</span>
+                                    </a>
+                                    </div>
+                                </div>		
+	                          <%
+	                  			}
+	                          %>
+	                    </div> 
+                    <script type="text/javascript">
+                        function loadCourse() {
+                            var url;
+                            url= "temp.html";
+                            $("#TienTrinhHocNew").load(url);
+                        }
+
+                    </script>                     
+                    
+                </div>
+                
+    
+
+            </div>
+        </div>
+</div></div>        
         
 <div class="persion-right" id="DetailDMK" style="display: none;">
 
@@ -1004,7 +1067,7 @@ $('.persion-tab-lnk').click(function() {
 											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
 											if(data=="update success!")
 												{
-												 	location.reload();
+												$('#errorupdateuser').html('Vui lòng đăng nhập lại để thay đổi!');
 												}
 											else
 												$('#errorupdateuser').html(data);
@@ -1148,7 +1211,151 @@ $('.persion-tab-lnk').click(function() {
         <a class="close"></a>  
         <div class="box-popup" id="box_popup"></div>
     </div>    
+<% 
+    
+  	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
+  	{
+  		 teacher = coursewaitingDAO.getteacher(coursewaiting.getCourse_id());
+    %>
+<div style="width: 392px; display: none" id="overlay-web<%=coursewaiting.getCourse_id()%>">
+    <style type="text/css">
+        .sp-remember
+        {
+            float: left;
+            width: 125px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .sp-remember input
+        {
+            margin-right: 5px;
+        }
+        .LBD_CaptchaDiv{display:inline;}
+    </style>
+    
+    <div class="box-popup">
+        <a class="popup-close">X </a>
+        <h3 class="bp-title">
+            Xem chi tiết khóa học - <%=coursewaiting.getCourse_name()%>
+        </h3>
+        <%
+	        String year_start= coursewaiting.getCourse_startdate().toString().substring(0, 4);
+	        String month_start= coursewaiting.getCourse_startdate().toString().substring(5, 7);
+	        String day_start= coursewaiting.getCourse_startdate().toString().substring(8, 10);
+	        
+	        String year_end= coursewaiting.getCourse_enddate().toString().substring(0, 4);
+	        String month_end= coursewaiting.getCourse_enddate().toString().substring(5, 7);
+	        String day_end= coursewaiting.getCourse_enddate().toString().substring(8, 10);
+        %>
+        <div class="bp-content" style="font-size: 20px">
+            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_name()%> </p>
+            <p style="padding-left: 50px;"> Giảng viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=teacher.getTen() %> </p>
+            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=coursewaiting.getCourse_schedulingday()%>, tiết <%=coursewaiting.getCourse_startlession()%> - <%=coursewaiting.getCourse_endlession()%>  </p>
+            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_place()%> </p>
+            <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
+            <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
+                       <div id="login_pnLogin">
+  
+                 
+                    
+                    <div class="bpc-row">
+                        <span class="sp-left"></span><span class="sp-right">
+                                                        
+                            </span></span>
+                        <style>
+                            .regis-info, .sp-forget-pass
+                            {
+                                position: relative;
+                                display: inline-block;
+                                padding-bottom: 5px;
+                            }
+                            .infor-forget
+                            {
+                                background: #ffffff none repeat scroll 0 0;
+                                border: 1px solid #acacac;
+                                color: #333333;
+                                display: none;
+                                font-size: 13px;
+                                line-height: 20px;
+                                padding: 10px;
+                                position: absolute;
+                                right: 0;
+                                top: 25px;
+                                width: 310px;
+                                z-index: 99;
+                            }
+                            .regis-info .infor-forget
+                            {
+                                bottom: 10px;
+                                right: -33px;
+                                top: auto;
+                            }
+                            .regis-info
+                            {
+                                padding-top: 5px;
+                            }
+                            .sp-forget-pass:hover .infor-forget
+                            {
+                                display: block;
+                            }
+                            .regis-info:hover .infor-forget
+                            {
+                                display: block;
+                            }
+                        </style>
+                    </div>
+                    <div class="bpc-row" style="margin-top: 0px;">
+                        <span class="sp-error">
+                            <span id="login_lblErr"></span>
+                        </span>
+                    </div>
+                    <div class="bpc-row" style="margin-top: 0px;">
+                        <span class="sp-left"></span><span class="sp-right">
+                            
+                            <!--
+                            <input type="submit" name="login$btnDangNhap" value="Đăng nhập" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
+                            <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
+                            -->
 
+                            <input onclick="huydangkyclick()" type="button"  value="Đăng ký" id="btnHuyDangKy" class="bpt-lnk-save btn-login" name="btnHuyDangKy" >
+                        </span>
+
+                        <script type="text/javascript">
+                            function btnDangNhap_OnClientClick() {
+                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
+                                return true;
+                            }
+                        </script>
+
+                    </div>
+                    <div class="group-login-fb" style="display: none;">
+                        
+                        
+                        <div id="status" style="display: none;">
+                        </div>
+                    </div>
+                
+</div>
+
+
+            <div id="login_UpdateProgress1" style="display:none;">
+  
+                    <div class="bpc-row">
+                        <span class="sp-left"></span><span class="sp-right">
+                            <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy">
+                        </span>
+                    </div>
+                
+</div>
+
+
+            <div class="bpc-row">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<%} %>
 <div style="width: 392px; display: none" id="overlay-login">
     <style type="text/css">
         .sp-remember
