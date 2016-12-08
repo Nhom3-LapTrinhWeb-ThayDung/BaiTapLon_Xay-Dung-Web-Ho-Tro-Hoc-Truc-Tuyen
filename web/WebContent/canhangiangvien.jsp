@@ -4,6 +4,13 @@
 <%@page import="model.User_info"%>
 <%@page import="model.Course"%>
 <%@page import="dao.CourseDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.JSONAware"%>
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="org.json.simple.parser.JSONParser"%>
+<%@page import="org.json.simple.parser.ParseException"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,7 +37,7 @@
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-
+<script type="text/javascript" src="js/search.js"></script>
 </head>
 <body>
 
@@ -255,8 +262,12 @@
 
 
 		<%@ include file="//includes/header.jsp"%>
-		<%CourseDAO courseDAO= new CourseDAO();	 %>
-
+		<%CourseDAO courseDAO= new CourseDAO();	
+		%>
+		<%
+			List<Course> listcourse = courseDAO.getListCourse(user_info.getId());
+			String JSONResult = JSONArray.toJSONString(listcourse);
+		 %>
 		<script type="text/javascript">
 				function clickButton(e, buttonid) {
 					var evt = e ? e : window.event;
@@ -305,7 +316,7 @@
 
 
 
-		<script type="text/javascript" src="js/search.js"></script>
+		
 
 		<script type="text/javascript">
 				var _gaq = _gaq || [];
@@ -677,11 +688,28 @@
 						</div>
 						<div></div>
 					</div>
-					<div class="persion-right persion-detail" id="TienTrinhHocNew"
+		<div class="persion-right persion-detail" id="TienTrinhHocNew"
 						style="display: none;">
 						<h3 class="learn-process-h3">
 							<span>DANH SÁCH KHÓA HỌC ĐANG DẠY</span>
 						</h3>
+						
+						<div class="study-search">
+			<!-- <input name="search" type="text" maxlength="100"
+				id="search"
+				class="searchInput has_default_text ssh-input"
+				onkeyup="search()" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+				value="Từ khóa tìm kiếm" autocomplete="off"> <input
+				type="button" name="Header1$btnSearch1" value=""
+				onclick="" id="Header1_btnSearch1"
+				class="ssh-btn-search"> -->
+				<input name="search" type="text" maxlength="100"  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+				id="search" class="searchInput has_default_text ssh-input">
+				<input
+				type="button" name="Header1$btnSearch1" value="" id="Header1_btnSearch1" class="ssh-btn-search">
+				
+
+		</div>
 						<style>
 							.lp-lnk {
 								margin-bottom: 15px;
@@ -691,14 +719,14 @@
 								height: 152px;
 							}
 						</style>
-
+							
 						<div class="box-test-online martop_0">
             
             <div class="to-content">
                 <div class="to-c-left">
 	                   <div class="to-c-l-list">
 			                        <%	int i=0;
-			                        	for (Course course : courseDAO.getListCourse(user_info.getId())) 
+			                        	for (Course course :listcourse ) 
 			                        	{
 			                        		i++;
 			                        %>
@@ -721,50 +749,15 @@
 	                        			}
 	                                %>
 	                    </div>
-                    <!-- <div class="bv-pagging">
-                        <style>
-                            .bv-pagging
-                            {
-                                float: left;
-                                margin-top: 5px;
-                                margin-bottom: 10px; ;padding-right:15px;text-align:right;width:612px;}
-                            .bv-pagging a
-                            {
-                                color: #565656;
-                                display: inline-block;
-                                font-size: 14px;
-                                font-weight: bold;
-                                height: 20px;
-                                line-height: 20px;
-                                margin-left: 3px;
-                                text-align: center;
-                                width: 20px;
-                            }
-                            .bv-pagging a:hover, .bv-pagging a.active
-                            {
-                                background-color: #00918D;
-                                color: #FFFFFF;
-                            }
-                        </style>
-                        <a href="CacKhoaHocDaDangKy.jsp">
-                            &lt;</a>
-                        
-                        <a class="active" href="CacKhoaHocDaDangKy.jsp">
-                            1</a>
-                        
-                        <a href="DanhSachKhoaHocpage2.jsp">
-                            2</a>
-                        
-                        <a href="DanhSachKhoaHocpage2.jsp">
-                            &gt;</a>
-                        
-                    </div> -->
-                    <script type="text/javascript">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                    <script>
                         function loadCourse() {
                             var url;
                             url= "temp.html";
                             $("#TienTrinhHocNew").load(url);
                         }
+                        
+                        
 
                     </script>                     
                     
@@ -774,13 +767,111 @@
 
             </div>
         </div>
-					</div>
+		</div>
+		<!--list khoa hoc dang day-->
+		
+		<div style="display: none;left:321px; top: 146px; " id="suggestions" class="suggestion">
+		<ul> 
+		<li>
+		<a class="search-title"> Tìm kiếm với <span>"khóa"</span></a>
+		</li>
+		<li class="item-sugg item-sugg1">
+		<h3>Bài học</h3>
+		<ul>
+		<li><a class="link-search" href="">Ngành ruột <span class="bold" style="display:inline">khoa</span>ng (phần 1)</a></li>
+		</ul></li></ul>
+		</div>
+		
+		<script type="text/javascript">
+		$('#search').keyup(function (){
+			
+			 var tags = <%=JSONResult%>;
+			 var x = <%=JSONResult%>;
+	        var SearchTag = function (tagName) {
+	        	tagName = unsignString(trim(tagName));
+	        	var tagresult=[tags[0]];
+	            var i = null;
+	            for (i = 0; tags.length > i; i += 1) {
+	                if (unsignString(trim(tags[i].course_name)).search(tagName)!=-1) {
+	                		tagresult.push(tags[i]);
+	                }
+	            }
+	            if(tagresult)
+	            {
+	            	 return tagresult;
+	            }
+	            return null;
+	        };
+			
+	        var tag = SearchTag($('#search').val());
+	        	/* var output="<ul>";
+	        	  output+=" <li> <a class=\"search-title\"> Tìm kiếm với <span>"+$('#search').val()+"</span></a> </li>"
+	        	  output+=" <li class=\"item-sugg item-sugg1\"><h3>Khóa Học</h3><ul>"
+	        	  if(tag.length>2)
+	        	{
+	        	  for (i = 1; tag.length > i; i += 1) {
+	        		  output +=" <li><a class=\"link-search\" href=\"khoahoc2.jsp?course_id="+tag.course_id+">"+tag.course_name+"</a></li>";
+	        	  }
+	        	}
+	        	 else
+	        		 output+=tag[1].course_name;
+	        	  output +="</ul></li></ul>";*/
+	        	  var resHtml = '';
+	        	  var hasResult = false;
+	        	  resHtml += '<ul> '
+	                  + '<li><a class="search-title"> Tìm kiếm với <span>"' + $('#search').val() + '"</span></a></li>';
+	                  if (tag.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Khóa học</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; tag.length > i; i += 1) {
+	                          resHtml += '<li><a class="link-search" href="khoahoc2.jsp?course_id='  + tag[i].course_id+ '">' + tag[i].course_name + '</a></li>';
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	        	  if (hasResult)
+	                    $('#suggestions').html(resHtml);
+	                else
+	                    $('#suggestions').html('<ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "' + $('#search').val()
+	                  + '"</a></li></ul>');
+			});
+		
+		
+			function search()
+			{
+				var tags = <%=JSONResult%>;
+		        var SearchTag = function (tagName) {
+		        	var tagresult="[";
+		            var i = null;
+		            for (i = 0; tags.length > i; i += 1) {
+		                if (tags[i].course_name.search(tagName)) {
+		                    return tags[i];
+		                }
+		            }
+	
+		            return null;
+		        };
+	
+		        var tag = SearchTag($('#search').val());
+		        if (tag)
+		        {
+		            $('#searchresult').html(tag.course_id);
+		        }
+		        else
+		        	$('#searchresult').html('');
+			}
+		</script>
+		
+		
+		
+		
 					<div class="persion-right persion-detail" id="QuanLyCommentNew"
 						style="display: none;"></div>
 					<div class="persion-right persion-detail" id="LichSuGiaoDichNew"
 						style="display: none;"></div>
 
-					<!--list khoa hoc dang day-->
+					
 
 					<div class="persion-right" id="DetailThi" style="display: none;">
 						<form action="CourseServlet" method="post">

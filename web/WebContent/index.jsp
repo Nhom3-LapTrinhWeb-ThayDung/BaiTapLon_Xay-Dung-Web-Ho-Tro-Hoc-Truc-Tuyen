@@ -298,7 +298,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader1$Widget$
 
 		<%@ include file="//includes/header.jsp"%>
 
-
 		<script type="text/javascript">
 
     function clickButton(e, buttonid) {
@@ -1394,7 +1393,7 @@ fbq('track', "PageView");</script>
 							</span>
 						</div>
 						<div class="bpc-row" style="margin-top: 0px;">
-							<span class="sp-left"></span><span class="sp-right"> <a class="bpt-lnk-save btn-login" onclick="btnlogin()">
+							<span class="sp-left"></span><span class="sp-right"> <a id="login_btnDangNhap" class="bpt-lnk-save btn-login" onclick="btnlogin()">
 							login</a> <input type="hidden"
 								name="command" value="login">
 							</span>

@@ -134,10 +134,12 @@ public class ExerciseDAO {
 	        return null;
 	    }
 	
+	 
+	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*ExerciseDAO dao = new ExerciseDAO();
-    	for (Exercise ex : dao.getListExercise(2)) {
+		ExerciseDAO dao = new ExerciseDAO();
+    	/*for (Exercise ex : dao.findListExercise("bai")) {
     		System.out.println(ex.getExercise_id() +"~"+ ex.getExercise_name()  +"~"+ 
     				ex.getExersice_content() +"~"+ ex.getExercise_startdate()
 					 +"~"+ ex.getExercise_starttime() +"~"+ ex.getExercise_enddate() +"~"+ ex.getExercise_endtime()

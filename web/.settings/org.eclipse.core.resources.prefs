@@ -1,11 +1,13 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=origin/master
 eclipse.preferences.version=1
 encoding//WebContent/BaiTestSo1.result.jsp=UTF-8
-<<<<<<< HEAD
+encoding//src/controller/CourseWaitingServlet.java=UTF-8
 encoding//src/controller/DoQuestionListServlet.java=UTF-8
 encoding//src/controller/ExerciseServlet.java=UTF-8
 encoding//src/controller/SetListQuestionServlet.java=UTF-8
-encoding//src/dao/QuestionRadioDAO.java=UTF-8
-=======
-encoding//src/controller/CourseWaitingServlet.java=UTF-8
+encoding//src/dao/CourseDAO.java=UTF-8
 encoding//src/dao/CourseWaitingDAO.java=UTF-8
->>>>>>> origin/master
+encoding//src/dao/QuestionRadioDAO.java=UTF-8
+encoding//src/model/Course.java=UTF-8

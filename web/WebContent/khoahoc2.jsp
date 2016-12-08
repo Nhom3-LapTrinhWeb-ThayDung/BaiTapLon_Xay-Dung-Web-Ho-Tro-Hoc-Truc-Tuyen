@@ -18,6 +18,8 @@
 <%@page import="dao.Exercise_UserDAO"%>
 <%@page import="model.Exercise_User"%>
 <%@page import="model.Url"%>
+<%@page import="dao.Quiz_UserDAO"%>
+<%@page import="model.Quiz_User"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -148,12 +150,15 @@
 			ExerciseDAO exerciseDAO = new ExerciseDAO();
 			Exercise_UserDAO exercise_userDAO = new Exercise_UserDAO();
 			QuestionRadioDAO questionDAO = new QuestionRadioDAO();	
+			Quiz_UserDAO quiz_userDAO = new Quiz_UserDAO();
 			Course course = new Course();
 			String 	course_id="";
 			User_info teacher = new User_info();
 			List<User_info> liststudent = new  ArrayList<User_info>();
 			List<Exercise> listexercise = new ArrayList<Exercise>();
 			List<Exercise_User> listexercise_user = new ArrayList<Exercise_User>();
+			List<Quiz> listquiz = new ArrayList<Quiz>();
+			List<Quiz_User> listquiz_user = new ArrayList<Quiz_User>();
 			//Exercise exercise = new Exercise();
 			if(request.getParameter("course_id")!=null)
 			{
@@ -162,6 +167,8 @@
 				liststudent = courseDAO.getListStudent(Long.parseLong(course_id));
 				listexercise = courseDAO.getListExercise(Long.parseLong(course_id));
 				listexercise_user = exercise_userDAO.getListExercise_User(Long.parseLong(course_id));
+				listquiz = courseDAO.getListQuiz(Long.parseLong(course_id));
+				listquiz_user = quiz_userDAO.getListQuiz_User(Long.parseLong(course_id));
 				teacher = courseDAO.getteacher(Long.parseLong(course_id));
 			}
 			Section tempsection = new Section();
@@ -1067,6 +1074,26 @@
 														class="lnk-logout under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id %>&section_id=<%=ex.getSection_id() %>&exercise_id=<%=ex.getExercise_id() %>"
 														target="_blank">Chi tiết</a></td>
 												</tr>
+												<%}
+													for(Quiz q: listquiz){
+												%>
+												<tr>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=q.getDescription()%></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=q.getQuiz_name()%></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=q.getStart_date() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=q.getTime() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=q.getEnd_date()%></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=q.getTime()%></td>
+													
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
+														class="lnk-logout under" href="LamBaiThi.jsp?quiz_id=<%=q.getId() %>"
+														target="_blank">Chi tiết</a></td>
+												</tr>
 												<%} %>
 
 											</tbody>
@@ -1162,7 +1189,25 @@
 												</tr>
 													<%
 														}
-													%>
+												for(Quiz_User qu: listquiz_user ){
+												%>
+												<tr>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=qu.getSection_name() %></td>
+													<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=qu.getQuiz_name() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=qu.getUser_id() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=qu.getUser_name() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=qu.getTimesubmit() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl"><%=qu.getScores() %></td>
+													<td
+														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
+														class="under popup-login" rel="#overlay-chitiet-btnop-quiz<%=qu.getResult_id()%>">Chi
+															tiết</a></td>
+												</tr>
+													<%} %>
 											</tbody>
 										</table></td>
 								</tr>
@@ -1494,7 +1539,7 @@
 							<div class="bpc-row" style="margin-top: 20px;">
 								<span class="sp-left"></span> <span class="sp-right"> <a
 									class="close"><input type="submit" value="Ok"
-										" id="btnforget" class="bpt-lnk-save btn-login"></a>
+										 id="btnforget" class="bpt-lnk-save btn-login"></a>
 								</span>
 							</div>
 							
@@ -1560,6 +1605,12 @@
 									class="sp-right"><%=exu.getTimesubmit() %> </span>
 							</div>
 							<div class="bpc-row">
+								<span class="sp-left">Mô tả:</span>
+								<textarea  class="txt-input" name="Description<%=exu.getDescription() %>"
+									style="height: 40px; width: 200px;" id="Description<%=exu.getDescription() %>"
+									placeholder="Nội dung"><%=exu.getDescription() %></textarea>
+							</div>
+							<div class="bpc-row">
 								<span class="sp-left">Điểm:</span> <span class="sp-right">
 									<input name="score<%=exu.getResult_id() %>" type="text"
 									value="<%=exu.getScore() %>" maxlength="100" id="score<%=exu.getResult_id() %>"
@@ -1569,7 +1620,7 @@
 							<div class="bpc-row">
 								<span class="sp-left">Đánh giá:</span>
 								<textarea class="txt-input" name="review<%=exu.getResult_id() %>"
-									style="height: 80px; width: 200px;" id="review<%=exu.getResult_id() %>"
+									style="height: 40px; width: 200px;" id="review<%=exu.getResult_id() %>"
 									placeholder="Nội dung"><%=exu.getReview() %></textarea>
 							</div>
 
@@ -1602,6 +1653,79 @@
 				</form>
 			</div>
 			<%} %>
+			
+
+		<%
+				for(Quiz_User qu: listquiz_user ){
+			%>
+			<div
+				style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;"
+				id="overlay-chitiet-btnop-quiz<%=qu.getResult_id()%>">
+				<a class="close"></a>
+				<style type="text/css">
+.sp-remember {
+	float: left;
+	width: 125px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sp-remember input {
+	margin-right: 5px;
+}
+
+.LBD_CaptchaDiv {
+	display: inline;
+}
+</style>
+				<form action="ExerciseServlet" method="post">
+				<div class="box-popup">
+					<a class="popup-close">X </a>
+					<h3 class="bp-title">Thông tin chi tiết</h3>
+					<div class="bp-content">
+						<div id="login_pnLogin">
+							<div class="bpc-row">
+								<span class="sp-left">Topic</span> <span class="sp-right"><%=qu.getSection_name() %></span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-left">Tên bài thi:</span> <span class="sp-right"><%=qu.getQuiz_name() %></span>
+							</div>
+
+							<div class="bpc-row">
+								<span class="sp-left">Mã học viên:</span> 
+								<span class="sp-right"><%=qu.getUser_id() %></span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-left">Tên học viên:</span> <span
+									class="sp-right"><%=qu.getUser_name() %></span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-left">Thời Điểm Nộp:</span> <span
+									class="sp-right"><%=qu.getTimesubmit() %> </span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-left">Số câu đúng:</span> <span
+									class="sp-right"><%=qu.getSocaudung() %>/<%=qu.getTongsocau() %></span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-left">Điểm:</span> <span
+									class="sp-right"><%=qu.getScores() %> </span>
+							</div>
+
+							<div class="bpc-row" style="margin-top: 20px;">
+								<span class="sp-left"></span> <span class="sp-right">
+								  <a class="close"><input type="button" value="Ok"
+										    class="bpt-lnk-save btn-login"></a>
+								</span>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				</form>
+				</div>
+			<%} %>
+
 <script type="text/javascript">
 					function FinishConfirmationchamdiem() {
 						if (confirm("Chấm điểm. Đồng ý?") == true) {

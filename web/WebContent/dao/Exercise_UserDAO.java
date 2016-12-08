@@ -10,6 +10,7 @@ import java.util.List;
 import connect.DBConnect;
 import model.Exercise;
 import model.Exercise_User;
+import model.Quiz;
 import model.QuizResult;
 import model.Section;
 import model.Users;
@@ -169,17 +170,45 @@ public class Exercise_UserDAO {
     	return false;
     }
 	
+	public List<Quiz> findListQuiz(String str) {
+        try {
+            conn = DBConnect.getConnecttion();
+            String sql = "select * from quiz where quiz_name like '%"+str+"%' or start_date like '%"+str+"%' or ecd_date like '%"+str+"%'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Quiz> listQuiz = new ArrayList<Quiz>();
+            while (rs.next()) {
+            	Quiz q = new Quiz();
+				q.setId(rs.getLong("id"));
+				q.setQuiz_name(rs.getString("quiz_name"));
+				q.setStart_date(rs.getString("start_date"));
+				q.setEnd_date(rs.getString("end_date"));
+				q.setTime(rs.getString("time"));
+				q.setCount(rs.getInt("count"));
+				q.setDescription(rs.getString("description"));
+				q.setSection_id(rs.getLong("section_id"));
+				listQuiz.add(q);
+            }
+            conn.close();
+            return listQuiz;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		return null;
+    }
+	
 	public static void main(String[] args) {
 	// TODO Auto-generated method stub
 		Exercise_UserDAO dao = new Exercise_UserDAO();
+    	/*
     	
-    	
-    	for (Exercise_User ex : dao.getListExercise_User(Long.parseLong("1479799303858"))) {
+    	for (Exercise_User ex : dao.findListExercise_User("2016")) {
     		System.out.println(ex.getResult_id() +"-"+ex.getSection_name() + "-" + ex.getExercise_id()
     		 + "-" + ex.getExercise_name()  + "-" + ex.getFilesubmit()
     		 + "-" + ex.getReview() + "-" + ex.getScore()
     		 + "-" + ex.getUser_id() + "-" + ex.getUser_name() + "-" + ex.getTimesubmit());
-		}
+		}*/
 	}
 
 }

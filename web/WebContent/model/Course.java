@@ -1,6 +1,8 @@
 package model;
 
-public class Course {
+import org.json.simple.JSONAware;
+
+public class Course implements JSONAware {
 	private long course_id;
 	private String course_name;
 	private String course_startdate;
@@ -82,5 +84,36 @@ public class Course {
 	public void setCourse_description(String course_description) {
 		this.course_description = course_description;
 	}
-	
+	@Override
+    public String toJSONString() {
+ 
+        StringBuffer sb = new StringBuffer();
+ 
+        sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
+ 
+        sb.append("\"course_id\":\"" + getCourse_id() + "\""); // dòng này có nghĩa là
+                                                    // "id":"Giá_Trị"
+        sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
+ 
+        sb.append("\"course_name\":\"" + getCourse_name() + "\"");
+        sb.append(",");
+        sb.append("\"course_startdate\":\"" + getCourse_startdate() + "\"");
+        sb.append(",");
+        sb.append("\"course_enddate\":\"" + getCourse_enddate()+ "\"");
+        sb.append(",");
+        sb.append("\"course_schedulingday\":\"" + getCourse_schedulingday() + "\"");
+        sb.append(",");
+        sb.append("\"course_startlesson\":\"" + getCourse_startlession() + "\"");
+        sb.append(",");
+        sb.append("\"course_endlesson\":\"" + getCourse_endlession() + "\"");
+        sb.append(",");
+        sb.append("\"course_place\":\"" + getCourse_place() + "\"");
+        sb.append(",");
+        sb.append("\"course_description\":\"" + getCourse_description() + "\"");
+ 
+        sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
+          
+        return sb.toString();
+ 
+    }
 }
