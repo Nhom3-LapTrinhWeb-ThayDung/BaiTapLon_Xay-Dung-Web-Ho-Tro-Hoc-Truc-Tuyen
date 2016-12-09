@@ -114,6 +114,6 @@ public class Course implements JSONAware {
         sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
           
         return sb.toString();
- 
     }
+	
 }

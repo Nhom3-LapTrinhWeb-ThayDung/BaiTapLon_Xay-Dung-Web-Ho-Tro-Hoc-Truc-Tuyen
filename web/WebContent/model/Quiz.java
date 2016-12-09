@@ -3,7 +3,9 @@ package model;
 import java.sql.Date;
 import java.sql.Time;
 
-public class Quiz {
+import org.json.simple.JSONAware;
+
+public class Quiz implements JSONAware {
 	private long id;
 	private String quiz_name;
 	private String start_date;
@@ -77,6 +79,33 @@ public class Quiz {
 	public void setSection_id(long section_id) {
 		this.section_id = section_id;
 	}
-	
+	@Override
+    public String toJSONString() {
+ 
+        StringBuffer sb = new StringBuffer();
+        sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
+ 
+        sb.append("\"id\":\"" + getId()+ "\""); // dòng này có nghĩa là
+                                                    // "id":"Giá_Trị"
+        sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
+ 
+        sb.append("\"quiz_name\":\"" + getQuiz_name() + "\"");
+        sb.append(",");
+        sb.append("\"start_date\":\"" + getStart_date() + "\"");
+        sb.append(",");
+        sb.append("\"end_date\":\"" + getEnd_date()+ "\"");
+        sb.append(",");
+        sb.append("\"time\":\"" + getTime() + "\"");
+        sb.append(",");
+        sb.append("\"count\":\"" + getCount() + "\"");
+        sb.append(",");
+        sb.append("\"description\":\"" + getDescription() + "\"");
+        sb.append(",");
+        sb.append("\"section_id\":\"" + getSection_id() + "\"");
+ 
+        sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
+          
+        return sb.toString();
+    }
 	
 }

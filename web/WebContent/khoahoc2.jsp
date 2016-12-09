@@ -143,6 +143,7 @@
 
 
 			<%@ include file="//includes/header.jsp" %>
+				
 			<%
 			SectionDAO sectionDAO = new SectionDAO();
 			
@@ -159,6 +160,7 @@
 			List<Exercise_User> listexercise_user = new ArrayList<Exercise_User>();
 			List<Quiz> listquiz = new ArrayList<Quiz>();
 			List<Quiz_User> listquiz_user = new ArrayList<Quiz_User>();
+			List<Resources> listresources = new ArrayList<Resources>();
 			//Exercise exercise = new Exercise();
 			if(request.getParameter("course_id")!=null)
 			{
@@ -169,11 +171,24 @@
 				listexercise_user = exercise_userDAO.getListExercise_User(Long.parseLong(course_id));
 				listquiz = courseDAO.getListQuiz(Long.parseLong(course_id));
 				listquiz_user = quiz_userDAO.getListQuiz_User(Long.parseLong(course_id));
+				listresources = courseDAO.getListResourcesCourse(Long.parseLong(course_id));
 				teacher = courseDAO.getteacher(Long.parseLong(course_id));
 			}
 			Section tempsection = new Section();
 		%>
-			
+		<!-- tìm kiếm -->
+		<%
+			String JSONExercise = JSONArray.toJSONString(listexercise);
+			String JSONExercise_User = JSONArray.toJSONString(listexercise_user);
+			String JSONUser_info = JSONArray.toJSONString(liststudent);
+			String JSONQuiz = JSONArray.toJSONString(listquiz);
+			String JSONQuiz_User = JSONArray.toJSONString(listquiz_user);
+			String JSONResources = JSONArray.toJSONString(listresources);
+			List<Course> listcourse = courseDAO.getListCourse(user_info.getId());
+				String JSONResult = JSONArray.toJSONString(listcourse);
+
+		%>
+
 				<div class="vts-gadget">
 				<div class="vts-gadget-item vts-gadget-comment">
 					<div class="vt-gadget gadget-comment" style="display: none;">
@@ -693,8 +708,13 @@
 					&gt; Khóa Học &gt; <%=course.getCourse_name() %></a>
 			</div>
 
-			<div class="persion-right2" style="display: block;" id="1">
-
+			<div class="persion-right2" style="display: block; width: 910px;" id="1">
+			<div class="study-search" style="float: right;margin-top: 0px;">
+				<input name="search" type="text" maxlength="100"  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+				id="search" class="searchInput has_default_text ssh-input">
+				<input
+				type="button" name="Header1$btnSearch1" value="" id="Header1_btnSearch1" class="ssh-btn-search">
+				</div>
 				<style type="text/css">
 .edit {
 	
@@ -727,8 +747,8 @@
 					<h1 class="learn-process-h3">
 						<span><%=course.getCourse_name() %></span>
 					</h1>
-
 				</div>
+				
 				<div class="learn-process process-study">
 				<div style="display: none" id ="header-manager" >
 					<div id="header-menu" style="background: rgb(0, 183, 178);" >
@@ -920,6 +940,8 @@
 						</div>
 					</div>
 
+
+
 					<div class="body" id="DSHV" style="margin-left: 10px">
 						<h1 style="color: blue;">
 							<span>Danh sách học viên của khóa</span>
@@ -964,7 +986,7 @@
 														class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getNgaysinh() %></td>
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl">
-														<div><a
+														<div><a id="hocvien<%=student.getId() %>"
 														class="under popup-login" rel="#overlay-chitiet-hocvien<%=student.getId()%>" onclick="chitietclick('<%=student.getId()%>')">Chi
 															tiết</a>
 															</div></td>
@@ -1183,7 +1205,8 @@
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl"><%=exu.getScore() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">
+														<a id="baitapnop<%=exu.getResult_id() %>"
 														class="under popup-login" rel="#overlay-chitiet-btnop<%=exu.getResult_id()%>">Chi
 															tiết</a></td>
 												</tr>
@@ -1203,7 +1226,8 @@
 													<td
 														class="studyprogram_tabledetails_td_content_aligncenter_dl"><%=qu.getScores() %></td>
 													<td
-														class="studyprogram_tabledetails_td_content_aligncenter_dl"><a
+														class="studyprogram_tabledetails_td_content_aligncenter_dl">
+														<a id="quiznop<%=qu.getResult_id() %>"
 														class="under popup-login" rel="#overlay-chitiet-btnop-quiz<%=qu.getResult_id()%>">Chi
 															tiết</a></td>
 												</tr>
@@ -1529,7 +1553,7 @@
 							<div class="bpc-row">
 								<span class="sp-left">Ảnh đại diện:</span>
 								<div class="bpt-img-avarta">
-									<img src="media.studyfunny.vn" alt="" height="48px">
+									<img src="upload/<%=student.getAnhdaidien() %>" alt="" height="48px">
 								</div>
 							</div>
 							<div class="bpc-row">
@@ -1680,7 +1704,7 @@
 </style>
 				<form action="ExerciseServlet" method="post">
 				<div class="box-popup">
-					<a class="popup-close">X </a>
+					<a  class="popup-close">X </a>
 					<h3 class="bp-title">Thông tin chi tiết</h3>
 					<div class="bp-content">
 						<div id="login_pnLogin">
@@ -1736,6 +1760,240 @@
 					}
 					
 				</script>
+				<script type="text/javascript">
+				function clicksearmousedown()
+				{
+					/* $('#suggestions').hide(function(){
+						alert('ádsad');
+					}); */
+					
+				}
+				function clicksearchoverlay(type,id)
+				{
+					$('#suggestions').hide();
+					 if(type == "hocvien")
+						$('#hocvien'+id).click();
+					 else if(type == "baitapnop")
+							$('#baitapnop'+id).click();
+					 else if(type == "quiznop")
+							$('#quiznop'+id).click();
+				}
+				</script>
+<!-- search resurl-->
+		<div style="display: none;left: 573px;top: 92px;" id="suggestions" class="suggestion">
+
+		</div>			
+		<!-- search jquery -->
+		<script type="text/javascript">
+		
+		$('#search').keyup(function (){
+			/* học viên */
+			var hocvienjs = <%=JSONUser_info%>;
+	        var Searchhocvien = function (strhocvien) {
+	        	strhocvien = unsignString(trim(strhocvien));
+	        	var result=[hocvienjs[0]];
+	            var i = null;
+	            for (i = 0; hocvienjs.length > i; i += 1) {
+	                if (unsignString(trim(hocvienjs[i].id)).search(strhocvien)!=-1 
+	                		|| unsignString(trim(hocvienjs[i].ten)).search(strhocvien)!=-1
+	                		|| unsignString(trim(hocvienjs[i].email)).search(strhocvien)!=-1) {
+	                	result.push(hocvienjs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listhocvien= Searchhocvien($('#search').val());
+	        
+	        /* exercise */
+			var exercisejs = <%=JSONExercise%>;
+	        var Searchexercise = function (strexercise) {
+	        	strexercise = unsignString(trim(strexercise));
+	        	var result=[exercisejs[0]];
+	            var i = null;
+	            for (i = 0; exercisejs.length > i; i += 1) {
+	                if (unsignString(trim(exercisejs[i].exercise_name)).search(strexercise)!=-1 
+	                		|| unsignString(trim(exercisejs[i].exercise_startdate)).search(strexercise)!=-1)
+	                {
+	                	result.push(exercisejs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listexercise= Searchexercise($('#search').val());
+	        
+	        /* quiz */
+			var quizjs = <%=JSONQuiz%>;
+	        var Searchquiz = function (strquiz) {
+	        	strquiz = unsignString(trim(strquiz));
+	        	var result=[quizjs[0]];
+	            var i = null;
+	            for (i = 0; quizjs.length > i; i += 1) {
+	                if (unsignString(trim(quizjs[i].quiz_name)).search(strquiz)!=-1 
+	                		|| unsignString(trim(quizjs[i].start_date)).search(strquiz)!=-1)
+	                {
+	                	result.push(quizjs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listquiz= Searchquiz($('#search').val());
+	        
+	        /* exercise_user */
+			var exercise_userjs = <%=JSONExercise_User%>;
+	        var Searchexercise_user = function (strexercise_user) {
+	        	strexercise_user = unsignString(trim(strexercise_user));
+	        	var result=[exercise_userjs[0]];
+	            var i = null;
+	            for (i = 0; exercise_userjs.length > i; i += 1) {
+	                if (unsignString(trim(exercise_userjs[i].user_id)).search(strexercise_user)!=-1
+	                	||unsignString(trim(exercise_userjs[i].user_name)).search(strexercise_user)!=-1
+	                	||unsignString(trim(exercise_userjs[i].exercise_name)).search(strexercise_user)!=-1
+	                	||unsignString(trim(exercise_userjs[i].filesubmit)).search(strexercise_user)!=-1
+	                	||unsignString(trim(exercise_userjs[i].timesubmit)).search(strexercise_user)!=-1
+	                	||unsignString(trim(exercise_userjs[i].section_name)).search(strexercise_user)!=-1)
+	                {
+	                	result.push(exercise_userjs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listexercise_user= Searchexercise_user($('#search').val());
+	        
+	        /* exercise_user */
+			var quiz_userjs = <%=JSONQuiz_User%>;
+	        var Searchquiz_user = function (strquiz_user) {
+	        	strquiz_user = unsignString(trim(strquiz_user));
+	        	var result=[quiz_userjs[0]];
+	            var i = null;
+	            for (i = 0; quiz_userjs.length > i; i += 1) {
+	                if (unsignString(trim(quiz_userjs[i].user_id)).search(strquiz_user)!=-1
+	                	||unsignString(trim(quiz_userjs[i].user_name)).search(strquiz_user)!=-1
+	                	||unsignString(trim(quiz_userjs[i].quiz_name)).search(strquiz_user)!=-1
+	                	||unsignString(trim(quiz_userjs[i].timesubmit)).search(strquiz_user)!=-1
+	                	||unsignString(trim(quiz_userjs[i].section_name)).search(strquiz_user)!=-1)
+	                {
+	                	result.push(quiz_userjs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listquiz_user= Searchquiz_user($('#search').val());
+	        
+	        /* resources */
+			var resourcesjs = <%=JSONResources%>;
+	        var Searchresources = function (strresources) {
+	        	strresources = unsignString(trim(strresources));
+	        	var result=[resourcesjs[0]];
+	            var i = null;
+	            for (i = 0; resourcesjs.length > i; i += 1) {
+	                if (unsignString(trim(resourcesjs[i].resources_name)).search(strresources)!=-1 )
+	                {
+	                	result.push(resourcesjs[i]);
+	                }
+	            }
+	            if(result)
+	            	 return result;
+	            return null;
+	        };
+	        var listresources= Searchresources($('#search').val());
+	      
+	        
+	        
+	        
+	        	  var resHtml = '';
+	        	  var hasResult = false;
+	        	  resHtml += '<ul> '
+	                  + '<li><a class="search-title"> Tìm kiếm với <span>"' + $('#search').val() + '"</span></a></li>';
+	                  if (listhocvien.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Học Viên</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listhocvien.length > i; i += 1) {
+	                          resHtml += '<li><a class="bold link-search"  onmouseup="clicksearchoverlay(\'hocvien\',\''+listhocvien[i].id+'\')"><img width="62" height="35" src="upload/' + listhocvien[i].anhdaidien+ '" class="image-search"/>' + listhocvien[i].ten + '</li></a></li>';;
+	                         
+	                    	}
+	                      resHtml += '</ul></li>';
+	                      
+	                  }
+	                  var course_id= <%=course_id%>;
+	                 
+	                  if (listexercise.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Bài tập</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listexercise.length > i; i += 1) {
+	                          resHtml += '<a class="bold link-search" href="Chi-Tiet-Bai-Tap.jsp?course_id='+course_id+'&section_id='+listexercise[i].section_id+'&exercise_id='+listexercise[i].exercise_id+'"><li><img src="Images/icon_news_01.png"/>' + listexercise[i].exercise_name + '</li></a>';;
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	                  
+	                  if (listquiz.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Bài thi trắc nghiệm</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listquiz.length > i; i += 1) {
+	                          resHtml += '<a class="bold link-search" href="LamBaiThi.jsp?quiz_id='+listquiz[i].id+'"><li><img src="Images/quiz.png"/>' + listquiz[i].quiz_name + '</li></a>';;
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	                  
+	                  if (listexercise_user.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Bài tập đã submit</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listexercise_user.length > i; i += 1) {
+	                          resHtml += '<a class="bold link-search" onmouseup="clicksearchoverlay(\'baitapnop\',\''+listexercise_user[i].result_id+'\')"><li><img src="Images/submited.png"/>' +  listexercise_user[i].user_name +'-'+listexercise_user[i].filesubmit+'-'+listexercise_user[i].description+'-'+listexercise_user[i].timesubmit+'-'+listexercise_user[i].section_name+ '</li></a>';
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	                  
+	                  if (listquiz_user.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Bài Thi trắc nghiệm đã submit</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listquiz_user.length > i; i += 1) {
+	                          resHtml += '<a class="bold link-search" onmouseup="clicksearchoverlay(\'quiznop\',\''+listquiz_user[i].result_id+'\')"><li><img src="Images/submited.png"/>' + listquiz_user[i].quiz_name+'-' + listquiz_user[i].user_name+'-'+ listquiz_user[i].timesubmit+'-'+listquiz_user[i].section_name+ '</li></a>'; 
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	                  
+	                  if (listresources.length > 1) {
+	                      hasResult = true;
+	                      resHtml += '<li class="item-sugg item-sugg1">'
+	                    + '<h3>Tài liệu</h3>'
+	                    + '<ul>';
+	                    	for (i = 1; listresources.length > i; i += 1) {
+	                          resHtml += '<a class="bold link-search" href="upload/'+listresources[i].resources_name+'"><li><img src="Images/'+listresources[i].resources_type+'.png"/>' + listresources[i].resources_name + '</li></a>';;
+	                      }
+	                      resHtml += '</ul></li>';
+	                  }
+	                  
+	        	  if (hasResult)
+	        		  {
+	                    $('#suggestions').html(resHtml);
+	        		  }
+	                else
+	                    $('#suggestions').html('<ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "' + $('#search').val()
+	                  + '"</a></li></ul>');
+			});
+		
+		
+		</script>
 		</div>
 		<!--end-body-->
 

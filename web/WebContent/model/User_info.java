@@ -2,7 +2,9 @@ package model;
 
 import java.sql.Date;
 
-public class User_info {
+import org.json.simple.JSONAware;
+
+public class User_info implements JSONAware {
 
 	private long id;
 	private String ten;
@@ -85,5 +87,35 @@ public class User_info {
 	public void setQuyen(int quyen) {
 		this.quyen = quyen;
 	}
+	@Override
+    public String toJSONString() {
+ 
+        StringBuffer sb = new StringBuffer();
 
+        sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
+ 
+        sb.append("\"id\":\"" + getId()+ "\""); // dòng này có nghĩa là
+                                                    // "id":"Giá_Trị"
+        sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
+ 
+        sb.append("\"ten\":\"" + getTen() + "\"");
+        sb.append(",");
+        sb.append("\"sodienthoai\":\"" + getSodienthoai() + "\"");
+        sb.append(",");
+        sb.append("\"gioitinh\":\"" + getGioitinh()+ "\"");
+        sb.append(",");
+        sb.append("\"ngaysinh\":\"" + getNgaysinh() + "\"");
+        sb.append(",");
+        sb.append("\"email\":\"" + getEmail() + "\"");
+        sb.append(",");
+        sb.append("\"anhdaidien\":\"" + getAnhdaidien() + "\"");
+        sb.append(",");
+        sb.append("\"diachi\":\"" + getDiachi() + "\"");
+        sb.append(",");
+        sb.append("\"quyen\":\"" + getQuyen() + "\"");
+ 
+        sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
+          
+        return sb.toString();
+    }
 }

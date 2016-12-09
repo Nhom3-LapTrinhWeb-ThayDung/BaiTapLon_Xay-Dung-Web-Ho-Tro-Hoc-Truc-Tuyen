@@ -1,6 +1,8 @@
 package model;
 
-public class Resources {
+import org.json.simple.JSONAware;
+
+public class Resources implements JSONAware {
 	private long resources_id;
 	private String resources_name;
 	private String resources_type;
@@ -40,6 +42,27 @@ public class Resources {
 	public void setSection_id(long section_id) {
 		this.section_id = section_id;
 	}
-	
+	@Override
+    public String toJSONString() {
+ 
+        StringBuffer sb = new StringBuffer();
+
+        sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
+ 
+        sb.append("\"resources_id\":\"" + getResources_id() + "\""); // dòng này có nghĩa là
+                                                    // "id":"Giá_Trị"
+        sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
+ 
+        sb.append("\"resources_name\":\"" + getResources_name() + "\"");
+        sb.append(",");
+        sb.append("\"resources_type\":\"" + getResources_type() + "\"");
+        sb.append(",");
+
+        sb.append("\"section_id\":\"" + getSection_id() + "\"");
+ 
+        sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
+          
+        return sb.toString();
+    }
 	
 }

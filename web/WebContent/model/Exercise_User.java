@@ -2,7 +2,9 @@ package model;
 
 import java.sql.Timestamp;
 
-public class Exercise_User {
+import org.json.simple.JSONAware;
+
+public class Exercise_User implements JSONAware {
 	private long result_id;
 	private long exercise_id;
 	private long user_id;
@@ -107,5 +109,40 @@ public class Exercise_User {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	@Override
+    public String toJSONString() {
+ 
+        StringBuffer sb = new StringBuffer();
+ 
+        sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
+ 
+        sb.append("\"result_id\":\"" + getResult_id() + "\""); // dòng này có nghĩa là
+                                                    // "id":"Giá_Trị"
+        sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
+ 
+        sb.append("\"exercise_id\":\"" + getExercise_id() + "\"");
+        sb.append(",");
+        sb.append("\"user_id\":\"" + getUser_id() + "\"");
+        sb.append(",");
+        sb.append("\"user_name\":\"" + getUser_name() + "\"");
+        sb.append(",");
+        sb.append("\"section_name\":\"" + getSection_name() + "\"");
+        sb.append(",");
+        sb.append("\"exercise_name\":\"" + getExercise_name() + "\"");
+        sb.append(",");
+        sb.append("\"filesubmit\":\"" + getFilesubmit() + "\"");
+        sb.append(",");
+        sb.append("\"timesubmit\":\"" + getTimesubmit() + "\"");
+        sb.append(",");
+        sb.append("\"score\":\"" + getScore() + "\"");
+        sb.append(",");
+        sb.append("\"review\":\"" + getReview() + "\"");
+        sb.append(",");
+        sb.append("\"course_id\":\"" + getCourse_id() + "\"");
+        sb.append(",");
+        sb.append("\"description\":\"" + getDescription() + "\"");
+        sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
+          
+        return sb.toString();
+    }
 }

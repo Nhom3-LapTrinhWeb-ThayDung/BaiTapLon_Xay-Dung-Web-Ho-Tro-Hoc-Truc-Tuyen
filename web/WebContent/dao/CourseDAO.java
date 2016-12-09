@@ -321,6 +321,30 @@ public class CourseDAO {
 		return null;
     }
     
+    public List<Resources> getListResourcesCourse(long course_id) {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from resources, section where resources.section_id = section.section_id and section.course_id='"+course_id+"'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Resources> listResources = new ArrayList<Resources>();
+            while (rs.next()) {
+            	Resources s = new Resources();
+            	s.setResources_id(rs.getLong(1));
+            	s.setResources_name(rs.getString(2));
+            	s.setResources_type(rs.getString(3));
+            	s.setSection_id(rs.getLong(4));
+            	listResources.add(s);
+            }
+            conn.close();
+            return listResources;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public List<Course> findListCourse(long userid,String str) {
         try {
         	Connection conn = DBConnect.getConnecttion();
