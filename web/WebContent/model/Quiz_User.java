@@ -116,7 +116,7 @@ public class Quiz_User implements JSONAware {
         StringBuffer sb = new StringBuffer();
         sb.append("{"); // Bắt đầu một đối tượng JSON là dấu mở ngoặc nhọn
  
-        sb.append("\"result_id\":\"" + getCourse_id() + "\""); // dòng này có nghĩa là
+        sb.append("\"result_id\":\"" + getResult_id() + "\""); // dòng này có nghĩa là
                                                     // "id":"Giá_Trị"
         sb.append(","); // sau mỗi cặp key/value là một dấu phẩy
  

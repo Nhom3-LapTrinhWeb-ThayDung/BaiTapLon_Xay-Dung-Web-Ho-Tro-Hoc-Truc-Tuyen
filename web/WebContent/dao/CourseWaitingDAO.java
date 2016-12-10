@@ -21,6 +21,10 @@ public class CourseWaitingDAO {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PreparedStatement ps;
+		CourseWaitingDAO cwDAO = new CourseWaitingDAO();
+		CourseWaiting cw = new CourseWaiting();
+		cw = cwDAO.getCourseWaiting(2, Long.parseLong("1479799303858"));
+		System.out.println(cw.getCourse_waiting_id());
 	}
 	
 	public boolean insert(CourseWaiting cw)
@@ -112,6 +116,29 @@ public class CourseWaitingDAO {
             }
             conn.close();
             return listCourseWaiting;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	
+	public CourseWaiting getCourseWaiting(long user_id,long course_id) {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from  course, course_waiting where course.course_id=course_waiting.course_id and course_waiting.user_id='"+user_id+"' and course.course_id='"+course_id+"'";
+            
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+  
+            CourseWaiting cw = new CourseWaiting();
+            while (rs.next()) {
+            	cw.setCourse_waiting_id(rs.getLong("course_waiting_id"));
+            	cw.setCourse_id(rs.getLong("course_id"));
+            	cw.setTime_register(rs.getTimestamp("time_register"));
+            	cw.setUser_id(rs.getLong("user_id"));
+            }
+            conn.close();
+            return cw;
         } catch (Exception e) {
             e.printStackTrace();
         }

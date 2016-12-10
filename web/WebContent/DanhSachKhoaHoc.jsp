@@ -5,6 +5,10 @@
 <%@page import="model.User_info"%>
 <%@page import="model.Course"%>
 <%@page import="dao.CourseDAO"%>
+<%@page import="model.CourseWaiting"%>
+<%@page import="dao.CourseWaitingDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
@@ -732,9 +736,15 @@ fbq('track', "PageView");</script>
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
 
-                            <input type="submit"  value="Đăng ký" id="login_btnDangKy" class="bpt-lnk-save btn-login">
+                            <input type="button" onclick="btndangkyclick()"  value="Đăng ký" id="btndangky" name="btndangky" class="bpt-lnk-save btn-login">
                         </span>
 
+						<script type="text/javascript">
+                            function btndangkyclick() {
+                            	alert('Chưa nhập nội dung');
+                            }
+                        </script>
+						
                         <script type="text/javascript">
                             function btnDangNhap_OnClientClick() {
                                 document.getElementById('login_btnDangNhap').style.visibility = 'hidden';

@@ -24,15 +24,15 @@ import dao.CourseWaitingDAO;
 @WebServlet("/CourseWaitingServlet")
 public class CourseWaitingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CourseWaitingServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CourseWaitingServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,27 +50,27 @@ public class CourseWaitingServlet extends HttpServlet {
 		doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		String command = request.getParameter("command");
 		String url = "";
 		CourseWaiting coursewaiting = new CourseWaiting();
 		CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
-		
+
 		RequestDispatcher rd ;
-		
+
 		HttpSession session = request.getSession();
 		User_info user_register= (User_info)session.getAttribute("user_info");
-		Course course_register = (Course)session.getAttribute("course_register");
-		
+		/*Course course_register = (Course)session.getAttribute("course_register");*/
+
 		switch(command){
 		case "insert":
 			long x = new java.util.Date().getTime();
 			coursewaiting.setCourse_waiting_id(x);
 			coursewaiting.setUser_id(user_register.getId());
-			coursewaiting.setCourse_id(course_register.getCourse_id());			
+			coursewaiting.setCourse_id(Long.parseLong(request.getParameter("course_register")));			
 			coursewaiting.setTime_register(new Timestamp(new Date().getTime()));	
-			
-			
+
+
 			boolean f = coursewaitingDAO.insert(coursewaiting);
 			if(f)
 			{
@@ -86,22 +86,17 @@ public class CourseWaitingServlet extends HttpServlet {
 			break;	
 		case "delete":
 			url="";
-			
+
 			String course_waiting_id = request.getParameter("course_waiting_id");
-			String course_id = request.getParameter("course_id");
 			f = coursewaitingDAO.delete(Long.parseLong(course_waiting_id));
 			if(f)
-				url="khoahoc2.jsp?course_id="+course_id;
-		//	else
-		//		url="edit-section.jsp?course_id="+course_id+"&course_waiting_id="+course_waiting_id;
-			rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
+				response.getWriter().write("thành công!");
+			else
+				response.getWriter().write("không thành công!");
 			break;
-			
-		}
-		}
-		
-		
-	}
 
+		}
+	}
 }
+
+
