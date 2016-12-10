@@ -122,7 +122,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
                 $('.vts-gadget-lnk').removeClass('active');
             })
             $('.vt-gadget-close').click();
-        })
+        });
     </script>
     
 <div class="vts-gadget">
@@ -852,7 +852,7 @@ $('.persion-tab-lnk').click(function() {
 									var newpass1,newpass2,oldpass,command, errormk,username;
 									<%-- $('#errorStr').html('<%=users.getUserName()%>');
 									alert('<%=users.getUserName()%>'); --%>
-									username = '<%=users.getUserName()%>'
+									username = '<%=users.getUserName()%>';
 									curentpass = "<%=users.getUserPass()%>";
 									oldpass = $('#oldpass').val();
 									newpass1 = $('#newpass1').val();
