@@ -687,12 +687,15 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
+                   		
 	                    <%	i = 0;
+	                    	long[] array = new long[100]; 
 	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
 	                    	{
 	                    		i++;
 	                    %>
 	                          <div class="row">
+	                          <% array[i] = coursewaiting.getCourse_id(); %>
                                     <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
@@ -705,17 +708,47 @@ $('.persion-tab-lnk').click(function() {
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
+	                                  <input type="hidden" value="<%=coursewaiting.getCourse_name()%>" name="id_course_register<%=array[i]%>" id="id_course_register<%=array[i]%>">
 	                              </a>
                                     <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
-                                    <a class="to-l-btn">
-                                       <span class="to-l-btn">Xem chi tiết</span>
-                                    </a>
+                                    
+                                  <a class="to-l-btn" type="button" value="<%=coursewaiting.getCourse_name()%>" name="btnhuydangky<%=array[i]%>" onclick="btnhuydangkyclick()" id="btnhuydangky<%=array[i]%>">
+                                       <span class="to-l-btn">Hủy đăng ký </span>
+                                       
+                                      
+                                       
+                                   </a>
+                                    
+                                    
+                                   <!--  <div class="vt-gadget-p">
+											 <input type="button" name="btnhuydangky"
+													value="Hủy đăng ký"
+													onclick="btnhuydangkyclick()"
+													id="btnhuydangky" class="to-l-btn">
+											
+									</div> -->
+                                    
+                                    
+                                   
                                     </div>
-                                </div>		
+                                   
+                                </div>	
+                                
 	                          <%
 	                  			}
 	                          %>
+	                           <script type="text/javascript">
+									function btnhuydangkyclick(){
+										alert($('#btnhuydangky<%=array[i]%>').val());
+									//	$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#id_nguoinhan').val()}, function (data) {
+									//		alert(data);
+									//		},'text'); 
+									}
+								</script>    	
 	                    </div> 
+	                    
+	                
+	                    
                     <script type="text/javascript">
                         function loadCourse() {
                             var url;
@@ -793,6 +826,7 @@ $('.persion-tab-lnk').click(function() {
 								</div>
 
 								<div class="bpt-row" style="margin-top: 0px;">
+								
 									<div class="bpt-item-left"></div>
 									<div class="bpt-item-right">
 										<span id="ctl14_DoiMatKhau_lblErr"></span>
@@ -813,7 +847,7 @@ $('.persion-tab-lnk').click(function() {
 									var newpass1,newpass2,oldpass,command, errormk,username;
 									<%-- $('#errorStr').html('<%=users.getUserName()%>');
 									alert('<%=users.getUserName()%>'); --%>
-									username = "<%=users.getUserName()%>"
+									username = '<%=users.getUserName()%>'
 									curentpass = "<%=users.getUserPass()%>";
 									oldpass = $('#oldpass').val();
 									newpass1 = $('#newpass1').val();
@@ -1218,7 +1252,7 @@ $('.persion-tab-lnk').click(function() {
   		 teacher = coursewaitingDAO.getteacher(coursewaiting.getCourse_id());
     %>
 <div style="width: 392px; display: none" id="overlay-web<%=coursewaiting.getCourse_id()%>">
-    <style type="text/css">
+    <style type="text/css">					
         .sp-remember
         {
             float: left;
@@ -1356,29 +1390,6 @@ $('.persion-tab-lnk').click(function() {
     </div>
 </div>
 <%} %>
-<div style="width: 392px; display: none" id="overlay-login">
-    <style type="text/css">
-        .sp-remember
-        {
-            float: left;
-            width: 125px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .sp-remember input
-        {
-            margin-right: 5px;
-        }
-        .LBD_CaptchaDiv{display:inline;}
-    </style>
-    <div class="box-popup">
-        <a class="popup-close">X </a>
-        <h3 class="bp-title">
-            Đăng nhập
-        </h3>
-        
-    </div>
-</div>
 
 <script type="text/javascript">
 

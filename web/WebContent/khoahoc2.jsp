@@ -20,6 +20,7 @@
 <%@page import="model.Url"%>
 <%@page import="dao.Quiz_UserDAO"%>
 <%@page import="model.Quiz_User"%>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="css/process_learn.css" type="text/css">
@@ -1538,7 +1539,7 @@
 			
 
 		<%
-				for(Quiz_User qu: listquiz_user ){
+			for(Quiz_User qu: listquiz_user ){
 			%>
 			<div
 				style="width: 392px; position: fixed; z-index: 0; top: 66.2px; left: 478.5px; display: none;"

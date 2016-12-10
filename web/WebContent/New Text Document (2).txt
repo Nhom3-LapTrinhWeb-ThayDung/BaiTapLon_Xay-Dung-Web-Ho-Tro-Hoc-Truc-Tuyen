@@ -1,0 +1,4 @@
+create table course_waiting (course_waiting_id bigint(100) primary key,
+								user_id bigint(50),
+								course_id bigint(50),
+                                time_register timestamp);
