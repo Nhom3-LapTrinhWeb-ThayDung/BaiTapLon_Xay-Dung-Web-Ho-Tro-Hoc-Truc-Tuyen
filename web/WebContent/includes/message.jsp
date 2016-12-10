@@ -18,7 +18,7 @@
 <%@page import="model.Url"%>
 <%@page import="dao.Quiz_UserDAO"%>
 <%@page import="model.Quiz_User"%>
-
+<script type="text/javascript" src="js/search.js"></script>
 
 <%@page import="dao.User_infoDAO"%>
 <%@page import="model.User_info"%>
@@ -114,7 +114,7 @@
 							{
 						%>
 						<div class="vt-gadget-div-form" id="msradiocheck">
-									&nbsp;&nbsp;<input type="radio" name="rdms" value="admin" checked="checked">Admin
+									&nbsp;&nbsp;<input type="radio" name="rdms" value="admin" checked="checked" >Admin
 									&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="rdms" value="giangvien" >Giảng Viên
 						</div>
 						<%}else if(msuser_info.getQuyen()==1){ %>
@@ -122,10 +122,15 @@
 									&nbsp;&nbsp;<input type="radio" name="rdms" value="admin" checked="checked">Admin
 									&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="rdms" value="hocvien" >Học viên
 						</div>
+						<%}else if(msuser_info.getQuyen()==0){ %>
+							<div class="vt-gadget-div-form" id="msradiocheck">
+									&nbsp;&nbsp;<input type="radio" name="rdms" value="giangvien" >Giảng Viên
+									&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="rdms" value="hocvien" >Học viên
+						</div>
 						<%} %>
 
 								<div class="vt-gadget-div-form">
-									<span class="vt-gadget-label"> Người nhận: <input  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" id="txtsearchuser" type="text" style="display:none; width: 185px;height: 20px"><span id="user_name" >Admin</span></span>
+									<span class="vt-gadget-label"> Người nhận: <input  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" id="txtsearchuser"  type="text" style="display:none; width: 185px;height: 20px"><span id="user_name" >Admin</span></span>
 									<input type="hidden" id="user_id" name="user_id" value="0">
 								</div>
 								<div class="vt-gadget-div-form">
@@ -152,7 +157,6 @@
 						</form>
 						<a id="showms" style="float:right;right:20px;color:#5e5e5e;">xem tin nhắn đến</a>
 						</div>
-						
 						
 					
 						<div class="wrap-vt-gadget" id="divshowms" style="display:none;height: 200px;overflow-y: auto;">
@@ -194,11 +198,12 @@
 								</div>
 
 							</div>
-
+							
 
 						
 					</div>
 					<script type="text/javascript">
+
 						function btntlmsclick(id,name){
 							$('#user_id').val(id);
 							$('#user_name').text(name);
@@ -283,7 +288,16 @@
          	
          </a>	
     </div>
-			</div>
+    <%if(request.getParameter("course_id")!=null && msuser_info.getQuyen()==2){
+    %>
+	    <div class="vts-gadget-item vts-gadget-user">
+	        
+	         <a class="vts-gadget-lnk popup-login" href="Review.jsp?course_id=<%=request.getParameter("course_id")%>" title="Đánh giá">
+	         </a>	
+	         
+	    </div>
+	    <%} %>
+	</div>
 
 			<div  id="searchuser" class="suggestion"><ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "sadsad"</a></li></ul></div>
 		
@@ -294,6 +308,7 @@
 						$('#txtsearchuser').fadeIn(100);
 						$('#user_name').hide();
 						$('#txtsearchuser').focus();
+						alert($('#msradiocheck [name="rdms"]').val())
 					}
 					else if(this.value=="admin")
 					{
@@ -301,6 +316,7 @@
 						$('#user_name').text('Admin');
 						$('#user_name').show();
 						$('#user_id').val('0');
+						alert($('#msradiocheck [name="rdms"]').val())
 					}
 
 			});
@@ -309,8 +325,9 @@
 				$('#divshowms').slideToggle();
 			});
 		</script>
-		<script>
+		<script type="text/javascript">
 		$('#txtsearchuser').keyup(function(event) {
+			
 	        searchValue = $(this).val();
 	        offs = searchValue.length;
 	        //delaySearch(function() {
@@ -339,17 +356,19 @@
 			
 		}
 		function suggesstionFunc2() {
-		    if (searchValue.length < 3) {
+		    if (searchValue.length < 1) {
 		        $('#searchuser').fadeOut(100);
 		    } else {
 		    	$('#searchuser').fadeIn(200);
 		    }
+		   
 		}
 		
 		function searchfunction()
 		{	
 			var list=null;
-			if($('#msradiocheck input[type="radio"][name="rdms"]}:checked').val()=="giangvien"){
+			if($('input[type="radio"][name="rdms"]}:checked').val()=='giangvien'){
+				
 				/* giảng viên */
 				var giangvienjs = <%=msJSONgiangvien%>;
 		        var Searchgiangvien = function (strgiangvien) {
@@ -372,6 +391,7 @@
 			}
 			else if($('#msradiocheck input[type="radio"][name="rdms"]}:checked').val()=="hocvien")
 			{
+			
 				/* học viên */
 				var hocvienjs = <%=msJSONhocvien%>;
 		        var Searchhocvien = function (strhocvien) {
@@ -391,7 +411,6 @@
 		        };
 		        list= Searchhocvien($('#txtsearchuser').val());
 			}
-	        
 	        var resHtml = '';
       	  var hasResult = false;
       	  resHtml += '<ul> '
@@ -415,6 +434,7 @@
               else
                   $('#searchuser').html('<ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "' + $('#txtsearchuser').val()
                 + '"</a></li></ul>');
+                
 		}
 		</script>
 		<script>
@@ -424,3 +444,22 @@
 				$('#user_id').val(id);
 			}
 		</script>
+		
+		
+		<script type="text/javascript">
+        $(document).ready(function() {
+        $('.show-popup').click(function() {
+                if (!$(this).hasClass('active')) {
+                    $('.vt-gadget').hide();
+                    $('.vts-gadget-lnk').removeClass('active');
+                }
+                $(this).parent().find('.vt-gadget').slideToggle();
+                $(this).toggleClass('active');
+            });
+            $('.vt-gadget-close').click(function() {
+                $('.vt-gadget').hide();
+                $('.vts-gadget-lnk').removeClass('active');
+            })
+            $('.vt-gadget-close').click();
+        });
+    </script>
