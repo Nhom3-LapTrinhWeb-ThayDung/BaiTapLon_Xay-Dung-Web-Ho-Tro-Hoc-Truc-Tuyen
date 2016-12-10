@@ -677,7 +677,8 @@ $('.persion-tab-lnk').click(function() {
         </div>
 </div></div>
         
-<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;"><h3 class="learn-process-h3">
+<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;">
+<h3 class="learn-process-h3">
     <span>DANH SÁCH CÁC KHÓA HỌC ĐANG CHỜ</span>
 </h3>
  <style>
@@ -707,27 +708,22 @@ $('.persion-tab-lnk').click(function() {
 	                    		i++;
 	                    %>
 	                          <div class="row">
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
                                                 <%= i %>
                                             </span>
                                         </p>
                                     </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
 	                                  <p class="to-l-p-name">
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
 	                                
 	                              </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
-                                    
                                   <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
-                                   
-                                    </div>
-                                   
-                                  </div>
+                                 </div>
                                 
 	                          <%
 	                    			}

@@ -40,7 +40,7 @@ public class CourseDAO {
 			ps.setInt(7, c.getCourse_endlession());
 			ps.setString(8, c.getCourse_place());
 			ps.setString(9, c.getCourse_description());
-
+			
 			ps.executeUpdate();
 			return true;
 
