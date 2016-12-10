@@ -123,26 +123,6 @@
 
 
 
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('.show-popup').click(function() {
-						if (!$(this).hasClass('active')) {
-							$('.vt-gadget').hide();
-							$('.vts-gadget-lnk').removeClass('active');
-						}
-						$(this).parent().find('.vt-gadget').slideToggle();
-						$(this).toggleClass('active');
-					});
-					$('.vt-gadget-close').click(function() {
-						$('.vt-gadget').hide();
-						$('.vts-gadget-lnk').removeClass('active');
-					})
-					$('.vt-gadget-close').click();
-				})
-			</script>
-			
-
-
 			<%@ include file="//includes/header.jsp" %>
 			<%@ include file="//includes/message.jsp" %>
 			<%
@@ -1646,6 +1626,8 @@
 		<script type="text/javascript">
 		
 		$('#search').keyup(function (){
+			var quyen = '<%=user_info.getQuyen()%>';
+			var iduser = '<%=user_info.getId()%>';
 			/* học viên */
 			var hocvienjs = <%=JSONUser_info%>;
 	        var Searchhocvien = function (strhocvien) {
@@ -1717,7 +1699,7 @@
 	                	||unsignString(trim(exercise_userjs[i].timesubmit)).search(strexercise_user)!=-1
 	                	||unsignString(trim(exercise_userjs[i].section_name)).search(strexercise_user)!=-1)
 	                {
-	                	result.push(exercise_userjs[i]);
+	                		result.push(exercise_userjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1726,7 +1708,7 @@
 	        };
 	        var listexercise_user= Searchexercise_user($('#search').val());
 	        
-	        /* exercise_user */
+	        /* quiz_user */
 			var quiz_userjs = <%=JSONQuiz_User%>;
 	        var Searchquiz_user = function (strquiz_user) {
 	        	strquiz_user = unsignString(trim(strquiz_user));
@@ -1739,7 +1721,7 @@
 	                	||unsignString(trim(quiz_userjs[i].timesubmit)).search(strquiz_user)!=-1
 	                	||unsignString(trim(quiz_userjs[i].section_name)).search(strquiz_user)!=-1)
 	                {
-	                	result.push(quiz_userjs[i]);
+	                		result.push(quiz_userjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1757,7 +1739,7 @@
 	            for (i = 0; resourcesjs.length > i; i += 1) {
 	                if (unsignString(trim(resourcesjs[i].resources_name)).search(strresources)!=-1 )
 	                {
-	                	result.push(resourcesjs[i]);
+	                		result.push(resourcesjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1773,7 +1755,7 @@
 	        	  var hasResult = false;
 	        	  resHtml += '<ul> '
 	                  + '<li><a class="search-title"> Tìm kiếm với <span>"' + $('#search').val() + '"</span></a></li>';
-	                  if (listhocvien.length > 1) {
+	                  if (listhocvien.length > 1 && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Học Viên</h3>'
@@ -1809,7 +1791,7 @@
 	                      resHtml += '</ul></li>';
 	                  }
 	                  
-	                  if (listexercise_user.length > 1) {
+	                  if (listexercise_user.length > 1  && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Bài tập đã submit</h3>'
@@ -1820,7 +1802,7 @@
 	                      resHtml += '</ul></li>';
 	                  }
 	                  
-	                  if (listquiz_user.length > 1) {
+	                  if (listquiz_user.length > 1  && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Bài Thi trắc nghiệm đã submit</h3>'

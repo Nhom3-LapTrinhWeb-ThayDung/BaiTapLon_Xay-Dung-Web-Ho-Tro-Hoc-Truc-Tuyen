@@ -34,18 +34,7 @@
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
- <sql:setDataSource
-        var="myDS"
-        driver="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost:3333/web"
-        user="root" password="dung"
-    />
-     
-    <sql:query var="listUsers"   dataSource="${myDS}">
- 	   SELECT user_info.ten,user.user_name,user.user_email,user_info.sodienthoai,user_info.diachi 
-		FROM user,user_info
-		where user.user_id like user_info.id;
-    </sql:query>
+
 <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -669,20 +658,7 @@ fbq('track', "PageView");</script>
       <td class="studyprogram_tabledetails_td_header_dl" width="20%">Số điện thoại</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="10%">Địa chỉ</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="10%">Chi tiết</td></tr>
-			<%int i=0; %>
-			<c:forEach var="user" items="${listUsers.rows}">
-			<%i++; %>
-                <tr>
-                    <td class="studyprogram_tabledetails_td_content_dl"><%=i %></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><c:out value="${user.ten}" /></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><c:out value="${user.user_email}" /></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><c:out value="${user.user_name}" /></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><c:out value="${user.sodienthoai}" /></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><c:out value="${user.diachi}"/></td>
-				    <td class="studyprogram_tabledetails_td_content_dl"><a data-toggle="modal" data-target="#myModalCTTK">Chi tiết</a></td>
-				    </tr>
-               
-            </c:forEach>
+			
       <tr>
      
       
@@ -806,7 +782,8 @@ fbq('track', "PageView");</script>
           })
 
        });
-</script>            
+</script>  
+<a class="popup-login" rel="#overlay-login">dfglsfkgjfd;lgkjsfd;lkgfsdl</a>          
 <script>
 $(document).ready(function(){
 $('.persion-tab-lnk').click(function() {

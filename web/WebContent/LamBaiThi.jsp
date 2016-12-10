@@ -15,7 +15,17 @@
 <title>BÀI TEST IQ SỐ 1 - ViettelStudy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
-	
+	<div>
+
+</div>
+   
+    <div id="overlay-header">
+        <div id="overlay-left">
+        </div>
+        <div id="overlay-right">
+        </div>
+    </div>
+    <div id="wrapper">
 	<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -34,6 +44,8 @@
 }
 </style>
 	<%@include file="//includes/header.jsp"%>
+	<%@include file="//includes/message.jsp"%>
+	<%@include file="//includes/overlaylogin.jsp"%>
 	<%
 		Quiz quiz = new Quiz();
 		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
@@ -82,7 +94,7 @@
 			            <a id="ctl14_btnstart" class="tt-tart-lnk" href="BaiTestSo1.jsp?quiz_id=<%=quiz_id%>">
 			                Bắt đầu làm bài
 			            </a>
-			            <input type="hidden" name="TokenCSRF_Thi_XacNhan" value="CBE0FA6BD3791332169A0FD70DBFD53C74BA9688109B11460FAAA1A63543C3E466B88A5CBDD478D9E8C9EA8BEB06D5813C852745461CA083B9FE24234847D5E4">
+			            
 			            
 					</div>
 				</div>
@@ -203,8 +215,14 @@
 	display: block;
 }
 </style>
+<!--end-footer-->
+		<div id="overlay-footer">
+			<div id="overlay-footer-left"></div>
+			<div id="overlay-footer-right"></div>
+		</div>
+		<!--end-overlay-footer-->
+	</div>
 	<!--end-wrapper-->
-	</form>
 </body>
 </html>
 
