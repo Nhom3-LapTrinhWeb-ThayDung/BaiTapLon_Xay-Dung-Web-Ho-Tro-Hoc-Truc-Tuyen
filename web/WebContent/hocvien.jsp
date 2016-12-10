@@ -537,7 +537,8 @@ $('.persion-tab-lnk').click(function() {
         </div>
 </div></div>
         
-<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;"><h3 class="learn-process-h3">
+<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;">
+<h3 class="learn-process-h3">
     <span>DANH SÁCH CÁC KHÓA HỌC ĐANG CHỜ</span>
 </h3>
  <style>
@@ -550,14 +551,13 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
-                   <div class="row">
+                   
                    		<%if(listcoursewaiting.isEmpty()){ %>
+                   		 <div class="row">
                    		<div class="study-notice">
-						
-						    <span class="sne-sp">Thông báo: </span>
-						        
-						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Bạn chưa đăng ký khóa học nào. Click vào đây để đăng ký!</a>
-						    
+						    <span class="sne-sp"></span>
+						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Không còn khóa học nào đang chờ xác nhận. Click vào đây để đăng ký!</a>					    
+						</div>
 						</div>
                    		
                    		<%}else{ %>
@@ -567,34 +567,29 @@ $('.persion-tab-lnk').click(function() {
 	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    		i++;
 	                    %>
-	                          
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+	                          <div class="row">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
                                                 <%= i %>
                                             </span>
                                         </p>
                                     </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
 	                                  <p class="to-l-p-name">
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
 	                                
 	                              </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
-                                    
                                   <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
-                                   
-                                    </div>
-                                   
-                                
+                                 </div>
                                 
 	                          <%
 	                    			}
 	                  			}
 	                          %>
-	                          </div>	
+	                        	
 	                           <script type="text/javascript">
 									function btnhuydangkyclick(course_waiting_id,name){
 										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){

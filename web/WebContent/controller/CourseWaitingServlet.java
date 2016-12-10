@@ -39,7 +39,7 @@ public class CourseWaitingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -67,10 +67,15 @@ public class CourseWaitingServlet extends HttpServlet {
 			long x = new java.util.Date().getTime();
 			coursewaiting.setCourse_waiting_id(x);
 			coursewaiting.setUser_id(user_register.getId());
-			coursewaiting.setCourse_id(Long.parseLong(request.getParameter("course_register")));			
+			coursewaiting.setCourse_id(Long.parseLong(request.getParameter("course_id")));					
 			coursewaiting.setTime_register(new Timestamp(new Date().getTime()));	
-
-
+			
+			boolean k = coursewaitingDAO.check_course_register(user_register.getId(), Long.parseLong(request.getParameter("course_id")));
+			if(!k)
+			{
+				response.getWriter().write("Bạn đã đăng ký khóa học này !");
+				break;
+			}
 			boolean f = coursewaitingDAO.insert(coursewaiting);
 			if(f)
 			{
@@ -79,7 +84,7 @@ public class CourseWaitingServlet extends HttpServlet {
 			else
 			{
 				//session.removeAttribute("user");
-				response.getWriter().write("Đăng ký thất bại !");
+				response.getWriter().write("Bạn đã đăng ký khóa học này rồi !");
 			}
 			/*RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);*/

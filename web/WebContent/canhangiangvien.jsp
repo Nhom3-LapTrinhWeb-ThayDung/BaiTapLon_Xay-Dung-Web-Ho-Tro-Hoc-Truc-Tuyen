@@ -689,6 +689,13 @@
 															<option value="2009">2009</option>
 															<option value="2010">2010</option>
 															<option value="2011">2011</option>
+															<option value="2011">2012</option>
+															<option value="2011">2013</option>
+															<option value="2011">2014</option>
+															<option value="2011">2015</option>
+															<option value="2011">2016</option>
+															<option value="2011">2017</option>
+															<option value="2011">2018</option>
 
 														</select>
 													</div>
@@ -834,6 +841,13 @@
 															<option value="2009">2009</option>
 															<option value="2010">2010</option>
 															<option value="2011">2011</option>
+															<option value="2011">2012</option>
+															<option value="2011">2013</option>
+															<option value="2011">2014</option>
+															<option value="2011">2015</option>
+															<option value="2011">2016</option>
+															<option value="2011">2017</option>
+															<option value="2011">2018</option>
 
 														</select>
 													</div>
@@ -862,28 +876,14 @@
 															<option value="3">3</option>
 															<option value="4">4</option>
 															<option value="5">5</option>
-															<option value="6">6</option>
+															
 															<option value="7">7</option>
 															<option value="8">8</option>
 															<option value="9">9</option>
 															<option value="10">10</option>
 															<option value="11">11</option>
 															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-															<option value="24">24</option>
-
-
-
+															
 														</select> <select name="endlession" id="endlession"
 															class="bpt-sl-sex">
 															<option selected="selected" value="0">Tiết kết
@@ -893,25 +893,14 @@
 															<option value="3">3</option>
 															<option value="4">4</option>
 															<option value="5">5</option>
-															<option value="6">6</option>
+															
 															<option value="7">7</option>
 															<option value="8">8</option>
 															<option value="9">9</option>
 															<option value="10">10</option>
 															<option value="11">11</option>
 															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-															<option value="24">24</option>
+															
 														</select>
 													</div>
 												</div>
