@@ -690,14 +690,13 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
-                   <div class="row">
+                   
                    		<%if(listcoursewaiting.isEmpty()){ %>
+                   		 <div class="row">
                    		<div class="study-notice">
-						
-						    <span class="sne-sp">Thông báo: </span>
-						        
-						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Bạn chưa đăng ký khóa học nào. Click vào đây để đăng ký!</a>
-						    
+						    <span class="sne-sp"></span>
+						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Không còn khóa học nào đang chờ xác nhận. Click vào đây để đăng ký!</a>					    
+						</div>
 						</div>
                    		
                    		<%}else{ %>
@@ -707,7 +706,7 @@ $('.persion-tab-lnk').click(function() {
 	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    		i++;
 	                    %>
-	                          
+	                          <div class="row">
                                     <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
@@ -728,13 +727,13 @@ $('.persion-tab-lnk').click(function() {
                                    
                                     </div>
                                    
-                                
+                                  </div>
                                 
 	                          <%
 	                    			}
 	                  			}
 	                          %>
-	                          </div>	
+	                        	
 	                           <script type="text/javascript">
 									function btnhuydangkyclick(course_waiting_id,name){
 										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){

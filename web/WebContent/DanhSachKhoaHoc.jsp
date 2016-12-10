@@ -255,7 +255,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <%@include file="//includes/header.jsp" %>
 <%
 			CourseDAO courseDAO = new CourseDAO();
+			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
+			List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
 %>
 
 
@@ -634,7 +636,10 @@ fbq('track', "PageView");</script>
     
   	for (Course course : courseDAO.getAllListCourse())
   	{
+  		
   		 teacher = courseDAO.getteacher(course.getCourse_id());
+  		 //CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), course.getCourse_id());
+  		 
     %>
 <div style="width: 392px; display: none" id="overlay-web<%=course.getCourse_id()%>">
     <style type="text/css">
@@ -736,12 +741,20 @@ fbq('track', "PageView");</script>
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
 
-                            <input type="button" onclick="btndangkyclick()"  value="Đăng ký" id="btndangky" name="btndangky" class="bpt-lnk-save btn-login">
+                            <input type="button" onclick="btndangkyclick('<%=course.getCourse_id() %>','<%=course.getCourse_name() %>')"  value="Đăng ký" id="btndangky" name="btndangky" class="bpt-lnk-save btn-login">
                         </span>
 
 						<script type="text/javascript">
-                            function btndangkyclick() {
-                            	alert('Chưa nhập nội dung');
+                            function btndangkyclick(course_id, name) {
+                            	if(confirm('Đăng ký khóa học '+name+'. Đồng ý?'))
+                           		{
+                            		
+	                           			$.post('CourseWaitingServlet', {'command':"insert",'course_id':course_id}, function (data) {
+	                           				alert(data)
+	                           				location.reload();
+	                           			},'text'); 
+                              		
+                           		}
                             }
                         </script>
 						

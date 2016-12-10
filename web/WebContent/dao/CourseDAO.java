@@ -562,7 +562,7 @@ public class CourseDAO {
    		}
    		return false;
    	}
-       
+      
        public String getstrsearch() {
            try {
            	String str ="";

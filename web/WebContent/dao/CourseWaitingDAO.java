@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import connect.DBConnect;
@@ -23,14 +25,50 @@ public class CourseWaitingDAO {
 		PreparedStatement ps;
 		CourseWaitingDAO cwDAO = new CourseWaitingDAO();
 		CourseWaiting cw = new CourseWaiting();
-		cw = cwDAO.getCourseWaiting(2, Long.parseLong("1479799303858"));
-		System.out.println(cw.getCourse_waiting_id());
+		
+	/*	cw.setCourse_id(Long.parseLong("234234"));
+		cw.setUser_id(2);
+		cw.setCourse_waiting_id(new Date().getTime());
+		cw.setTime_register(new Timestamp(new Date().getTime()));
+		boolean f = cwDAO.insert(cw);
+		System.out.println(cw.getCourse_waiting_id()+"-"+cw.getCourse_id()+"-"+cw.getUser_id()+"-"+cw.getTime_register().toString());
+	*/
+		Connection conn = DBConnect.getConnecttion();
+		
+		
+		String sql = "select * from course where course.course_id ='1479732694852' "
+				+ "and course.course_id not in (select course_user.course_id from course_user where course_user.course_id='1479732694852' and course_user.id ='2' )"
+				+ "and course.course_id not in (select course_waiting.course_id from course_waiting where course_waiting.course_id='1479732694852' and course_waiting.user_id ='2' );";
+		
+		
+		String sql2 = "select * from course_user"
+				+ "where '2' not in (select course_user.id"
+				+ "				from  course_user"
+				+ "				where course_user.id ='2' "
+				+ "					and course_user.course_id = '1479799303858')";
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				conn.close();
+				System.out.println("Tìm thấy");
+			}
+			else
+			{
+				System.out.println("Không tìm thấy");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+            
+		
 	}
 	
 	public boolean insert(CourseWaiting cw)
 	{
 		Connection con = DBConnect.getConnecttion();
-		String sql = "insert into message values(?,?,?,?)";
+		String sql = "insert into course_waiting values(?,?,?,?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) con.prepareCall(sql);
@@ -38,6 +76,7 @@ public class CourseWaitingDAO {
 			ps.setLong(2, cw.getUser_id());
 			ps.setLong(3, cw.getCourse_id());
 			ps.setTimestamp(4, cw.getTime_register());
+			ps.executeUpdate();
 			return true;
 
 		} catch (SQLException e) {
@@ -45,7 +84,32 @@ public class CourseWaitingDAO {
 		}
 		return false;
 	}
-	
+	 //Kiểm tra xem khóa học đó học viên đã đăng ký chưa
+    public boolean check_course_register (long user_id,long course_id)
+	{
+		Connection conn = DBConnect.getConnecttion();
+		String sql = "select * from course where course.course_id ='"+course_id+"' "
+				+ "and course.course_id not in (select course_user.course_id from course_user where course_user.course_id='"+course_id+"' and course_user.id ='"+user_id+"' )"
+				+ "and course.course_id not in (select course_waiting.course_id from course_waiting where course_waiting.course_id='"+course_id+"' and course_waiting.user_id ='"+user_id+"' );";
+		
+		PreparedStatement ps;
+		try
+		{
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				conn.close();
+				return true;
+			}
+            
+		}
+		catch (Exception e) 
+		{
+            e.printStackTrace();           
+        }
+		 return false;
+	}
 	public boolean delete(long course_waiting_id)
 	{
 		Connection con = DBConnect.getConnecttion();
@@ -121,6 +185,7 @@ public class CourseWaitingDAO {
         }
         return null;
     }
+	
 	
 	public CourseWaiting getCourseWaiting(long user_id,long course_id) {
         try {
