@@ -428,7 +428,7 @@ fbq('track', "PageView");</script>
 										sát chặt cụm thi địa phương</a>
 								</h3>
 
-							</div>
+							</div> 
 
 							<div class="news-right-item">
 								<a class="right-item-lnk-img"

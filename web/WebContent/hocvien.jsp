@@ -6,6 +6,8 @@
 <%@page import="dao.CourseDAO"%>
 <%@page import="model.CourseWaiting"%>
 <%@page import="dao.CourseWaitingDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -254,6 +256,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 	CourseDAO courseDAO = new CourseDAO();
 	CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 	User_info teacher = new User_info();
+	List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
 %>
 
 <script type="text/javascript">
@@ -568,7 +571,7 @@ $('.persion-tab-lnk').click(function() {
             <div class="persion-avatar">
 				<div id="ctl14_LoadUser_upUserLoad">
 
-					<img src="<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
+					<img src="upload/<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
 					<h3 class="persion-info">
 						<span class="bold"> ${user_info.getTen() }</span><br>
 					</h3>
@@ -687,15 +690,24 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
+                   <div class="row">
+                   		<%if(listcoursewaiting.isEmpty()){ %>
+                   		<div class="study-notice">
+						
+						    <span class="sne-sp">Thông báo: </span>
+						        
+						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Bạn chưa đăng ký khóa học nào. Click vào đây để đăng ký!</a>
+						    
+						</div>
                    		
+                   		<%}else{ %>
 	                    <%	i = 0;
-	                    	long[] array = new long[100]; 
-	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
+	                    	for (Course coursewaiting : listcoursewaiting)
 	                    	{
+	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    		i++;
 	                    %>
-	                          <div class="row">
-	                          <% array[i] = coursewaiting.getCourse_id(); %>
+	                          
                                     <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
@@ -708,41 +720,34 @@ $('.persion-tab-lnk').click(function() {
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
-	                                  <input type="hidden" value="<%=coursewaiting.getCourse_name()%>" name="id_course_register<%=array[i]%>" id="id_course_register<%=array[i]%>">
+	                                
 	                              </a>
                                     <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
                                     
-                                  <a class="to-l-btn" type="button" value="<%=coursewaiting.getCourse_name()%>" name="btnhuydangky<%=array[i]%>" onclick="btnhuydangkyclick()" id="btnhuydangky<%=array[i]%>">
-                                       <span class="to-l-btn">Hủy đăng ký </span>
-                                       
-                                      
-                                       
-                                   </a>
-                                    
-                                    
-                                   <!--  <div class="vt-gadget-p">
-											 <input type="button" name="btnhuydangky"
-													value="Hủy đăng ký"
-													onclick="btnhuydangkyclick()"
-													id="btnhuydangky" class="to-l-btn">
-											
-									</div> -->
-                                    
-                                    
+                                  <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
                                    
                                     </div>
                                    
-                                </div>	
+                                
                                 
 	                          <%
+	                    			}
 	                  			}
 	                          %>
+	                          </div>	
 	                           <script type="text/javascript">
-									function btnhuydangkyclick(){
-										alert($('#btnhuydangky<%=array[i]%>').val());
-									//	$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#id_nguoinhan').val()}, function (data) {
-									//		alert(data);
-									//		},'text'); 
+									function btnhuydangkyclick(course_waiting_id,name){
+										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){
+											$.post('CourseWaitingServlet', {'command':"delete",'course_waiting_id':course_waiting_id}, function (data) {
+												if(data="thành công!"){
+													alert("Hủy đăng ký khóa học "+name+" thành công!");
+													location.reload();
+												}
+												else
+													alert("Hủy đăng ký khóa học "+name+" không thành công!");
+												},'text'); 
+											
+										}
 									}
 								</script>    	
 	                    </div> 
@@ -1037,7 +1042,7 @@ $('.persion-tab-lnk').click(function() {
 										<div class="bpt-item-left">Ảnh đại diện:</div>
 										<div class="bpt-item-right">
 											<div class="bpt-img-avarta">
-												<img src="<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
+												<img src="upload/<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
 													height="48px">
 
 											</div>
