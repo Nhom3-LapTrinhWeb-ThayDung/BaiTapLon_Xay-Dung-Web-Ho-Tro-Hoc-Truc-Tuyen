@@ -139,131 +139,18 @@
 					$('.vt-gadget-close').click();
 				})
 			</script>
-		<div class="vts-gadget">
 
-
-			<div class="vts-gadget-item vts-gadget-comment">
-				<div class="vt-gadget gadget-comment" style="display: none;">
-					<span class="vt-gadget-more"> </span>
-					<h3 class="vt-gadget-title">
-						<span class="vt-gadget-sp"> GÓP Ý </span> <a
-							class="vt-gadget-close"> X </a>
-					</h3>
-					<div class="wrap-vt-gadget">
-						<div id="Header1_Widget_GopY_pnGopY">
-
-							<div class="vt-gadget-div-form">
-								<span class="vt-gadget-label"> Nội dung </span>
-								<p class="vt-gadget-p">
-									<textarea name="Header1$Widget$GopY$txtNoiDung" rows="2"
-										cols="20" id="Header1_Widget_GopY_txtNoiDung"
-										class="vt-gadget-txtarea"></textarea>
-								</p>
-							</div>
-							<div class="vt-gadget-div-form gadget-captcha">
-								
-								<div class="vt-gadget-p">
-									
-										
-										 <input type="submit" name="Header1$Widget$GopY$btnGui"
-										value="Gửi"
-										onclick="validgopy('Header1_Widget_GopY_txtNoiDung');"
-										id="Header1_Widget_GopY_btnGui" class="vt-gadget-btn-send">
-									<input type="hidden" name="TokenCSRF_GopYBaiHoc"
-										value="458C4C43173C5771E7B5DA7BCE64635FD5BDF85C67F55B51B5C10248572A874BCBCF5EA4C652DFE55EDFA687BAC0A9F1FA0BE9ADC425CD6D0317A8CC61520C5B">
-								</div>
-							</div>
-							<span id="Header1_Widget_GopY_lblErr" style="color: Red;"></span>
-							<span id="Header1_Widget_GopY_lblSucc"></span>
-
-						</div>
-						<div id="Header1_Widget_GopY_UpdateProgress1"
-							style="display: none;">
-
-							<div class="bpc-row">
-								<span class="sp-left"></span> <span class="sp-right"> <img
-									src="Images/ajax-loader.gif" alt="StudyFunny">
-								</span>
-							</div>
-
-						</div>
-
-
-					</div>
-				</div>
-
-
-
-				<script type="text/javascript">
-						function refreshCaptcha(capchaid, capchlength) {
-							$('#capcha').attr(
-									'src',
-									'./uControls/Capcha/capchaImage.aspx'
-											+ '?id=' + capchaid + '&len='
-											+ capchlength + '&r='
-											+ Math.random());
-						}
-
-						function exitpopup() {
-							setTimeout(function() {
-								window.location.href = '/index.html'; //will redirect to your blog page (an ex: blog.html)
-							}, 2000);
-
-						}
-						function clickButton(e, buttonid) {
-							var evt = e ? e : window.event;
-							var bt = document.getElementById(buttonid);
-
-							if (bt) {
-								if (evt.keyCode == 13) {
-									bt.click();
-									return false;
-								}
-							}
-						}
-					</script>
-
-
-
-
-				<a class="vts-gadget-lnk show-popup" title="Góp ý"> </a>
-
-
-			</div>
-			<div class="vts-gadget-item vts-gadget-contact">
-				<div class="vt-gadget vt-hotline" style="display: none;">
-					<span class="vt-gadget-more"> </span>
-					<h3 class="vt-gadget-title">
-						<span class="vt-gadget-sp"> LIÊN HỆ </span> <a
-							class="vt-gadget-close"> X </a>
-					</h3>
-					<div class="wrap-vt-gadget">
-						<h2 class="vt-gadget-h1-hotline">
-							Hotline 0962126964 <br> <span style="font-size: 15px">(miễn
-								phí)</span>
-						</h2>
-						<p>
-							Email: <a href="mailto:congtuhot9.9@gmail.com"
-								style="color: #14928E">StudyFunny@gmail.com</a>
-						</p>
-						<p class="vt-gadget-p-content">Hỗ trợ giải đáp tất cả thắc mắc
-							về các khóa học cách học và cách thức học tập trên StudyFunny</p>
-						<a rel="nofollow" class="vt-gadget-lnk-fb"
-							href="https://www.facebook.com/StudyFunny">Study Funny</a>
-					</div>
-				</div>
-				<a class="vts-gadget-lnk show-popup" title="Liên hệ"> </a>
-			</div>
-		</div>
 
 
 		<%@ include file="//includes/header.jsp"%>
-		<%CourseDAO courseDAO= new CourseDAO();	
+		<%@ include file="//includes/message.jsp" %>
+		<%
+			CourseDAO courseDAO = new CourseDAO();
 		%>
 		<%
 			List<Course> listcourse = courseDAO.getListCourse(user_info.getId());
 			String JSONResult = JSONArray.toJSONString(listcourse);
-		 %>
+		%>
 		<script type="text/javascript">
 				function clickButton(e, buttonid) {
 					var evt = e ? e : window.event;
@@ -312,7 +199,7 @@
 
 
 
-		
+
 
 		<script type="text/javascript">
 				var _gaq = _gaq || [];
@@ -654,7 +541,8 @@
 						<div class="persion-avatar">
 							<div id="ctl14_LoadUser_upUserLoad">
 
-								<img src="upload/<%=user_info.getAnhdaidien() %>" alt="" class="persion-avatar-img">
+								<img src="upload/<%=user_info.getAnhdaidien()%>" alt=""
+									class="persion-avatar-img">
 								<h3 class="persion-info">
 									<span class="bold"> ${user_info.getTen() }</span><br>
 								</h3>
@@ -684,59 +572,61 @@
 						</div>
 						<div></div>
 					</div>
-		<div class="persion-right persion-detail" id="TienTrinhHocNew"
-						style="display: none;width: 630px; ">
-				<div class="study-search" style="float: right;margin-top: 0px;">
-				<input name="search" type="text" maxlength="100"  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
-				id="search" class="searchInput has_default_text ssh-input">
-				<input
-				type="button" name="Header1$btnSearch1" value="" id="Header1_btnSearch1" class="ssh-btn-search">
-				</div>
-						<h3 class="learn-process-h3" style=" width: 630px; ">
+					<div class="persion-right persion-detail" id="TienTrinhHocNew"
+						style="display: none; width: 630px;">
+						<div class="study-search" style="float: right; margin-top: 0px;">
+							<input name="search" type="text" maxlength="100"
+								onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)"
+								id="search" class="searchInput has_default_text ssh-input">
+							<input type="button" name="Header1$btnSearch1" value=""
+								id="Header1_btnSearch1" class="ssh-btn-search">
+						</div>
+						<h3 class="learn-process-h3" style="width: 630px;">
 							<span>DANH SÁCH KHÓA HỌC ĐANG DẠY</span>
 						</h3>
-						
+
 						<style>
-							.lp-lnk {
-								margin-bottom: 15px;
-							}
-							
-							.lp-lnk img {
-								height: 152px;
-							}
-						</style>
-							
+.lp-lnk {
+	margin-bottom: 15px;
+}
+
+.lp-lnk img {
+	height: 152px;
+}
+</style>
+
 						<div class="box-test-online martop_0">
-            
-            <div class="to-content">
-                <div class="to-c-left">
-	                   <div class="to-c-l-list">
-			                        <%	int i=0;
-			                        	for (Course course :listcourse ) 
-			                        	{
-			                        		i++;
-			                        %>
-	                                <div class="row" name ="1">
-	                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name ="1">
-	                                        <p class="to-l-p-img">
-	                                            <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
-	                                                <%=i %>
-	                                            </span>
-	                                        </p>
-	                                    </a>
-	                                    <a  href ="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>" name = "1">
-	                                        <p class="to-l-p-name">
-	                                            <span class="bold">
-	                                               <%=course.getCourse_name()%></span>
-	                                        </p>
-	                                    </a>
-	                                </div>
-	                                <%
-	                        			}
-	                                %>
-	                    </div>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                    <script>
+
+							<div class="to-content">
+								<div class="to-c-left">
+									<div class="to-c-l-list">
+										<%
+											int i = 0;
+											for (Course course : listcourse) {
+												i++;
+										%>
+										<div class="row" name="1">
+											<a href="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>"
+												name="1">
+												<p class="to-l-p-img">
+													<span class="sp-text"> KHÓA HỌC </span><span
+														class="sp-number"> <%=i%>
+													</span>
+												</p>
+											</a> <a href="khoahoc2.jsp?course_id=<%=course.getCourse_id()%>"
+												name="1">
+												<p class="to-l-p-name">
+													<span class="bold"> <%=course.getCourse_name()%></span>
+												</p>
+											</a>
+										</div>
+										<%
+											}
+										%>
+									</div>
+									<script
+										src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+									<script>
                         function loadCourse() {
                             var url;
                             url= "temp.html";
@@ -745,22 +635,21 @@
                         
                         
 
-                    </script>                     
-                    
-                </div>
-                
-    
+                    </script>
 
-            </div>
-        </div>
-		</div>
-		<!--list khoa hoc dang day-->
-		<!-- search resurl-->
-		<div style="display: none;left: 534px;top: 82px; " id="suggestions" class="suggestion">
+								</div>
 
-		</div>
-		
-		<script type="text/javascript">
+
+
+							</div>
+						</div>
+					</div>
+					<!--list khoa hoc dang day-->
+					<!-- search resurl-->
+					<div style="display: none; left: 534px; top: 82px;"
+						id="suggestions" class="suggestion"></div>
+
+					<script type="text/javascript">
 		$('#search').keyup(function (){
 			
 			var khoahocjs = <%=JSONResult%>;
@@ -829,16 +718,16 @@
 		        	$('#searchresult').html('');
 			} --%>
 		</script>
-		
-		
-		
-		
+
+
+
+
 					<div class="persion-right persion-detail" id="QuanLyCommentNew"
 						style="display: none;"></div>
 					<div class="persion-right persion-detail" id="LichSuGiaoDichNew"
 						style="display: none;"></div>
 
-					
+
 
 					<div class="persion-right" id="DetailThi" style="display: none;">
 						<form action="CourseServlet" method="post">
@@ -1467,7 +1356,7 @@
 									var newpass1,newpass2,oldpass,command, errormk,username;
 									<%-- $('#errorStr').html('<%=users.getUserName()%>');
 									alert('<%=users.getUserName()%>'); --%>
-									username = "<%=users.getUserName()%>"
+									username = "<%=users.getUserName()%>";
 									curentpass = "<%=users.getUserPass()%>";
 									oldpass = $('#oldpass').val();
 									newpass1 = $('#newpass1').val();
@@ -1525,59 +1414,58 @@
 								}
 							</script>
 					</div>
-					
-					<div class="persion-right" id="DetailUser" style="display: block;">
-						<form id = "formuserinfo" action="UploadServlet" method="post" enctype="multipart/form-data">
-						<input type="hidden" value="user" name="command">
-						<div id="tab_user">
-							<h3 class="learn-process-h3">
-								<span>THÔNG TIN CÁ NHÂN</span>
-							</h3>
-							<p style="color: red; font-style: italic; padding-left: 15px"
-										id="errorupdateuser" name="errorupdateuser"></p>
-							<div class="list-wrap">
-								<div class="bpt-content" id="edit">
-									<div id="ctl14_ThongTinHocVien_pnInfo">
-										
-										<div class="bpt-row">
-											<div class="bpt-item-left">Tên:</div>
-											<div class="bpt-item-right">
-												<input name="ten" type="text" value="${user_info.getTen()}"
-													maxlength="100" id="ten" class="bpt-txt"> <span
-													id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> 
-													<input
-													type="hidden" id="usermame" name="username"
-													value="${users.getUserName()}" />
-											</div>
-										</div>
-										<div class="bpt-row">
-											<div class="bpt-item-left">Chức vụ</div>
-											<div class="bpt-item-right">
-												<input name="chucvu" type="text" value="Giảng viên"
-													maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu"
-													disabled="disabled" class="bpt-txt"> <span
-													id="chucvu"></span>
-											</div>
-										</div>
-										<div class="bpt-row">
-											<div class="bpt-item-left">Số điện thoại:</div>
-											<div class="bpt-item-right">
-												<input name="sodienthoai" type="text"
-													value="${user_info.getSodienthoai() }" maxlength="15"
-													id="sodienthoai" class="bpt-txt">
-											</div>
-										</div>
-										<div class="bpt-row">
-											<div class="bpt-item-left">Giới tính:</div>
-											<div class="bpt-item-right">
-												<select name="gioitinh" id="gioitinh" class="bpt-sl-sex">
-													<option>Chọn giới tính</option>
-													<option value="0">Nam</option>
-													<option value="1">Nữ</option>
-												</select>
 
-												<script type="text/javascript">
-														$(document).ready(function() {
+					<div class="persion-right" id="DetailUser" style="display: block;">
+						<form id="formuserinfo" action="UploadServlet" method="post"
+							enctype="multipart/form-data">
+							<input type="hidden" value="user" name="command">
+							<div id="tab_user">
+								<h3 class="learn-process-h3">
+									<span>THÔNG TIN CÁ NHÂN</span>
+								</h3>
+								<p style="color: red; font-style: italic; padding-left: 15px"
+									id="errorupdateuser" name="errorupdateuser"></p>
+								<div class="list-wrap">
+									<div class="bpt-content" id="edit">
+										<div id="ctl14_ThongTinHocVien_pnInfo">
+
+											<div class="bpt-row">
+												<div class="bpt-item-left">Tên:</div>
+												<div class="bpt-item-right">
+													<input name="ten" type="text" value="${user_info.getTen()}"
+														maxlength="100" id="ten" class="bpt-txt"> <span
+														id="ctl14_ThongTinHocVien_lblErrTenDayDu"></span> <input
+														type="hidden" id="usermame" name="username"
+														value="${users.getUserName()}" />
+												</div>
+											</div>
+											<div class="bpt-row">
+												<div class="bpt-item-left">Chức vụ</div>
+												<div class="bpt-item-right">
+													<input name="chucvu" type="text" value="Giảng viên"
+														maxlength="100" id="ctl14_ThongTinHocVien_txtTenDayDu"
+														disabled="disabled" class="bpt-txt"> <span
+														id="chucvu"></span>
+												</div>
+											</div>
+											<div class="bpt-row">
+												<div class="bpt-item-left">Số điện thoại:</div>
+												<div class="bpt-item-right">
+													<input name="sodienthoai" type="text"
+														value="${user_info.getSodienthoai() }" maxlength="15"
+														id="sodienthoai" class="bpt-txt">
+												</div>
+											</div>
+											<div class="bpt-row">
+												<div class="bpt-item-left">Giới tính:</div>
+												<div class="bpt-item-right">
+													<select name="gioitinh" id="gioitinh" class="bpt-sl-sex">
+														<option>Chọn giới tính</option>
+														<option value="0">Nam</option>
+														<option value="1">Nữ</option>
+													</select>
+
+													<script type="text/javascript">
 																			var x = ${user_info.getGioitinh()};
 																			$(
 																					'#gioitinh option[value='
@@ -1588,31 +1476,30 @@
 																							'selected');
 																			//alert(x);
 																			//alert($('#ThongTinGiangVienGioiTinh option[selected="selected"]').attr('value'));
-																		})
+
 													</script>
 
 
 
+												</div>
 											</div>
-										</div>
-										<div class="bpt-row">
-											<div class="bpt-item-left">Ngày/tháng/năm sinh:</div>
-											<div class="bpt-item-right">
-												<select name="ngaysinh" id="ngaysinh" class="bpt-sl-date">
-													<option value="0">Ngày</option>
-													<option value="25">25</option>
-												</select> <select name="thangsinh" id="thangsinh"
-													class="bpt-sl-month">
-													<option value="0">Tháng</option>
-												</select> <select name="namsinh" id="namsinh" class="bpt-sl-date">
-													<option value="0">Năm</option>
+											<div class="bpt-row">
+												<div class="bpt-item-left">Ngày/tháng/năm sinh:</div>
+												<div class="bpt-item-right">
+													<select name="ngaysinh" id="ngaysinh" class="bpt-sl-date">
+														<option value="0">Ngày</option>
+													</select> <select name="thangsinh" id="thangsinh"
+														class="bpt-sl-month">
+														<option value="0">Tháng</option>
+													</select> <select name="namsinh" id="namsinh" class="bpt-sl-date">
+														<option value="0">Năm</option>
 
-												</select>
-												<script type="text/javascript">
-														$(document).ready(function() {
+													</select>
+													<script type="text/javascript">
+												
 															<%int nam = Integer.parseInt(user_info.getNgaysinh().substring(0, 4));
-			int thang = Integer.parseInt(user_info.getNgaysinh().substring(5, 7));
-			int ngay = Integer.parseInt(user_info.getNgaysinh().substring(8, 10));%>
+															int thang = Integer.parseInt(user_info.getNgaysinh().substring(5, 7));
+															int ngay = Integer.parseInt(user_info.getNgaysinh().substring(8, 10));%>
 																			var d = new Date();
 																			var ngay = <%=ngay%>;
 																			var thang = <%=thang%>;
@@ -1636,64 +1523,64 @@
 																				else
 																					$('#namsinh').append('<option value="'+int+'">'+ int+ '</option>');
 																			}
-																		});
+																
 														
 													</script>
+												</div>
 											</div>
+											<div class="bpt-row">
+												<div class="bpt-item-left">Email:</div>
+												<div class="bpt-item-right">
+													<input name="email" type="text" maxlength="200" id="email"
+														class="bpt-txt" value="${user_info.getEmail()}">
+												</div>
+											</div>
+
 										</div>
-										<div class="bpt-row">
-											<div class="bpt-item-left">Email:</div>
+
+										<div class="bpt-row bpt-row-line">
+											<div class="bpt-item-left">Ảnh đại diện:</div>
 											<div class="bpt-item-right">
-												<input name="email" type="text" maxlength="200" id="email"
-													class="bpt-txt" value="${user_info.getEmail()}">
+												<div class="bpt-img-avarta">
+													<img src="upload/<%=user_info.getAnhdaidien()%>"
+														id="anhdaidien" alt="" height="48px">
+
+												</div>
+												<input name="uploadFile" type="file" accept="image/*"
+													id="uploadFile" class="file" style="width: 210px">
+												<input name="" type="submit" value="cập nhật ảnh đại diện"
+													style="width: 150; height: 30;">
+												<p class="bpt-note-img">
+													<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+												</p>
+
 											</div>
 										</div>
 
-									</div>
-									
-									<div class="bpt-row bpt-row-line">
-										<div class="bpt-item-left">Ảnh đại diện:</div>
-										<div class="bpt-item-right">
-											<div class="bpt-img-avarta">
-												<img src="upload/<%=user_info.getAnhdaidien()%>" id="anhdaidien" alt=""
-													height="48px">
 
+										<div class="bpt-row">
+											<div class="bpt-item-left">Địa chỉ:</div>
+											<div class="bpt-item-right">
+												<input name="diachi" type="text" maxlength="200" id="diachi"
+													class="bpt-txt" value="${user_info.getDiachi()}">
 											</div>
-											<input name="uploadFile" type="file"
-												accept="image/*" id="uploadFile" class="file" style="width: 210px">
-												<input name="" type="submit"
-												value="cập nhật ảnh đại diện" style=" width: 150; height: 30;">
-											<p class="bpt-note-img">
-												<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
-											</p>
-						
+										</div>
+
+										<div class="bpt-row" style="margin-top: 0px;">
+											<div class="bpt-item-left"></div>
+											<div class="bpt-item-right">
+												<span id="ctl14_ThongTinHocVien_lblSusscess"></span>
+											</div>
+										</div>
+										<div class="bpt-row bpt-row-save" style="margin-top: 0px;">
+											<a id="btnupdateuser" class="bpt-lnk-save"
+												onclick="btnupdateuserclick()"> Chấp nhận </a>
+
 										</div>
 									</div>
-									
-									
-									<div class="bpt-row">
-										<div class="bpt-item-left">Địa chỉ:</div>
-										<div class="bpt-item-right">
-											<input name="diachi" type="text" maxlength="200" id="diachi"
-												class="bpt-txt" value="${user_info.getDiachi()}">
-										</div>
-									</div>
-									
-									<div class="bpt-row" style="margin-top: 0px;">
-										<div class="bpt-item-left"></div>
-										<div class="bpt-item-right">
-											<span id="ctl14_ThongTinHocVien_lblSusscess"></span>
-										</div>
-									</div>
-									<div class="bpt-row bpt-row-save" style="margin-top: 0px;">
-										<a id="btnupdateuser" class="bpt-lnk-save" onclick="btnupdateuserclick()">
-											Chấp nhận </a>
-											
-									</div>
+									<!--end-edit-user-->
 								</div>
-								<!--end-edit-user-->
 							</div>
-						</div>
 						</form>
 						<script type="text/javascript">btnupdate
 							function btnupdateuserclick(){

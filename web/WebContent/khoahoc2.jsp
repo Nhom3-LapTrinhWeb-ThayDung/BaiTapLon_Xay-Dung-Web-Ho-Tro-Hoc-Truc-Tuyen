@@ -143,7 +143,7 @@
 
 
 			<%@ include file="//includes/header.jsp" %>
-				
+			<%@ include file="//includes/message.jsp" %>
 			<%
 			SectionDAO sectionDAO = new SectionDAO();
 			
@@ -189,139 +189,7 @@
 
 		%>
 
-				<div class="vts-gadget">
-				<div class="vts-gadget-item vts-gadget-comment">
-					<div class="vt-gadget gadget-comment" style="display: none;">
-						<span class="vt-gadget-more"> </span>
-						<h3 class="vt-gadget-title">
-							<span class="vt-gadget-sp"> GÓP Ý </span> <a
-								class="vt-gadget-close"> X </a>
-						</h3>
-						<div class="wrap-vt-gadget">
-							<div id="Header1_Widget_GopY_pnGopY">
-
-
-
-							
-								<div class="vt-gadget-div-form">
-									<span class="vt-gadget-label"> Người nhận:  <%=teacher.getTen() %></span>
-									<p class="vt-gadget-p">
-										
-									</p>
-								</div>
-								<input type="hidden" value="<%=teacher.getId()%>" name="id_nguoinhan" id="id_nguoinhan">
-								<div class="vt-gadget-div-form">
-									<span class="vt-gadget-label"> Nội dung </span>
-									<p class="vt-gadget-p">
-										<textarea name="noidung_message" rows="2"
-											cols="20" id="noidung_message"
-											class="vt-gadget-txtarea"></textarea>
-									</p>
-								</div>
-								
-								
-								<div class="vt-gadget-div-form gadget-captcha">
-									
-									<div class="vt-gadget-p">
-									 <input type="button" name="btnguims"
-											value="Gửi"
-											onclick="btnguimsclick()"
-											id="btnguims" class="vt-gadget-btn-send">
-										
-									</div>
-								</div>
-								<span id="Header1_Widget_GopY_lblErr" style="color: Red;"></span>
-								<span id="Header1_Widget_GopY_lblSucc"></span>
-
-							</div>
-							<div id="Header1_Widget_GopY_UpdateProgress1"
-								style="display: none;">
-
-								<div class="bpc-row">
-									<span class="sp-left"></span> <span class="sp-right"> <img
-										src="Images/ajax-loader.gif">
-									</span>
-								</div>
-
-							</div>
-
-
-						</div>
-					</div>
-					<script type="text/javascript">
-						function btnguimsclick(){
-							/*  alert($('#noidung_message').val()+ $('#id_nguoinhan').val());  */
-							$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#id_nguoinhan').val()}, function (data) {
-								alert(data);
-								},'text'); 
-						}
-					</script>
-
-
-					<script type="text/javascript">
-						function refreshCaptcha(capchaid, capchlength) {
-							$('#capcha').attr(
-									'src',
-									'./uControls/Capcha/capchaImage.aspx'
-											+ '?id=' + capchaid + '&len='
-											+ capchlength + '&r='
-											+ Math.random());
-						}
-
-						function exitpopup() {
-							setTimeout(function() {
-								window.location.href = 'index.jsp'; //will redirect to your blog page (an ex: blog.html)
-							}, 2000);
-
-						}
-						function clickButton(e, buttonid) {
-							var evt = e ? e : window.event;
-							var bt = document.getElementById(buttonid);
-
-							if (bt) {
-								if (evt.keyCode == 13) {
-									bt.click();
-									return false;
-								}
-							}
-						}
-					</script>
-
-
-
-
-					<a class="vts-gadget-lnk show-popup" title="Góp ý"> </a>
-
-
-				</div>
-				 <div class="vts-gadget-item vts-gadget-contact">
-     	<div class="vt-gadget vt-hotline" style="display: none;">
-    	<span class="vt-gadget-more">
-        	
-        </span>
-    	<h3 class="vt-gadget-title">
-        		<span class="vt-gadget-sp">
-                	LIÊN HỆ 
-                </span>
-                <a class="vt-gadget-close">
-                	X
-                </a>
-        </h3>
-        <div class="wrap-vt-gadget">
-            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
-              <span style="font-size:15px">(miễn phí)</span></h2>
-                  <p>Email: <a href="mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
-                  <p class="vt-gadget-p-content">
-                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
-                  </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
-        </div>
-    </div>
-    	 <a class="vts-gadget-lnk show-popup" title="Liên hệ">
-         	
-         </a>	
-    </div>
-			</div>
+				
 			
 		
 
@@ -354,17 +222,7 @@
 				window.open(url)
 			}
 
-			function SearchOnFocus(field) {
-				if (field.value == 'Từ khóa tìm kiếm') {
-					field.value = '';
-				}
-			}
-
-			function SearchOnBlur(field) {
-				if (field.value == '') {
-					field.value = 'Từ khóa tìm kiếm';
-				}
-			}
+			
 		</script>
 
 		<script type="text/javascript">

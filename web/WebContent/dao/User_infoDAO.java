@@ -4,13 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import connect.DBConnect;
 import model.User_info;
 import model.Users;
 
 public class User_infoDAO {
-	
+	private Connection conn;
+    private PreparedStatement ps;
+    private ResultSet rs;
 	//login lấy thông tin cá nhân
 	public User_info login(String username, String password, int quyen){
 		Connection con = DBConnect.getConnecttion();
@@ -84,4 +88,89 @@ public class User_infoDAO {
 		}
 		return false;
 	}
+	
+	public User_info getUser_info(long user_id)
+	{
+		try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from user_info where id='"+user_id+"'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            User_info u = new User_info();
+            while (rs.next()) {
+            	u.setId(rs.getLong(1));
+            	u.setTen(rs.getString(2));
+            	u.setSodienthoai(rs.getString(3));
+            	u.setGioitinh(rs.getInt(4));
+            	u.setNgaysinh(rs.getString(5));
+            	u.setEmail(rs.getString(6));
+            	u.setAnhdaidien(rs.getString(7));
+            	u.setDiachi(rs.getString(8));
+            	u.setQuyen(rs.getInt(9));
+            }
+            conn.close();
+            return u;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		return null;
+	}
+
+	public List<User_info> getallteacher() {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from user_info where quyen=1";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<User_info> listStudent = new ArrayList<User_info>();
+            while (rs.next()) {
+            	User_info u = new User_info();
+            	u.setId(rs.getLong(1));
+            	u.setTen(rs.getString(2));
+            	u.setSodienthoai(rs.getString(3));
+            	u.setGioitinh(rs.getInt(4));
+            	u.setNgaysinh(rs.getString(5));
+            	u.setEmail(rs.getString(6));
+            	u.setAnhdaidien(rs.getString(7));
+            	u.setDiachi(rs.getString(8));
+            	u.setQuyen(rs.getInt(9));
+            	listStudent.add(u);
+            }
+            conn.close();
+            return listStudent;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	public List<User_info> getallstudent() {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from user_info where quyen=2";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<User_info> listStudent = new ArrayList<User_info>();
+            while (rs.next()) {
+            	User_info u = new User_info();
+            	u.setId(rs.getLong(1));
+            	u.setTen(rs.getString(2));
+            	u.setSodienthoai(rs.getString(3));
+            	u.setGioitinh(rs.getInt(4));
+            	u.setNgaysinh(rs.getString(5));
+            	u.setEmail(rs.getString(6));
+            	u.setAnhdaidien(rs.getString(7));
+            	u.setDiachi(rs.getString(8));
+            	u.setQuyen(rs.getInt(9));
+            	listStudent.add(u);
+            }
+            conn.close();
+            return listStudent;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	
 }

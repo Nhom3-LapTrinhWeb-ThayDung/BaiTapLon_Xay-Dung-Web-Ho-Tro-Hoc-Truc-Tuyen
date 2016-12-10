@@ -3,13 +3,18 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
 
 import connect.DBConnect;
+import model.User_info;
 import model.Users;
 
 public class UsersDAO {
+	private Connection conn;
+    private PreparedStatement ps;
+    private ResultSet rs;
 	public boolean checkEmail(String email) {
 		Connection conn = DBConnect.getConnecttion();
 		String sql = "select * from user where user_email='" + email + "'";
@@ -99,4 +104,6 @@ public class UsersDAO {
 		}
 		return false;
 	}
+	
+	
 }
