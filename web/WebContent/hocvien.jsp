@@ -43,13 +43,7 @@
 </head>
 <body>
 
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
-{
-		response.sendRedirect("index.jsp");
-}
-else
-{
-%>
+
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -113,8 +107,151 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('.show-popup').click(function() {
+                if (!$(this).hasClass('active')) {
+                    $('.vt-gadget').hide();
+                    $('.vts-gadget-lnk').removeClass('active');
+                }
+                $(this).parent().find('.vt-gadget').slideToggle();
+                $(this).toggleClass('active');
+            });
+            $('.vt-gadget-close').click(function() {
+                $('.vt-gadget').hide();
+                $('.vts-gadget-lnk').removeClass('active');
+            })
+            $('.vt-gadget-close').click();
+        });
+    </script>
+    
+<div class="vts-gadget">
+   
+    
+     
+     <div class="vts-gadget-item vts-gadget-comment">
+    	 
+    	 
+
+
+<div class="vt-gadget gadget-comment" style="display: none;">
+    	<span class="vt-gadget-more">
+        	
+        </span>
+    	<h3 class="vt-gadget-title">
+        		<span class="vt-gadget-sp">
+                	GÓP Ý 
+                </span>
+                <a class="vt-gadget-close">
+                	X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <div id="Header_Widget_GopY_pnGopY">
+	
+            <div class="vt-gadget-div-form">
+            	<span class="vt-gadget-label">
+                	Nội dung
+                </span>
+                <p class="vt-gadget-p">
+                    <textarea name="Header$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
+                </p>
+            </div>
+            <div class="vt-gadget-div-form gadget-captcha">
+            	
+                <div class="vt-gadget-p">
+                	
+                        
+                	<input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy(&#39;Header_Widget_GopY_txtNoiDung&#39;);" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send">
+                	<input type="hidden" name="TokenCSRF_GopYBaiHoc" value="A22CE296A4B92D31E24BCE525C2E36784E42767F7C4C04695685016F7C0B618803359C7DDC2192DA4A1731E89BAAB8F65BF2C0F989EDB8091EA18B22EDEAAC24">
+                </div>
+            </div>
+            <span id="Header_Widget_GopY_lblErr" style="color:Red;"></span>
+            <span id="Header_Widget_GopY_lblSucc"></span>
+            
+</div>  
+            <div id="Header_Widget_GopY_UpdateProgress1" style="display:none;">
+	
+                <div class="bpc-row">
+                    <span class="sp-left"></span>
+                    <span class="sp-right">
+                        <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
+                    </span>
+                </div>
+            
+</div>
+            
+            
+        </div>
+    </div>
+    
+    
+    
+<script type="text/javascript">
+    function refreshCaptcha(capchaid, capchlength) {
+        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
+    }
+    
+    function exitpopup() {
+        setTimeout(function() {
+        window.location.href = '/canhan.html'; //will redirect to your blog page (an ex: blog.html)
+        }
+        , 2000);
+        
+        
+    }
+        function clickButton(e, buttonid)
+        {  
+          var evt = e ? e : window.event;  
+          var bt = document.getElementById(buttonid);  
+ 
+          if (bt){
+              if (evt.keyCode == 13){  
+                    bt.click();  
+                    return false;  
+              }  
+          }  
+        }  
+    </script>
+
+
+
+    	 
+            <a class="vts-gadget-lnk show-popup" title="Góp ý">
+         	
+            </a>
+            
+         
+    </div>
+     <div class="vts-gadget-item vts-gadget-contact">
+     	<div class="vt-gadget vt-hotline" style="display: none;">
+    	<span class="vt-gadget-more">
+        	
+        </span>
+    	<h3 class="vt-gadget-title">
+        		<span class="vt-gadget-sp">
+                	LIÊN HỆ 
+                </span>
+                <a class="vt-gadget-close">
+                	X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:mailto:congtuhot9.9@gmail.com" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
+        </div>
+    </div>
+    	 <a class="vts-gadget-lnk show-popup" title="Liên hệ">
+         	
+         </a>	
+    </div>
+</div>
 <%@include file="//includes/header.jsp" %>
-<%@include file="//includes/message.jsp" %>
 <%
 	CourseDAO courseDAO = new CourseDAO();
 	CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
@@ -540,7 +677,8 @@ $('.persion-tab-lnk').click(function() {
         </div>
 </div></div>
         
-<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;"><h3 class="learn-process-h3">
+<div class="persion-right persion-detail" id="CacKhoaHocDangCho" style="display: none;">
+<h3 class="learn-process-h3">
     <span>DANH SÁCH CÁC KHÓA HỌC ĐANG CHỜ</span>
 </h3>
  <style>
@@ -553,14 +691,13 @@ $('.persion-tab-lnk').click(function() {
             <div class="to-content">
                 <div class="to-c-left">
                    <div class="to-c-l-list">
-                   <div class="row">
+                   
                    		<%if(listcoursewaiting.isEmpty()){ %>
+                   		 <div class="row">
                    		<div class="study-notice">
-						
-						    <span class="sne-sp">Thông báo: </span>
-						        
-						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Bạn chưa đăng ký khóa học nào. Click vào đây để đăng ký!</a>
-						    
+						    <span class="sne-sp"></span>
+						        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Không còn khóa học nào đang chờ xác nhận. Click vào đây để đăng ký!</a>					    
+						</div>
 						</div>
                    		
                    		<%}else{ %>
@@ -570,34 +707,29 @@ $('.persion-tab-lnk').click(function() {
 	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    		i++;
 	                    %>
-	                          
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+	                          <div class="row">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
                                         <p class="to-l-p-img">
                                             <span class="sp-text"> KHÓA HỌC </span><span class="sp-number">
                                                 <%= i %>
                                             </span>
                                         </p>
                                     </a>
-                                    <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="lnk-logout under popup-login" href="ChiTietKhoaHoc.jsp">
 	                                  <p class="to-l-p-name">
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
 	                                
 	                              </a>
-                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
-                                    
                                   <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
-                                   
-                                    </div>
-                                   
-                                
+                                 </div>
                                 
 	                          <%
 	                    			}
 	                  			}
 	                          %>
-	                          </div>	
+	                        	
 	                           <script type="text/javascript">
 									function btnhuydangkyclick(course_waiting_id,name){
 										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){
@@ -1333,5 +1465,5 @@ function EnterKeyPress(id,e) {
 }
 
 </script>
-<%} %>
+
 </body></html>

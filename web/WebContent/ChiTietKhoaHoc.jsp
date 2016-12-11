@@ -276,6 +276,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 <%@include file="//includes/header.jsp" %>
+<%@include file="//includes/overlaylogin.jsp" %>
 <%
 			CourseDAO courseDAO = new CourseDAO();
 			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
