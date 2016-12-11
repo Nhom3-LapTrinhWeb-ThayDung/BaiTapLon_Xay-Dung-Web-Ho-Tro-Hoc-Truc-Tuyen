@@ -28,14 +28,21 @@
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async=""
 	src="http://www.google-analytics.com/ga.js"></script>
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/search.js"></script>
 </head>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 	<div id="overlay-header">
 		<div id="overlay-left"></div>
 		<div id="overlay-right"></div>
@@ -59,14 +66,18 @@
 	padding-bottom: 3px;
 }
 </style>
+
 		<%@ include file="//includes/header.jsp"%>
 		<%@ include file="//includes/message.jsp" %>
 		<%
+		List<Course> listcourse= new ArrayList<Course>();
+		String JSONResult = JSONArray.toJSONString(listcourse);
+
 			CourseDAO courseDAO = new CourseDAO();
-		%>
-		<%
-			List<Course> listcourse = courseDAO.getListCourse(user_info.getId());
-			String JSONResult = JSONArray.toJSONString(listcourse);
+
+			listcourse = courseDAO.getListCourse(user_info.getId());
+			JSONResult = JSONArray.toJSONString(listcourse);
+
 		%>
 		<script type="text/javascript">
 				function clickButton(e, buttonid) {
@@ -1442,6 +1453,6 @@
 
 
 
-	
+	<%} %>
 </body>
 </html>

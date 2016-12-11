@@ -37,7 +37,13 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 
     
 
@@ -659,5 +665,5 @@
     
     
 
-
+<%} %>
 </body></html>

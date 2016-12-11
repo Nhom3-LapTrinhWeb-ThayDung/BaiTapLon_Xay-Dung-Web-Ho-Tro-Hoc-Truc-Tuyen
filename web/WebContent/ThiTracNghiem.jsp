@@ -2,9 +2,9 @@
 <%@page import="java.util.List"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Review_Question"%>
-<%@page import="dao.ReviewDAO"%>
-
+<%@page import="model.Quiz"%>
+<%@page import="dao.QuestionRadioDAO"%>
+<%@page import="model.QuestionQuiz"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/support_face.css" type="text/css">
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
-<title>BÀI TEST IQ SỐ 1</title>
+<title>Trắc Nghiệm Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
@@ -35,8 +35,10 @@ else
 {
 %>
 <div id="overlay-header">
-        <div id="overlay-left"> </div>
-        <div id="overlay-right"> </div>
+        <div id="overlay-left">
+        </div>
+        <div id="overlay-right">
+        </div>
     </div>
     <div id="wrapper">
 		<style type="text/css">
@@ -58,110 +60,106 @@ else
 </style>
 
 		<%@ include file="//includes/header.jsp" %>
+		<%@ include file="//includes/message.jsp" %>
 		<%
-			ReviewDAO reviewDAO = new ReviewDAO();
-			String course_id="";
-			if(request.getParameter("course_id")!=null)
-			{
-				course_id=request.getParameter("course_id");
-			}
+		Quiz quiz = new Quiz();
+		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
+		String quiz_id="";
+		if(request.getParameter("quiz_id")!=null)
+		{
+			
+			quiz_id = request.getParameter("quiz_id");
+			quiz = quizDAO.getQuiz(Long.parseLong(quiz_id));
+			
+		}
 	
 		%>
 		<!--end-header-->
-		
 			<div id="body">
-			
-			<form method="post" action="ReviewServlet" id ="form1">
+<form method="post" action="DoQuestionListServlet" id ="form1">
 				<div class="box-multiChoice">
-					<h2 class="bm-title">ĐÁNH GIÁ GIẢNG VIÊN</h2>
+					<h2 class="bm-title"><%=quiz.getQuiz_name() %></h2>
+					<c:if test="${errorStr != null }">
+						<p style="color: red; font-style: italic;">${errorStr }</p>
+					</c:if>
 					<p style="color: red; font-style: italic;" id="123"></p>
 					<div class="question">
 						<h3 class="h3q-title">ĐỀ BÀI</h3>
-						<div class="Rating" style="float: left;">
-                        <div >
-                            <div >
-                                <div >
-                                    <div>
-                                        <h3 >Hãy cho biết mức độ đồng ý của bạn bằng cách tô tròn vào ô thích hợp cho các tiêu chí từ 1 đến 5</h3>
-                                    </div>
-                                    <div ></div>
-                                    <div >
-                                        
-                                        <div >
-                                            <b >1</b>. <span >Hoàn toàn không đồng ý</span>&nbsp;
-                                        
-                                            <b >2</b>. <span>Không đồng ý</span>&nbsp;
-                                        
-                                            <b>3</b>. <span >Phân vân</span>&nbsp;
-                                        
-                                            <b >4</b>. <span >Đồng ý</span>&nbsp;
-                                        
-                                            <b >5</b>. <span >Hoàn toàn đồng ý</span>&nbsp;
-                                        </div>
-                                        <table class="questionTable" border="1">
-                                            <thead>
-                                                <tr>
-                                                	<th>STT</th>
-                                                    <th>Nội dung</th>
-                                                    <!-- ko foreach: AnswerDTOs -->
-                                                    <th >1</th>
-                                                    
-                                                    <th >2</th>
-                                                    
-                                                    <th >3</th>
-                                                    
-                                                    <th >4</th>
-                                                    
-                                                    <th >5</th>
-                                                    <!-- /ko -->
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <%for(Review_Question rq: reviewDAO.getListReview_Question()){ %>
-                                                <tr>
-                                                    <td style=" text-align: center;"><%=rq.getNumber() %></td>
-                                                    <td ><%=rq.getQuestion() %></td>
-                                                    <!-- ko foreach: AnswerDTOs -->
-                                                    <td  style="width: 20px; text-align: center;">
-                                                        <input name="ans[<%=rq.getNumber() %>]"  type="radio" value="1" ></td>
-                                                    
-                                                    <td style="width: 20px; text-align: center;">
-                                                        <input name="ans[<%=rq.getNumber() %>]"  type="radio" value="2"></td>
-                                                    <td style="width: 20px; text-align: center;">
-                                                        <input name="ans[<%=rq.getNumber() %>]" type="radio" checked="checked" value="3"></td>
-                                                    <td style="width: 20px; text-align: center;">
-                                                        <input name="ans[<%=rq.getNumber() %>]" type="radio" value="4"></td>
-                                                   	<td style="width: 20px; text-align: center;">
-                                                        <input name="ans[<%=rq.getNumber() %>]" type="radio" value="5"></td>
-                                                    <!-- /ko -->
-                                                </tr>
-                                                
-                                                <%} %>
-                                            </tbody>
-                                        </table>
-                                        
-                                    </div>
-                                
-                                    <div>
-                                        <h3 > Đề xuất của Anh/Chị để việc giảng dạy môn học này được tốt hơn:</h3>
-                                        <textarea rows="3" cols="130" name="opinion"></textarea>
-                                    </div>
-                                    <input type="hidden" name="course_id" value="<%=course_id%>">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+						<div class="question-list" id="baithi">
+							
+								<%
+									for(QuestionQuiz q : quizDAO.getListQuestionRadios(Long.parseLong(quiz_id))){
+								%>
+									<div class="ql-row">
+										<div class="stt-left">
+											<span class='sttl-sp'><%=q.getNumber() %></span>
+										</div>
+										<div class="ct-right">
+											<div class="ctr-recommend"><%=q.getQuestion() %></div>
+											<div class="ctr-choice" style=''>
+												<span class="sp-choice"> Chọn <b>1</b> câu trả lời
+													đúng
+												</span>
+												<table id="ctl15_rptCauHoi_ctl00_rbtnList" class="input"
+													border="0">
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0" type="radio"
+																name="ans[<%=q.getNumber()%>]" value="A" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_0">A:
+																	<%=q.getOption1() %></label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_1" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="B" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_1">B:
+																	<%=q.getOption2() %></label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_2" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="C" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_2">C:
+																	<%=q.getOption3() %></label></span></td>
+													</tr>
+													<tr>
+														<td><span class="rd"><input
+																id="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_3" type="radio"
+																name="ans[<%=q.getNumber() %>]" value="D" /> <label
+																for="ctl15_rptCauHoi_ctl00_rbtnList_<%=q.getNumber() %>_3">D:
+																	<%=q.getOption4() %></label></span></td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								<%
+									}
+								%>
+							
+							<!-- hết câu 1-->
+
+
+							<!--Hết câu phần câu hỏi-->
+						</div>
 					</div>
 
-					
+					<!-- Tạo nút để nộp bài -->
+
 					<div id="ctl15_pnStart">
 				<!-- nút nộp bài -->
-            <div class="bm-test-again">					
+            <div class="bm-test-again">
+             <input type="hidden" name="hourssubmit" id = "hourssubmit" value="">
+             <input type="hidden" name="minutesubmit" id = "minutesubmit" value="">
+             <input type="hidden" name="secondsubmit" id = "secondsubmit" value="">
+            <input type="hidden" name="command" value="nopbai">
+            <input type="hidden"
+								name="quiz_id" value="<%=quiz.getId()%>">
+								
                 <input type="hidden" name="TokenCSRF_Thi_NopBai" value="A01BDD2E459BCE3EF490BC2F9FF779880D17A320D13D9E7BB97908E2942997EBEE17A055CBAEA4D61F0CB4C1EB87D52969CACF8D3107C2C4600139D3DD11ADB7">
                 <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" href="javascript:__doPostBack()">
-            		GỬI ĐÁNH GIÁ
+            NỘP BÀI
                 </a>
                 <input type="submit" name="ctl15$btn" value="" id="ctl15_btn" style="border-width:0px;height:0px;width:0px;">
             </div>
@@ -182,7 +180,34 @@ else
 						</div>
 					</div>
 				</div>
+				<!-- Đếm thời gian nộp bài -->
+				<div id="ctl15_div_time" class="time-remain">
+					<span class="sp-text">Thời gian còn lại</span> <span
+						class="sp-time" id="aTime" class="timeCount"> <script
+							type="text/javascript">
+							<%
+							int hours =Integer.parseInt(quiz.getTime().substring(0, 2)) ;
+							int minute = Integer.parseInt(quiz.getTime().substring(3, 5));
+							int second = Integer.parseInt(quiz.getTime().substring(6, 8));
+							%>
+							timeDisplay('aTime', 0, <%=hours%>, <%=minute%>, <%=second%>, 0, 'ctl15_btn');
+							/* var d1= new Date();
+							var d2 = new Date();
+							var d = d2-d1;
+							var x =d1.getDate();
+							alert(x); */
+							function __doPostBack()
+							{
+								//document.getElementById('123').innerHTML = '' + hourslimit + ':' + minutelimit + ':' + secondlimit;
+								$('#hourssubmit').attr('value',hourslimit);
+								$('#minutesubmit').attr('value',minutelimit);
+								$('#secondsubmit').attr('value',secondlimit-1);
+								$('#form1').submit();
+							}
+						</script>
 
+					</span>
+				</div>
 
 
 				<!-- 60 request một lần -->
@@ -199,8 +224,7 @@ else
 					function FinishConfirmation() {
 						var line_alert = document.getElementById('line_alert');
 						line_alert.style.visibility = 'hidden';
-						if (confirm("Gửi đánh giá. Đồng ý?") == true) {
-							$('#form1').submit();
+						if (confirm("Bạn sẽ không thể sửa bài làm sau khi nộp. Đồng ý?") == true) {
 							document.getElementById('ctl15_btnNopBai').style.visibility = 'hidden';
 							return true;
 						} else {

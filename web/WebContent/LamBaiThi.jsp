@@ -5,6 +5,7 @@
 
 <html>
 <head>
+
 <link rel="stylesheet" href="css/coder_update.css" type="text/css"></link>
 <link rel="stylesheet" href="css/multiChoice.css" type="text/css"></link>
 <link rel="stylesheet" href="css/common.css" type="text/css"></link>
@@ -14,7 +15,21 @@
 
 <title>BÀI TEST IQ SỐ 1 - ViettelStudy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
+<script type="text/javascript" async=""
+	src="http://www.google-analytics.com/ga.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
+<script type="text/javascript" src="js/overlay2.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 	<div>
 
 </div>
@@ -91,7 +106,7 @@
 					</div>
 					<div class="tt-start">
 			            <input type="hidden" name="ctl14$hftenKhongDau" id="ctl14_hftenKhongDau" value="BAI-TEST-IQ-SO-1">
-			            <a id="ctl14_btnstart" class="tt-tart-lnk" href="BaiTestSo1.jsp?quiz_id=<%=quiz_id%>">
+			            <a id="ctl14_btnstart" class="tt-tart-lnk" href="ThiTracNghiem.jsp?quiz_id=<%=quiz_id%>">
 			                Bắt đầu làm bài
 			            </a>
 			            
@@ -223,6 +238,7 @@
 		<!--end-overlay-footer-->
 	</div>
 	<!--end-wrapper-->
+	<%} %>
 </body>
 </html>
 

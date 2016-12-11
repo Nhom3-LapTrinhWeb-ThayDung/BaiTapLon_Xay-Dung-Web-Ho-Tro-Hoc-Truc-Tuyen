@@ -35,7 +35,13 @@
 </head>
 <body>
 
-
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
  <div id="overlay-header">
         <div id="overlay-left"> </div>
         <div id="overlay-right"> </div>
@@ -107,7 +113,7 @@
 									</div>
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Section name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="section_name" type="text" id="section_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Section name* </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="section_name" type="text" id="section_name"></div>
                 </div>
                 <!-- place -->
                 <div>
@@ -242,5 +248,5 @@
     
     
 
-
+<%} %>
 </body></html>

@@ -34,7 +34,13 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 
  <div id="overlay-header">
         <div id="overlay-left"> </div>
@@ -300,7 +306,7 @@
 									</div>
                 <legend class="ftoggler fheader" id="yui_3_15_0_2_1476453284347_725">
                 </legend>
-                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Assignment name<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="exercise_name" type="text" id="exercise_name"></div>
+                <div id="fitem_id_name" class="fitem required fitem_ftext instance-color" ><div class="fitemtitle" id="yui_3_15_0_2_1476453284347_972"><label for="id_name" id="yui_3_15_0_2_1476453284347_971">Assignment name* </label></div><div class="felement ftext" id="yui_3_15_0_2_1476453284347_977"><input size="50" name="exercise_name" type="text" id="exercise_name"></div>
 
                 </div>
 
@@ -318,14 +324,14 @@
                     </div>
 
                     <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel">
-                    <label>Allow submissions from<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div>
+                    <label>Allow submissions from* </label></div></div>
                     <fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100">
                     <a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset>
                     <input type="date" name ="exercise_startdate" id = "exercise_startdate">
                     <input type="time" name ="exercise_starttime" id ="exercise_starttime">
                     </div>
 
-                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Due date<img class="req" title="Required field" alt="Required field" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/req"> </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset>
+                    <div id="fitem_id_timestart" class="fitem required fitem_fdate_time_selector instance-color"><div class="fitemtitle"><div class="fgrouplabel"><label>Due date* </label></div></div><fieldset class="felement fdate_time_selector" id="yui_3_15_0_2_1476547644367_100"><a class="visibleifjs" name="timestart[calendar]" href="#"><img alt="Calendar" class="smallicon" title="Calendar" src="https://lms.hcmute.edu.vn/theme/image.php/essential/core/1476366384/i/calendar"></a></fieldset>
                     <input type="date" name ="exercise_enddate" id = "exercise_enddate">
                     <input type="time" name ="exercise_endtime" id ="exercise_endtime">
                     </div>
@@ -439,5 +445,5 @@
         
     </div>
     <!--end-wrapper-->
-    
+    <%} %>
 </body></html>

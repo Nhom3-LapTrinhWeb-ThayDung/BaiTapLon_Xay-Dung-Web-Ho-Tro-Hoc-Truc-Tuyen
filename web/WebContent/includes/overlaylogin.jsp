@@ -134,12 +134,6 @@
 								name="command" value="login">
 							</span>
 
-							<!--<script type="text/javascript">
-                           function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>-->
 
 							<script type="text/javascript">
                            function btnlogin() {
@@ -813,12 +807,6 @@
 									type="hidden" name="command" value="insert">
 								</span>
 
-								<!--<script type="text/javascript">
-                           function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>-->
 								<script type="text/javascript">
                            function btnDangNhap_OnClientClick3() {
                         	   $("#btnRegisterRevMail").click();

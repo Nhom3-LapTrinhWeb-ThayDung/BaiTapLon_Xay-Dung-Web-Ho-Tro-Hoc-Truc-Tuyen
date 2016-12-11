@@ -25,8 +25,14 @@
 <script type="text/javascript" src="js/time_olympic.js"></script>
 </head>
 <body >
-
-    <form name="form1" method="post" action="/thi.aspx?uc=3&amp;id=1890558&amp;id_hv=0&amp;id_bt=13604&amp;id_lbt=7" id="form1">    
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
+   
      <div id="overlay-header">
         <div id="overlay-left"> </div>
         <div id="overlay-right"> </div>
@@ -112,7 +118,7 @@
                     	<a class="vr-lnk-answer"  href="DapAn.jsp">
                         	Xem đáp án
                         </a>
-                         <a class="vr-lnk-solution vr-lnk-reset" href="ThiTracNghiemPhan2">
+                         <a class="vr-lnk-solution vr-lnk-reset" href="LamBaiThi.jsp?quiz_id=<%=quiz.getId()%>">
                         	Làm lại bài thi
                         </a>
                     
@@ -190,9 +196,68 @@
 </style>
 
 
-    
-    <!--end-wrapper-->
-</form>
+
+	<style>
+.footer-menu-new span {
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 37px;
+}
+
+.title {
+	font-weight: bold;
+	margin-right: 20px;
+}
+</style>
+	<style>
+.regis-info, .sp-forget-pass {
+	position: relative;
+	display: inline-block;
+	padding-bottom: 10px;
+}
+
+.infor-forget {
+	background: #ffffff none repeat scroll 0 0;
+	border: 1px solid #acacac;
+	color: #333333;
+	display: none;
+	font-size: 13px;
+	line-height: 20px;
+	padding: 10px;
+	position: absolute;
+	right: 0;
+	top: 25px;
+	width: 310px;
+	z-index: 99;
+}
+
+.regis-info .infor-forget {
+	bottom: 28px;
+	right: -33px;
+	top: auto;
+}
+
+.regis-info {
+	padding-top: 5px;
+}
+
+.sp-forget-pass:hover .infor-forget {
+	display: block;
+}
+
+.regis-info:hover .infor-forget {
+	display: block;
+}
+</style>
+<!--end-footer-->
+		<div id="overlay-footer">
+			<div id="overlay-footer-left"></div>
+			<div id="overlay-footer-right"></div>
+		</div>
+		<!--end-overlay-footer-->
+	</div>
+	<!--end-wrapper-->
+	<%} %>
 </body>
 </html>
 

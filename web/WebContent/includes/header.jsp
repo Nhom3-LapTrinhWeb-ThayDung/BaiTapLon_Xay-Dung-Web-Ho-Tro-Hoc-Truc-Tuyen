@@ -11,6 +11,7 @@
 <%@page import="org.json.simple.parser.ParseException"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
+CourseDAO courseDAO2 = new CourseDAO();
 	Users users=null;
 	User_info user_info = null;
 	if(session.getAttribute("user")!=null && session.getAttribute("user_info")!=null)
@@ -18,7 +19,6 @@
 		users = (Users) session.getAttribute("user");
 		user_info = (User_info) session.getAttribute("user_info");
 	}
-	CourseDAO courseDAO2 = new CourseDAO();
 %>
 <div id="header">
 

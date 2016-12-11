@@ -210,7 +210,7 @@
 							$('#user_name').show();
 						}
 						function btnguimsclick(){
-							/*  alert($('#noidung_message').val()+ $('#id_nguoinhan').val());  */
+							
 							if(trim($('#noidung_message').val())=='')
 								alert('Chưa nhập nội dung');
 							else
@@ -308,7 +308,6 @@
 						$('#txtsearchuser').fadeIn(100);
 						$('#user_name').hide();
 						$('#txtsearchuser').focus();
-						alert($('#msradiocheck [name="rdms"]').val())
 					}
 					else if(this.value=="admin")
 					{
@@ -316,7 +315,6 @@
 						$('#user_name').text('Admin');
 						$('#user_name').show();
 						$('#user_id').val('0');
-						alert($('#msradiocheck [name="rdms"]').val())
 					}
 
 			});
@@ -463,3 +461,218 @@
             $('.vt-gadget-close').click();
         });
     </script>
+    
+    
+    <script type="text/javascript">
+   
+
+    function SearchOnFocus(field) {
+        if (field.value == 'Từ khóa tìm kiếm') { field.value = ''; }
+    }
+
+    function SearchOnBlur(field) {
+        if (field.value == '') { field.value = 'Từ khóa tìm kiếm'; }
+    }
+
+</script>
+
+
+<style>
+                .persion-group {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    float: left;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 960px;
+}
+.persion-left {
+    background-color: rgb(235, 235, 235);
+    border: 1px solid rgb(226, 226, 226);
+    color: rgb(71, 71, 71);
+    float: left;
+    margin-left: 12px;
+    width: 262px;
+}
+.persion-avatar {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    float: left;
+    padding-bottom: 15px;
+    width: 100%;
+}
+.persion-avatar-img {
+    border-radius: 84px;
+    float: left;
+    height: 164px;
+    margin-bottom: 2px;
+    margin-left: 53px;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 164px;
+}
+.persion-info {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 21px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+.persion-tab {
+    float: left;
+    margin-top: 15px;
+    width: 100%;
+}
+.persion-tab .wrap-tab {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    float: left;
+    width: 100%;
+}
+.persion-tab .wrap-tab .persion-tab-lnk {
+    border-top: 1px solid rgb(226, 226, 226);
+    color: rgb(71, 71, 71);
+    float: left;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    width: 100%;
+}
+.persion-tab .wrap-tab .persion-tab-lnk:hover {
+    background: rgb(243, 243, 243) none repeat scroll 0 0;
+    color: rgb(20, 146, 142);
+}
+.persion-tab .wrap-tab .active {
+    background: rgb(243, 243, 243) none repeat scroll 0 0;
+    color: rgb(20, 146, 142);
+    font-weight: bold;
+}
+.persion-tab .wrap-tab .persion-tab-lnk span {
+    float: left;
+    margin-left: 19px;
+}
+.persion-right {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    float: left;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    width: 595px;
+}
+.persion-right2{
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    float: left;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    width: 890px;
+}
+.learn-process {
+    float: left;
+    width: 595px;
+}
+.learn-process-h3 {
+    background: rgb(243, 243, 243) none repeat scroll 0 0;
+    color: rgb(20, 146, 142);
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+}
+.learn-process-h3 span {
+    float: left;
+    margin-left: 15px;
+}
+.learn-process-wrap {
+    float: left;
+    margin-top: 15px;
+    width: 100%;
+}
+.learn-process-item {
+    border: 1px solid rgb(226, 226, 226);
+    float: left;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 563px;
+}
+.learn-process-item img.process-img {
+    float: left;
+    height: 124px;
+    width: 220px;
+}
+.learn-process-item .process-info-right {
+    color: rgb(68, 68, 68);
+    float: right;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 325px;
+}
+.learn-process-item .process-info-right p {
+    margin-top: 2px;
+}
+.learn-process-item .process-info-right p.p-content-subject {
+    font-size: 14px;
+    margin-top: 0;
+}
+.learn-process-item .process-info-right p.p-content-title {
+    margin-top: 5px;
+}
+.bpt-content {
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding: 0;
+    width: 595px;
+}
+.bpt-row .bpt-item-left {
+    width: 150px;
+}
+.bpt-row .bpt-item-right {
+    width: 400px;
+}
+.bpt-row-save .bpt-lnk-save {
+    margin-left: 170px;
+}
+.persion-right {
+    display: none;
+}
+.process-exam {
+    border: 0 none;
+    padding: 0;
+    width: 100%;
+}
+.process-exam .pln-list .pln-row .pln-row-center {
+    width: 245px;
+}
+.process-exam .pln-list .pln-row .pln-row-right {
+    width: 210px;
+}
+.process-exam .pln-filter p.p-type {
+    margin-left: 30px;
+}
+.process-study {
+    float: left;
+    margin-top: 15px;
+    width: 595px;
+}
+.process-study .lp-lnk {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    width: 253px;
+}
+#doimk {
+    display: none;
+}
+
+.box-text{
+
+}
+.box-resources{
+
+}
+.body{
+    width: 890px;
+    display: none;
+}
+
+</style>
