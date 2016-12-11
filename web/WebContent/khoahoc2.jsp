@@ -1,4 +1,6 @@
 
+<%@page import="controller.DoQuestionListServlet"%>
+<%@page import="model.Outline"%>
 <%@page import="model.Resources"%>
 <%@page import="javax.swing.text.Document"%>
 <%@page import="java.util.ArrayList"%>
@@ -51,65 +53,13 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-
-	<!-- <form name="form1" method="post" action="#" id="form1"
-		enctype="multipart/form-data"> -->
-		<div>
-			<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
-			<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT"
-				value=""> <input type="hidden" name="__LASTFOCUS"
-				id="__LASTFOCUS" value=""> <input type="hidden"
-				name="__VIEWSTATE" id="__VIEWSTATE"
-				value="Px/EFvpaVqzAmNY9+TQjXr8+EMWFqH8KJksFIQ6UirtG3a3jBvR48cqC3Y4NgZFFwMpgzL6/A69xehUdLx80BBmAqX1ysrb60w6bp5Js6wsY4PtokrIwMFNvxkBTQ5PNYKbml3em8TLtkNqiFO9roATWiijhwjGorEWbGQN+dVjbgCSgJ31di93+rTdKn9LTErMFkdzlc95cs+mbjeEz59GVj+EdYiNx1tSBa9g2/Mm7S6+Y/FPbUAAF1YHd8Wk/1Bo+FaRSiuVDy+J795lphWuIcta8yaQ3NHc6W9aEwObj4QC7LfpvOmCOXJTXweb3WyrlaRh/XhkFLe+WikxTSWcaXzn3ysK5lzitMSZlfLG06g+synb1nxD534+v+pKBim4qOqwElAnAk5lnnX5xJECb4VV6+CeFT/O6KcD309XawPwJ6ny7XiG8CHDOeSCEj+3y48Hb2j0AD9Riw2OxpDgsl3FFXkhl0JjI0FFNnpbACQNaUU7za9BJcrPjCgXyoXFLnDTxFkR2t+0T5YizLRy5vZ09nD/ugCMNG/pBOPH4S1eYW5zUoVBikd0LyvF/RBUis1/Co914dfp7Dctu9nqJLN6BZKtDQTwYi55mLgeg0fr24qIu61M69dxB+j7Y6hHvqNud7BuZDdqfeslJTQhq66Ngfjn1X4KxDrM7XEp8+5po6tSCo8fjGmdUn5ulQKpAqs50lRc+6YkcMUhNOXlaEg3WiNT/CZbMpd4ISR+/DwqGT5WhWlCUA0rXxK5RuqxfR44qFAM1tg7aaqt82caNmmx4faQpDkNbXB40co/jAd8n6QgEbSInHF7VrWUQG7sggwNaaAj4W2iz2cpbwP4vwHPm+572lKyA55/kuQ+ZQLf9Li72xgkxGdFCgBVeH2aDhFM/3Y3PQDi28JVfyXq8o9SvjQ00p0ilHFn5WOJav19BQVo7rh5OSC9JEB6xtgUcXeIWDM3yD8FtLC4rkZl9ZzW5jdUGVzJQNRJQ4WKJ7xJS01RvLxiy22tnB+l0mt7JXxx3tF60hN8Y64hIqeIHWsWF3WaMIr2OTSbaCg90NJJeDEtxjVMiNUXv8SR7EBe5L35NC28Z0bokxG+1uM93DqNLVWeaSM5qloJayGo22TAUB1U0DS+xB1q6LsEV9lMemt8f6gQGdysC0qe6Tg2io8qQJAXjHP/8kfUqQZlHWv+dNHz7vMFOxDPF9qQyYFJeVcDACipzo6i9phf04gMse0auwEYqiS/2nBWIvsHsVwmOIPeavwSP169CuFqRr5b1YRE1ZG2FYTSMGWUPLlVincz2b5/r1mI1yRX9BSdh+08hPWjigUwBv74UDtLA7w1nVZk/ftnH0cSwS90xnWn47jHu+hFcQ6iUeg2ceMa0OpAYxtSNpuBpmijUAX5ZYWth1//OnfNavYfwZ7SwWwE61NfEVH72JGiW6i65WiuazQR6rLXBgKEzX4GA9pQc49CU+TtvmAaJjPZNzOlA9fLHjaUP0XgoOTMLCUrq/mXGdBdGt1NhgkBog9uC+AX0QX18mBwr8chCMFmNYsuRyAUQ8yVesLhdAxIsBUiSF4qOvshXGWg0z1EKCEj/Te1V01SeVezdTA5XHIITQRyJEKc/+oho0B8AvlVoDfa+pB7TAkfmUTR2FRqaijtWAeHG9KCmNg3gNL/yTRAJhkQIjy+26C8se7vbqbyWrQWmmQ9Qn/ioKYTLyHgbBDPuuthMbogjUjPBO/iUY/iCSh8L0NReQOL2r8eNeTnialZBDvZxFhxfq2TYaMkiE0bd1wgistc1rCc7wZyk+2MmpVxbFYn26McN3Sh5YhLO8sxZyPrJmPUPBN8PUN47wOMdBnnOZvCKph3g8dILj2Tc0mfozBCmxSHdl2pS9fs/RAD3biEy5UXdrXeHIVtuAxxkv0HwON7V64j+62H1ENoronDPPmigQv2IvwmsZgeIiA2D+nUD8MnWWSGudySexjHduryT+mLnvINDH74pzXxz3NK0mPbbUINFIGfSA2W+ugktPaAh7D9l7U8CVKGwkrO+WO5z7hp19GkNZWZsxMeT9jLgs0fUacuqWE68ODVH/pNjzz2s6epdkvzcTNdmvaw0/XLOlH/P7xXhyTnHzLMNc6dS5Q0FOuher2mM+1bNMUpu8nYWfVELcvHPwuc5/UG79zKKiYUVCj65YJbRE4Pw5bu/anaebhi41jtGF8f93Tsk/JSeezhn5trp8HZ0+DCIkxrc08CiCCTl+l1P2O99Fgyav+sm6UQ7A199Xdftbp9kvbCRHvuFvNIu6wtnIqG9WZ0oQq5HgYe/dSQGNKorwosqiVOS0kSMkCk812Q52OrgszH4wRjn3InD9GV0q6kl3SXxG+lXBkaf6SC22CKdPnQmMYA3Axf5ZppbKgzkrKtvSFIinkm33S0oDjCyHYOEgpwg6G3PyVPGPjq4iZFG7AVggykWyUbQE+kebtIf9o4cPtD4OaHpoHsw/OO0fcVE0f1FJah5zGJhLTREebJeAZsMISOT7gENU1S5NHSlhjDyuS+Q3+GNqP8SLgGgRUvWsvJJhyBgARWpP3PhoVo/8n/BiSxnkOpUnVLEg2xNoY8Wf2cKlUpf4ae9zSp+cvwFLCs1DaU0hgUdd4gf5nqVb372T9YoOOzQfXf6aCp+zVLwsLinlQYNtlNbb/d40jnsAw/Ni/D3EhRs4FW1TpC/PzO+tWov6GJ6QgNgMR9Bmv2QRz3a//t2kAXaqwQHnofIbuagvVP4Glyn5CClf++qSisLD39SzKtnI5LJ2FdlOZYAh0l8ymeGr+Iuo8W6F3ibMqmFssdyzjfIPfmZu5mc1oGoOjuTm+PLgfj2yn+/GJinf6dRfDvj2DZEDL6IFSuqMvDfzB13l5x0CcvJjM8RRMojCOio9AaXKEueqQA9vdftNgX8BrkhO9qSbdpnYAhWUGWDfEwbufCqlt52yeSOh8HJrHOnp5dy9N8DDiO2cPMdAuxxJ0ftIQGCnJ34gF5GNlUnumEPgioX1e8HtneXUFzjy9/FO6jU5fbux7Vj/ObfD76TwIq01wsvHQbt1acKijDhdeG3hQGIyjg0VC1ziCDzxvCmvYzYffr4v03loQSxAXIHiv1D/qjhMdaQE9QluezhR+NO+0NTJChsAyWakpR/sudDOlxg0TtC69D77w3ij3Ca0WjZWpOXlGQ+gAlApsJSo3bwqWOAo5T1/p9SYAWV8AkvCBTvSqVR8URufeBIRg/WLV7fHxuc9blup6ktxHxc2vjZj0Sdnh+Jy/e5yP6r+0+w0wEe1iV15zqZupXMpXE6jb7ekZdxQFmXy9bspG/dzY+IppUSLFTl1kssq/2zAUhXT9/ToDk4wVte7bCfUPbGnEjy5ZRaZG5iXV0QL18eaAVB4RsKqXgWyIfaRZPzLWhZK7ws7jfOKg9Z3buw93crSkcoAbrbjfteb9AghjHMgi08nbF0YmEWYoXndwm8p7hBeg9M7AuzhdvdifuNeG6JvU8/DLE0UAXOdfW3vdUNtb056tusn2kJrpE20u5ftrVlEwD9LKwI2oIb83aSndJsMBGKM4mf1tEmXrdCv6fi2szNbpgK6KF5ssXFnjW+slEsWpFxDFm/fV/dvHh0pVSn6NLwxQa6rnD/0LMuGsLZrz3DTMQq/4GugIM7cnA0jL6xn0wJP9kpUq1gLmslK61wvfLLuWMcOvl+KWVdAg1Hi23smjvvbUBjOKGO5ELunFMjAbSKXVC3YUPN05KAraqSlWxSrviglOPABhujI3H7ZUL912l0pfp9WaRYZao68DUxBRcCUT5lB/YxotX5GPIbOZcFlgR3oUVw/neEpvwFjHVbqjQIIXOE6DzOJEmctuXF1ZcuzMK5c4t0L3oDmNe8WPAnQDGJuRhP5U4BbJpEXPXaTEbWIQgVNHhLzuNSJcj5D5L2YVZTNAs7O19Zo8dyh9tpY7cxMJj3UL1MtoD7I4NVbZL08So2JRk2/TOipQuS5+fkk0kPkKGiv6fMPjWNf+TRClQ0LtwhQXH0TgTeG5gKldesQmuXmvrqp06wGNn4k7kOjbL3FKbKsLg6tkxiHOZtipcZSAdzzmz0FOUo1Kbt8z0E5GFKaeAgMJ6tZzfDS9O34yRZLko32A36ZsoUiKhC//HMuScMy9fzIXpyu601KjYdoo7A80yZ8mnMK56uxaMG/mWypyeKECmrz1kBuOG4HakFkQr1THetVi9X6TwSAwL72Gyc3dx+aFPd77LX+HuuUK1EC35o+/koJLmv7JwhiCxaHlSmf2asmOZlP4n7GSfmfrLi4X7nmiiSbUQm/8DusSo3Cj+xKuvs1/lczYmO6oYmORjz/NdE4DF1GC/PghHiO9Uqlj+QM0UsqrlE4pCfEIbzae3kNzyUBfyQZ/dvU0/j2BSS7HX57sejBXzx8FyPIZDLVM+KBllE7eWflhnTalRtCzhqitpHahXtFoxoKg2KNsugIr4Mq0J4z4tXYS0Z5cHJ6thORvth0x7RzAjyZEmTqk/9R6DY3BVjnS91eOFr8hkj3unqWGZbs5fdVl7P3j7uv8d8CdajTdLm4DDlYKSzfMdyctp2dMNPFOtwUsRCL+ZT1B4cWeS1oRmjQCr7Jhfk1tRFFkBSb3LAm42g1yYM+rH8cBBcuOoIojw0uuVVh4ejIz3+ONLXfhDHew==">
-		</div>
-
-		<script type="text/javascript">
-			//<![CDATA[
-			var theForm = document.forms['form1'];
-			if (!theForm) {
-				theForm = document.form1;
-			}
-			function __doPostBack(eventTarget, eventArgument) {
-				if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-					theForm.__EVENTTARGET.value = eventTarget;
-					theForm.__EVENTARGUMENT.value = eventArgument;
-					theForm.submit();
-				}
-			}
-			//]]>
-		</script>
-
-
-		<script
-			src="/WebResource.axd?d=L1xj5Ylo1Zl1fvy-xvPpnGuNs3kIFO2KKp2xaFvogG-fMqmhH718MD6c-VZXW0ck9S1rBNVhOqjvCwj-v2L9yIfTKSg1&amp;t=634244902260000000"
-			type="text/javascript"></script>
-
-
-		<script
-			src="/ScriptResource.axd?d=5dqp5x42Fbor1p4SQKp1g8f4dMRVVerUgaYAhzZh_vK9-tYYhjG7By875uyuaBK7Rv7Z3mqeGx0_kEuqlsSeC1hFNGV9g55gaBykAjTxjHnvBQXErWY8yZUBwvgN9WxLh35rWm14XXUOX13RvY7Su6LXULM1&amp;t=fffffffff9d85fa6"
-			type="text/javascript"></script>
-		<script
-			src="/ScriptResource.axd?d=F7bvtnsMU-_pTaQdhlAOC0EMwhndSZAeIktgc938tio1MGg410TEN6SRrMONvNWiRapagwMC0LPO5T5qtFkWYwRoNaTU3irfJbIV6uLw900GcBMTKZ0pX_cueZD6TaJzTsBdTmw15iFyB4HqqkQmclULKXNnQcLDl-8cte2IzE3ZR_1r0&amp;t=fffffffff9d85fa6"
-			type="text/javascript"></script>
-		<div>
-
-			<input type="hidden" name="__VIEWSTATEENCRYPTED"
-				id="__VIEWSTATEENCRYPTED" value=""> <input type="hidden"
-				name="__EVENTVALIDATION" id="__EVENTVALIDATION"
-				value="6PvCLtEQEyCg+x4GzvdqwZu+Z8XZc1+nvd0JDNL7tbgIQzqBLB7aso9xsi8wHa/ob3itAAryG+kA/sbK68mwl48SL8nD39QR1TU4OAwFlU27mKZCfh9mPYTUAxaxIVdFydiuCHHSycdIdkFwBY4t021oNh1iXbDBXwMPxhHAtEpCSJftDrRR2VvFJBj8RRlroWbboJGUL/CeQ/kABu9paFdjAw05tTXeTPy3+WVbsOXvZDGvsKSgEOUciSyG+tkQaZyzZ1sq7bjUEXpdzqa19CRSjN0zgjxgMWJONJ33RWktsa4U9lfASw5xmKDhw7uG+aLOOiKosjF6D0QolWQvNCKEdKZq9VxZUzCdfmi6bLa17K1GB9OMn6naThpsNzKIBHwUfsqrzZG6mzB3vWwMd/WZEB/RdHDOhWJcI3shZqfZiq1TuV3/BeJARhXWSf3tjgjqKYRlYzZhb/bl0yIue5PIxEO8ERAIE0GSsyxlRL/x/2a5sZ8rJ+oaX+nymBd3OI5YlxPgRSWxnRK/cWHQA8Uz+e2eSe0GpljmaLbosLEOKcsvR54GBzIPq4zz6/tqlEKIK7b5/3Sh3yP96rttusrVkeAhOKI8/IAeHDHwL2y8uHeh065E9hirBHpim4p4nJKgAiii4dyxaXMK3TNNPN3y5KDPRkBFJPik772RQnpP4Eh5Eoup7UMhaNKh9NxAY/Iyx2/vUHU5Qle3XZJQZkSOZympijsjGwUeAbLJVGQ+dXJDE+Ch3GgGPM2eT2yjOQxshs5RIgSBdEdZqR2QxM7ZYZ6mevx3nFD0oUKFyouACnK0jvCqwnIwOBHZMW48Su6ilgKDcdvY2z4xvuxeFJkGm/3O7Cnp9CtXWTsrepYnXzjEpBPvKuMI1u5mxkhgAqOMp4AP4MBJfr/8GYG4G1Z4PfdX+TqRJsBsPYGWRPw797QpfPwZSN7FqLFbNLTnbgEgkqPif/wMU/TxW0TSjAdzSFON4ZzdxhMMIwLpPWOz91v20vWoDTF6SLg1x9LJq2TfAq3KP+zr07wztPNw6BbUt0FkP8fVzJQdODW+wcoW/fUD5ItmecBtGhoHiNnDDk3RqUCWhNiUU3g9rZcmKxOcHrjON9tpn7ijERe5sdE1KY5Vi6h+iZmguFK6VF6lhEzfqgpBXNBdElVQHP41Ov1Y5unhGGZqxPd2brahwS3aBY3ECJZ8s2eOMJ93VDM1/CzlplUKpmGfNoaNzn+x93h5LghtjRcWQxH1XbI9GEsNm4XSwR/cmW2oLrr/fuR/nT9+6NNNEb3nAhWJMD/E4ZxRVRH9sgCQl7G4z/S1GHN8yy8ZoGMbxu/aPzlYAnY1rQNTC0vBkqXQw/V2Wr5kGg/mZB9fgqEDyO0L4o6i5aYxCz9QkG8CEdPTMCofWWfX1C9lycyjQtUoBz8DZ1j0HvrBJc8pYIf47mhX5Bk53acUQTFIKKWXsS9Zr8CPPRo17vpzYT/7+jo6vkwvWP2S9Nt6KDmDNGba8tOFMyQx9dK9JkRLA9f1rpW7T9bq/Rer73i7rSTVCW4naM7VAq7NW5/+gG/v1PYzsWTZ7Im9qV94wuu4yG77enI7MMGNgz3+fgkVPOJYYzHeyG+I4kb2QDXCy4HgvY9eTUmr4JH2D9JMYL4vHbL7lRPTGqU3SpEzot8fOPAH1N/cPwoDTKTtCZq/30dIbpOphDNho069JTzbvhLoZHRhDGwH86qZfyo0STj0Iae4ZTI13Pcgwtinr0HLLa9h5hB3YacJAJ+YB81SL+lh+F5AOPmNt+kK3rG2g9cL+XXVYRQN2seaP5/Vt3nF624OfWzlCEdq5+N+rslwV9Fc9gdSYkOmPCIwQD4OPqf6fayJ7D3z6DuHm3MO24t+yOXcLF1j2/wqRw5zpoxeDKp7">
-		</div>
-		<script type="text/javascript">
-			//<![CDATA[
-			Sys.WebForms.PageRequestManager._initialize('ScriptManager1',
-					document.getElementById('form1'));
-			Sys.WebForms.PageRequestManager.getInstance()._updateControls(
-					[ 'tHeader$Widget$GopY$pnGopY', 'tlogin$pnLogin',
-							'tctl14$LoadUser$upUserLoad',
-							'tctl14$TienTrinhThi$upThi',
-							'tctl14$DoiMatKhau$upDoiMK',
-							'tctl14$ThongTinHocVien$pnInfo' ], [], [], 90);
-			//]]>
-		</script>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 
 		<div id="overlay-header">
 			<div id="overlay-left"></div>
@@ -123,26 +73,6 @@
 
 
 
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('.show-popup').click(function() {
-						if (!$(this).hasClass('active')) {
-							$('.vt-gadget').hide();
-							$('.vts-gadget-lnk').removeClass('active');
-						}
-						$(this).parent().find('.vt-gadget').slideToggle();
-						$(this).toggleClass('active');
-					});
-					$('.vt-gadget-close').click(function() {
-						$('.vt-gadget').hide();
-						$('.vts-gadget-lnk').removeClass('active');
-					})
-					$('.vt-gadget-close').click();
-				})
-			</script>
-			
-
-
 			<%@ include file="//includes/header.jsp" %>
 			<%@ include file="//includes/message.jsp" %>
 			<%
@@ -154,6 +84,7 @@
 			QuestionRadioDAO questionDAO = new QuestionRadioDAO();	
 			Quiz_UserDAO quiz_userDAO = new Quiz_UserDAO();
 			Course course = new Course();
+			Outline outline = new Outline();
 			String 	course_id="";
 			User_info teacher = new User_info();
 			List<User_info> liststudent = new  ArrayList<User_info>();
@@ -174,6 +105,7 @@
 				listquiz_user = quiz_userDAO.getListQuiz_User(Long.parseLong(course_id));
 				listresources = courseDAO.getListResourcesCourse(Long.parseLong(course_id));
 				teacher = courseDAO.getteacher(Long.parseLong(course_id));
+				outline = courseDAO.getOutline(Long.parseLong(course_id));
 			}
 			Section tempsection = new Section();
 		%>
@@ -187,159 +119,29 @@
 			String JSONResources = JSONArray.toJSONString(listresources);
 			List<Course> listcourse = courseDAO.getListCourse(user_info.getId());
 				String JSONResult = JSONArray.toJSONString(listcourse);
-
+			String sobaitap="";
 		%>
 
 				
 			
 		
 
-		<script type="text/javascript">
-			function clickButton(e, buttonid) {
-				var evt = e ? e : window.event;
-				var bt = document.getElementById(buttonid);
-
-				if (bt) {
-					if (evt.keyCode == 13) {
-						bt.click();
-						return false;
-					}
-				}
-			}
-		</script>
-
-		<script type="text/javascript">
-			function open_keeng() {
-				window.open("http://keeng.vn")
-			}
-			function open_tiin() {
-				window.open("http://tiin.vn")
-			}
-			function open_tinngan() {
-				window.open("http://tinngan.vn")
-			}
-
-			function open_link(url) {
-				window.open(url)
-			}
-
-			
-		</script>
-
-		<script type="text/javascript">
-			$('.menu_active').parent().css('background', '#00b7b2');
-		</script>
-
-
-
-		<script type="text/javascript"
-			src="js/search.js"></script>
-
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push([ '_setAccount', 'UA-39998057-1' ]);
-			_gaq.push([ '_setDomainName', 'viettelstudy.vn' ]);
-			_gaq.push([ '_trackPageview' ]);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-						: 'http://www')
-						+ '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-		</script>
-
-		<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 960383489;
-			var google_custom_params = window.google_tag_params;
-			var google_remarketing_only = true;
-			/* ]]> */
-		</script>
-
-		<script type="text/javascript"
-			src="//www.googleadservices.com/pagead/conversion.js">
-			
-		</script>
-		<iframe name="google_conversion_frame" title="Google conversion frame"
-			width="300" height="13"
-			src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?random=1475390474186&amp;cv=8&amp;fst=1475390474186&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=420&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A%2F%2Fviettelstudy.vn%2Fcanhan.html&amp;ref=http%3A%2F%2Fviettelstudy.vn%2Findex.html&amp;tiba=Trang%20ti%E1%BA%BFn%20tr%C3%ACnh%20thi%20-%20ViettelStudy"
-			frameborder="0" marginwidth="0" marginheight="0" vspace="0"
-			hspace="0" allowtransparency="true" scrolling="no"></iframe>
-
-		<noscript>&lt;div style="display: inline;"&gt; &lt;img
-			height="1" width="1" style="border-style: none;" alt=""
-			src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/960383489/?value=0&amp;amp;guid=ON&amp;amp;script=0"
-			/&gt; &lt;/div&gt;</noscript>
-		<!-- Facebook Pixel Code -->
-
-		<script>
-			!function(f, b, e, v, n, t, s) {
-				if (f.fbq)
-					return;
-				n = f.fbq = function() {
-					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue
-							.push(arguments)
-				};
-				if (!f._fbq)
-					f._fbq = n;
-				n.push = n;
-				n.loaded = !0;
-				n.version = '2.0';
-				n.queue = [];
-				t = b.createElement(e);
-				t.async = !0;
-				t.src = v;
-				s = b.getElementsByTagName(e)[0];
-				s.parentNode.insertBefore(t, s)
-			}(window, document, 'script',
-					'//connect.facebook.net/en_US/fbevents.js');
-
-			fbq('init', '362635017276287');
-			fbq('track', "PageView");
-		</script>
-
-		<noscript>&lt;img height="1" width="1" style="display:
-			none"
-			src="https://www.facebook.com/tr?id=362635017276287&amp;ev=PageView&amp;noscript=1"
-			/&gt;</noscript>
-		<!-- End Facebook Pixel Code -->
-
-
-
 		<!--end-header-->
 		<div id="body">
 			<!--Alert-->
+		<div class="study-notice">
+
+    <span class="sne-sp">Thông báo: </span>
+    
+        
+        <a id="alert_likAlert" class="sne-lnk" href=""></a>
+    
+
+</div>
+		
 
 
 
-
-
-
-			<script>
-				$(document).ready(function() {
-					$('.persion-tab-lnk').click(function() {
-						try {
-
-							var id_tab = $(this).attr('name');
-							if ($(this).hasClass('active')) {
-
-							} else {
-								$('.persion-tab-lnk').removeClass('active');
-								$('.persion-right').hide();
-								$(this).addClass('active');
-								$('#' + id_tab).fadeIn("slow");
-							}
-						} catch (err) {
-						}
-
-					});
-				});
-			</script>
 			<style>
 .persion-group {
 	background: rgb(255, 255, 255) none repeat scroll 0 0;
@@ -669,7 +471,7 @@
 												<%
 												for (Exercise ex : exerciseDAO.getListExercise(s.getSection_id())) {
 												%>
-												<p style="margin-left: 25px">
+												<p id="exercise<%=ex.getExercise_id() %>" style="margin-left: 25px">
 													<a class ="under" href="Chi-Tiet-Bai-Tap.jsp?course_id=<%=course_id%>&section_id=<%=ex.getSection_id() %>&exercise_id=<%=ex.getExercise_id()%>">
 													<img src="Images/icon_news_01.png">
 													<%=ex.getExercise_name()%></a>
@@ -683,7 +485,7 @@
 													}
 													for (Quiz q : questionDAO.getListQuiz(s.getSection_id())) {
 												%>
-												<p style="margin-left: 20px">
+												<p id="quiz<%=q.getId() %>" style="margin-left: 20px">
 													<a class ="under" href="LamBaiThi.jsp?quiz_id=<%=q.getId() %>">
 													<img src="Images/quiz.png">
 													<%=q.getQuiz_name()%></a>
@@ -698,7 +500,7 @@
 													}
 													for (Resources src : courseDAO.getListResources(s.getSection_id())) {
 												%>
-														<p style="margin-left: 20px">
+														<p id="resources<%=src.getResources_id() %>" style="margin-left: 20px">
 															<a class ="under instance-color" href="upload/<%=src.getResources_name()%>">
 															<img src="Images/<%=src.getResources_type() %>.png">
 															<%=src.getResources_name()%></a>
@@ -712,11 +514,11 @@
 													}
 													for (Url u : sectionDAO.getListUrl(s.getSection_id())) {
 												%>
-																<p style="margin-left: 20px">
+																<p id="url<%=u.getUrl_id() %>" style="margin-left: 20px">
 																	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=u.getUrl_name() %>" frameborder="0" allowfullscreen></iframe>
 																	
 																	<span class="edit" style="display: none">
-																		<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=u.getUrl_id()%>,'resources')">Xóa</a>
+																		<a style="color:#CC0000;" class="under" onclick="xoaclick(<%=u.getUrl_id()%>,'url')">Xóa</a>
 																		
 																	</span>
 																</p>
@@ -744,6 +546,7 @@
 										        $('#currentsectionid').val(sectionid);
 										        $('#sectionid').val(sectionid);
 										        $('#sectionidurl').val(sectionid);
+										        $('#sectionidoutline').val(sectionid);
 										    }
 										    function downloadclick(filename)
 										    {
@@ -758,25 +561,72 @@
 										    	{
 										    		if (confirm("Chắc chắn xóa bài tập. Đồng ý?") == true) {
 										    			$.post('ExerciseServlet', {'command':"delete",'exercise_id':id}, function (data) {
-															if(data=="Xóa bài tập không thành công!")
+															if(data=="Xóa bài tập thành công!")
 																{
-																	$('#errorkh').html(data);
+																	$('#exercise'+id).empty();
 																}
 															else
-																window.location.reload();
+																alert(data);
 															},'text');
 										    		} else {}
 										    	}
 										    	if(type=="quiz")
 										    	{
+										    		var check="";
 										    		if (confirm("Chắc chắn xóa bài test. Đồng ý?") == true) {
-										    			$.post('SetListQuestionServlet', {'command':"delete",'quiz_id':id}, function (data) {
-										    				if(data=="Xóa bài test không thành công!")
-															{
-																$('#errorkh').html(data);
+										    			$.post('SetListQuestionServlet', {'command':"checkquestionresult",'quiz_id':id}, function (data) {
+										    				check=data;
+										    				if(data=="true")
+										    				{
+										    					if (confirm("ĐÃ CÓ CÁC BÀI THI CỦA HỌC VIÊN. CHẮC CHẮN XÓA . Đồng ý?") == true) {
+													    			$.post('SetListQuestionServlet', {'command':"delete",'quiz_id':id}, function (data) {
+													    				if(data=="Xóa bài test thành công!")
+													    				{
+																			$('#quiz'+id).empty();
+																		}
+																		else
+																			alert(data);
+																		},'text');
+														    	} 
+										    				}
+										    				else
+										    				{
+										    					$.post('SetListQuestionServlet', {'command':"delete",'quiz_id':id}, function (data) {
+												    				if(data=="Xóa bài test thành công!")
+												    				{
+																		$('#quiz'+id).empty();
+																	}
+																	else
+																		alert(data);
+																	},'text');
+										    				}
+														},'text');
+										    		}
+											    }
+										    	if(type=="resources")
+										    	{
+										    		if (confirm("Chắc chắn xóa file. Đồng ý?") == true) {
+										    			$.post('SectionServlet', {'command':"deleteresources",'resources_id':id}, function (data) {
+										    				if(data=="Xóa file thành công!")
+										    				{
+																$('#resources'+id).empty();
 															}
 														else
-															window.location.reload();
+															alert(data);
+														},'text');
+										    		} else {}
+										    	}
+										    	if(type=="url")
+										    	{
+										    		if (confirm("Chắc chắn xóa Video. Đồng ý?") == true) {
+										    			$.post('UrlServlet', {'command':"delete",'url_id':id}, function (data) {
+										    				if(data=="Success!")
+															{
+																$('#url'+id).empty();
+															}
+														else
+															alert(data);
+															
 														},'text');
 										    		} else {}
 										    	}
@@ -1219,7 +1069,7 @@
 							<div class="bpc-row">
 								<a class="choose-style" name="File"><span>File</span></a>
 							</div>
-
+							
 							<div class="bpc-row">
 								<a class="choose-style" name="URL"><span>URL</span></a>
 							</div>
@@ -1227,7 +1077,12 @@
 								<a class="choose-style" name="TracNghiem"><span>Thi
 										trắc nghiệm</span></a>
 							</div>
+							<div class="bpc-row">
+								<a class="choose-style" name="Outline"><span>Up đề cương</span></a>
+							</div>
+							
 						</div>
+						
 						<div class="add-source-right" id="BaiTap" style="display: block">
 							<div class="bpc-row">
 								<span class="sp-text">Thêm bài tập</span>
@@ -1243,37 +1098,8 @@
 								
 							</div>
 						</div>
-						<form action="UploadServlet" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="command" value="file">
-						<input type="hidden" name="sectionid" value="" id = "sectionid">
-						<input type="hidden" name="courseid" value="<%=course_id %>" id = "courseid">
-						<div class="add-source-right" id="File">
-							<div class="bpc-row">
-								<span class="sp-text">Chọn file đính kèm</span>
-							</div>
-							<div class="bpc-row">
-								<span class="sp-text"><input name="ctl14$ThongTinHocVien$UserImage1" type="file"
-									id="ctl14_ThongTinHocVien_UserImage1" class="file"
-									style="width: 210px">
-								<p class="bpt-note-img">
-									<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
-								</p>
-							</div>
-							<div class="add-footer">
-
-								<input type="submit" name="login$btnDangNhap" value="Add"
-									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
-									class="bpt-lnk-save btn-add">
-								<!--<script type="text/javascript">
-                           function btnDangNhap_OnClientClick() {
-                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
-                                return true;
-                            }
-                        </script>-->
-
-							</div>
-						</div>
-						</form>
+						
+						
 						<div class="add-source-right" id="URL">
 							<div class="bpc-row">
 								<span class="sp-text">Thêm URL</span>
@@ -1316,6 +1142,72 @@
 								
 							</div>
 						</div>
+						<form action="UploadServlet" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="command" value="file">
+						<input type="hidden" name="sectionidoutline" value="" id = "sectionidoutline">
+						<input type="hidden" name="courseid" value="<%=course_id %>" id = "courseid">
+						<div class="add-source-right" id="File">
+							<div class="bpc-row">
+								<span class="sp-text">Chọn file đính kèm</span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-text"><input name="ctl14$ThongTinHocVien$UserImage1" type="file"
+									id="ctl14_ThongTinHocVien_UserImage1" class="file"
+									style="width: 210px">
+								<p class="bpt-note-img">
+									<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+								</p>
+							</div>
+							<div class="add-footer">
+
+								<input type="submit" name="login$btnDangNhap" value="Add"
+									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
+									class="bpt-lnk-save btn-add">
+								<!--<script type="text/javascript">
+                           function btnDangNhap_OnClientClick() {
+                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
+                                return true;
+                            }
+                        </script>-->
+
+							</div>
+						</div>
+						</form>
+						<form action="UploadServlet" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="command" value="outline">
+						<input type="hidden" name="sectionid" value="" id = "sectionid">
+						<input type="hidden" name="courseid" value="<%=course_id %>" id = "courseid">
+						<div class="add-source-right" id="Outline" style="margin-top: -8px;">
+							<div class="bpc-row">
+								<span class="sp-text">Đề cương môn học:<a class="under instance-color" href="upload/<%=outline.getOutline()%>">
+															<img src="Images/<%=outline.getType() %>.png"><%=outline.getOutline() %></a></span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-text">Chọn file đính kèm</span>
+							</div>
+							<div class="bpc-row">
+								<span class="sp-text"><input name="ctl14$ThongTinHocVien$UserImage1" type="file"
+									id="ctl14_ThongTinHocVien_UserImage1" class="file"
+									style="width: 210px">
+								<p class="bpt-note-img">
+									<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
+								</p>
+							</div>
+							<div class="add-footer">
+
+								<input type="submit" name="login$btnDangNhap" value="Add"
+									onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap"
+									class="bpt-lnk-save btn-add">
+								<!--<script type="text/javascript">
+                           function btnDangNhap_OnClientClick() {
+                                document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
+                                return true;
+                            }
+                        </script>-->
+
+							</div>
+						</div>
+						</form>
 					</div>
 
 				</div>
@@ -1620,13 +1512,6 @@
 					
 				</script>
 				<script type="text/javascript">
-				function clicksearmousedown()
-				{
-					/* $('#suggestions').hide(function(){
-						alert('ádsad');
-					}); */
-					
-				}
 				function clicksearchoverlay(type,id)
 				{
 					$('#suggestions').hide();
@@ -1646,6 +1531,8 @@
 		<script type="text/javascript">
 		
 		$('#search').keyup(function (){
+			var quyen = '<%=user_info.getQuyen()%>';
+			var iduser = '<%=user_info.getId()%>';
 			/* học viên */
 			var hocvienjs = <%=JSONUser_info%>;
 	        var Searchhocvien = function (strhocvien) {
@@ -1717,7 +1604,7 @@
 	                	||unsignString(trim(exercise_userjs[i].timesubmit)).search(strexercise_user)!=-1
 	                	||unsignString(trim(exercise_userjs[i].section_name)).search(strexercise_user)!=-1)
 	                {
-	                	result.push(exercise_userjs[i]);
+	                		result.push(exercise_userjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1726,7 +1613,7 @@
 	        };
 	        var listexercise_user= Searchexercise_user($('#search').val());
 	        
-	        /* exercise_user */
+	        /* quiz_user */
 			var quiz_userjs = <%=JSONQuiz_User%>;
 	        var Searchquiz_user = function (strquiz_user) {
 	        	strquiz_user = unsignString(trim(strquiz_user));
@@ -1739,7 +1626,7 @@
 	                	||unsignString(trim(quiz_userjs[i].timesubmit)).search(strquiz_user)!=-1
 	                	||unsignString(trim(quiz_userjs[i].section_name)).search(strquiz_user)!=-1)
 	                {
-	                	result.push(quiz_userjs[i]);
+	                		result.push(quiz_userjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1757,7 +1644,7 @@
 	            for (i = 0; resourcesjs.length > i; i += 1) {
 	                if (unsignString(trim(resourcesjs[i].resources_name)).search(strresources)!=-1 )
 	                {
-	                	result.push(resourcesjs[i]);
+	                		result.push(resourcesjs[i]);
 	                }
 	            }
 	            if(result)
@@ -1773,7 +1660,7 @@
 	        	  var hasResult = false;
 	        	  resHtml += '<ul> '
 	                  + '<li><a class="search-title"> Tìm kiếm với <span>"' + $('#search').val() + '"</span></a></li>';
-	                  if (listhocvien.length > 1) {
+	                  if (listhocvien.length > 1 && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Học Viên</h3>'
@@ -1809,7 +1696,7 @@
 	                      resHtml += '</ul></li>';
 	                  }
 	                  
-	                  if (listexercise_user.length > 1) {
+	                  if (listexercise_user.length > 1  && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Bài tập đã submit</h3>'
@@ -1820,7 +1707,7 @@
 	                      resHtml += '</ul></li>';
 	                  }
 	                  
-	                  if (listquiz_user.length > 1) {
+	                  if (listquiz_user.length > 1  && quyen!="2") {
 	                      hasResult = true;
 	                      resHtml += '<li class="item-sugg item-sugg1">'
 	                    + '<h3>Bài Thi trắc nghiệm đã submit</h3>'
@@ -1922,152 +1809,12 @@
 
 		</div>
 		<!--end-wrapper-->
-		<div style="width: 392px; display: none;" id="overlay-test">
-			<a class="close"></a>
-			<div class="box-popup" id="box_popup"></div>
-		</div>
+
+		
+
+		
 
 
-		<div style="width: 392px; display: none" id="overlay-login">
-			<style type="text/css">
-.sp-remember {
-	float: left;
-	width: 125px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.sp-remember input {
-	margin-right: 5px;
-}
-
-.LBD_CaptchaDiv {
-	display: inline;
-}
-</style>
-			<div class="box-popup">
-				<a class="popup-close">X </a>
-				<h3 class="bp-title">Đăng nhập</h3>
-			</div>
-		</div>
-
-		<script type="text/javascript">
-			function refreshCaptcha(capchaid, capchlength) {
-
-				$('.capcha').attr(
-						'src',
-						'./uControls/Capcha/capchaImage.aspx' + '?id='
-								+ capchaid + '&len=' + capchlength + '&r='
-								+ Math.random());
-			}
-
-			function clickButton(e, buttonid) {
-				var evt = e ? e : window.event;
-				var bt = document.getElementById(buttonid);
-
-				if (bt) {
-					if (evt.keyCode == 13) {
-						bt.click();
-						return false;
-					}
-				}
-			}
-		</script>
-
-
-		<script type="text/javascript">
-			function setCookie(name, value, expires, path, domain, secure) {
-				var curCookie = name
-						+ "="
-						+ encodeURI(value)
-						+ ((expires) ? "; expires=" + expires.toGMTString()
-								: "") + ((path) ? "; path=" + path : "")
-						+ ((domain) ? "; domain=" + domain : "")
-						+ ((secure) ? "; secure" : "");
-				document.cookie = curCookie;
-			}
-
-			function ckv_user(vl) {
-				var cookieName = 'v_user';
-				var today = new Date();
-				var tomorrow = new Date();
-				tomorrow.setDate(today.getHours + 3);
-				setCookie(cookieName, vl, tomorrow, '/', '', '');
-			}
-
-			function ck_cou(vl) {
-				var cookieName = 'cou';
-				var today = new Date();
-				var tomorrow = new Date();
-				tomorrow.setDate(today.getHours + 3);
-				setCookie(cookieName, vl, tomorrow, '/', '', '');
-			}
-		</script>
-
-
-
-
-
-
-
-
-
-		<script type="text/javascript">
-			//<![CDATA[
-			Sys.Application.initialize();
-			Sys.Application.add_init(function() {
-				$create(Sys.UI._UpdateProgress, {
-					"associatedUpdatePanelId" : "Header_Widget_GopY_pnGopY",
-					"displayAfter" : 500,
-					"dynamicLayout" : true
-				}, null, null, $get("Header_Widget_GopY_UpdateProgress1"));
-			});
-			Sys.Application.add_init(function() {
-				$create(Sys.UI._UpdateProgress, {
-					"associatedUpdatePanelId" : "ctl14_TienTrinhThi_upThi",
-					"displayAfter" : 500,
-					"dynamicLayout" : true
-				}, null, null, $get("ctl14_TienTrinhThi_UpdateProgress1"));
-			});
-			Sys.Application.add_init(function() {
-				$create(Sys.UI._UpdateProgress, {
-					"associatedUpdatePanelId" : "ctl14_DoiMatKhau_upDoiMK",
-					"displayAfter" : 500,
-					"dynamicLayout" : true
-				}, null, null, $get("ctl14_DoiMatKhau_UpdateProgress1"));
-			});
-			Sys.Application.add_init(function() {
-				$create(Sys.UI._UpdateProgress, {
-					"associatedUpdatePanelId" : "login_pnLogin",
-					"displayAfter" : 500,
-					"dynamicLayout" : true
-				}, null, null, $get("login_UpdateProgress1"));
-			});
-			//]]>
-		</script>
-	<!-- </form> -->
-
-
-
-
-
-
-	<script type="text/javascript">
-		function EnterKeyPress(id, e) {
-			if (window.event) {
-				e = window.event;
-			}
-			if (e.keyCode == 13 || e.keyCode == 121) {
-				document.getElementById(id).click();
-			}
-		}
-	</script>
-
-
-
-
-
-
-
+<%} %>
 </body>
 </html>

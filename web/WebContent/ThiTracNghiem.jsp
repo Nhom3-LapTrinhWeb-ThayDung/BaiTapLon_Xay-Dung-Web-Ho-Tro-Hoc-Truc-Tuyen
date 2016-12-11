@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/support_face.css" type="text/css">
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
-<title>BÀI TEST IQ SỐ 1</title>
+<title>Trắc Nghiệm Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
@@ -27,6 +27,20 @@
 </head>
 
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
+<div id="overlay-header">
+        <div id="overlay-left">
+        </div>
+        <div id="overlay-right">
+        </div>
+    </div>
+    <div id="wrapper">
 		<style type="text/css">
 .p-login .infor-forget {
 	top: 55px;
@@ -46,6 +60,7 @@
 </style>
 
 		<%@ include file="//includes/header.jsp" %>
+		<%@ include file="//includes/message.jsp" %>
 		<%
 		Quiz quiz = new Quiz();
 		QuestionRadioDAO quizDAO = new QuestionRadioDAO();
@@ -63,7 +78,7 @@
 			<div id="body">
 <form method="post" action="DoQuestionListServlet" id ="form1">
 				<div class="box-multiChoice">
-					<h2 class="bm-title">BÀI TEST IQ</h2>
+					<h2 class="bm-title"><%=quiz.getQuiz_name() %></h2>
 					<c:if test="${errorStr != null }">
 						<p style="color: red; font-style: italic;">${errorStr }</p>
 					</c:if>
@@ -131,15 +146,7 @@
 					</div>
 
 					<!-- Tạo nút để nộp bài -->
-					<%-- <div class="bpc-row" style="margin-top: 0px;">
-                        <span class="sp-right" style="text-align: center">
-                        
-                            <input style="margin-left: 375px;" type="submit" name="login$btnDangNhap" value="Nộp Bài" id="ctl15_btn" class="bpt-lnk-save btn-login"/>
-                        	<input type="hidden" name="command" value="nopbai">
-                        	<input type="hidden"
-								name="quiz_id" value="<%=quiz.getId()%>">
-                        </span>
-                        </div> --%>
+
 					<div id="ctl15_pnStart">
 				<!-- nút nộp bài -->
             <div class="bm-test-again">
@@ -203,23 +210,6 @@
 				</div>
 
 
-				<script type="text/javascript">
-					Sys.WebForms.PageRequestManager.getInstance()
-							.add_beginRequest(startRequest);
-					Sys.WebForms.PageRequestManager.getInstance()
-							.add_endRequest(endRequest);
-
-					function startRequest(sender, e) {
-						//disable button during the AJAX call
-						document.getElementById('ctl15_btnNopBai').disabled = true;
-						document.getElementById('ctl15_btnNopBai').value = 'Waiting...';
-					}
-					function endRequest(sender, e) {
-						//re-enable button once the AJAX call has completed
-						document.getElementById('ctl15_btnNopBai').disabled = false;
-						document.getElementById('ctl15_btnNopBai').value = 'Nộp bài';
-					}
-				</script>
 				<!-- 60 request một lần -->
 				<script type="text/javascript">
 					$(function() {
@@ -311,6 +301,7 @@
 
 		</div>
 
+
 		<style>
 .footer-menu-new span {
 	color: #ffffff;
@@ -323,24 +314,22 @@
 	margin-right: 20px;
 }
 </style>
-		<div style="width: 392px; display: none" id="overlay-login">
-			<style type="text/css">
-.sp-remember {
-	float: left;
-	width: 125px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+
+
+
+	<style>
+.footer-menu-new span {
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 37px;
 }
 
-.sp-remember input {
-	margin-right: 5px;
-}
-
-.LBD_CaptchaDiv {
-	display: inline;
+.title {
+	font-weight: bold;
+	margin-right: 20px;
 }
 </style>
-			<style>
+	<style>
 .regis-info, .sp-forget-pass {
 	position: relative;
 	display: inline-block;
@@ -380,9 +369,14 @@
 	display: block;
 }
 </style>
+<!--end-footer-->
+		<div id="overlay-footer">
+			<div id="overlay-footer-left"></div>
+			<div id="overlay-footer-right"></div>
 		</div>
-		</div>
+		<!--end-overlay-footer-->
+	</div>
+	<!--end-wrapper-->
+	<%} %>
 </body>
 </html>
-
-

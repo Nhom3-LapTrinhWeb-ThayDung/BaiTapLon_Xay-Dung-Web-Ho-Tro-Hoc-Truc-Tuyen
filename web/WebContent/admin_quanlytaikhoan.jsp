@@ -1,28 +1,9 @@
-<%@page import="model.Infotaikhoan"%>
-<%@page import="dao.UsersDAO"%>
-<%@page import="model.Resources"%>
-<%@page import="javax.swing.text.Document"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@page import="model.Users"%> --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@page import="dao.CourseDAO"%>
-<%@page import="model.Section"%>
-<%@page import="dao.SectionDAO"%>
-<%@page import="model.Course"%>
-<%@page import="dao.ExerciseDAO"%>
-<%@page import="model.Exercise"%>
-<%@page import="model.Quiz"%>
-<%@page import="model.User_info"%>
-<%@page import="dao.QuestionRadioDAO"%>
-<%@page import="dao.Exercise_UserDAO"%>
-<%@page import="model.Exercise_User"%>
-<%@page import="model.Url"%>
-<%@page import="dao.Quiz_UserDAO"%>
-<%@page import="model.Quiz_User"%>
-<%@page import="dao.User_infoDAO"%>
-<%@page import="model.Infotaikhoan"%>
+
 <!-- saved from url=(0034)http://viettelstudy.vn/canhan.html -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -53,6 +34,7 @@
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+
 <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -100,9 +82,6 @@ function __doPostBack(eventTarget, eventArgument) {
  <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="PbDLkFona/jUPuTFfvn7x5wDdmIXfnAABuj6o46h1bZCZ34cuyriSSrG73VCffpyp4GncxtYD4XjhyVDi85UC8YfsST4ZVl7VWGwtg0zieDGD6dk661H2q/l1c0FFBf7xb/MXoQurtA3wsYhAZomn5s5B5ieMUuz1YH76v5tDmqtF6nY4oW/MTZmzgeZqHOwijw3ubnOnWFnjXvFQC3RUyTRDyWuXAlXt4KPhb2wFb+9uFPmtPMnbXtv0uZPCSJwPR97LOuyMMlviiC0fsSu+Av9pwThSnJ9ZPMz70hgC5Yl1JAr0a7G/yf2jfYnmFHI1zhlfJRC8kTI53uQw8/d7STx28OLr3cAjxjmdIUEin6Rx2srP0OGJDHdwNrKa4yaWv4+655nGahulu7M94Oua7HPVfIqDgXCYt227RwMhsK+o3f1Nt3GEphpchStdLvCC2Dk3oHJYonV1Zpxt2TEC9sKGbqoAD58ZpptnbDhwfoMPU0bAWPQXZ+Btsn3p/4TCNNtpTxo19ZOSO9/p+hCNYeSUVPI/5uHR9WfZbNwxLJxvyD22MIypQ/GaoP6P7m0SUvxoEybkgt7qpIKHtlvxQRmYVsdx8xvdeqljyksR2sSKmOTqbtRIVMJTUqOPNcMm2XWUi65W0p3DBOVFWssETFEiF3/ChPfTJr/rsO5qTOdBSqWyw93GDU2aPAbq59ZhorReuwZPTsS1Anwcr7/+temHtxMjXemmOHzNypxrz6/3W1Vl9FcV8tHEx1WsEu6soCnTJ430YV257ZSK1CuH0iS7C3214Rp9HrCSttkzrlBQE6I2kfR6aP5p1k3JUsznqide0UCqYlM7b4KoNDY6YYG3mp6DkCc8pTIPxZDq7hfmJcX/PQxyKeoZN8U6e6d0Wok/84nb1CAYATWuLydqCjh8fERiWRDMwTKDEXc4Pu+DlqRPejQgMWjAE4M5NMSAukBPKGFzKkY8bilmIHsaAduwtbvSL+FYm90vDvugzan3/bSG/Qg+qSutDsAsMVhZJR0ZH0eeZI8dfdPF374qY/N2MXrtDNS1UC/IufRc/2TFEVh1ib39620DQD1paW93rbANH/Omq6o49aC6iv8ElOyoG8zQLldbNaxNy+/aCAGMSZ0s2r67qJCBmZHChBEy+poUhDyz44DdyH0rrlCUNlQqUlulpKMHnqvcepv1aMlwYHWnMUgc9OfXPJsObvAJHD8o3gDdt8/jv6VOiTeheCvFs/Cd7U3OTGYW/QnNC5XsY29wH5byZ2UgNxUdemoJBdnSsRkFAe9+SG598Bmhgs0xu8AEbb0zpqkWbd7FbDRDxO1O1ye+8xN9OYBwZErrQFiYPmXfT3gLrYoCEkcBnpLJc1drgqc5hcTYpWAHMKiXfk9BOOnjRtxSIOeKIid+06xJDrSEIh1lE/nuBN6bgFYh5lrmzI0gzz+UC45cBYyaFL1G9ASJQYq7wKU+Lmk1fZ/x/3wM4DrTFbHa2OB7l5NGzPAIGLkZgnQsUdv93vrkQOIt78Knxn5i8Wv3yEHXAHCuJAReSTlWk6+afvUQQ0HD8RhxekaGM3VoIRssb4dTrkNFMtLhGs1NgobJVDmAGsPl3e/QrqOWho2nDpH7qmfGUibS1khzfqmrf8Ni72jSu3Afwgbo6wRU8+9gLHaiaCXfSx+DOsiIqafGbJt8xJwrxVkY78CrrZsXFFvkjinQuDJ1FefC7CKbTHWYh2UI+ltBGsuKach+BLySlFeAGy0MlV+dQJF2u502QSvQfKcYL7inAseSOAg4hyXkINgM0idOF+9pAlL5yPpR3wuh3k2Em2mA16G14xEAJqyR+pPXREC2JFjFP184qQdxPujk+FYJR5TEnQJtpwemAn8evOTuau+zeD+gKeZNvP8GBLATRpd">
 -->
 </div>
-
-
-
  <script type="text/javascript">
 //<![CDATA[
 Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
@@ -138,20 +117,173 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
             $('.vt-gadget-close').click();
         })
     </script>
- 
-<%@include file="//includes/headerad.jsp" %>
-<%@include file="//includes/message.jsp" %>
+    
+<div class="vts-gadget">     
+     <div class="vts-gadget-item vts-gadget-comment">
+<div class="vt-gadget gadget-comment" style="display: none;">
+      <span class="vt-gadget-more">
+          
+        </span>
+      <h3 class="vt-gadget-title">
+            <span class="vt-gadget-sp">
+                  TIN NHẮN
+                </span>
+                <a class="vt-gadget-close">
+                  X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <div id="Header_Widget_GopY_pnGopY">
+  
+            <div class="vt-gadget-div-form">
+              <span class="vt-gadget-label">
+                  Nội dung
+                </span>
+                <p class="vt-gadget-p">
+                    <textarea name="Header$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
+                </p>
+            </div>
+            <div class="vt-gadget-div-form gadget-captcha">
+              <span class="vt-gadget-label">
+                  Mã bảo mật
+                </span>
+                <div class="vt-gadget-p">
+                  <input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt">
+                        <a class="captcha-img" onclick="refreshCaptcha(&#39;GopY&#39;,&#39;5&#39;)" style="float:left;width:100px;">
+<div style="float:left;padding-left:8px;padding-right:20px">
+    <img class="capcha" src="./hocvien_files/capchaImage.aspx" title="Lấy mã khác" alt="ViettelStudy"> 
+     
+</div>
 
-<%
- 			User_infoDAO aduser_infoDAO = new User_infoDAO();
-			UsersDAO adser_users = new UsersDAO();
-			List<User_info> liststudent = new ArrayList<User_info>();
-			List<User_info> listteacher = new ArrayList<User_info>();
-			//Exercise exercise = new Exercise();
-			liststudent = aduser_infoDAO.getallstudent();
-			List<Infotaikhoan> listtaikhoan = new ArrayList<Infotaikhoan>();
-			listtaikhoan=aduser_infoDAO.getalltaikhoan();
-%>   
+                        </a>
+                  <input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy(&#39;Header_Widget_GopY_txtNoiDung&#39;);" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send">
+                  <input type="hidden" name="TokenCSRF_GopYBaiHoc" value="A22CE296A4B92D31E24BCE525C2E36784E42767F7C4C04695685016F7C0B618803359C7DDC2192DA4A1731E89BAAB8F65BF2C0F989EDB8091EA18B22EDEAAC24">
+                </div>
+            </div>
+            <span id="Header_Widget_GopY_lblErr" style="color:Red;"></span>
+            <span id="Header_Widget_GopY_lblSucc"></span>
+            
+</div>  
+            <div id="Header_Widget_GopY_UpdateProgress1" style="display:none;">
+  
+                <div class="bpc-row">
+                    <span class="sp-left"></span>
+                    <span class="sp-right">
+                        <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
+                    </span>
+                </div>
+            
+</div>
+            
+            
+        </div>
+    </div>
+    
+    
+    
+<script type="text/javascript">
+    function refreshCaptcha(capchaid, capchlength) {
+        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
+    }
+    
+    function exitpopup() {
+        setTimeout(function() {
+        window.location.href = '/canhan.html'; //will redirect to your blog page (an ex: blog.html)
+        }
+        , 2000);
+        
+        
+    }
+        function clickButton(e, buttonid)
+        {  
+          var evt = e ? e : window.event;  
+          var bt = document.getElementById(buttonid);  
+ 
+          if (bt){
+              if (evt.keyCode == 13){  
+                    bt.click();  
+                    return false;  
+              }  
+          }  
+        }  
+    </script>         
+    </div>
+     <div class="vts-gadget-item vts-gadget-contact">
+      <div class="vt-gadget vt-hotline" style="display: none;">
+      <span class="vt-gadget-more">
+          
+        </span>
+      <h3 class="vt-gadget-title">
+            <span class="vt-gadget-sp">
+                  LIÊN HỆ 
+                </span>
+                <a class="vt-gadget-close">
+                  X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+              <span style="font-size:15px">(miễn phí)</span></h2>
+                  <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                  <p class="vt-gadget-p-content">
+                    Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                  </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<div id="header">
+    <div id="header-top">
+<!--
+    <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a> -->
+        <a class="header-logo" href="http://viettelstudy.vn/index.html">
+      
+           </a>           
+        <div class="header-login">
+             
+            <p class="p-login">
+                Xin chào: <a href="">
+                    trungdung</a>
+                | <a href="index.jsp">Thoát</a>
+            </p>
+            
+        </div>
+        <div class="study-search">
+            <input name="Header$search_query" type="text" maxlength="100" id="Header_search_query" class="searchInput has_default_text ssh-input" onkeypress="return clickButton(event,&#39;Header_btnSearch1&#39;)" onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" value="Từ khóa tìm kiếm" autocomplete="off">
+                
+            <input type="submit" name="Header$btnSearch1" value="" onclick="checkdata(&#39;Header_btnSearch1&#39;);" id="Header_btnSearch1" class="ssh-btn-search">
+        </div>
+        <div style="display: none;" id="suggestions" class="suggestion">
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            suggesstionFunc();
+        });  
+    </script>
+   
+    
+    </div>
+    <div id="header-menu" style="background: rgb(0, 183, 178);">
+        <a class="lnk-hm-home menu_active" href="http://viettelstudy.vn/index.html">
+        </a>
+        <ul class="ul-menu-header"> 
+               <li class="li-menu-header"><a href="admin_quanlytaikhoan.jsp" class="lnk-menu-header ">
+                QUẢN LÝ TÀI KHOẢN</a>                
+            </li>           
+            <li class="li-menu-header"><a href="admin_danhsachlhocdkymo.jsp" class="lnk-menu-header ">
+                DANH SÁCH LỚP HỌC ĐĂNG KÝ MỞ </a>                
+            </li>  
+             <li class="li-menu-header"><a href="admin_nhantin.jsp" class="lnk-menu-header ">
+                TIN NHẮN </a>                
+            </li>
+    </ul>
+</div>
+</div>
+
+
 <script type="text/javascript">
 
     function clickButton(e, buttonid) {
@@ -244,60 +376,34 @@ fbq('track', "PageView");</script>
       <div class="container">
                 <!-- Tìm kiếm-->
                 <!-- Modal -->
-                <%
-					int stt =0;
-					for(Infotaikhoan student: listtaikhoan ){
-						stt++;			
-				%>
-                  <div class="modal fade" id="myModalCTTK<%=student.getUserID() %>" role="dialog">
-                    <div class="modal-dialog modal-sm">
+                  <div class="modal fade" id="myModalCTTK" role="dialog">
+                    <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4 class="modal-title">Thông tin chi tiết tài khoản</h4>
                         </div>
                         <div class="modal-body">
-						 <div class="bpt-item-left">ID</div>
+						 <div class="bpt-item-left">Tài khoản</div>
                             <div class="bpt-item-right">
-                                                      <input name="adminThongtinchitiettk" type="text" value="<%=student.getUserID()%>" maxlength="30" id="adminThongtinchitiettk" class="bpt-txt">
-                         
+                             <input name="adminThongtinchitiettk" type="text" value="" maxlength="30" id="ctl14_ThongTinHocVien_txtTaiKhoan" class="bpt-txt">
                           </div>
-                          
                           <div class="bpt-item-left">Họ Tên</div>
                             <div class="bpt-item-right">
-                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUserten()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
+                             <input name="ctl14$ThongTinTaiKhoan$txtTaiKhoan" type="text" value="" maxlength="30" id="ctl14_ThongTinHocVien_txtTaiKhoan" class="bpt-txt">
                           </div>
-                          
-                          <div class="bpt-item-left">Giới tính</div>
-                            <div class="bpt-item-right">
-                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUsergioitinh()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
-                          </div>
-                          
-                          
                            <div class="bpt-item-left">Ngày Sinh</div>
                             <div class="bpt-item-right">
-                             <input name="adminThongtinchitietngaysinh" type="text" value="<%=student.getUserngaysinh()%>" maxlength="30" id="adminThongtinchitietngaysinh" class="bpt-txt">
+                             <input name="ctl14$ThongTinTaiKhoan$txtTaiKhoan" type="text" value="" maxlength="30" id="ctl14_ThongTinHocVien_txtTaiKhoan" class="bpt-txt">
                           </div>
-                          
-                           <div class="bpt-item-left">Tài khoản</div>
+                          <div class="bpt-item-left">Tài khoản</div>
                             <div class="bpt-item-right">
-                             <input disabled="disabled" name="adminThongtinchitiethoten" type="text" value="<%=student.getUserName()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
-                          </div>
-                          
-                          <div class="bpt-item-left">Email
-                          </div>
-                            <div class="bpt-item-right">
-                             <input name="adminThongtinchitiettkhoan" type="text" value="<%=student.getUserEmail()%>" maxlength="30  id="adminThongtinchitiettkhoan" class="bpt-txt">
+                             <input name="ctl14$ThongTinTaiKhoan$txtTaiKhoan" type="text" value="" maxlength="30  id="ctl14_ThongTinHocVien_txtTaiKhoan" class="bpt-txt">
                           </div>  
-                          <div class="bpt-item-left">Địa chỉ</div>
-                            <div class="bpt-item-right">
-                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUserdiachi()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
-                          </div>
-                          
+
                           </br>
-                          <button type="button" class="btn btn-default btn-xs">Chỉnh sửa tài khoản</button>
-                          
-                          <button type="button" class="btn btn-default btn-xs">Xóa tài khoản</button>
+                          <button type="button" class="btn btn-success">Tìm kiếm</button>
+                          <button type="button" class="btn btn-success">ResetPassWord</button>
                           <!-- Modal -->
                         </div>
                         <div class="modal-footer">
@@ -306,10 +412,9 @@ fbq('track', "PageView");</script>
                       </div>
                     </div>
                   </div>
-                  <%} %>
                    <!-- Thêm mới  -->
-                <button type="button" class="bpt-lnk-save btn-login" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
-  				<form action = "UsersServlet" method = "post">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
+  <form action = "UsersServlet" method = "post">
                   <div class="modal fade" id="myModal2" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
@@ -322,7 +427,7 @@ fbq('track', "PageView");</script>
                         <div class="modal-body">
                           <div class="bpt-item-left">User</div>
                             <div class="bpt-item-right">
-                             <input name="username-register" type="text" value="" maxlength="30" id="username-register" class="bpt-txt">
+                             <input name="themmoiuser" type="text" value="" maxlength="30" id="themmoiuser" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Password</div>
                             <div class="bpt-item-right">
@@ -330,7 +435,7 @@ fbq('track', "PageView");</script>
                           </div>
                            <div class="bpt-item-left">Nhập lại mật khẩu</div>
                             <div class="bpt-item-right">
-                             <input name="pass-register2" type="text" value="" maxlength="30" id="pass-register2" class="bpt-txt">
+                             <input name="themoinlpw" type="text" value="" maxlength="30" id="themoinlpw" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Email</div>
                             <div class="bpt-item-right">
@@ -520,7 +625,7 @@ fbq('track', "PageView");</script>
               		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
               		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
               		                  	if(data=="")
-              		                  		window.location.href="admin_quanlytaikhoan.jsp";
+              		                  		window.location.href="index.jsp";
               		                  	else
               		                  		$('#errorregister').html(data);
               		                   },'text'); 
@@ -547,33 +652,16 @@ fbq('track', "PageView");</script>
         <tbody>
 
       <tr><td class="studyprogram_tabledetails_td_header_dl" width="5%">STT</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="15%">ID</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="20%">Tên</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="15%">Tên</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="20%">Email</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="20%">Tài khoản</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="20%">Ngày sinh</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="20%">Số điện thoại</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="10%">Địa chỉ</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="10%">Chi tiết</td></tr>
-			<%
-					int ktt =0;
-					for(Infotaikhoan student: listtaikhoan  ){
-						ktt++;
-					
-				%>
-					
-					<tr>
-						<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=ktt%></td>
-						<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=student.getUserID()%></td>
-						<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=student.getUserten()%></td>
-						<td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getUserName()%></td>
-						<td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getUserngaysinh()%></td>
-						<td class="studyprogram_tabledetails_td_content_aligncenter_dl">&nbsp;<%=student.getUserdiachi() %></td>
-						<td class="studyprogram_tabledetails_td_content_dl"><a data-toggle="modal" data-target="#myModalCTTK<%=student.getUserID() %>">Chi tiết</a></td>
-					</tr>
-					
-						<input id="adminThongtinchitiettk" type="hidden" name ="adminThongtinchitiettk" value="<%=student.getUserID()%>">
-					
-					<%} %>
+			
       <tr>
+     
+      
       </tbody>
       </table>
       </td></tr>
@@ -694,7 +782,8 @@ fbq('track', "PageView");</script>
           })
 
        });
-</script>            
+</script>  
+<a class="popup-login" rel="#overlay-login">dfglsfkgjfd;lgkjsfd;lkgfsdl</a>          
 <script>
 $(document).ready(function(){
 $('.persion-tab-lnk').click(function() {

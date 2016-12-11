@@ -2,20 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel="stylesheet" href="css/coder_update.css" type="text/css">
-<link rel="stylesheet" href="css/multiChoice.css" type="text/css">
-<link rel="stylesheet" href="css/support_face.css" type="text/css">
+
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
+<link rel="stylesheet" href="css/comment.css" type="text/css">
+<link rel="stylesheet" href="js/jquery-1.10.2.min.js" type="text/css">
 <link rel="stylesheet" href="css/khanh.css" type="text/css">
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-
-<title>Bootstrap 101 Template</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
+<script type="text/javascript" src="js/overlay2.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<title>Hưỡng dẫn</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>
     Hỗ trợ học trực tuyến
@@ -23,106 +20,17 @@
     
 </head>
 
-<body>	
-   <form name="form1" method="post" action="/index.html" id="form1">	 
-	<div id="header">
-	    <div id="header-top">
-	        <a style="color:#00918d;font-size:14px;position:absolute;right:0px;bottom:10px" href="http://viettelstudy.vn/huongdan.aspx">Hướng dẫn</a>
-	        <a class="header-logo" href="index.jsp"></a>            
-	    </div>
-	    
-	    <div id="header-menu" style="background: rgb(0, 183, 178);">
-	        <a class="lnk-hm-home menu_active" href=""> </a>
-	         <ul class="ul-menu-header">
-	            <li class="li-menu-header">
-		            <a  class="lnk-menu-header">
-		               TRANG CHỦ </a>
-	            </li>
-	            <li class="li-menu-header">
-		            <a  class="lnk-menu-header ">
-		               HƯỚNG DẪN SỬ DỤNG</a>
-	            </li>
-	            
-	            <li class="li-menu-header">
-	              <a class="lnk-menu-header ">
-	                 DANH SÁCH LỚP HỌC</a>
-	                 <div class="vts-submenu submenu-245">
-	                     <ul class="submenu1"> 
-	                         <li><a href="#">
-	                                 Công Nghệ Phần Mềm</a> </li>
-	                                    <li><a href="#">
-	                                  Lập trình web</a> </li>
-	                                <li><a href="#">
-	                                  Hệ quản trị cơ sở dữ liệu </a> </li>
-	                                <li><a href="#">
-	                                  Điện tử căn bản </a> </li>
-	                                <li><a href="#">
-	                                    Thực tập điện tử căn bản</a> </li>
-	                                <li><a href="#">
-	                                    Lập trình WinDow From </a> </li>
-	                      </ul>
-	                  </div>
-	               </li>  
-	             
-	            <li class="li-menu-header">
-	             <a class="lnk-menu-header ">
-	                THƯ VIỆN </a>
-	                 <div class="vts-submenu">
-	                    <ul class="submenu1">
-	                        <li><a href="#">Trắc nghiệm</a>
-	                            <ul class="submenu2">
-	                                <li><a href="#">Trắc nghiệm IQ</a>
-	                                </li>
-	                                <li><a href="#">Trắc nghiệm EQ</a>
-	                                </li>
-	                                <li><a href="#">Trắc nghiệm tính cách MBTI</a>
-	                                </li>
-	                                <li><a href="#">Trắc nghiệm định hướng nghề nghiệp</a>
-	                                </li>
-	                                <li><a href="#"> Trắc nghiệm 8 loại trí thông minh</a>
-	                                </li>
-	                            </ul>
-	                        </li>
-	                        <li>
-	                        <a href="#">Thư viện video
-	                            <span class="arrow"></span></a>
-	                            <ul class="submenu2">
-	                                <li><a href="#">
-	                                    Tư vấn Vì tương lai</a></li>
-	                                <li><a href="#">
-	                                    Tọa đàm bản lĩnh trẻ</a></li>
-	                                <li><a href="#">
-	                                    Thư viện cuộc sống</a> </li>
-	                                    <li><a href="#">
-	                                   Khám phá Việt Nam</a> </li>
-	                                   <li><a href="#">
-	                                   Khám phá thế giới</a> </li>
-	                                <li><a href="#">Sáng tạo</a> </li>
-	                                
-	                            </ul>
-	                        </li>
-	                        <li><a href="">Bài tập - Bài giải<span class="arrow"></span></a>
-	                            <!-- Courses in category -->
-	                            <ul class="submenu2">
-	                                <li><a href="#">
-	                                    Công nghệ thông tin </a></li>
-	                                <li><a href="#">Thiên
-	                                    Điện tử </a></li>
-	                                <li><a href="#">
-	                                    Tiếng Anh </a></li>
-	                                <li><a href="#">
-	                                    Chế tạo máy </a></li>
-	                                <li><a href="#">
-	                                    Công mghệ may và thời trang </a></li>
-	                            </ul>
-	                        </li>          
-	                            <!-- Courses in category -->
-	                        </li>
-	                    </ul>
-	                </div>
+<body>
+<div id="overlay-header">
+		<div id="overlay-left"></div>
+		<div id="overlay-right"></div>
 	</div>
-
-
+		<div id="wrapper">		 
+	
+		<%@ include file="//includes/header.jsp"%>
+		<%@ include file="//includes/message.jsp" %>
+		<%@ include file="//includes/overlaylogin.jsp" %>
+		<div id="body">
 <!-- --------------------------end------------------------ --> 
 <div class="row">
   <div class="col-md-9 col-md-push-0">
@@ -134,7 +42,7 @@
 				 $(document).ready(function() {
 				 $('#load-du-lieu').click(function(e) {
 				 e.preventDefault();
-				 $('#noidung').load('load.html #gioithieu');
+				 $('#noidung').load('load.jsp #gioithieu');
 				 });
 				 });
 			 </script>
@@ -150,7 +58,7 @@
 				 $(document).ready(function() {
 				 $('#load-du-lieu1').click(function(e) {
 				 e.preventDefault();
-				 $('#noidung1').load('load.html #thacmac');
+				 $('#noidung1').load('load.jsp #thacmac');
 				 });
 				 });
 			 </script>
@@ -164,7 +72,7 @@
 			 $(document).ready(function() {
 			 $('#load-du-lieu2').click(function(e) {
 			 e.preventDefault();
-			 $('#noidung2').load('load.html #sudungtailieu');
+			 $('#noidung2').load('load.jsp #sudungtailieu');
 			 });
 			 });
 			 </script> <br>
@@ -181,7 +89,7 @@
 			 $(document).ready(function() {
 			 $('#load-du-lieu3').click(function(e) {
 			 e.preventDefault();
-			 $('#noidung3').load('load.html #dangki');
+			 $('#noidung3').load('load.jsp #dangki');
 			 });
 			 });
 			 </script>
@@ -198,7 +106,7 @@
 			 $(document).ready(function() {
 			 $('#load-du-lieu4').click(function(e) {
 			 e.preventDefault();
-			 $('#noidung4').load('load.html #lienhe');
+			 $('#noidung4').load('load.jsp #lienhe');
 			 });
 			 });
 			 </script> <br>
@@ -207,36 +115,51 @@
 	       
 	 </div>
 			
-  				
+  				</div>
 <!--Ket thúc phần body-->
-         
+         <a id="to_top" href="#"
+			style="bottom: 20px; position: fixed; right: 20px; z-index: 9999; display: none;"
+			rel="nofollow"> <img alt="Go to top!" src="Images/gototop.png"></a>
 			<div id="footer">
-			  <div class="footer-menu-new">
-			  <span class="title"> </span>
-			  <span class="font-des">Đăng ký để nhận tài liệu và khóa học từ StudyFunny.vn</span>
-			  <span style="float: right; line-height: 39px;">
-			  <input type="email" name="femail" id="femail" style=" background: #d4e7e3 none repeat scroll 0 0;
-			    border: 1px solid #d4e7e3;
-			    border-radius: 5px;
-			    height: 25px;
-			    margin-right: 16px;
-			     padding: 1px 10px;
-			    width: 260px;">
-			  <input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ" style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
-			</span>
-			    </div> 
-			
-	
+			<div id="footer-menu">
+				<a href="index.jsp">TRANG CHỦ</a>&nbsp;|&nbsp;
+
 			</div>
+			<div class="footer-menu-new">
+				<span class="title">ĐĂNG KÝ NHẬN EMAIL</span> <span class="font-des">Đăng
+					ký để nhận tài liệu bổ ích từ StudyFunny.com</span> <span
+					style="float: right; line-height: 39px;"> <input
+					type="email" name="femail" id="femail"
+					style="background: #d4e7e3 none repeat scroll 0 0; border: 1px solid #d4e7e3; border-radius: 5px; height: 25px; margin-right: 16px; padding: 1px 10px; width: 260px;">
+					<input type="button" id="btnRegisterRevMail" value="ĐĂNG KÝ"
+					style="height: 26px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(255, 255, 255); color: rgb(20, 146, 142); font-weight: bold; font-size: 12px; border-radius: 5px; width: 82px;">
+				</span>
+			</div>
+
+			<div id="footer-bottom">
+
+				<!--<a class="logo-gd-footer"></a>-->
+
+				<p
+					style="color: #FFFFFF; float: left; font-size: 14px; line-height: 16px; margin-left: 200px; margin-top: 4px; text-align: center; width: 640px">
+					Sản phẩm của nhóm 3 - Lớp lập trình web sáng thứ 4 - thầy Đặng
+					Thanh Dũng<br> Nhóm sinh viên thực hiện: <br> Nguyễn Tuấn
+					Anh - Phạm Trung Dũng - Nguyễn Ngọc Hải - Nguyễn Văn Khánh<br>
+					Điện thoại: 0962126964 (miễn phí) - Fanpage: <a target="_blank"
+						style="color: #14928E ! important;"
+						href="https://www.facebook.com/StudyFunny">StudyFunny</a> - Email:
+					<a href="mailto:StudyFunny@gmail.com">StudyFunny@gmail.com</a><br>
+
+				</p>
+
+
+
+				<p class="gd-copyright"></p>
+			</div>
+
+		</div>
 			
-			<div class="container">
-		    <div id="footer">
-		      <hr />
-		        <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
-		        <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
-		    </div>
-		   </div>
-		   
+			
 			<style>
 				.footer-menu-new span 
 				{
@@ -259,7 +182,16 @@
 				    border-color: #9AFE2E;
 			}
 			</style>
+		<!--end-footer-->
+		<div id="overlay-footer">
+			<div id="overlay-footer-left"></div>
+			<div id="overlay-footer-right"></div>
+		</div>
+		<!--end-overlay-footer-->
+
 	</div>
-</form>
+	<!--end-wrapper-->
+	
+
 </body>
 </html>

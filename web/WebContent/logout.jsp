@@ -12,6 +12,7 @@
         <%
             session.removeAttribute("loginUser");
         	session.removeAttribute("user");
+        	session.removeAttribute("user_info");
         %>
  
         <c:redirect url="index.jsp" >

@@ -21,7 +21,6 @@
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="js/organictabs.jquery.js"></script>
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
-<script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>

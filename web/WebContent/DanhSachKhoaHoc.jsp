@@ -678,6 +678,7 @@ fbq('track', "PageView");</script>
             <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_place()%> </p>
             <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
             <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
+            <a style="float: left;padding-left: 160px; color: blue; font-size: 15"  href="./resource/DeCuongKhoaHoc/LapTrinhWeb.pdf"> Xem đề cương khóa học </a>
                        <div id="login_pnLogin">
   
                  
