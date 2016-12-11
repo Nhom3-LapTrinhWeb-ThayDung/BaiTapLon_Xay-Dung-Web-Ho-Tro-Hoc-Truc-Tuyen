@@ -125,14 +125,14 @@ public class UsersServlet extends HttpServlet {
 			f = usersDAO.doimk(user_name, newpass1);
 			if(f)
 			{
-				response.getWriter().write("Ä�á»•i máº­t kháº©u thÃ nh cÃ´ng");
-				//errorStr="Ä�á»•i máº­t kháº©u thÃ nh cÃ´ng";
+				response.getWriter().write("Đổi mật khẩu thành công");
+				//errorStr="Đổi mật khẩu thành công";
 				///request.setAttribute("errorStr", errorStr);
 			}
 			else
 			{
-				response.getWriter().write("Ä�á»•i máº­t kháº©u khÃ´ng thÃ nh cÃ´ng");
-				//errorStr="Ä�á»•i máº­t kháº©u khÃ´ng thÃ nh cÃ´ng";
+				response.getWriter().write("Đổi mật khẩu không thành công");
+				//errorStr="Đổi mật khẩu không thành công";
 				//request.setAttribute("errorStr", errorStr);
 			}
 			Users u= (Users)session.getAttribute("user");
@@ -166,46 +166,7 @@ public class UsersServlet extends HttpServlet {
 				response.getWriter().write("update unsuccessful!");
 			}
 			break;
-		case "deleteuser_userinfo":
-			long UserID_1;
-			UserID_1=Long.parseLong(request.getParameter("userid_delete"));
-			f = user_infoDAO.deleteUser_info(UserID_1);
-			if(f)
-			{
-				
-				response.getWriter().write("Delete success!");
-			}
-			else
-			{
-			//session.removeAttribute("user");
-				response.getWriter().write("Delete unsuccessful!");
-			}
-			break;
-		
-		case "updateuser":
-			User_info u4= new User_info();
-			u4.setId(Long.parseLong(request.getParameter("user_id")));
-			u4.setQuyen(Integer.parseInt(request.getParameter("user_quyen")));
-			u4.setEmail(request.getParameter("email"));
-			u4.setGioitinh(Integer.parseInt(request.getParameter("gioitinh")));
-			u4.setAnhdaidien(request.getParameter("anhdaidien"));
-			u4.setNgaysinh(request.getParameter("namsinh"));
-			u4.setTen(request.getParameter("ten"));
-			u4.setSodienthoai(request.getParameter("sodienthoai"));
-			u4.setDiachi(request.getParameter("diachi"));
-			f = user_infoDAO.updateUser_info(u4);
-			if(f)
-			{
-				
-				response.getWriter().write("update success!");
-			}
-			else
-			{
-			//session.removeAttribute("user");
-				response.getWriter().write("update unsuccessful!");
-			}
-			break;
-	}
+		}
 		
 		
 	}

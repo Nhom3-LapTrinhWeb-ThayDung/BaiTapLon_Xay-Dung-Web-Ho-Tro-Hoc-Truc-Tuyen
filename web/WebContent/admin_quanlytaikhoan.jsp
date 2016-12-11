@@ -147,13 +147,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			UsersDAO adser_users = new UsersDAO();
 			List<User_info> liststudent = new ArrayList<User_info>();
 			List<User_info> listteacher = new ArrayList<User_info>();
-			
-			boolean UpdateInforUser ;
-			User_info UpdateUS = new User_info();
-			
-			//UpdateInforUser= aduser_infoDAO.updateUser_info(UpdateUS);
-			
-			
 			//Exercise exercise = new Exercise();
 			liststudent = aduser_infoDAO.getallstudent();
 			List<Infotaikhoan> listtaikhoan = new ArrayList<Infotaikhoan>();
@@ -248,7 +241,6 @@ fbq('track', "PageView");</script>
       <h3>Danh sách tài khoản </h3> 
 
       </br>
-      
       <div class="container">
                 <!-- Tìm kiếm-->
                 <!-- Modal -->
@@ -258,165 +250,64 @@ fbq('track', "PageView");</script>
 						stt++;			
 				%>
                   <div class="modal fade" id="myModalCTTK<%=student.getUserID() %>" role="dialog">
-                    <div class="modal-dialog modal-md">
+                    <div class="modal-dialog modal-sm">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4 class="modal-title">Thông tin chi tiết tài khoản</h4>
                         </div>
                         <div class="modal-body">
-                        <div class="row">
-						  <div class="col-xs-6">
-						  <div class="bpt-item-left">ID</div>
+						 <div class="bpt-item-left">ID</div>
                             <div class="bpt-item-right">
-                             <input disabled="disabled" name="updateuserID" id="updateuserID<%=student.getUserID() %>" type="text" value="<%=student.getUserID()%>" maxlength="30"  class="bpt-txt">
-                          </div></div>
-						  <div class="col-xs-6"> <div class="bpt-item-left">Họ Tên</div>
-                            <div class="bpt-item-right">
-                             <input name="updateuserten"  id ="updateuserten<%=student.getUserID() %>" type="text" value="<%=student.getUserten()%>" maxlength="30"  class="bpt-txt">
-                          </div></div>
-						</div>
-						 <div class="row">
-						 <div class="col-xs-6">
-						  	<div class="bpt-item-right">Giới tính:</div>
-                          	<span class="sp-right">
-							<select name="gioitinh" id="updateusergioitinh<%=student.getUserID() %>" class="bpt-sl-date">
-							<option value="0">Nam</option>
-							<option value="1">Nữ</option>
-								</select> 
-							</span>
-						</div>
-						<div class="col-xs-6"> 
-						<div class="bpt-item-left">Ngày Sinh</div>
-                            <div class="bpt-item-right">
-                             <input style="width: 172px;" name="updateuserngaysinh" id="updateuserngaysinh<%=student.getUserID() %>" type="date" value="<%=student.getUserngaysinh()%>" maxlength="30"  class="bpt-txt">
+                                                      <input name="adminThongtinchitiettk" type="text" value="<%=student.getUserID()%>" maxlength="30" id="adminThongtinchitiettk" class="bpt-txt">
+                         
                           </div>
-                        </div>
-						</div>
-						<div class="row">
-						  <div class="col-xs-6"><div class="bpt-item-left">Tài khoản</div>
+                          
+                          <div class="bpt-item-left">Họ Tên</div>
                             <div class="bpt-item-right">
-                             <input disabled="disabled" name="adminThongtinchitiethoten" type="text" value="<%=student.getUserName()%>" maxlength="30" class="bpt-txt">
-                          </div></div>
-						  <div class="col-xs-6">
-						  <div class="bpt-item-left">Email
+                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUserten()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
+                          </div>
+                          
+                          <div class="bpt-item-left">Giới tính</div>
+                            <div class="bpt-item-right">
+                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUsergioitinh()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
+                          </div>
+                          
+                          
+                           <div class="bpt-item-left">Ngày Sinh</div>
+                            <div class="bpt-item-right">
+                             <input name="adminThongtinchitietngaysinh" type="text" value="<%=student.getUserngaysinh()%>" maxlength="30" id="adminThongtinchitietngaysinh" class="bpt-txt">
+                          </div>
+                          
+                           <div class="bpt-item-left">Tài khoản</div>
+                            <div class="bpt-item-right">
+                             <input disabled="disabled" name="adminThongtinchitiethoten" type="text" value="<%=student.getUserName()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
+                          </div>
+                          
+                          <div class="bpt-item-left">Email
                           </div>
                             <div class="bpt-item-right">
-                             <input name="updateusermail" id="updateusermail<%=student.getUserID() %>" type="text" value="<%=student.getUserEmail()%>" maxlength="30 class="bpt-txt">
-                          </div> 
-                          </div>
-						</div>   
-						<div class="row">
-						<div class="col-xs-6">  
+                             <input name="adminThongtinchitiettkhoan" type="text" value="<%=student.getUserEmail()%>" maxlength="30  id="adminThongtinchitiettkhoan" class="bpt-txt">
+                          </div>  
                           <div class="bpt-item-left">Địa chỉ</div>
                             <div class="bpt-item-right">
-                             <input name="updateuserdiachi" id="updateuserdiachi<%=student.getUserID() %>" type="text" value="<%=student.getUserdiachi()%>" maxlength="30" class="bpt-txt">
+                             <input name="adminThongtinchitiethoten" type="text" value="<%=student.getUserdiachi()%>" maxlength="30" id="adminThongtinchitiethoten" class="bpt-txt">
                           </div>
-                          </div>
-                         <div class="col-xs-6">  
-                          <div class="bpt-item-right">Quyền:</div>
-                          <span class="sp-right">
-							<select name="quyen"
-							id="quyen<%=student.getUserID() %>" class="bpt-sl-date">
-							<option value="0">Admin</option>
-							<option value="1">Giảng viên</option>
-							<option value="2">Học viên</option>
-							</select> 
-							</span>
-							</div>
-							<script type="text/javascript">
-								var x = <%=student.getUserquyen()%>;
-								var id='<%=student.getUserID() %>';
-								$('#quyen'+id+' option[value=' + x + ']') .attr( 'selected', 'selected');						
-								$('#gioitinh'+id+' option[value=' + x + ']') .attr( 'selected', 'selected');
-							</script>
-							
-						</div>
-                        <div class="row">
-						  <div class="col-xs-6">
-						 <div class="bpt-item-left">Số điện thoại</div>
-                            <div class="bpt-item-right">
-                             <input name="updateusersdt" id="updateusersdt<%=student.getUserID() %>" type="text" value="<%=student.getUsersodienthoai()%>" maxlength="30" class="bpt-txt">
-                          </div>
-						  </div>					  
-						  <div class="col-xs-6">
-							 <button type="button" class="btn btn-info btn-sm "id = "updateuser<%=student.getUserID()%>" name ="updateuser">Chỉnh sửa tài khoản</button>
-	                         <button type="button" class="btn btn-warning btn-sm" id ="deleteuser<%=student.getUserID()%>" name ="deleteuser">Xóa tài khoản</button>
-						  </div>
-						  
-						  <div class="col-xs-6">
-						   <div class="bpt-item-left">Ảnh đại diện:</div>
-                          <div class="bpt-img-avarta">
-								<img src="upload/<%=student.getAnhdaidien()%>"name=""
-									id="" alt="Anhdaidien" height="80px">
-							</div>
-						  </div>				  
-							</div>
-                          </div>
-                          <input type="hidden" id="anhdaidien<%=student.getUserID()%>" value="<%=student.getAnhdaidien()%>">
-      							<script type="text/javascript">
-                       $('#updateuser'+<%=student.getUserID()%>).click(function(){
-	               			  $.post('UsersServlet', {'command': "updateuser",
-	               				'user_id':<%=student.getUserID()%>,
-	               				'email':$('#updateusermail'+<%=student.getUserID() %>).val(),
-	               				'gioitinh':$('#updateusergioitinh'+<%=student.getUserID() %>).val(),
-	               				'namsinh':$('#updateuserngaysinh'+<%=student.getUserID() %>).val(),
-	               				'ten':$('#updateuserten'+<%=student.getUserID() %>).val(),
-	               				'sodienthoai':$('#updateusersdt'+<%=student.getUserID() %>).val(),
-	               				'diachi':$('#updateuserdiachi'+<%=student.getUserID() %>).val(),
-	               				'anhdaidien':$('#anhdaidien'+<%=student.getUserID() %>).val(),
-	               				'user_quyen':$('#quyen'+<%=student.getUserID() %>).val()}
-	               				,function (data) {
-		               	          	if(data=="update success!")
-		               	          		window.location.reload();
-		               	          	else
-		               	          		alert(data);
-	               	           },'text')
-	               	       <%--   alert( $('#updateuserID'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusermail'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusergioitinh'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserngaysinh'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserten'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusersdt'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserdiachi'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#anhdaidien'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#quyen'+<%=student.getUserID() %>).val()); --%>
-	               	          
-	               	           
-                         }); 
-                         $('#deleteuser'+<%=student.getUserID()%>).click(function(){
-	                         {
-	                        	 if(confirm("Xóa user "+$('#updateuserten'+<%=student.getUserID()%>).val()+". Đồng ý?")==true)
-	     								{                        
-	     	                        	 $.post('UsersServlet', {'command': "deleteuser_userinfo",
-	     	 	               				'userid_delete':<%=student.getUserID()%>}
-	     	 	               				,function (data) {
-	     	 		               	          	if(data=="Delete success!")
-	     	 		               	          		window.location.reload();
-	     	 		               	          	else
-	     	 		               	          		alert(data);
-	     	 	               	           },'text')
-	     								}
-	                         }
-                         });
-                         </script>
+                          
                           </br>
-                     
+                          <button type="button" class="btn btn-default btn-xs">Chỉnh sửa tài khoản</button>
+                          
+                          <button type="button" class="btn btn-default btn-xs">Xóa tài khoản</button>
                           <!-- Modal -->
                         </div>
-                        
                         <div class="modal-footer">
-                       
-                          <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Đóng</button>
-                       
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        </div>
                       </div>
-                      
                     </div>
-                    
                   </div>
                   <%} %>
                    <!-- Thêm mới  -->
-                   
                 <button type="button" class="bpt-lnk-save btn-login" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
   				<form action = "UsersServlet" method = "post">
                   <div class="modal fade" id="myModal2" role="dialog">
@@ -430,7 +321,7 @@ fbq('track', "PageView");</script>
                         </div>
                         <div class="modal-body">
                           <div class="bpt-item-left">User</div>
-                            <div class=" ">
+                            <div class="bpt-item-right">
                              <input name="username-register" type="text" value="" maxlength="30" id="username-register" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Password</div>
@@ -462,14 +353,6 @@ fbq('track', "PageView");</script>
 
 									</select>
 								</div>
-							</span>
-						<span class="sp-left">Quyền:</span> <span class="sp-right">
-						<select name="quyen"
-						id="quyen" class="bpt-sl-date">
-									<option selected="selected" value="0">Admin</option>
-									<option value="1">Giảng viên</option>
-									<option value="2">Học viên</option>
-							</select> 
 							</span>
                           </br>
                           <span class="sp-left">Ngày sinh:</span> <span class="sp-right">
@@ -614,29 +497,34 @@ fbq('track', "PageView");</script>
 
 							</select>
 							</span> 
-							
 							<div class="bpc-row" style="margin-top: 0px;">
-								<span class="sp-left"></span>
-								<span class="sp-right"> 
+								<span class="sp-left"></span><span class="sp-right"> 
 								<a onclick="themmoiclick()" id="register" name="register"
 								class="bpt-lnk-save btn-login">Thêm mới </a>
 								<input	type="hidden" name="command" value="insert">
 								</span>
 								<script type="text/javascript">
-                           			
-								function register().click()
-                       			{
-								                       				
-                       			$.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
-          		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
-          		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
-          		                  	if(data=="")
-          		                  		window.location.href="admin_quanlytaikhoan.jsp";
-          		                  	else
-          		                  		$('#errorregister').html(data);
-          		                   },'text'); 
-                       			}
-                       		               			
+                           			function register().click()
+                           			{
+                           				/* alert($('#username-register').val() +
+                           					 $('#pass-register').val() +
+                           					$('#themoinlpw').val() +
+                           					$('#email-register').val()+
+                           					$('#name').val()+
+                           					$('#gioitinh').val() +
+                           					$('#ngaysinh').val() +
+                           					$('#thangsinh').val() +
+                           					$('#namsinh').val())  */
+                           				
+                           			$.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
+              		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
+              		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
+              		                  	if(data=="")
+              		                  		window.location.href="admin_quanlytaikhoan.jsp";
+              		                  	else
+              		                  		$('#errorregister').html(data);
+              		                   },'text'); 
+                           			}
                         		</script>
 						</div>	
                           <!-- Modal -->
@@ -651,14 +539,13 @@ fbq('track', "PageView");</script>
                  
       </div>
 
-      
-                
       <td style="width:1%;">&nbsp;</td><td style="width:99%;">
       <table cellspacing="1" cellpadding="1" width="100%">
       <tbody>
       <tr><td height="3" colspan="4"></td></tr>
       <tr><td><table cellspacing="0" cellpadding="0" width="100%">
-      <tbody>
+        <tbody>
+
       <tr><td class="studyprogram_tabledetails_td_header_dl" width="5%">STT</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="15%">ID</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="20%">Tên</td>
@@ -669,8 +556,10 @@ fbq('track', "PageView");</script>
 			<%
 					int ktt =0;
 					for(Infotaikhoan student: listtaikhoan  ){
-						ktt++;				
+						ktt++;
+					
 				%>
+					
 					<tr>
 						<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=ktt%></td>
 						<td class="studyprogram_tabledetails_td_content_dl">&nbsp;<%=student.getUserID()%></td>

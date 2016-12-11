@@ -45,28 +45,7 @@ public class User_infoDAO {
 		}
 		return null;
 	}
-	public boolean deleteUser_info(long userID)
-	{
-		Connection con = DBConnect.getConnecttion();
-		String sql = "DELETE FROM user WHERE user_id ='"+userID+"'";
-		String sql2 = "DELETE FROM user_info WHERE id='"+userID+"'";
-		PreparedStatement ps;
-		PreparedStatement ps2;
-		try{
-			ps = (PreparedStatement) con.prepareCall(sql);
-			ps2 = (PreparedStatement) con.prepareCall(sql2);
-			
-			ps.executeUpdate();
-			ps2.executeUpdate();
-			
-			return true;
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-		
-	}
-	//them userre
+	//them user
 	public boolean insertUser_info(User_info u)
 	{
 		Connection con = DBConnect.getConnecttion();
@@ -189,7 +168,6 @@ public class User_infoDAO {
             	u.setUsersodienthoai(rs.getString("sodienthoai"));
             	u.setUserngaysinh(rs.getString("ngaysinh"));
             	u.setUserquyen(rs.getInt("quyen"));
-            	u.setAnhdaidien(rs.getString("anhdaidien"));
             	listTaikhoan.add(u);
             }
             conn.close();
@@ -233,7 +211,7 @@ public class User_infoDAO {
 		t = udao.getalltaikhoan();
 			for(Infotaikhoan x: t)
 			{
-				System.out.println(x.getAnhdaidien());
+				System.out.println(x.getUserName());
 			}
 		
 	}
