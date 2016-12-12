@@ -121,23 +121,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         .p-login .lnk-user:hover .infor-forget{display:block;}
         .p-login .lnk-user{padding-bottom:3px;}
   </style>
-    <script type="text/javascript">
-        $(document).ready(function() {
-        $('.show-popup').click(function() {
-                if (!$(this).hasClass('active')) {
-                    $('.vt-gadget').hide();
-                    $('.vts-gadget-lnk').removeClass('active');
-                }
-                $(this).parent().find('.vt-gadget').slideToggle();
-                $(this).toggleClass('active');
-            });
-            $('.vt-gadget-close').click(function() {
-                $('.vt-gadget').hide();
-                $('.vts-gadget-lnk').removeClass('active');
-            })
-            $('.vt-gadget-close').click();
-        })
-    </script>
+    
  
 <%@include file="//includes/headerad.jsp" %>
 <%@include file="//includes/message.jsp" %>

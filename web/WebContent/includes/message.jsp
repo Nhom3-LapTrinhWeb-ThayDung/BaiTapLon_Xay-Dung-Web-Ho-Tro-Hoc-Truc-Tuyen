@@ -299,7 +299,8 @@
 	    <%} %>
 	</div>
 
-			<div  id="searchuser" class="suggestion"><ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "sadsad"</a></li></ul></div>
+			<div  id="searchuser" class="suggestion">
+			</div>
 		
 		<script type="text/javascript">
 			$('#msradiocheck [name="rdms"]').change(function() {
@@ -365,7 +366,7 @@
 		function searchfunction()
 		{	
 			var list=null;
-			if($('input[type="radio"][name="rdms"]}:checked').val()=='giangvien'){
+			if($('#msradiocheck input[type="radio"][name="rdms"]:checked').val()=="giangvien"){
 				
 				/* giảng viên */
 				var giangvienjs = <%=msJSONgiangvien%>;
@@ -387,7 +388,7 @@
 		        list= Searchgiangvien($('#txtsearchuser').val());
 			
 			}
-			else if($('#msradiocheck input[type="radio"][name="rdms"]}:checked').val()=="hocvien")
+			else if($('#msradiocheck input[type="radio"][name="rdms"]:checked').val()=="hocvien")
 			{
 			
 				/* học viên */
@@ -432,7 +433,6 @@
               else
                   $('#searchuser').html('<ul><li><a class="search-title"> Không tìm thấy kết quả nào cho "' + $('#txtsearchuser').val()
                 + '"</a></li></ul>');
-                
 		}
 		</script>
 		<script>
