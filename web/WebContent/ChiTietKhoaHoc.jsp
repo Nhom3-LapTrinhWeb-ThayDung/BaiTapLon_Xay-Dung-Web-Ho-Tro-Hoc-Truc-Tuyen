@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@page import="model.Users"%>
@@ -6,8 +7,6 @@
 <%@page import="dao.CourseDAO"%>
 <%@page import="model.CourseWaiting"%>
 <%@page import="dao.CourseWaitingDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
@@ -18,19 +17,8 @@
   <link rel="stylesheet" href="css/home.css" type="text/css"></link>
   <link rel="stylesheet" href="css/common.css" type="text/css"></link>
   <link rel="stylesheet" href="css/reset.css" type="text/css"></link>
-  
- 
-  <link rel="stylesheet" href="./css/process_learn.css" type="text/css">
-  <link rel="stylesheet" href="./css/comment.css" type="text/css">
-
-  <link rel="stylesheet" href="./css/persion.css" type="text/css">
-  <link rel="stylesheet" href="./css/common.css" type="text/css">
-  <link rel="stylesheet" href="./css/reset.css" type="text/css">
- 
-
-  
 <title>
- Chi tiết khóa học | StudyFunny
+  Khóa học đang chờ | StudyFunny
 </title>
 
 
@@ -40,20 +28,7 @@
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
-
-<link rel="icon" href="Images/favicon.ico" />
-
-
-
-
-<script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
-<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-
-
 </head>
-<body>
-
 <body>
     <!-- <form name="form1" method="post" action="/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html" id="form1">-->
 <div>
@@ -280,7 +255,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			CourseDAO courseDAO = new CourseDAO();
 			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
-			List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
+			User_info student = new User_info();
 %>
 
 
@@ -391,8 +366,17 @@ fbq('track', "PageView");</script>
 
 <div class="study-notice">
 
+    <span class="sne-sp">Thông báo: </span>
     
-        <a class="sne-lnk" >CÁC KHÓA HỌC ĐANG CHỜ XÁC NHẬN</a>
+        
+        
+        <a id="alert_likAlert" class="sne-lnk" href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc/Diem-chuan-dai-hoc-2016-136-truong-da-cong-bo-i4556c3.html">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
+    
+    
+    
+    
+    
+    
 </div>
 
 
@@ -412,17 +396,14 @@ fbq('track', "PageView");</script>
 <div id="wrapper">
     <!--end-header-->
     <div id="body">
-    
         <div class="box-test-online martop_0">
             
             <div class="to-content">
                 <div class="to-c-left">
                 <div class="to-c-l-list">
-                
-	                   <%	int i = 0;
-	                    	for (Course coursewaiting : listcoursewaiting)
+	                    <%	int i=0;
+	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
 	                    	{
-	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    		i++;
 	                    %>
 	                          <div class="row">
@@ -438,35 +419,16 @@ fbq('track', "PageView");</script>
 	                                      <span class="bold">
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
-	                                
 	                              </a>
-                                   
-                                    
-                                  <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
-                                   
-                                   
-                                   
-                                  </div>
-                                
+                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="to-l-btn">
+                                       <span class="to-l-btn">Xem chi tiết</span>
+                                    </a>
+                                    </div>
+                                </div>		
 	                          <%
-	                    			
 	                  			}
 	                          %>
-	                           <script type="text/javascript">
-									function btnhuydangkyclick(course_waiting_id,name){
-										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){
-											$.post('CourseWaitingServlet', {'command':"delete",'course_waiting_id':course_waiting_id}, function (data) {
-												if(data="thành công!"){
-													alert("Hủy đăng ký khóa học "+name+" thành công!");
-													location.reload();
-												}
-												else
-													alert("Hủy đăng ký khóa học "+name+" không thành công!");
-												},'text'); 
-											
-										}
-									}
-								</script>    
 	                    </div> 
                    
                     
@@ -480,7 +442,7 @@ fbq('track', "PageView");</script>
                             .bv-pagging a
                             {
                                 color: #565656;
-                                
+                               
                                 font-size: 14px;
                                 font-weight: bold;
                                 height: 20px;
@@ -496,10 +458,8 @@ fbq('track', "PageView");</script>
                             }
                         </style>
                         <a href="hocvien.jsp">
-                            Quay lại</a>
-                        
-                       
-                        
+                            Quay lại</a>                      
+                                              
                     </div>
                     
                     
@@ -663,14 +623,11 @@ fbq('track', "PageView");</script>
     </div>
 <% 
     
-  	for (Course course : courseDAO.getAllListCourse())
+  	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
   	{
-  		
-  		 teacher = courseDAO.getteacher(course.getCourse_id());
-  		 //CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), course.getCourse_id());
-  		 
+  		 teacher = coursewaitingDAO.getteacher(coursewaiting.getCourse_id());
     %>
-<div style="width: 392px; display: none" id="overlay-web<%=course.getCourse_id()%>">
+<div style="width: 392px; display: none" id="overlay-web<%=coursewaiting.getCourse_id()%>">
     <style type="text/css">
         .sp-remember
         {
@@ -689,25 +646,24 @@ fbq('track', "PageView");</script>
     <div class="box-popup">
         <a class="popup-close">X </a>
         <h3 class="bp-title">
-            Xem chi tiết khóa học - <%=course.getCourse_name()%>
+            Xem chi tiết khóa học - <%=coursewaiting.getCourse_name()%>
         </h3>
         <%
-	        String year_start= course.getCourse_startdate().toString().substring(0, 4);
-	        String month_start= course.getCourse_startdate().toString().substring(5, 7);
-	        String day_start= course.getCourse_startdate().toString().substring(8, 10);
+	        String year_start= coursewaiting.getCourse_startdate().toString().substring(0, 4);
+	        String month_start= coursewaiting.getCourse_startdate().toString().substring(5, 7);
+	        String day_start= coursewaiting.getCourse_startdate().toString().substring(8, 10);
 	        
-	        String year_end= course.getCourse_enddate().toString().substring(0, 4);
-	        String month_end= course.getCourse_enddate().toString().substring(5, 7);
-	        String day_end= course.getCourse_enddate().toString().substring(8, 10);
+	        String year_end= coursewaiting.getCourse_enddate().toString().substring(0, 4);
+	        String month_end= coursewaiting.getCourse_enddate().toString().substring(5, 7);
+	        String day_end= coursewaiting.getCourse_enddate().toString().substring(8, 10);
         %>
         <div class="bp-content" style="font-size: 20px">
-            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_name()%> </p>
+            <p style="padding-left: 50px;"> Khóa học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_name()%> </p>
             <p style="padding-left: 50px;"> Giảng viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=teacher.getTen() %> </p>
-            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=course.getCourse_schedulingday()%>, tiết <%=course.getCourse_startlession()%> - <%=course.getCourse_endlession()%>  </p>
-            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=course.getCourse_place()%> </p>
+            <p style="padding-left: 50px;"> Lịch học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thứ <%=coursewaiting.getCourse_schedulingday()%>, tiết <%=coursewaiting.getCourse_startlession()%> - <%=coursewaiting.getCourse_endlession()%>  </p>
+            <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_place()%> </p>
             <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
             <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
-            <a style="float: left;padding-left: 160px; color: blue; font-size: 15"  href="./resource/DeCuongKhoaHoc/LapTrinhWeb.pdf"> Xem đề cương khóa học </a>
                        <div id="login_pnLogin">
   
                  
@@ -771,23 +727,9 @@ fbq('track', "PageView");</script>
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
 
-                            <input type="button" onclick="btndangkyclick('<%=course.getCourse_id() %>','<%=course.getCourse_name() %>')"  value="Đăng ký" id="btndangky" name="btndangky" class="bpt-lnk-save btn-login">
+                            
                         </span>
 
-						<script type="text/javascript">
-                            function btndangkyclick(course_id, name) {
-                            	if(confirm('Đăng ký khóa học '+name+'. Đồng ý?'))
-                           		{
-                            		
-	                           			$.post('CourseWaitingServlet', {'command':"insert",'course_id':course_id}, function (data) {
-	                           				alert(data)
-	                           				location.reload();
-	                           			},'text'); 
-                              		
-                           		}
-                            }
-                        </script>
-						
                         <script type="text/javascript">
                             function btnDangNhap_OnClientClick() {
                                 document.getElementById('login_btnDangNhap').style.visibility = 'hidden';
@@ -1171,3 +1113,27 @@ Sys.Application.add_init(function() {
 </form>
 </body>
 </html>
+
+<script>
+
+    function thixacnhan(ten, tg) {
+        var a1 = document.getElementById('overlay-thixacnhan')
+        if (a1.innerHTML == '') {
+            $.ajax({
+                type: "get",
+                url: './Ajax/BaiThi_XacNhan.aspx?ten=' + ten + '&tg=' + tg,
+                success: function(msg) {
+
+                    msg = $.trim(msg);
+                    var a = document.getElementById('overlay-thixacnhan')
+
+                    $('#overlay-thixacnhan').html(msg);
+
+                    return false;
+                }
+            });
+        }
+
+    }
+</script>
+
