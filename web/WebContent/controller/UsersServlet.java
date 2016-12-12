@@ -75,6 +75,7 @@ public class UsersServlet extends HttpServlet {
 					+"-"+ request.getParameter("ngaysinh"));
 			user_info.setTen(request.getParameter("name"));
 			user_info.setSodienthoai(request.getParameter("sdt"));
+			user_info.setQuyen(Integer.parseInt(request.getParameter("quyen")));
 			boolean f = user_infoDAO.insertUser_info(user_info);
 			if(f)
 			{

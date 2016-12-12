@@ -125,7 +125,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
  
 <%@include file="//includes/headerad.jsp" %>
 <%@include file="//includes/message.jsp" %>
-
 <%
  			User_infoDAO aduser_infoDAO = new User_infoDAO();
 			UsersDAO adser_users = new UsersDAO();
@@ -305,10 +304,11 @@ fbq('track', "PageView");</script>
 							</span>
 							</div>
 							<script type="text/javascript">
-								var x = <%=student.getUserquyen()%>;
+								var x = '<%=student.getUserquyen()%>';
+								var y = '<%=student.getUsergioitinh()%>';
 								var id='<%=student.getUserID() %>';
 								$('#quyen'+id+' option[value=' + x + ']') .attr( 'selected', 'selected');						
-								$('#gioitinh'+id+' option[value=' + x + ']') .attr( 'selected', 'selected');
+								$('#updateusergioitinh'+id+' option[value=' + y + ']') .attr( 'selected', 'selected');
 							</script>
 							
 						</div>
@@ -336,6 +336,7 @@ fbq('track', "PageView");</script>
                           <input type="hidden" id="anhdaidien<%=student.getUserID()%>" value="<%=student.getAnhdaidien()%>">
       							<script type="text/javascript">
                        $('#updateuser'+<%=student.getUserID()%>).click(function(){
+                    	   
 	               			  $.post('UsersServlet', {'command': "updateuser",
 	               				'user_id':<%=student.getUserID()%>,
 	               				'email':$('#updateusermail'+<%=student.getUserID() %>).val(),
@@ -377,7 +378,7 @@ fbq('track', "PageView");</script>
                           <!-- Modal -->
                         </div>
                         
-                        <div class="modal-footer">
+                        <div class="modal-footer"
                        
                           <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Đóng</button>
                        
@@ -403,33 +404,33 @@ fbq('track', "PageView");</script>
                         <div class="modal-body">
                           <div class="bpt-item-left">User</div>
                             <div class=" ">
-                             <input name="username-register" type="text" value="" maxlength="30" id="username-register" class="bpt-txt">
+                             <input name="username-register" type="text" value="" maxlength="30" id="addusername" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Password</div>
                             <div class="bpt-item-right">
-                             <input name="pass-register" type="text" value="" maxlength="30" id="pass-register" class="bpt-txt">
+                             <input name="pass-register" type="text" value="" maxlength="30" id="addpass" class="bpt-txt">
                           </div>
                            <div class="bpt-item-left">Nhập lại mật khẩu</div>
                             <div class="bpt-item-right">
-                             <input name="pass-register2" type="text" value="" maxlength="30" id="pass-register2" class="bpt-txt">
+                             <input name="pass-register2" type="text" value="" maxlength="30" id="addpass" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Email</div>
                             <div class="bpt-item-right">
-                             <input name="email-register" type="text" value="" maxlength="30"  id="email-register" class="bpt-txt">
+                             <input name="email-register" type="text" value="" maxlength="30"  id="addemail" class="bpt-txt">
                           </div>  
                           <div class="bpt-item-left">Tên người dùng</div>
                             <div class="bpt-item-right">
-                             <input name="name" type="text" value="" maxlength="30"  id="name" class="bpt-txt">
+                             <input name="name" type="text" value="" maxlength="30"  id="addname" class="bpt-txt">
                           </div> 
                           <div class="bpt-item-left">Số điện thoại</div>
                             <div class="bpt-item-right">
-                             <input name="sdt" type="text" value="" maxlength="30" id="sdt" class="bpt-txt">
+                             <input name="sdt" type="text" value="" maxlength="30" id="addsdt" class="bpt-txt">
                           </div> 
 							<span class="sp-left">Giới tính</span> <span class="sp-right">
 								<div class="bpt-item-right">
-									<select name="gioitinh" id="gioitinh" class="bpt-sl-sex">
-										<option value ="-1" selected="selected">Chọn giới tính</option>
-										<option value="0">Nam</option>
+									<select name="gioitinh" id="addgioitinh" class="bpt-sl-sex">
+										<option >Chọn giới tính</option>
+										<option value="0"selected="selected">Nam</option>
 										<option value="1">Nữ</option>
 
 									</select>
@@ -437,7 +438,7 @@ fbq('track', "PageView");</script>
 							</span>
 						<span class="sp-left">Quyền:</span> <span class="sp-right">
 						<select name="quyen"
-						id="quyen" class="bpt-sl-date">
+						id="addquyen" class="bpt-sl-date">
 									<option selected="selected" value="0">Admin</option>
 									<option value="1">Giảng viên</option>
 									<option value="2">Học viên</option>
@@ -446,7 +447,7 @@ fbq('track', "PageView");</script>
                           </br>
                           <span class="sp-left">Ngày sinh:</span> <span class="sp-right">
 								<select name="ngaysinh"
-								id="ngaysinh" class="bpt-sl-date">
+								id="addngaysinh" class="bpt-sl-date">
 									<option value="0">Ngày</option>
 									<option selected="selected" value="1">1</option>
 									<option value="2">2</option>
@@ -482,7 +483,7 @@ fbq('track', "PageView");</script>
 
 							</select> 
 							<select name="thangsinh"
-								id="thangsinh" class="bpt-sl-month">
+								id="addthangsinh" class="bpt-sl-month">
 									<option value="0">Tháng</option>
 									<option selected="selected" value="1">1</option>
 									<option value="2">2</option>
@@ -499,7 +500,7 @@ fbq('track', "PageView");</script>
 
 							</select> 
 							<select name="namsinh"
-								id="namsinh" class="bpt-sl-date">
+								id="addnamsinh" class="bpt-sl-date">
 									<option value="0">Năm</option>
 									<option value="1930">1930</option>
 									<option value="1931">1931</option>
@@ -590,18 +591,16 @@ fbq('track', "PageView");</script>
 							<div class="bpc-row" style="margin-top: 0px;">
 								<span class="sp-left"></span>
 								<span class="sp-right"> 
-								<a onclick="themmoiclick()" id="register" name="register"
+								<a id="addregister" name="addregister"
 								class="bpt-lnk-save btn-login">Thêm mới </a>
 								<input	type="hidden" name="command" value="insert">
 								</span>
 								<script type="text/javascript">
                            			
-								$('#register').click(function(){
-                       			
-								                       				
-                       			$.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
-          		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
-          		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
+								$('#addregister').click(function(){  
+                       			$.post('UsersServlet', {'command': "insert",'email-register':$('#addemail').val(),'gioitinh':$('#addgioitinh').val(),
+          		        			  'namsinh':$('#addnamsinh').val(),'thangsinh':$('#addthangsinh').val(),'ngaysinh':$('#addngaysinh').val(),'name':$('#addname').val(),'sdt':$('#addsdt').val(),
+          		        			  'username-register':$('#addusername').val(),'pass-register':$('#addpass').val(),'quyen':$('#addquyen').val()}, function (data) {
           		                  	if(data=="")
           		                  		window.location.href="admin_quanlytaikhoan.jsp";
           		                  	else
@@ -765,7 +764,7 @@ fbq('track', "PageView");</script>
             				  $('#thangsinh').val()+ $('#ngaysinh').val()+ $('#name').val()+
             				  $('#sdt').val()+ $('#username-register').val()+ $('#pass-register').val())
 		        		  $.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
-		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
+		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
 		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
 		                  	if(data=="")
 		                  		window.location.href="index.jsp";

@@ -47,7 +47,7 @@ public class User_infoDAO {
 	public boolean insertUser_info(User_info u)
 	{
 		Connection con = DBConnect.getConnecttion();
-		String sql = "insert into user_info values(?,?,?,?,?,?,NULL,NULL,2)";
+		String sql = "insert into user_info values(?,?,?,?,?,?,NULL,NULL,?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) con.prepareCall(sql);
@@ -57,6 +57,7 @@ public class User_infoDAO {
 			ps.setInt(4,u.getGioitinh());
 			ps.setString(5, u.getNgaysinh());
 			ps.setString(6, u.getEmail());
+			ps.setInt(7, u.getQuyen());
 			ps.executeUpdate();
 			return true;
 
@@ -69,7 +70,7 @@ public class User_infoDAO {
 	public boolean updateUser_info(User_info u)
 	{
 		Connection con = DBConnect.getConnecttion();
-		String sql = "update user_info set ten=?,sodienthoai=?,gioitinh=?,ngaysinh=?,email=?,anhdaidien=?,diachi=? where id=?";
+		String sql = "update user_info set ten=?,sodienthoai=?,gioitinh=?,ngaysinh=?,email=?,anhdaidien=?,diachi=?,quyen=? where id=?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) con.prepareCall(sql);
@@ -80,7 +81,8 @@ public class User_infoDAO {
 			ps.setString(5, u.getEmail());
 			ps.setString(6, u.getAnhdaidien());
 			ps.setString(7, u.getDiachi());
-			ps.setLong(8, u.getId());
+			ps.setInt(8, u.getQuyen());
+			ps.setLong(9, u.getId());
 			ps.executeUpdate();
 			return true;
 
