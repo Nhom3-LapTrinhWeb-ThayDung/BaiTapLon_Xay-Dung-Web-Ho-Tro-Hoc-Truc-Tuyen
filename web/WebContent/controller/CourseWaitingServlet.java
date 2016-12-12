@@ -24,20 +24,22 @@ import dao.CourseWaitingDAO;
 @WebServlet("/CourseWaitingServlet")
 public class CourseWaitingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CourseWaitingServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CourseWaitingServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -48,27 +50,32 @@ public class CourseWaitingServlet extends HttpServlet {
 		doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		String command = request.getParameter("command");
 		String url = "";
 		CourseWaiting coursewaiting = new CourseWaiting();
 		CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
-		
+
 		RequestDispatcher rd ;
-		
+
 		HttpSession session = request.getSession();
 		User_info user_register= (User_info)session.getAttribute("user_info");
-		Course course_register = (Course)session.getAttribute("course_register");
-		
+		/*Course course_register = (Course)session.getAttribute("course_register");*/
+
 		switch(command){
 		case "insert":
 			long x = new java.util.Date().getTime();
 			coursewaiting.setCourse_waiting_id(x);
 			coursewaiting.setUser_id(user_register.getId());
-			coursewaiting.setCourse_id(course_register.getCourse_id());			
+			coursewaiting.setCourse_id(Long.parseLong(request.getParameter("course_id")));					
 			coursewaiting.setTime_register(new Timestamp(new Date().getTime()));	
 			
-			
+			boolean k = coursewaitingDAO.check_course_register(user_register.getId(), Long.parseLong(request.getParameter("course_id")));
+			if(!k)
+			{
+				response.getWriter().write("Bạn đã đăng ký khóa học này !");
+				break;
+			}
 			boolean f = coursewaitingDAO.insert(coursewaiting);
 			if(f)
 			{
@@ -77,17 +84,19 @@ public class CourseWaitingServlet extends HttpServlet {
 			else
 			{
 				//session.removeAttribute("user");
-				response.getWriter().write("Đăng ký thất bại !");
+				response.getWriter().write("Bạn đã đăng ký khóa học này rồi !");
 			}
 			/*RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);*/
 			break;	
 		case "delete":
 			url="";
+
 			String course_waiting_id = request.getParameter("course_waiting_id");
 			String course_id = request.getParameter("course_id");
 			f = coursewaitingDAO.delete(Long.parseLong(course_waiting_id));
 			if(f)
+				response.getWriter().write("thành công!");
 				url="khoahoc2.jsp?course_id="+course_id;
 			rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);
@@ -100,11 +109,13 @@ public class CourseWaitingServlet extends HttpServlet {
 				response.getWriter().write("Delete success!");
 			}
 			else
+				response.getWriter().write("không thành công!");
 			{
 			//session.removeAttribute("user");
 				response.getWriter().write("Delete unsuccessful!");
 			}
 			break;
+
 			
 		case "acceptcoursewaiting":
 			String course_waiting_idacp = request.getParameter("course_waiting_id");
@@ -125,13 +136,9 @@ public class CourseWaitingServlet extends HttpServlet {
 				response.getWriter().write("Accept unsuccessful!");
 			}
 			break;
-					
-			
-			
-			
+
 		}
-		}
-		
-		
 	}
+}
+
 

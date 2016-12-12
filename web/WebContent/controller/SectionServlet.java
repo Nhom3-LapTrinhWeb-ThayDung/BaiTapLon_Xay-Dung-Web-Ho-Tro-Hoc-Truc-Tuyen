@@ -48,7 +48,8 @@ public class SectionServlet extends HttpServlet {
 		Section section = new Section();
 		boolean f;
 		String url="";
-		RequestDispatcher rd ;
+		String section_id = "";
+		String course_id = "";
 		switch(command){
 		case "insert":
 			section.setSection_id(new java.util.Date().getTime());
@@ -79,24 +80,31 @@ public class SectionServlet extends HttpServlet {
 				url="khoahoc2.jsp?course_id="+section.getCourse_id();
 			else
 				url="edit-section.jsp?course_id="+section.getCourse_id()+"&section_id="+section.getSection_id();
-			rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
+			response.sendRedirect(url);
 			break;
 		case "delete":
 			url="";
 			
-			String section_id = request.getParameter("section_id");
-			String course_id = request.getParameter("course_id");
+			section_id = request.getParameter("section_id");
+			course_id = request.getParameter("course_id");
 			f = sectionDAO.delete(Long.parseLong(section_id));
 			if(f)
 				url="khoahoc2.jsp?course_id="+course_id;
 			else
 				url="edit-section.jsp?course_id="+course_id+"&section_id="+section_id;
-			rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
+			response.sendRedirect(url);
 			break;
-			
+		case "deleteresources":
+			url="";
+			f = sectionDAO.deleteresources(Long.parseLong(request.getParameter("resources_id")));
+			if(f)
+				response.getWriter().write("Xóa file thành công!");
+			else
+				response.getWriter().write("Xóa file không thành công!");
+			break;
+		
 		}
+		
 	}
 
 }

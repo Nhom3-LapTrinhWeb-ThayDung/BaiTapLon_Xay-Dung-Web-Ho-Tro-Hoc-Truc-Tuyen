@@ -5,13 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.sound.midi.MidiDevice.Info;
-
 import java.sql.Connection;
 
 import connect.DBConnect;
-import model.Infotaikhoan;
 import model.User_info;
 import model.Users;
 

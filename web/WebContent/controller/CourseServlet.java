@@ -83,10 +83,7 @@ public class CourseServlet extends HttpServlet {
 					{
 						session.setAttribute("course", course);
 						response.getWriter().write("khoahoc2.jsp?course_id="+x);
-						//RequestDispatcher rd = request.getRequestDispatcher(url);
-						//rd.forward(request, response);
-						//response.getWriter().write("Mở khóa học thành công!");
-						//response.sendRedirect("khoahoc2.jsp");  
+						response.getWriter().write("");
 						
 					}
 					else
@@ -118,8 +115,7 @@ public class CourseServlet extends HttpServlet {
 			//session.removeAttribute("user");
 				response.getWriter().write("Delete unsuccessful!");
 			}
-			break;
-
+			break;		
 		case "update":
 			course.setCourse_id(Long.parseLong(request.getParameter("course_id")));
 			course.setCourse_description(request.getParameter("course_description"));
@@ -145,8 +141,9 @@ public class CourseServlet extends HttpServlet {
 			{
 				url="edit-course.jsp?course_id="+course.getCourse_id();
 			}
-			RequestDispatcher rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
+			response.sendRedirect(url);
+			/*RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);*/
 			break;
 		case "getlistcourseofuser":
 			/*int userid=Integer.parseInt(request.getParameter("userid"));
