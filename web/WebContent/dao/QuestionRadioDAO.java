@@ -204,7 +204,7 @@ public class QuestionRadioDAO {
 		}
     	return false;
     }
-
+    
     //thĂªm cĂ¢u há»�i
     public boolean insertQuestion(QuestionQuiz q)
     {
@@ -255,57 +255,7 @@ public class QuestionRadioDAO {
 		}
     	return false;
     }
-    public boolean deleteQuestion(long quiz_id)
-    {
-    	Connection con = DBConnect.getConnecttion();
-		String sql = 
-				"delete from quiz_question where quiz_id=?";
-		PreparedStatement ps;
-		try {
-			ps = (PreparedStatement) con.prepareCall(sql);
-			ps.setLong(1, quiz_id);
-			ps.executeUpdate();
-			return true;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	return false;
-    }
     
-    public boolean deleteQuizResult(long qr)
-    {
-    	Connection con = DBConnect.getConnecttion();
-		String sql = "delete from quiz_result where quiz_id=?";
-		PreparedStatement ps;
-		try {
-			ps = (PreparedStatement) con.prepareCall(sql);
-			ps.setLong(1,qr);
-			
-			ps.executeUpdate();
-			return true;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	return false;
-    }
-    public boolean checkQuizResult(long quiz_id) {
-		Connection conn = DBConnect.getConnecttion();
-		String sql = "select * from quiz_result where quiz_id ='" + quiz_id + "'";
-		PreparedStatement ps;
-		try {
-			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				conn.close();
-				return true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
     public boolean insertQuizResult(QuizResult qr)
     {
     	Connection con = DBConnect.getConnecttion();

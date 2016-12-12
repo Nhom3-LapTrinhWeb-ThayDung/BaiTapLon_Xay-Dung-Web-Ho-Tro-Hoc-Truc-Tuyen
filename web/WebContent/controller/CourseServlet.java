@@ -70,6 +70,7 @@ public class CourseServlet extends HttpServlet {
 			course.setCourse_place(request.getParameter("course_place"));
 			course.setCourse_schedulingday(Integer.parseInt(request.getParameter("schedulingday")));
 			
+			
 			/*course = new Course(x,request.getParameter("course_name"),request.getParameter("startdate_nam")
 					+"-"+ request.getParameter("startdate_thang")
 					+"-"+ request.getParameter("startdate_ngay"),request.getParameter("enddate_nam")
@@ -85,7 +86,7 @@ public class CourseServlet extends HttpServlet {
 						response.getWriter().write("khoahoc2.jsp?course_id="+x);
 						//RequestDispatcher rd = request.getRequestDispatcher(url);
 						//rd.forward(request, response);
-						//response.getWriter().write("Mở khóa học thành công!");
+						//response.getWriter().write("Má»Ÿ khÃ³a há»�c thÃ nh cÃ´ng!");
 						//response.sendRedirect("khoahoc2.jsp");  
 						
 					}
@@ -93,14 +94,14 @@ public class CourseServlet extends HttpServlet {
 					{
 						//session.removeAttribute("user");
 						//url="canhangiangvien.jsp";
-						response.getWriter().write("Mở khóa học không thành công!");
+						response.getWriter().write("Má»Ÿ khÃ³a há»�c khÃ´ng thÃ nh cÃ´ng!");
 					}
 			}
 			else
 			{
 				//session.removeAttribute("user");
 				//url="canhangiangvien.jsp";
-				response.getWriter().write("Mở khóa học không thành công!");
+				response.getWriter().write("Má»Ÿ khÃ³a há»�c khÃ´ng thÃ nh cÃ´ng!");
 			}
 			
 			break;
@@ -116,6 +117,7 @@ public class CourseServlet extends HttpServlet {
 			course.setCourse_place(request.getParameter("course_place"));
 			course.setCourse_schedulingday(Integer.parseInt(request.getParameter("course_schedulingday")));
 			
+			
 			/*course = new Course(x,request.getParameter("course_name"),request.getParameter("startdate_nam")
 					+"-"+ request.getParameter("startdate_thang")
 					+"-"+ request.getParameter("startdate_ngay"),request.getParameter("enddate_nam")
@@ -130,9 +132,8 @@ public class CourseServlet extends HttpServlet {
 			{
 				url="edit-course.jsp?course_id="+course.getCourse_id();
 			}
-			response.sendRedirect(url);
-			/*RequestDispatcher rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);*/
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
 			break;
 		case "getlistcourseofuser":
 			/*int userid=Integer.parseInt(request.getParameter("userid"));
@@ -142,7 +143,7 @@ public class CourseServlet extends HttpServlet {
 	        //if(listCourse==null)
 	        	response.getWriter().write(y);
 	       // else
-	        	//response.getWriter().write("load ds khóa học thành công!");
+	        	//response.getWriter().write("load ds khÃ³a há»�c thÃ nh cÃ´ng!");
 			//break;
 */		}
 	

@@ -77,13 +77,13 @@ public class ExerciseServlet extends HttpServlet {
 			exercise.setExersice_content(request.getParameter("exercise_content"));
 			f = exerciseDAO.update(exercise);
 			if(f)
-				response.getWriter().write("Cập nhật bài tập thành công!");
+				response.getWriter().write("cập nhật bài tập thành công!");
 			else
 				/*response.getWriter().write(exercise.getExercise_id() +"~"+ exercise.getExercise_name()  +"~"+ 
 						 exercise.getExersice_content() +"~"+ exercise.getExercise_startdate()
 						 +"~"+ exercise.getExercise_starttime() +"~"+ exercise.getExercise_enddate() +"~"+ exercise.getExercise_endtime()
 						 +"~"+ exercise.getSection_id());*/
-				response.getWriter().write("Cập nhật bài tập không thành công!");
+				response.getWriter().write("cập nhật bài tập không thành công!");
 			break;
 		case "delete":
 			f = exerciseDAO.delete(Long.parseLong(request.getParameter("exercise_id")));

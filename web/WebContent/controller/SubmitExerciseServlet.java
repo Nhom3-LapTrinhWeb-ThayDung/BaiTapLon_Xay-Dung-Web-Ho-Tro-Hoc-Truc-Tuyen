@@ -195,7 +195,8 @@ public class SubmitExerciseServlet extends HttpServlet {
         }
         // redirects client to message page
         request.setAttribute("message",i+"-"+ srcname+"-"+file+"-"+exercise_id+"-"+course_id+"-"+description+"-"+command+"-"+uf.getId());
-        response.sendRedirect(url);
+        getServletContext().getRequestDispatcher("/message.jsp").forward(
+                request, response);
 	}
 
 }

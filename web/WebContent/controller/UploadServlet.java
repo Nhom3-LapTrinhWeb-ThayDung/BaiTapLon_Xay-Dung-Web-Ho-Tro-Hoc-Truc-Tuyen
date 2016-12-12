@@ -18,10 +18,8 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.oreilly.servlet.MultipartRequest;
 
-import dao.CourseDAO;
 import dao.SectionDAO;
 import dao.User_infoDAO;
-import model.Outline;
 import model.Resources;
 import model.User_info;
 
@@ -33,7 +31,6 @@ public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	User_infoDAO user_infoDAO = new User_infoDAO();
 	SectionDAO sectionDAO = new SectionDAO();
-	CourseDAO courseDAO = new CourseDAO();
     // location to store file uploaded
     private static final String UPLOAD_DIRECTORY = "upload";
  
@@ -52,8 +49,6 @@ public class UploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-    	request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
     	String url = "";
     	boolean f;
     	int i=0;
@@ -141,9 +136,9 @@ public class UploadServlet extends HttpServlet {
         	f = user_infoDAO.updateUser_info(uf);
         	session.setAttribute("user_info", uf);
         	if(uf.getQuyen()==1)
-        		url="canhangiangvien.jsp";
+        		url="/canhangiangvien.jsp";
         	else
-        		url="hocvien.jsp";
+        		url="/hocvien.jsp";
         	break;
         case "file":
         	Resources src = new Resources();
@@ -152,31 +147,13 @@ public class UploadServlet extends HttpServlet {
         	src.setSection_id(Long.parseLong(srcsectionid));
         	src.setResources_type(srcname.substring(srcname.length()-3));
         	f = sectionDAO.insertresources(src);
-        	url="khoahoc2.jsp?course_id="+course_id;
-        	break;
-        case "outline":
-        	Outline o = new Outline();
-        	f= courseDAO.checkOutline(course_id);
-        	if(!f)
-        	{
-	        	o.setOutline(srcname);
-	        	o.setCourse_id(Long.parseLong(course_id));
-	        	o.setType(srcname.substring(srcname.length()-3));
-	        	f = courseDAO.insertOutline(o);
-        	}
-        	else
-        	{
-
-	        	o.setOutline(srcname);
-	        	o.setCourse_id(Long.parseLong(course_id));
-	        	o.setType(srcname.substring(srcname.length()-3));
-	        	f = courseDAO.updateOutline(o);
-        	}
-        	url="khoahoc2.jsp?course_id="+course_id;
+        	url="/khoahoc2.jsp?course_id="+course_id;
         	break;
         }
         // redirects client to message page
-        response.sendRedirect(url);
+        request.setAttribute("message", srcname+srcsectionid);
+        getServletContext().getRequestDispatcher(url).forward(
+                request, response);
     }
 
 }

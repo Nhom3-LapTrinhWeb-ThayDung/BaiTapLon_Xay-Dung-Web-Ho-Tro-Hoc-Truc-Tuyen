@@ -236,73 +236,66 @@ fbq('track', "PageView");</script>
 <!-- End Facebook Pixel Code -->
         <!--end-header-->
 <div id="body">
-      <td style="width:1%;">&nbsp;</td><td style="width:99%;">
-      <table cellspacing="1" cellpadding="1" width="100%">
-      <tbody>
-      <tr><td height="3" colspan="4"></td></tr>
-      <tr>
-      </tr>
-      <h3>Danh sách các khoá học đang trong thời hạn đăng ký </h3>
-      <tr><td>
-      <table cellspacing="0" cellpadding="0" width="100%">
-      <tbody>
-      <tr><td class="studyprogram_tabledetails_td_header_dl" width="4%">STT</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mã khoá học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Tên khoá học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian bắt đầu</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian kết thúc</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Lịch học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Bắt đầu bài học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Kết thúc bài học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Địa điểm</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mô tả</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="6%">Xoá</td></tr>
-      <%
-					int ktt =0;
-					for(Course coursess: listcourse ){
-						ktt++;				
-				%>
-      <tr>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=ktt%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_id()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_name()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startdate()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_enddate()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_schedulingday()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startlession()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_endlession()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_place()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_description()%></td>
-      <td><button type="button" class="btn btn-default btn-xs "id="deletecourse"<%=coursess.getCourse_id()%>>Xóa</button></td>
-      <script>
-      $('#deletecourse'+<%=coursess.getCourse_id()%>).click(function(){
-    	 
-    	  alert("Hello! I am an alert box!!")
-         <%--  {
-         	 if(confirm("Xóa khóa học "+$(<%=coursess.getCourse_name()%>).val()+". Đồng ý?")==true)
-						{                        
-                  	 $.post('UsersServlet', {'command': "deleteuser_userinfo",
-              				'courseID_delete':<%=coursess.getCourse_id()%>}
-              				,function (data) {
-	               	          	if(data=="Delete success!")
-	               	          		window.location.reload();
-	               	          	else
-	               	          		alert(data);
-              	           },'text')
-						}
-          } --%>
-      });
-      </script>      
-      <% }%>
-      <tr>
-      </tbody>
-      </table>
-      </td></tr>
-      </tbody>
-      </table>
-      </td>
-    </tr><tr>
-        <!--Alert-->      
+
+<h3>Danh sách các khoá học đang trong thời hạn đăng ký </h3>
+		<script type="text/javascript">
+        	function deletecourse(course_id,course_name)
+        	{
+        		if(confirm("Xóa khóa học "+course_name+". Đồng ý?")==true)
+				{                        
+	               	 $.post('CourseServlet', {'command': "deletecourse",
+	           				'courseID_delete':course_id}
+	           				,function (data) {
+	             	          	if(data=="Delete success!")
+	             	          		{
+	             	          		alert(data);
+	             	          		location.reload();
+	             	          		}
+	             	          		
+	             	          	else
+	             	          		alert(data);
+	           	           },'text');
+				}
+        	}
+        </script>  
+	      <table cellspacing="0" cellpadding="0" width="100%">
+	      <tbody>
+	      <tr><td class="studyprogram_tabledetails_td_header_dl" width="4%">STT</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mã khoá học</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Tên khoá học</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian bắt đầu</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian kết thúc</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Lịch học</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Bắt đầu bài học</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Kết thúc bài học</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Địa điểm</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mô tả</td>
+	      <td class="studyprogram_tabledetails_td_header_dl" width="6%">Xoá</td></tr>
+	      <%
+						int ktt =0;
+						for(Course coursess: listcourse ){
+							ktt++;				
+		%>
+	      <tr>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=ktt%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_id()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_name()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startdate()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_enddate()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_schedulingday()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startlession()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_endlession()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_place()%></td>
+	      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_description()%></td>
+	      <td><button type="button" class="btn btn-default btn-xs" onclick="deletecourse('<%=coursess.getCourse_id()%>','<%=coursess.getCourse_name() %>')" id="deletecourse<%=coursess.getCourse_id()%>">Xóa</button></td>
+	      </tr>   
+	      
+	      <% }%>
+	      </tbody>
+	      </table>
+        <!--Alert--> 
+        
+           
 <div class="study-notice">   
 </div>            
 <script>
@@ -322,299 +315,6 @@ $('.persion-tab-lnk').click(function() {
     });    
 });
 </script>
-<div id="body-content">
-    <div class="persion-group">
-        <div class="persion-left">
-            <style>
-.persion-avatar-img {
-    border-radius: 84px;
-    float: left;
-    height: 164px;
-    margin-bottom: 2px;
-    margin-left: 53px;
-    margin-right: auto;
-    margin-top: 15px;
-    width: 164px;
-}
-.persion-info {
-    float: left;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 21px;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-}
-.persion-tab {
-    float: left;
-    margin-top: 15px;
-    width: 100%;
-}
-.persion-tab .wrap-tab {
-    background: rgb(255, 255, 255) none repeat scroll 0 0;
-    float: left;
-    width: 100%;
-}
-.persion-tab .wrap-tab .persion-tab-lnk {
-    border-top: 1px solid rgb(226, 226, 226);
-    color: rgb(71, 71, 71);
-    float: left;
-    font-size: 14px;
-    height: 45px;
-    line-height: 45px;
-    text-align: center;
-    width: 100%;
-}
-.persion-tab .wrap-tab .persion-tab-lnk:hover {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-}
-.persion-tab .wrap-tab .active {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-    font-weight: bold;
-}
-.persion-tab .wrap-tab .persion-tab-lnk span {
-    float: left;
-    margin-left: 19px;
-}
-.persion-right {
-    background: rgb(255, 255, 255) none repeat scroll 0 0;
-    float: left;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    width: 595px;
-}
-.learn-process {
-    float: left;
-    width: 595px;
-}
-.learn-process-h3 {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-    float: left;
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
-}
-.learn-process-h3 span {
-    float: left;
-    margin-left: 15px;
-}
-.learn-process-wrap {
-    float: left;
-    margin-top: 15px;
-    width: 100%;
-}
-.learn-process-item {
-    border: 1px solid rgb(226, 226, 226);
-    float: left;
-    margin-bottom: 15px;
-    padding: 15px;
-    width: 563px;
-}
-.learn-process-item img.process-img {
-    float: left;
-    height: 124px;
-    width: 220px;
-}
-.learn-process-item .process-info-right {
-    color: rgb(68, 68, 68);
-    float: right;
-    line-height: 18px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    width: 325px;
-}
-.learn-process-item .process-info-right p {
-    margin-top: 2px;
-}
-.learn-process-item .process-info-right p.p-content-subject {
-    font-size: 14px;
-    margin-top: 0;
-}
-.learn-process-item .process-info-right p.p-content-title {
-    margin-top: 5px;
-}
-.bpt-content {
-    margin-bottom: 15px;
-    margin-top: 0;
-    padding: 0;
-    width: 595px;
-}
-.bpt-row .bpt-item-left {
-    width: 150px;
-}
-.bpt-row .bpt-item-right {
-    width: 400px;
-}
-.bpt-row-save .bpt-lnk-save {
-    margin-left: 170px;
-}
-.persion-right {
-    display: none;
-}
-.process-exam {
-    border: 0 none;
-    padding: 0;
-    width: 100%;
-}
-.process-exam .pln-list .pln-row .pln-row-center {
-    width: 245px;
-}
-.process-exam .pln-list .pln-row .pln-row-right {
-    width: 210px;
-}
-.process-exam .pln-filter p.p-type {
-    margin-left: 30px;
-}
-.process-study {
-    float: left;
-    margin-top: 15px;
-    width: 595px;
-}
-.process-study .lp-lnk {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 15px;
-    width: 253px;
-}
-#doimk {
-    display: none;
-}
- </style>
-        </div>   
-        <div class="persion-right persion-detail" id="TienTrinhHocNew">
-        </div>
-          <div class="persion-right persion-detail" id="QuanLyCommentNew" style="display: none;">
-        </div>
-          <div class="persion-right persion-detail" id="LichSuGiaoDichNew" style="display: none;">
-        </div>  
-        <div class="persion-right" id="DetailThi" style="display: none;">
-            <div id="ctl14_TienTrinhThi_upThi">
-<div class="box-persion process-exam">
-<div class="pln-filter">
-    <p class="p-subject">
-            CHỌN LOẠI
-            <select name="ctl14$TienTrinhThi$ddlType" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl14$TienTrinhThi$ddlType\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl14_TienTrinhThi_ddlType">
-    <option selected="selected" value="0">Tất cả</option>
-    <option value="5">Thi đại học</option>
-    <option value="23">Thi THPT Quốc Gia</option>
-    <option value="4">Thi tốt nghiệp</option>
-    <option value="2">Kiểm tra chuyên đề</option>
-
-  </select>
-        </p>
-    <p class="p-type">
-        CHỌN MÔN
-        <select name="ctl14$TienTrinhThi$ddlMon" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl14$TienTrinhThi$ddlMon\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl14_TienTrinhThi_ddlMon">
-    <option selected="selected" value="0">Tất cả</option>
-  </select>
-    </p>    
-</div>
-</div>
-<div id="ctl14_TienTrinhThi_UpdateProgress1" style="display:none;">
-</div> 
-</div>
-<script type="text/javascript">
-  $(document).ready(function(){    
-    $('.pln-lnk-share').live('click', function(e) {
-      e.preventDefault();
-      var path = $(this).attr('exam-url');
-      var url = "https://www.facebook.com/sharer/sharer.php?u=http://viettelstudy.vn/" + path + "&amp;t=ViettelStudy";
-      window.open(url, '_blank');
-      return false;
-    });   
-  });
-</script>
-        </div>       
-        <div class="persion-right" id="DetailDMK" style="display: none;">            
-<script>
-    function ChapNhan() {
-        document.getElementById('ctl14_DoiMatKhau_btnDoiMK').click();
-    }
-</script>
-
-<div id="ctl14_DoiMatKhau_upDoiMK">
-  
-<div style="display: block;" class="bpt-content" id="doimk">
-    <h3 class="learn-process-h3">
-        <span>ĐỔI MẬT KHẨU</span>
-    </h3>
-    <div class="bpt-row">
-        <div class="bpt-item-left">
-            Mật khẩu cũ:</div>
-        <div class="bpt-item-right">
-            <input name="ctl14$DoiMatKhau$txtMatKhauCu" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtMatKhauCu" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
-        </div>
-        <div class="bpt-item-left">
-        </div>
-        <div class="bpt-item-right">
-            <span id="ctl14_DoiMatKhau_lblErrMatKhauCu"></span>
-        </div>
-    </div>
-    <div class="bpt-row">
-        <div class="bpt-item-left">
-            Mật khẩu mới:</div>
-        <div class="bpt-item-right">
-            <input name="ctl14$DoiMatKhau$txtmatKhauMoi" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtmatKhauMoi" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">
-        </div>
-        <div class="bpt-item-left">
-        </div>
-        <div class="bpt-item-right">
-            <span id="ctl14_DoiMatKhau_lblErrMatKhauMoi"></span>
-        </div>
-    </div>
-    <div class="bpt-row">
-        <div class="bpt-item-left">
-            Nhập lại mật khẩu</div>
-        <div class="bpt-item-right">
-            <input name="ctl14$DoiMatKhau$txtXnMatKhauMoi" type="password" maxlength="30" id="ctl14_DoiMatKhau_txtXnMatKhauMoi" class="bpt-txt" autocomplete="off" onkeydown="var key = event.keyCode || event.which; if (key == 13){ChapNhan();return false;} return true;">         
-        </div>
-        <div class="bpt-item-left">
-        </div>
-        <div class="bpt-item-right">
-            <span id="ctl14_DoiMatKhau_lblErrXnMatKhauMoi"></span>
-        </div>
-    </div>  
-    <div class="bpt-row" style="margin-top:0px;">
-        <div class="bpt-item-left">
-        </div>
-        <div class="bpt-item-right">
-            <span id="ctl14_DoiMatKhau_lblErr"></span>
-        </div>
-    </div>
-    <div class="bpt-row bpt-row-save" style="margin-top:0px;">
-        <a id="ctl14_DoiMatKhau_btnDoiMK" name="btnDoiMK" class="bpt-lnk-save" href="javascript:__doPostBack(&#39;ctl14$DoiMatKhau$btnDoiMK&#39;,&#39;&#39;)"> Đồng ý </a>
-        <input type="hidden" name="TokenCSRF_Doimk" value="0041A73EF7922FC7BEE66A04DE372592C9CB63049AF5C24FD87AF7F5E6FB68DC964B1FE1CE344ABA35295B4330A087917220EC7E6E90A7EA4DAFC56D07FE9DD6">
-    </div>
-    
-</div>
-</div>
-<div id="ctl14_DoiMatKhau_UpdateProgress1" style="display:none;">
-  
-    <div class="bpt-row">
-        <div class="bpt-item-left"></div>
-        <div class="bpt-item-right">
-            <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
-        </div>
-    </div>
-</div> 
-<script type="text/javascript">
-    function refreshCaptcha(capchaid, capchlength) {
-        $('.capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-</script>
-        </div>
-        <div class="persion-right" id="DetailUser" style="display: block;">
-<script type="text/javascript">
-function refreshCaptcha(capchaid, capchlength) {
-        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-</script>
-        </div>
-    </div>
-</div>
 <script type="text/javascript">
     function loadUserControl(id_load) {
         $('#'+id_load).show();

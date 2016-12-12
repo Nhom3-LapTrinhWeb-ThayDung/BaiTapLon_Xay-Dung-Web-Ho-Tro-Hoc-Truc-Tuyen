@@ -1,3 +1,4 @@
+<%@page import="model.CoursewaitingUser"%>
 <%@page import="model.Infotaikhoan"%>
 <%@page import="dao.UsersDAO"%>
 <%@page import="model.Resources"%>
@@ -152,8 +153,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 <%@include file="//includes/message.jsp" %>
 <%
 CourseDAO aduser_courseDAO = new CourseDAO();
-List<Course> listcourse= new ArrayList<Course>();
-listcourse=aduser_courseDAO.getAllListCourse();
+List<CoursewaitingUser> listcoursewaiting = new ArrayList<CoursewaitingUser>();
+listcoursewaiting = aduser_courseDAO.getListCoursewaiting();
+
 %>
 <script type="text/javascript">
 
@@ -236,72 +238,82 @@ fbq('track', "PageView");</script>
 <!-- End Facebook Pixel Code -->
         <!--end-header-->
 <div id="body">
-      <td style="width:1%;">&nbsp;</td><td style="width:99%;">
-      <table cellspacing="1" cellpadding="1" width="100%">
-      <tbody>
-      <tr><td height="3" colspan="4"></td></tr>
-      <tr>
-      </tr>
-      <h3>Danh sách các khoá học đang trong thời hạn đăng ký </h3>
-      <tr><td>
+<h3>Danh sách các khoá học đang trong thời hạn đăng ký </h3>
+       <script type="text/javascript">
+        	function deletecoursewaiting(course_id)
+        	{
+        		 if(confirm("Xóa đăng ký khóa học "+course_id+". Đồng ý ?")==true)
+				{                        
+	               	 $.post('CourseWaitingServlet', {'command': "deletecoursewaiting",
+	           				'course_waiting_id':course_id}
+	           				,function (data) {
+	             	          	if(data=="Delete success!")
+	             	          		{
+	             	          		location.reload();
+	             	          		}
+	             	          		
+	             	          	else
+	             	          		alert(data);
+	           	           },'text');              
+				} 
+        	}
+        	function acceptcoursewaiting(coursewaiting_id,course_id,userid)
+        	{
+        		if(confirm("Xóa đăng ký khóa học "+course_id+". Đồng ý ?")==true)
+				{                        
+	               	 $.post('CourseWaitingServlet', {'command': "acceptcoursewaiting",
+	           				'course_waiting_id':coursewaiting_id,
+	           				'course_id':course_id,
+	           				'user_id':userid}
+	           				,function (data) {
+	             	          	if(data=="Accept success!")
+	             	          		{
+	             	          			location.reload();
+	             	          		}
+	             	          		
+	             	          	else
+	             	          		alert(data);
+	           	           },'text');              
+				} 
+        	}
+        </script>  
       <table cellspacing="0" cellpadding="0" width="100%">
       <tbody>
       <tr><td class="studyprogram_tabledetails_td_header_dl" width="4%">STT</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mã khoá học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Tên khoá học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian bắt đầu</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="8%">Mã khoá học chờ</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="8%">Id User</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="8%">Id khóa học</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Tên khóa học</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Thời gian bắt đầu</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="10%">Thời gian kết thúc</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Lịch học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Bắt đầu bài học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Kết thúc bài học</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Địa điểm</td>
-      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Mô tả</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Địa chỉ lớp học</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="5%">Tên học viên</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="10%">Số điện thoại</td>
+      <td class="studyprogram_tabledetails_td_header_dl" width="6%">Đồng ý</td>
       <td class="studyprogram_tabledetails_td_header_dl" width="6%">Xoá</td></tr>
       <%
-					int ktt =0;
-					for(Course coursess: listcourse ){
-						ktt++;				
+      int ktt =0;
+      for(CoursewaitingUser courwaiting: listcoursewaiting ){
+			ktt++;				
 				%>
       <tr>
       <td class="studyprogram_tabledetails_td_content_dl"><%=ktt%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_id()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_name()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startdate()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_enddate()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_schedulingday()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_startlession()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_endlession()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_place()%></td>
-      <td class="studyprogram_tabledetails_td_content_dl"><%=coursess.getCourse_description()%></td>
-      <td><button type="button" class="btn btn-default btn-xs "id="deletecourse"<%=coursess.getCourse_id()%>>Xóa</button></td>
-      <script>
-      $('#deletecourse'+<%=coursess.getCourse_id()%>).click(function(){
-    	 
-    	  alert("Hello! I am an alert box!!")
-         <%--  {
-         	 if(confirm("Xóa khóa học "+$(<%=coursess.getCourse_name()%>).val()+". Đồng ý?")==true)
-						{                        
-                  	 $.post('UsersServlet', {'command': "deleteuser_userinfo",
-              				'courseID_delete':<%=coursess.getCourse_id()%>}
-              				,function (data) {
-	               	          	if(data=="Delete success!")
-	               	          		window.location.reload();
-	               	          	else
-	               	          		alert(data);
-              	           },'text')
-						}
-          } --%>
-      });
-      </script>      
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_waiting_id()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getUser_id()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_id()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_name()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_startdate()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_enddate()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getCourse_place()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getTen()%></td>
+      <td class="studyprogram_tabledetails_td_content_dl"><%=courwaiting.getSodienthoai()%></td>
+	  <td><button type="button" class="btn btn-default btn-xs" onclick="acceptcoursewaiting('<%=courwaiting.getCourse_waiting_id()%>','<%=courwaiting.getCourse_id()%>','<%=courwaiting.getUser_id() %>')" id="acceptcoursewaiting<%=courwaiting.getCourse_id()%>">Accept</button></td>
+	  <td><button type="button" class="btn btn-default btn-xs" onclick="deletecoursewaiting('<%=courwaiting.getCourse_id()%>')" id="deletecoursewaiting<%=courwaiting.getCourse_id()%>">Xóa</button></td>
+      <tr>  
       <% }%>
-      <tr>
+      
       </tbody>
       </table>
-      </td></tr>
-      </tbody>
-      </table>
-      </td>
-    </tr><tr>
         <!--Alert-->      
 <div class="study-notice">   
 </div>            
@@ -323,208 +335,6 @@ $('.persion-tab-lnk').click(function() {
 });
 </script>
 <div id="body-content">
-    <div class="persion-group">
-        <div class="persion-left">
-            <style>
-.persion-avatar-img {
-    border-radius: 84px;
-    float: left;
-    height: 164px;
-    margin-bottom: 2px;
-    margin-left: 53px;
-    margin-right: auto;
-    margin-top: 15px;
-    width: 164px;
-}
-.persion-info {
-    float: left;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 21px;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-}
-.persion-tab {
-    float: left;
-    margin-top: 15px;
-    width: 100%;
-}
-.persion-tab .wrap-tab {
-    background: rgb(255, 255, 255) none repeat scroll 0 0;
-    float: left;
-    width: 100%;
-}
-.persion-tab .wrap-tab .persion-tab-lnk {
-    border-top: 1px solid rgb(226, 226, 226);
-    color: rgb(71, 71, 71);
-    float: left;
-    font-size: 14px;
-    height: 45px;
-    line-height: 45px;
-    text-align: center;
-    width: 100%;
-}
-.persion-tab .wrap-tab .persion-tab-lnk:hover {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-}
-.persion-tab .wrap-tab .active {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-    font-weight: bold;
-}
-.persion-tab .wrap-tab .persion-tab-lnk span {
-    float: left;
-    margin-left: 19px;
-}
-.persion-right {
-    background: rgb(255, 255, 255) none repeat scroll 0 0;
-    float: left;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    width: 595px;
-}
-.learn-process {
-    float: left;
-    width: 595px;
-}
-.learn-process-h3 {
-    background: rgb(243, 243, 243) none repeat scroll 0 0;
-    color: rgb(20, 146, 142);
-    float: left;
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
-}
-.learn-process-h3 span {
-    float: left;
-    margin-left: 15px;
-}
-.learn-process-wrap {
-    float: left;
-    margin-top: 15px;
-    width: 100%;
-}
-.learn-process-item {
-    border: 1px solid rgb(226, 226, 226);
-    float: left;
-    margin-bottom: 15px;
-    padding: 15px;
-    width: 563px;
-}
-.learn-process-item img.process-img {
-    float: left;
-    height: 124px;
-    width: 220px;
-}
-.learn-process-item .process-info-right {
-    color: rgb(68, 68, 68);
-    float: right;
-    line-height: 18px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    width: 325px;
-}
-.learn-process-item .process-info-right p {
-    margin-top: 2px;
-}
-.learn-process-item .process-info-right p.p-content-subject {
-    font-size: 14px;
-    margin-top: 0;
-}
-.learn-process-item .process-info-right p.p-content-title {
-    margin-top: 5px;
-}
-.bpt-content {
-    margin-bottom: 15px;
-    margin-top: 0;
-    padding: 0;
-    width: 595px;
-}
-.bpt-row .bpt-item-left {
-    width: 150px;
-}
-.bpt-row .bpt-item-right {
-    width: 400px;
-}
-.bpt-row-save .bpt-lnk-save {
-    margin-left: 170px;
-}
-.persion-right {
-    display: none;
-}
-.process-exam {
-    border: 0 none;
-    padding: 0;
-    width: 100%;
-}
-.process-exam .pln-list .pln-row .pln-row-center {
-    width: 245px;
-}
-.process-exam .pln-list .pln-row .pln-row-right {
-    width: 210px;
-}
-.process-exam .pln-filter p.p-type {
-    margin-left: 30px;
-}
-.process-study {
-    float: left;
-    margin-top: 15px;
-    width: 595px;
-}
-.process-study .lp-lnk {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 15px;
-    width: 253px;
-}
-#doimk {
-    display: none;
-}
- </style>
-<script type="text/javascript">
-  $(document).ready(function(){    
-    $('.pln-lnk-share').live('click', function(e) {
-      e.preventDefault();
-      var path = $(this).attr('exam-url');
-      var url = "https://www.facebook.com/sharer/sharer.php?u=http://viettelstudy.vn/" + path + "&amp;t=ViettelStudy";
-      window.open(url, '_blank');
-      return false;
-    });   
-  });
-</script>
-        </div>       
-        <div class="persion-right" id="DetailDMK" style="display: none;">            
-<script>
-    function ChapNhan() {
-        document.getElementById('ctl14_DoiMatKhau_btnDoiMK').click();
-    }
-</script>
-
-<div id="ctl14_DoiMatKhau_UpdateProgress1" style="display:none;">
-  
-    <div class="bpt-row">
-        <div class="bpt-item-left"></div>
-        <div class="bpt-item-right">
-            <img src="./hocvien_files/ajax-loader.gif" alt="ViettelStudy">
-        </div>
-    </div>
-</div> 
-<script type="text/javascript">
-    function refreshCaptcha(capchaid, capchlength) {
-        $('.capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-</script>
-        </div>
-        <div class="persion-right" id="DetailUser" style="display: block;">
-<script type="text/javascript">
-function refreshCaptcha(capchaid, capchlength) {
-        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-</script>
-        </div>
-    </div>
 </div>
 <script type="text/javascript">
     function loadUserControl(id_load) {
@@ -606,9 +416,4 @@ function refreshCaptcha(capchaid, capchlength) {
         <a class="close"></a>  
         <div class="box-popup" id="box_popup"></div>
     </div>
-
-
-
-
-
 </body></html>

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.midi.MidiDevice.Info;
+
 import connect.DBConnect;
 import model.Infotaikhoan;
 import model.User_info;
@@ -43,7 +45,28 @@ public class User_infoDAO {
 		}
 		return null;
 	}
-	//them user
+	public boolean deleteUser_info(long userID)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "DELETE FROM user WHERE user_id ='"+userID+"'";
+		String sql2 = "DELETE FROM user_info WHERE id='"+userID+"'";
+		PreparedStatement ps;
+		PreparedStatement ps2;
+		try{
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps2 = (PreparedStatement) con.prepareCall(sql2);
+			
+			ps.executeUpdate();
+			ps2.executeUpdate();
+			
+			return true;
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	//them userre
 	public boolean insertUser_info(User_info u)
 	{
 		Connection con = DBConnect.getConnecttion();
@@ -145,6 +168,37 @@ public class User_infoDAO {
         }
         return null;
     }
+	public List<Infotaikhoan> getalltaikhoan() {
+        try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "select * from user,user_info where user.user_id = user_info.id";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<Infotaikhoan> listTaikhoan = new ArrayList<Infotaikhoan>();
+            while (rs.next()) {
+            	Infotaikhoan u = new Infotaikhoan();
+            	
+            	u.setUserName(rs.getString(1));
+            	u.setUserPass(rs.getString(2));
+            	u.setUserEmail(rs.getString(3));
+            	u.setUserID(rs.getLong(4));
+            	u.setUserdiachi(rs.getString("diachi"));
+            	u.setUserten(rs.getString("ten"));
+            	u.setUsergioitinh(rs.getInt("gioitinh"));
+            	u.setUsersodienthoai(rs.getString("sodienthoai"));
+            	u.setUserngaysinh(rs.getString("ngaysinh"));
+            	u.setUserquyen(rs.getInt("quyen"));
+            	u.setAnhdaidien(rs.getString("anhdaidien"));
+            	listTaikhoan.add(u);
+            }
+            conn.close();
+            return listTaikhoan;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 	public List<User_info> getallstudent() {
         try {
         	Connection conn = DBConnect.getConnecttion();
@@ -173,54 +227,14 @@ public class User_infoDAO {
         }
         return null;
     }
-	public boolean deleteUser_info(long userID)
-	{
-		Connection con = DBConnect.getConnecttion();
-		String sql = "DELETE FROM user WHERE user_id ='"+userID+"'";
-		String sql2 = "DELETE FROM user_info WHERE id='"+userID+"'";
-		PreparedStatement ps;
-		PreparedStatement ps2;
-		try{
-			ps = (PreparedStatement) con.prepareCall(sql);
-			ps2 = (PreparedStatement) con.prepareCall(sql2);
-			
-			ps.executeUpdate();
-			ps2.executeUpdate();
-			
-			return true;
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
+	public static void main(String[] args) throws SQLException{
+		User_infoDAO udao = new User_infoDAO();
+		List<Infotaikhoan> t = new ArrayList<Infotaikhoan>();
+		t = udao.getalltaikhoan();
+			for(Infotaikhoan x: t)
+			{
+				System.out.println(x.getAnhdaidien());
+			}
+		
 	}
-	public List<Infotaikhoan> getalltaikhoan() {
-        try {
-        	Connection conn = DBConnect.getConnecttion();
-            String sql = "select * from user,user_info where user.user_id = user_info.id";
-            ps = conn.prepareStatement(sql);
-            rs = ps.executeQuery();
-             
-            List<Infotaikhoan> listTaikhoan = new ArrayList<Infotaikhoan>();
-            while (rs.next()) {
-            	Infotaikhoan u = new Infotaikhoan();
-            	
-            	u.setUserName(rs.getString(1));
-            	u.setUserPass(rs.getString(2));
-            	u.setUserEmail(rs.getString(3));
-            	u.setUserID(rs.getLong(4));
-            	u.setUserdiachi(rs.getString("diachi"));
-            	u.setUserten(rs.getString("ten"));
-            	u.setUsergioitinh(rs.getInt("gioitinh"));
-            	u.setUsersodienthoai(rs.getString("sodienthoai"));
-            	u.setUserngaysinh(rs.getString("ngaysinh"));
-            	u.setUserquyen(rs.getInt("quyen"));
-            	listTaikhoan.add(u);
-            }
-            conn.close();
-            return listTaikhoan;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

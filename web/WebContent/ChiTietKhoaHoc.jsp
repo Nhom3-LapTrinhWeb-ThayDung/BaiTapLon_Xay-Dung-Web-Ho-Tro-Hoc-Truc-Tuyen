@@ -7,8 +7,6 @@
 <%@page import="dao.CourseDAO"%>
 <%@page import="model.CourseWaiting"%>
 <%@page import="dao.CourseWaitingDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
@@ -114,6 +112,143 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         })
     </script>
     
+<div class="vts-gadget" >
+   
+   
+     
+     <div class="vts-gadget-item vts-gadget-comment">
+       
+       
+
+
+<div class="vt-gadget gadget-comment">
+      <span class="vt-gadget-more">
+          
+        </span>
+      <h3 class="vt-gadget-title">
+            <span class="vt-gadget-sp">
+                  GÓP Ý 
+                </span>
+                <a class="vt-gadget-close">
+                  X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <div id="Header_Widget_GopY_pnGopY">
+  
+            <div class="vt-gadget-div-form">
+              <span class="vt-gadget-label">
+                  Nội dung
+                </span>
+                <p class="vt-gadget-p">
+                    <textarea name="Header$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
+                </p>
+            </div>
+            <div class="vt-gadget-div-form gadget-captcha">
+              <span class="vt-gadget-label">
+                  Mã bảo mật
+                </span>
+                <div class="vt-gadget-p">
+                  <input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt" />
+                        <a class="captcha-img" onclick="refreshCaptcha('GopY','5')" style="float:left;width:100px;">
+                            
+
+<div style="float:left;padding-left:8px;padding-right:20px"  >
+    <img class="capcha"  src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&id=GopY" title="Lấy mã khác" alt="ViettelStudy" /> 
+     
+</div>
+
+                        </a>
+                  <input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy('Header_Widget_GopY_txtNoiDung');" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send" />
+                  <input type="hidden" name="TokenCSRF_GopYBaiHoc" value="6A1DCF1CC4F45186E623101E1194A4F2B82EEAA3F0DF9AC883BCE310AB2D0F522789D27B6CEFEDE9DC96BEFD0B3D2BFF6AE39E401DC52904F58DFD7A10CDCD13" />
+                </div>
+            </div>
+            <span id="Header_Widget_GopY_lblErr" style="color:Red;"></span>
+            <span id="Header_Widget_GopY_lblSucc"></span>
+            
+</div>  
+            <div id="Header_Widget_GopY_UpdateProgress1" style="display:none;">
+  
+                <div class="bpc-row">
+                    <span class="sp-left"></span>
+                    <span class="sp-right">
+                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy" />
+                    </span>
+                </div>
+            
+</div>
+            
+            
+        </div>
+    </div>
+    
+    
+    
+<script type="text/javascript">
+    function refreshCaptcha(capchaid, capchlength) {
+        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
+    }
+    
+    function exitpopup() {
+        setTimeout(function() {
+        window.location.href = '/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html'; //will redirect to your blog page (an ex: blog.html)
+        }
+        , 2000);
+        
+        
+    }
+        function clickButton(e, buttonid)
+        {  
+          var evt = e ? e : window.event;  
+          var bt = document.getElementById(buttonid);  
+ 
+          if (bt){
+              if (evt.keyCode == 13){  
+                    bt.click();  
+                    return false;  
+              }  
+          }  
+        }  
+    </script>
+
+
+
+       
+            <a class="vts-gadget-lnk show-popup" title="Góp ý">
+          
+            </a>
+            
+         
+    </div>
+     <div class="vts-gadget-item vts-gadget-contact">
+      <div class="vt-gadget vt-hotline">
+      <span class="vt-gadget-more">
+          
+        </span>
+      <h3 class="vt-gadget-title">
+            <span class="vt-gadget-sp">
+                  LIÊN HỆ 
+                </span>
+                <a class="vt-gadget-close">
+                  X
+                </a>
+        </h3>
+        <div class="wrap-vt-gadget">
+            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
+<span style="font-size:15px">(miễn phí)</span></h2>
+            <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
+                <p class="vt-gadget-p-content">
+                  Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
+                </p>
+                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
+        </div>
+    </div>
+       <a class="vts-gadget-lnk show-popup"  title="Liên hệ">
+          
+         </a> 
+    </div>
+</div>
+
 
 <%@include file="//includes/header.jsp" %>
 <%
@@ -121,7 +256,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
 			User_info student = new User_info();
-			List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
 %>
 
 
@@ -228,7 +362,24 @@ fbq('track', "PageView");</script>
         <!--end-header-->
         <div id="body">
             <!--Alert-->
- 
+            
+
+<div class="study-notice">
+
+    <span class="sne-sp">Thông báo: </span>
+    
+        
+        
+        <a id="alert_likAlert" class="sne-lnk" href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc/Diem-chuan-dai-hoc-2016-136-truong-da-cong-bo-i4556c3.html">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
+    
+    
+    
+    
+    
+    
+</div>
+
+
 <div class="Breadcrumb">
     <style>
         .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
@@ -250,20 +401,10 @@ fbq('track', "PageView");</script>
             <div class="to-content">
                 <div class="to-c-left">
                 <div class="to-c-l-list">
-                
-               			<%if(listcoursewaiting.isEmpty()){ %>
-	                   		 <div class="row">
-	                   		<div class="study-notice">
-							    <span class="sne-sp"></span>
-							        <a id="alert_likAlert" class="sne-lnk" href="DanhSachKhoaHoc.jsp">Không còn khóa học nào đang chờ xác nhận. Click vào đây để đăng ký!</a>					    
-							</div>
-							</div>
-                		<%}else{ %>
 	                    <%	int i=0;
 	                    	for (Course coursewaiting : coursewaitingDAO.getListCourseWaiting(user_info.getId()))
 	                    	{
 	                    		i++;
-	                    		CourseWaiting c= coursewaitingDAO.getCourseWaiting(user_info.getId(), coursewaiting.getCourse_id());
 	                    %>
 	                          <div class="row">
                                     <a class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
@@ -279,29 +420,15 @@ fbq('track', "PageView");</script>
 	                                         <%=coursewaiting.getCourse_name()%></span>
 	                                  </p>
 	                              </a>
-                                   
-                              <a class="to-l-btn" type="button" value="Hủy đăng ký "  name="btnhuydangky" onclick="btnhuydangkyclick('<%=c.getCourse_waiting_id() %>','<%=coursewaiting.getCourse_name() %>')" id="btnhuydangky">Hủy đăng ký </a>
-                             
+                                    <div  class="lnk-logout under popup-login" rel="#overlay-web<%=coursewaiting.getCourse_id()%>">
+                                    <a class="to-l-btn">
+                                       <span class="to-l-btn">Xem chi tiết</span>
+                                    </a>
+                                    </div>
                                 </div>		
 	                          <%
-	                    			}	
 	                  			}
 	                          %>
-	                          <script type="text/javascript">
-									function btnhuydangkyclick(course_waiting_id,name){
-										if(confirm('Hủy đăng ký khóa học '+name+'. Đồng ý?')){
-											$.post('CourseWaitingServlet', {'command':"delete",'course_waiting_id':course_waiting_id}, function (data) {
-												if(data="thành công!"){
-													alert("Hủy đăng ký khóa học "+name+" thành công!");
-													location.reload();
-												}
-												else
-													alert("Hủy đăng ký khóa học "+name+" không thành công!");
-												},'text'); 
-											
-										}
-									}
-								</script>  
 	                    </div> 
                    
                     

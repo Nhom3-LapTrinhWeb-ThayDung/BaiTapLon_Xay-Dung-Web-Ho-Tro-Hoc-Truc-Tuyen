@@ -59,15 +59,7 @@ public class UrlServlet extends HttpServlet {
 			else
 				response.getWriter().write("unsuccessfull!");
 			break;
-		case "delete":
-			f = sectionDAO.deleteUrl(Long.parseLong(request.getParameter("url_id")));
-			if(f)
-				response.getWriter().write("Success!");
-			else
-				response.getWriter().write("Unsuccessfull!");
-			break;
 		}
-		
 	}
 
 }

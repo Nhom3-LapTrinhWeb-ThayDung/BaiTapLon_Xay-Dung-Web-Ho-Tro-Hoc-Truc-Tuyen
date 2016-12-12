@@ -119,6 +119,24 @@
 		<!--end-header-->
 		<div id="body">
 			<!--Alert-->
+
+
+			<div class="study-notice">
+
+				<span class="sne-sp">Thông báo: </span> <a id="alert_likAlert"
+					class="sne-lnk"
+					href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc/Diem-chuan-dai-hoc-2016-136-truong-da-cong-bo-i4556c3.html">Tra
+					cứu điểm chuẩn các trường ĐH 2016 tại đây!</a>
+
+
+
+
+
+
+			</div>
+
+
+
 			<div class="banner-news">
 				<div class="box-banner">
 

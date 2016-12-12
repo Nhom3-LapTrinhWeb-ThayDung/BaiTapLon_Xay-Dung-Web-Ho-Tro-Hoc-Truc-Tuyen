@@ -137,12 +137,13 @@ public class SetListQuestionServlet extends HttpServlet {
 				}
 			}
 			if(errorStr.isEmpty())
-				url = "khoahoc2.jsp?course_id="+course_id;
+				url = "/khoahoc2.jsp?course_id="+course_id;
 			else
-				url = "create-quiz.jsp?course_id="+course_id+"$section_id="+section_id;
+				url = "/create-quiz.jsp?course_id="+course_id+"$section_id="+section_id;
 			/*response.getWriter().write(errorStr);*/
 			request.setAttribute("errorStr", errorStr);
-			response.sendRedirect(url);
+			dispatcher = this.getServletContext().getRequestDispatcher(url);
+			dispatcher.forward(request, response);
 			break;
 		case "update":
 			//update quiz
@@ -218,45 +219,20 @@ public class SetListQuestionServlet extends HttpServlet {
 				}
 			}
 			if(errorStr.isEmpty())
-				url = "khoahoc2.jsp?course_id="+course_id;
+				url = "/khoahoc2.jsp?course_id="+course_id;
 			else
-				url = "edit-quiz.jsp?course_id="+course_id+"$section_id="+section_id;
+				url = "/edit-quiz.jsp?course_id="+course_id+"$section_id="+section_id;
 			//response.getWriter().write(errorStr);
-			/*request.setAttribute("errorStr", errorStr);
+			request.setAttribute("errorStr", errorStr);
 			dispatcher = this.getServletContext().getRequestDispatcher(url);
-			dispatcher.forward(request, response);*/
-			response.sendRedirect(url);
-			break;
-		case "checkquestionresult":
-			boolean check = questionRadioDAO.checkQuizResult(Long.parseLong(request.getParameter("quiz_id")));
-			if(check)
-				response.getWriter().write("true");
-			else
-				response.getWriter().write("false");
+			dispatcher.forward(request, response);
 			break;
 		case "delete":
-			quiz_id = Long.parseLong(request.getParameter("quiz_id"));
-			count = questionRadioDAO.getCountRow(quiz_id);
-			boolean f ;
-			boolean f1;
-			boolean f2;
-			f1 = questionRadioDAO.deleteQuizResult(quiz_id);
-			if(f1)
-			{
-				f2=questionRadioDAO.deleteQuestion(quiz_id);
-				if(f2)
-				{
-					f= questionRadioDAO.deleteQuiz(quiz_id);
-					if(f)
-						response.getWriter().write("X骯 b鄆 test th鄋h c鬾g!");
-					else
-						response.getWriter().write("X骯 b鄆 test kh鬾g th鄋h c鬾g!");
-				}
-				else
-					response.getWriter().write("X骯 b鄆 test kh鬾g th鄋h c鬾g!");
-			}
+			boolean f = questionRadioDAO.deleteQuiz(Long.parseLong(request.getParameter("quiz_id")));
+			if(f)
+				response.getWriter().write("X贸a b脿i test th脿nh c么ng!");
 			else
-				response.getWriter().write("X骯 b鄆 test kh鬾g th鄋h c鬾g!");
+				response.getWriter().write("X贸a b脿i test kh么ng th脿nh c么ng!");
 			break;
 		default:
 			break;
