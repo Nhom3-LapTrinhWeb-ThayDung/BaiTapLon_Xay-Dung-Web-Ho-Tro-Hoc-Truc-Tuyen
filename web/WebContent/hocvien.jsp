@@ -1044,7 +1044,7 @@ $('.persion-tab-lnk').click(function() {
 											<input name="uploadFile" type="file"
 												accept="image/*" id="uploadFile" class="file" style="width: 210px">
 												<input name="" type="submit"
-												value="cập nhật ảnh đại diện" style=" width: 150; height: 30;">
+												value="Cập nhật ảnh đại diện" style=" width: 150; height: 30;">
 											<p class="bpt-note-img">
 												<span id="ctl14_ThongTinHocVien_lblErrImage"></span>
 											</p>
