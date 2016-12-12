@@ -115,7 +115,7 @@ else
                     	Nếu chưa hài lòng với kết quả,Bạn nên xem lời giải
                     </p>
                     <p class="vr-btn">
-                    	<a class="vr-lnk-answer"  href="DapAn.jsp">
+                    	<a class="vr-lnk-answer"  href="">
                         	Xem đáp án
                         </a>
                          <a class="vr-lnk-solution vr-lnk-reset" href="LamBaiThi.jsp?quiz_id=<%=quiz.getId()%>">

@@ -125,11 +125,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
 			Outline outline = new Outline();
 			String 	course_id="";
-			if(request.getParameter("course_id")!=null)
-			{
-				outline = courseDAO.getOutline(Long.parseLong(course_id));
-				
-			}
 %>
 
 

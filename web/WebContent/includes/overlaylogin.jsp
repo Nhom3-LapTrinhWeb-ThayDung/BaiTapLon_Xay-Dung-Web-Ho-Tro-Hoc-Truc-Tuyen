@@ -946,14 +946,12 @@
         			  }
         		  else
         			  {
-        			  alert($('#email-register').val() + $('#gioitinh').val()+ $('#namsinh').val()+
-            				  $('#thangsinh').val()+ $('#ngaysinh').val()+ $('#name').val()+
-            				  $('#sdt').val()+ $('#username-register').val()+ $('#pass-register').val())
+        			  
 		        		  $.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
 		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
-		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val(),'quyen':"2",'diachi':""}, function (data) {
+		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val(),'quyen':"2"}, function (data) {
 		                  	if(data=="")
-		                  		window.location.href="index.jsp";
+		                  		window.location.reload();
 		                  	else
 		                  		$('#errorregister').html(data);
 		                   },'text');

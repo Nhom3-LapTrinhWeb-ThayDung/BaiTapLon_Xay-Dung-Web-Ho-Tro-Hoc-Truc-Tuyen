@@ -7,7 +7,9 @@
 <%@page import="dao.CourseDAO"%>
 <%@page import="model.CourseWaiting"%>
 <%@page import="dao.CourseWaitingDAO"%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Outline"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -256,6 +258,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
 			User_info student = new User_info();
+			Outline outline = new Outline();
 %>
 
 
@@ -664,6 +667,11 @@ fbq('track', "PageView");</script>
             <p style="padding-left: 50px;"> Phòng học:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=coursewaiting.getCourse_place()%> </p>
             <p style="padding-left: 50px;"> Ngày bắt đầu:&nbsp;&nbsp;<%=day_start %> - <%=month_start %> - <%=year_start %> </p>
             <p style="padding-left: 50px;"> Ngày kết thúc: <%=day_end %> - <%=month_end %> - <%=year_end %> </p>
+             <%if(outline.getOutline() != null){ %>
+            	<a style="float: left;padding-left: 160px; color: blue; font-size: 15"  href="upload/<%=outline.getOutline()%>"><img src="Images/<%=outline.getType()%>.png	"> Xem đề cương chi tiết tại đây! </a>
+            <%}else{ %>       
+            <p style="float: left;padding-left: 160px; color: blue; font-size: 15">Chưa có đề cương môn học	 </p>
+            <%} %>       
                        <div id="login_pnLogin">
   
                  

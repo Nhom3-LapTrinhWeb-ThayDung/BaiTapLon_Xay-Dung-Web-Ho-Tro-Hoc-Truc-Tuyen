@@ -70,7 +70,7 @@ else
 
 	<%@ include file="//includes/header.jsp" %>	
 	<%@ include file="//includes/message.jsp" %>
-	<%@ include file="//includes/overlaylogin.jsp" %>
+
 	<%
 	CourseDAO courseDAO = new CourseDAO();	
 	Exercise_UserDAO euDAO = new Exercise_UserDAO();
@@ -487,7 +487,7 @@ else
 			        				<form  action="SubmitExerciseServlet" method="post" enctype="multipart/form-data">
 													<input type="hidden" name="exercise_id" value="<%=exercise_id%>">
 													<input type="hidden" name="course_id" value="<%=course_id%>">
-													<input type="hidden" name="filename" value="<%=eu.getFilesubmit()%>">
+													<input type="hidden" name="section_id" value="<%=section_id%>">
 													
 													<div class="bpt-row">
 													<div class="bpt-item-left">Mô tả:</div>

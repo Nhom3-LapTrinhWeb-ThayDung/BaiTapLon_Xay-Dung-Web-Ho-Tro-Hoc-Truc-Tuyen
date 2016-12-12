@@ -131,7 +131,7 @@
 
 								<div class="vt-gadget-div-form">
 									<span class="vt-gadget-label"> Người nhận: <input  onfocus="SearchOnFocus(this)" onblur="SearchOnBlur(this)" id="txtsearchuser"  type="text" style="display:none; width: 185px;height: 20px"><span id="user_name" >Admin</span></span>
-									<input type="hidden" id="user_id" name="user_id" value="0">
+									<input type="hidden" id="id_nguoinhan" name="id_nguoinhan" value=0>
 								</div>
 								<div class="vt-gadget-div-form">
 									<span class="vt-gadget-label"> Nội dung </span>
@@ -199,27 +199,34 @@
 
 							</div>
 							
-
 						
 					</div>
 					<script type="text/javascript">
 
 						function btntlmsclick(id,name){
-							$('#user_id').val(id);
+							$('#id_nguoinhan').val(id);
 							$('#user_name').text(name);
 							$('#user_name').show();
 						}
 						function btnguimsclick(){
 							
-							if(trim($('#noidung_message').val())=='')
+							if(trim($('#noidung_message').val())=="")
+							{
 								alert('Chưa nhập nội dung');
+							}
 							else
-								$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#user_id').val()}, function (data) {
+							{
+								
+								$.post('MessageServlet', {'command':"insert",'noidung_message':$('#noidung_message').val(),'id_nguoinhan':$('#id_nguoinhan').val()}, function (data) {
 									if(data=="send success!"){
 										alert('Gửi tin nhắn đến '+$('#user_name').text()+' thành công!');
 										$('#noidung_message').val(' ');
 									}
-								},'text'); 
+									else
+										alert(data)
+								},'text');
+								
+							}
 						}
 					</script>
 
@@ -315,7 +322,7 @@
 						$('#txtsearchuser').hide();
 						$('#user_name').text('Admin');
 						$('#user_name').show();
-						$('#user_id').val('0');
+						$('#id_nguoinhan').val('0');
 					}
 
 			});
@@ -439,7 +446,7 @@
 			function clicksearuser(name,id){
 				$('#user_name').text(name);
 				$('#txtsearchuser').val(name);
-				$('#user_id').val(id);
+				$('#id_nguoinhan').val(id);
 			}
 		</script>
 		

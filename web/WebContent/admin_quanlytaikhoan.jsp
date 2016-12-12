@@ -408,11 +408,11 @@ fbq('track', "PageView");</script>
                           </div>
                           <div class="bpt-item-left">Password</div>
                             <div class="bpt-item-right">
-                             <input name="pass-register" type="text" value="" maxlength="30" id="addpass" class="bpt-txt">
+                             <input name="pass-register" type="password" value="" maxlength="30" id="addpass" class="bpt-txt">
                           </div>
                            <div class="bpt-item-left">Nhập lại mật khẩu</div>
                             <div class="bpt-item-right">
-                             <input name="pass-register2" type="text" value="" maxlength="30" id="addpass" class="bpt-txt">
+                             <input name="pass-register2" type="password" value="" maxlength="30" id="addpass" class="bpt-txt">
                           </div>
                           <div class="bpt-item-left">Email</div>
                             <div class="bpt-item-right">

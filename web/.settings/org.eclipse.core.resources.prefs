@@ -6,6 +6,7 @@ encoding//WebContent/load.jsp=UTF-8
 encoding//src/controller/CourseServlet.java=UTF-8
 encoding//src/controller/CourseWaitingServlet.java=UTF-8
 encoding//src/controller/ExerciseServlet.java=UTF-8
+encoding//src/controller/SubmitExerciseServlet.java=UTF-8
 encoding//src/controller/UsersServlet.java=UTF-8
 encoding//src/dao/CourseDAO.java=UTF-8
 encoding//src/dao/CourseWaitingDAO.java=UTF-8

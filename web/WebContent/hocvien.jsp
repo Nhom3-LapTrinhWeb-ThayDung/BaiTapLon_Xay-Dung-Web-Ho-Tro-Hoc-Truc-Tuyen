@@ -1098,7 +1098,7 @@ $('.persion-tab-lnk').click(function() {
 							function btnupdateuserclick(){
 									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
 										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
-											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val()}, function (data) {
+											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val(),'diachi':$('#diachi').val()}, function (data) {
 											if(data=="update success!")
 												{
 												$('#errorupdateuser').html('Vui lòng đăng nhập lại để thay đổi!');

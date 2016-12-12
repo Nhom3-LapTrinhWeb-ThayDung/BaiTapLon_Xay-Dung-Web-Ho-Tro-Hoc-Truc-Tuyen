@@ -969,7 +969,6 @@ else
 							 {
 									var course_description,startdate_nam,startdate_thang,command, errormk,username;
 									$('#errorStr').html('<%=users.getUserName()%>');
-									alert('<%=users.getUserName()%>');
 									username = "<%=users.getUserName()%>"
 									curentpass = "<%=users.getUserPass()%>";
 									oldpass = $('#oldpass').val();
@@ -1303,7 +1302,9 @@ else
 						<script type="text/javascript">btnupdate
 							function btnupdateuserclick(){
 									if (confirm("Sửa đổi thông tin cá nhân. Đồng ý?") == true) {
-										$.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
+										alert("email"+$('#email').val()+"gioitinh"+$('#gioitinh').val()+'ngaysinh'+$('#ngaysinh').val()+'thangsinh'+$('#thangsinh').val()+
+												'namsinh'+$('#namsinh').val()+'ten'+$('#ten').val()+'sodienthoai'+$('#sodienthoai').val()+'diachi'+$('#diachi').val());
+										 $.post('UsersServlet', {'command':"update",'email':$('#email').val(),'gioitinh':$('#gioitinh').val(),'ngaysinh':$('#ngaysinh').val(),'thangsinh':$('#thangsinh').val(),
 											'namsinh':$('#namsinh').val(),'ten':$('#ten').val(),'sodienthoai':$('#sodienthoai').val(),'diachi':$('#diachi').val()}, function (data) {
 											if(data=="update success!")
 												{
