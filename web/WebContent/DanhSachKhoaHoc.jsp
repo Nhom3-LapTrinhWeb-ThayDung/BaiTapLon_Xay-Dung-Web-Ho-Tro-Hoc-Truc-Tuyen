@@ -114,142 +114,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
         })
     </script>
     
-<div class="vts-gadget" >
-   
-   
-     
-     <div class="vts-gadget-item vts-gadget-comment">
-       
-       
-
-
-<div class="vt-gadget gadget-comment">
-      <span class="vt-gadget-more">
-          
-        </span>
-      <h3 class="vt-gadget-title">
-            <span class="vt-gadget-sp">
-                  GÓP Ý 
-                </span>
-                <a class="vt-gadget-close">
-                  X
-                </a>
-        </h3>
-        <div class="wrap-vt-gadget">
-            <div id="Header_Widget_GopY_pnGopY">
-  
-            <div class="vt-gadget-div-form">
-              <span class="vt-gadget-label">
-                  Nội dung
-                </span>
-                <p class="vt-gadget-p">
-                    <textarea name="Header$Widget$GopY$txtNoiDung" rows="2" cols="20" id="Header_Widget_GopY_txtNoiDung" class="vt-gadget-txtarea"></textarea>
-                </p>
-            </div>
-            <div class="vt-gadget-div-form gadget-captcha">
-              <span class="vt-gadget-label">
-                  Mã bảo mật
-                </span>
-                <div class="vt-gadget-p">
-                  <input name="Header$Widget$GopY$txtCapcha" type="text" maxlength="10" id="Header_Widget_GopY_txtCapcha" autocomplete="off" class="vt-gadget-txt" />
-                        <a class="captcha-img" onclick="refreshCaptcha('GopY','5')" style="float:left;width:100px;">
-                            
-
-<div style="float:left;padding-left:8px;padding-right:20px"  >
-    <img class="capcha"  src="http://viettelstudy.vn/uControls/Capcha/capchaImage.aspx?len=5&id=GopY" title="Lấy mã khác" alt="ViettelStudy" /> 
-     
-</div>
-
-                        </a>
-                  <input type="submit" name="Header$Widget$GopY$btnGui" value="Gửi" onclick="validgopy('Header_Widget_GopY_txtNoiDung');" id="Header_Widget_GopY_btnGui" class="vt-gadget-btn-send" />
-                  <input type="hidden" name="TokenCSRF_GopYBaiHoc" value="6A1DCF1CC4F45186E623101E1194A4F2B82EEAA3F0DF9AC883BCE310AB2D0F522789D27B6CEFEDE9DC96BEFD0B3D2BFF6AE39E401DC52904F58DFD7A10CDCD13" />
-                </div>
-            </div>
-            <span id="Header_Widget_GopY_lblErr" style="color:Red;"></span>
-            <span id="Header_Widget_GopY_lblSucc"></span>
-            
-</div>  
-            <div id="Header_Widget_GopY_UpdateProgress1" style="display:none;">
-  
-                <div class="bpc-row">
-                    <span class="sp-left"></span>
-                    <span class="sp-right">
-                        <img src="http://viettelstudy.vn/images/ajax-loader.gif" alt="ViettelStudy" />
-                    </span>
-                </div>
-            
-</div>
-            
-            
-        </div>
-    </div>
-    
-    
-    
-<script type="text/javascript">
-    function refreshCaptcha(capchaid, capchlength) {
-        $('#capcha').attr('src', './uControls/Capcha/capchaImage.aspx' + '?id=' + capchaid + '&len=' + capchlength + '&r=' + Math.random());
-    }
-    
-    function exitpopup() {
-        setTimeout(function() {
-        window.location.href = '/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html'; //will redirect to your blog page (an ex: blog.html)
-        }
-        , 2000);
-        
-        
-    }
-        function clickButton(e, buttonid)
-        {  
-          var evt = e ? e : window.event;  
-          var bt = document.getElementById(buttonid);  
- 
-          if (bt){
-              if (evt.keyCode == 13){  
-                    bt.click();  
-                    return false;  
-              }  
-          }  
-        }  
-    </script>
-
-
-
-       
-            <a class="vts-gadget-lnk show-popup" title="Góp ý">
-          
-            </a>
-            
-         
-    </div>
-     <div class="vts-gadget-item vts-gadget-contact">
-      <div class="vt-gadget vt-hotline">
-      <span class="vt-gadget-more">
-          
-        </span>
-      <h3 class="vt-gadget-title">
-            <span class="vt-gadget-sp">
-                  LIÊN HỆ 
-                </span>
-                <a class="vt-gadget-close">
-                  X
-                </a>
-        </h3>
-        <div class="wrap-vt-gadget">
-            <h2 class="vt-gadget-h1-hotline">Hotline 0962126964 <br>
-<span style="font-size:15px">(miễn phí)</span></h2>
-            <p>Email: <a href="mailto:ViettelStudy@viettel.com.vn" style="color:#14928E">StudyFunny@gmail.com</a></p>
-                <p class="vt-gadget-p-content">
-                  Hỗ trợ giải đáp tất cả thắc mắc về các khóa học cách học và cách thức học tập trên StudyFunny
-                </p>
-                <a rel="nofollow" class="vt-gadget-lnk-fb" href="https://www.facebook.com/StudyFunny">Study Funny</a>
-        </div>
-    </div>
-       <a class="vts-gadget-lnk show-popup"  title="Liên hệ">
-          
-         </a> 
-    </div>
-</div>
 
 
 <%@include file="//includes/header.jsp" %>
@@ -366,21 +230,6 @@ fbq('track', "PageView");</script>
             <!--Alert-->
             
 
-<div class="study-notice">
-
-    <span class="sne-sp">Thông báo: </span>
-    
-        
-        
-        <a id="alert_likAlert" class="sne-lnk" href="http://tintuc.viettelstudy.vn/tin-tuc/giao-duc/Diem-chuan-dai-hoc-2016-136-truong-da-cong-bo-i4556c3.html">Bạn có 1 bài tập cần phải hoàn thành. Click vào đây !</a>
-    
-    
-    
-    
-    
-    
-</div>
-
 
 <div class="Breadcrumb">
     <style>
@@ -432,48 +281,6 @@ fbq('track', "PageView");</script>
 	                  			}
 	                          %>
 	                    </div> 
-                   
-                    
-                    <div class="bv-pagging">
-                        <style>
-                            .bv-pagging
-                            {
-                                float: left;
-                                margin-top: 5px;
-                                margin-bottom: 10px; ;padding-right:15px;text-align:right;width:612px;}
-                            .bv-pagging a
-                            {
-                                color: #565656;
-                                display: inline-block;
-                                font-size: 14px;
-                                font-weight: bold;
-                                height: 20px;
-                                line-height: 20px;
-                                margin-left: 3px;
-                                text-align: center;
-                                width: 20px;
-                            }
-                            .bv-pagging a:hover, .bv-pagging a.active
-                            {
-                                background-color: #00918D;
-                                color: #FFFFFF;
-                            }
-                        </style>
-                        <a href="CacKhoaHocDaDangKy.jsp">
-                            &lt;</a>
-                        
-                        <a class="active" href="CacKhoaHocDaDangKy.jsp">
-                            1</a>
-                        
-                        <a href="DanhSachKhoaHocpage2.jsp">
-                            2</a>
-                        
-                        <a href="DanhSachKhoaHocpage2.jsp">
-                            &gt;</a>
-                        
-                    </div>
-                    
-                    
                 </div>
                 
     <div class="to-c-right">
@@ -747,14 +554,21 @@ fbq('track', "PageView");</script>
 
 						<script type="text/javascript">
                             function btndangkyclick(course_id, name) {
-                            	if(confirm('Đăng ký khóa học '+name+'. Đồng ý?'))
+                            	var quyen = <%=user_info.getQuyen()%>;
+                            	if(quyen == 2)
                            		{
-                            		
-	                           			$.post('CourseWaitingServlet', {'command':"insert",'course_id':course_id}, function (data) {
-	                           				alert(data)
-	                           			},'text'); 
-                              		
+                            		if(confirm('Đăng ký khóa học '+name+'. Đồng ý?'))
+                               		{
+                                		
+    	                           			$.post('CourseWaitingServlet', {'command':"insert",'course_id':course_id}, function (data) {
+    	                           				alert(data)
+    	                           			},'text'); 
+                                  		
+                               		}
                            		}
+                            	else alert("Chỉ có học viên mới có quyền đăng ký khóa học này !");
+                            	
+                            	
                             }
                         </script>
 						
