@@ -151,10 +151,6 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 			boolean UpdateInforUser ;
 			User_info UpdateUS = new User_info();
 			
-			//UpdateInforUser= aduser_infoDAO.updateUser_info(UpdateUS);
-			
-			
-			//Exercise exercise = new Exercise();
 			liststudent = aduser_infoDAO.getallstudent();
 			List<Infotaikhoan> listtaikhoan = new ArrayList<Infotaikhoan>();
 			listtaikhoan=aduser_infoDAO.getalltaikhoan();
