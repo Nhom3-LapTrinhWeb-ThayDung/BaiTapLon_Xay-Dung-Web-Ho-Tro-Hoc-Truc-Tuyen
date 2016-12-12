@@ -372,15 +372,7 @@ fbq('track', "PageView");</script>
 		               	          	else
 		               	          		alert(data);
 	               	           },'text')
-	               	       <%--   alert( $('#updateuserID'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusermail'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusergioitinh'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserngaysinh'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserten'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateusersdt'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#updateuserdiachi'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#anhdaidien'+<%=student.getUserID() %>).val()
-	               	        		 +"-"+$('#quyen'+<%=student.getUserID() %>).val()); --%>
+	               	       
 	               	          
 	               	           
                          }); 
@@ -624,8 +616,8 @@ fbq('track', "PageView");</script>
 								</span>
 								<script type="text/javascript">
                            			
-								function register().click()
-                       			{
+								$('#register').click(function(){
+                       			
 								                       				
                        			$.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
           		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
@@ -635,7 +627,7 @@ fbq('track', "PageView");</script>
           		                  	else
           		                  		$('#errorregister').html(data);
           		                   },'text'); 
-                       			}
+                       			});
                        		               			
                         		</script>
 						</div>	
