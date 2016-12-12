@@ -764,7 +764,7 @@ $('.persion-tab-lnk').click(function() {
 
             </div>
         </div>
-</div></div>       
+</div></div>        
         
 <div class="persion-right" id="DetailDMK" style="display: none;">
 

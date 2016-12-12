@@ -752,6 +752,7 @@ fbq('track', "PageView");</script>
                             		
 	                           			$.post('CourseWaitingServlet', {'command':"insert",'course_id':course_id}, function (data) {
 	                           				alert(data)
+	                           				location.reload();
 	                           			},'text'); 
                               		
                            		}
