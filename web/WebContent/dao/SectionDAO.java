@@ -137,7 +137,39 @@ public class SectionDAO {
 		}
 		return false;
 	}
+	public boolean deleteresources(long id)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "DELETE from resources where resources_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
+	public boolean deleteUrl(long id )
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "delete from url where url_id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public boolean insertUrl(Url u)
 	{
 		Connection con = DBConnect.getConnecttion();

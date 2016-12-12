@@ -125,14 +125,14 @@ public class UsersServlet extends HttpServlet {
 			f = usersDAO.doimk(user_name, newpass1);
 			if(f)
 			{
-				response.getWriter().write("Ä�á»•i máº­t kháº©u thÃ nh cÃ´ng");
-				//errorStr="Ä�á»•i máº­t kháº©u thÃ nh cÃ´ng";
+				response.getWriter().write("Ä�á»•i máº­t kháº©u thĂ nh cĂ´ng");
+				//errorStr="Ä�á»•i máº­t kháº©u thĂ nh cĂ´ng";
 				///request.setAttribute("errorStr", errorStr);
 			}
 			else
 			{
-				response.getWriter().write("Ä�á»•i máº­t kháº©u khÃ´ng thÃ nh cÃ´ng");
-				//errorStr="Ä�á»•i máº­t kháº©u khÃ´ng thÃ nh cÃ´ng";
+				response.getWriter().write("Ä�á»•i máº­t kháº©u khĂ´ng thĂ nh cĂ´ng");
+				//errorStr="Ä�á»•i máº­t kháº©u khĂ´ng thĂ nh cĂ´ng";
 				//request.setAttribute("errorStr", errorStr);
 			}
 			Users u= (Users)session.getAttribute("user");
@@ -166,22 +166,6 @@ public class UsersServlet extends HttpServlet {
 				response.getWriter().write("update unsuccessful!");
 			}
 			break;
-		case "deleteuser_userinfo":
-			long UserID_1;
-			UserID_1=Long.parseLong(request.getParameter("userid_delete"));
-			f = user_infoDAO.deleteUser_info(UserID_1);
-			if(f)
-			{
-				
-				response.getWriter().write("Delete success!");
-			}
-			else
-			{
-			//session.removeAttribute("user");
-				response.getWriter().write("Delete unsuccessful!");
-			}
-			break;
-		
 		case "updateuser":
 			User_info u4= new User_info();
 			u4.setId(Long.parseLong(request.getParameter("user_id")));
@@ -205,7 +189,7 @@ public class UsersServlet extends HttpServlet {
 				response.getWriter().write("update unsuccessful!");
 			}
 			break;
-	}
+		}
 		
 		
 	}

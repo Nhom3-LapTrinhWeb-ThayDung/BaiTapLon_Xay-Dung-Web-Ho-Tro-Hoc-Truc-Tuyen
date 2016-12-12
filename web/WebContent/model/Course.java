@@ -12,14 +12,13 @@ public class Course implements JSONAware {
 	private int course_endlession;
 	private String course_place;
 	private String course_description;
-
 	public Course() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Course(long course_id, String course_name, String course_startdate, String course_enddate,
 			int course_schedulingday, int course_startlession, int course_endlession, String course_place,
-			String course_description, String course_outline) {
+			String course_description) {
 		super();
 		this.course_id = course_id;
 		this.course_name = course_name;
@@ -30,7 +29,6 @@ public class Course implements JSONAware {
 		this.course_endlession = course_endlession;
 		this.course_place = course_place;
 		this.course_description = course_description;
-	
 	}
 	public long getCourse_id() {
 		return course_id;
@@ -86,7 +84,6 @@ public class Course implements JSONAware {
 	public void setCourse_description(String course_description) {
 		this.course_description = course_description;
 	}
-
 	@Override
     public String toJSONString() {
  
@@ -113,7 +110,6 @@ public class Course implements JSONAware {
         sb.append("\"course_place\":\"" + getCourse_place() + "\"");
         sb.append(",");
         sb.append("\"course_description\":\"" + getCourse_description() + "\"");
-       
  
         sb.append("}"); // Kết thúc một đối tượng JSON là dấu đóng ngoặc nhọn
           

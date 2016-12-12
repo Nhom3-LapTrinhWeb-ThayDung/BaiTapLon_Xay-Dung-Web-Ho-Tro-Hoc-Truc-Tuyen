@@ -969,7 +969,6 @@ else
 							 {
 									var course_description,startdate_nam,startdate_thang,command, errormk,username;
 									$('#errorStr').html('<%=users.getUserName()%>');
-									alert('<%=users.getUserName()%>');
 									username = "<%=users.getUserName()%>"
 									curentpass = "<%=users.getUserPass()%>";
 									oldpass = $('#oldpass').val();

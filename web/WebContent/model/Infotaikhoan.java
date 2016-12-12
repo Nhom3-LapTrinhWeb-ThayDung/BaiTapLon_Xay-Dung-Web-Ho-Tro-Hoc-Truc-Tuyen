@@ -11,12 +11,13 @@ public class Infotaikhoan {
     private String userngaysinh;
     private String userdiachi;
     private int    userquyen;
+    private String useranhdaidien;
 	public Infotaikhoan() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Infotaikhoan(long userID, String userName, String userEmail, String userPass, String userten,
-			String usersodienthoai, int usergioitinh, String userngaysinh, String userdiachi, int userquyen) {
+			String usersodienthoai, int usergioitinh, String userngaysinh, String userdiachi, int userquyen,String useranhdaidien) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
@@ -28,6 +29,7 @@ public class Infotaikhoan {
 		this.userngaysinh = userngaysinh;
 		this.userdiachi = userdiachi;
 		this.userquyen = userquyen;
+		this.useranhdaidien=useranhdaidien;
 	}
 	public long getUserID() {
 		return userID;
@@ -88,6 +90,13 @@ public class Infotaikhoan {
 	}
 	public void setUserquyen(int userquyen) {
 		this.userquyen = userquyen;
+	}
+	
+	public String getAnhdaidien() {
+		return useranhdaidien;
+	}
+	public void setAnhdaidien(String useranhdaidien) {
+		this.useranhdaidien = useranhdaidien;
 	}
 	
 	
