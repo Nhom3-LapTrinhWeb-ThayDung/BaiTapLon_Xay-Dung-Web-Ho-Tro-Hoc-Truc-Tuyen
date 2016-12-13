@@ -90,7 +90,25 @@ else
         <!--Alert-->
         
 
+<div class="Breadcrumb">
+					<style>
+.Breadcrumb {
+	margin-top: 10px;
+	background: #ffffff;
+	padding: 5px 10px;
+}
 
+.Breadcrumb .sne-lnk {
+	color: #00918D;
+	font-weight: normal;
+	line-height: 20px;
+	background:
+}
+</style>
+					<%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=(courseDAO2.getCourse(Long.parseLong(course_id))).getCourse_name()%></a>&gt;<a class="sne-lnk">Create Exercise</a>
+			</div>
 
 
  <style>

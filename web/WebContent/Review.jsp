@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/support_face.css" type="text/css">
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
-<title>BÀI TEST IQ SỐ 1</title>
+<title>Review</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxSlider.min.js"></script>
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("course_id")==null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("course_id")==null )
 {
 		response.sendRedirect("index.jsp");
 }
@@ -58,6 +58,7 @@ else
 </style>
 
 		<%@ include file="//includes/header.jsp" %>
+		<%@ include file="//includes/message.jsp" %>
 		<%
 			ReviewDAO reviewDAO = new ReviewDAO();
 			String course_id="";
@@ -70,9 +71,30 @@ else
 		<!--end-header-->
 		
 			<div id="body">
-			
-			<form method="post" action="ReviewServlet" id ="form1">
+			<div class="Breadcrumb">
+				<style>
+.Breadcrumb {
+	margin-top: 10px;
+	background: #ffffff;
+	padding: 5px 10px;
+}
+
+.Breadcrumb .sne-lnk {
+	color: #00918D;
+	font-weight: normal;
+	line-height: 20px;
+	background:
+}
+</style>
+				<%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=(courseDAO2.getCourse(Long.parseLong(course_id))).getCourse_name()%> </a>&gt;<a class="sne-lnk">Review</a>
+			</div>
+			<form method="post" action="ReviewServlet" id ="form2">
 				<div class="box-multiChoice">
+				<c:if test="${errorStr != null }">
+						<p style="color: red; font-style: italic;">${errorStr }</p>
+					</c:if>
 					<h2 class="bm-title">ĐÁNH GIÁ GIẢNG VIÊN</h2>
 					<p style="color: red; font-style: italic;" id="123"></p>
 					<div class="question">
@@ -160,10 +182,10 @@ else
 				<!-- nút nộp bài -->
             <div class="bm-test-again">					
                 <input type="hidden" name="TokenCSRF_Thi_NopBai" value="A01BDD2E459BCE3EF490BC2F9FF779880D17A320D13D9E7BB97908E2942997EBEE17A055CBAEA4D61F0CB4C1EB87D52969CACF8D3107C2C4600139D3DD11ADB7">
-                <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" href="">
-            		GỬI ĐÁNH GIÁ
+                <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" >
+            		GỬI ĐÁNH GIÁ<input type="submit" name="btnreview" value="" id="btnreview" style="border-width:0px;height:0px;width:0px;">
                 </a>
-                <input type="submit" name="ctl15$btn" value="" id="ctl15_btn" style="border-width:0px;height:0px;width:0px;">
+                <!-- <input  class="bm-test-again-lnk" onclick="if ( ! FinishConfirmation()) return false;" type="submit" name="btnreview" value="GỬI ĐÁNH GIÁ" id="btnreview" > -->
             </div>
             
             <div style="text-align: center;">
@@ -199,7 +221,7 @@ else
 					function FinishConfirmation() {
 						<%if(user_info.getQuyen()==2){%>
 						if (confirm("Gửi đánh giá. Đồng ý?") == true) {
-							$('#form1').submit();
+							$('#form2').submit();
 							return true;
 						} else {
 							return false;

@@ -354,9 +354,10 @@ else
 	background:
 }
 </style>
-					<a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân
-						&gt; Khóa Học &gt; Lập trình web &gt; Edit settings</a>
-				</div>
+					<%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=(courseDAO2.getCourse(Long.parseLong(course_id))).getCourse_name()%></a>&gt;<a class="sne-lnk">Create Quiz</a>
+			</div>
 
 
 

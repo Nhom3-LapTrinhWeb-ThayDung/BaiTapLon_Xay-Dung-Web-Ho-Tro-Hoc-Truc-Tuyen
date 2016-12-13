@@ -100,7 +100,25 @@ else
         <div id="body">
         <!--Alert-->
         
+<div class="Breadcrumb">
+				<style>
+.Breadcrumb {
+	margin-top: 10px;
+	background: #ffffff;
+	padding: 5px 10px;
+}
 
+.Breadcrumb .sne-lnk {
+	color: #00918D;
+	font-weight: normal;
+	line-height: 20px;
+	background:
+}
+</style>
+				<%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=course.getCourse_name() %></a>&gt;<a class="sne-lnk">Create Section</a>
+			</div>
 <!-- edit section -->
 <div class="persion-right2" style="display: block;" id="1" >
 <section id="region-main" class="" style="border: 1px solid #e3e3e3; padding: 2px 10px">

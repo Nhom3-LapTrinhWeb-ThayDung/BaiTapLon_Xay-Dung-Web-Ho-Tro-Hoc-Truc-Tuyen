@@ -365,8 +365,9 @@ else
 	background:
 }
 </style>
-				<a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân
-					&gt; Khóa Học &gt; <%=course.getCourse_name() %></a>
+				<%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=course.getCourse_name() %></a>
 			</div>
 
 			<div class="persion-right2" style="display: block; width: 910px;" id="1">

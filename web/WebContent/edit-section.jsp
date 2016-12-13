@@ -87,7 +87,9 @@ else
         .Breadcrumb{margin-top:10px;background:#ffffff;padding:5px 10px;}
         .Breadcrumb .sne-lnk{color:#00918D;font-weight:normal;line-height:20px;background:}
     </style>
-    <a id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân &gt; Khóa Học &gt; <%=course.getCourse_name() %> &gt; <%=section.getSection_name() %></a>
+    <%if(user_info.getQuyen()==1){ %><a href="canhangiangvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a>
+					<%}else{ %><a href="hocvien.jsp" id="alert_Breadcrumb__hplBreadcrumd" class="sne-lnk">Cá Nhân</a><%} %>
+					&gt;<a href="khoahoc2.jsp?course_id=<%=course_id%>" class="sne-lnk">Khóa Học: <%=course.getCourse_name() %></a>&gt;<a class="sne-lnk"><%=section.getSection_name() %></a>
 </div>
 
 
