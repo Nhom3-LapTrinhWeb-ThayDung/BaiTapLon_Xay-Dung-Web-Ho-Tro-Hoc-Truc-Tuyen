@@ -63,13 +63,12 @@ public class MessageServlet extends HttpServlet {
 			message.setNoidung(request.getParameter("noidung_message"));
 			
 			message.setId_nguoigui(usersend.getId());
-			message.setId_nguoinhan(Integer.parseInt(request.getParameter("id_nguoinhan")));
+			message.setId_nguoinhan(Long.parseLong(request.getParameter("id_nguoinhan")));
 		
 			
 			message.setThoigian(new Timestamp(new Date().getTime()));
 			
-			message.setDaxem(false);
-			
+		
 			boolean f = messageDAO.insert(message);
 			if(f)
 			{
@@ -80,7 +79,7 @@ public class MessageServlet extends HttpServlet {
 			else
 			{
 				//session.removeAttribute("user");
-				response.getWriter().write("send unsuccessfull!");
+				response.getWriter().write("send unsuccess!");
 			}
 			/*RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);*/

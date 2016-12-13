@@ -20,17 +20,15 @@ public class MessageDAO {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MessageDAO msDAO = new MessageDAO();
-		/*Message m = new Message();
+		Message m = new Message();
 		m.setId_message(new Date().getTime());
 		m.setDaxem(false);
 		m.setNoidung("wrgytuykgk,");
-		m.setId_nguoigui(Long.parseLong("2"));
-		m.setId_nguoinhan(Long.parseLong("1"));
+		m.setId_nguoigui(Long.parseLong("1481536424246"));
+		m.setId_nguoinhan(Long.parseLong("1481534619210"));
 		m.setThoigian(new Timestamp(new Date().getTime()));
-		boolean f=msDAO.insert(m);*/
-		List<Message> list =  msDAO.getListReceiveMessage(Long.parseLong("1"));
-		for(Message x : list)
-			System.out.println(x.getId_message()+x.getId_nguoigui()+x.getId_nguoinhan()+x.getNoidung()+x.getThoigian()+x.isDaxem());
+		boolean f=msDAO.insert(m);
+		System.out.print(f);
 	}
 	public boolean insert(Message m)
 	{

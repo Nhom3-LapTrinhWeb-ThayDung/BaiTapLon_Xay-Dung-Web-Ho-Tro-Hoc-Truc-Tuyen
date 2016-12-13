@@ -83,7 +83,10 @@ public class CourseServlet extends HttpServlet {
 					{
 						session.setAttribute("course", course);
 						response.getWriter().write("khoahoc2.jsp?course_id="+x);
-						response.getWriter().write("");
+						//RequestDispatcher rd = request.getRequestDispatcher(url);
+						//rd.forward(request, response);
+						//response.getWriter().write("Mở khóa học thành công!");
+						//response.sendRedirect("khoahoc2.jsp");  
 						
 					}
 					else
@@ -101,21 +104,7 @@ public class CourseServlet extends HttpServlet {
 			}
 			
 			break;
-		case "deletecourse":
-			long CourseDAO;
-			CourseDAO=Long.parseLong(request.getParameter("courseID_delete"));
-			f = courseDAO.deleteCourse(CourseDAO);
-			if(f)
-			{
-				
-				response.getWriter().write("Delete success!");
-			}
-			else
-			{
-			//session.removeAttribute("user");
-				response.getWriter().write("Delete unsuccessful!");
-			}
-			break;		
+
 		case "update":
 			course.setCourse_id(Long.parseLong(request.getParameter("course_id")));
 			course.setCourse_description(request.getParameter("course_description"));
@@ -145,17 +134,22 @@ public class CourseServlet extends HttpServlet {
 			/*RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);*/
 			break;
-		case "getlistcourseofuser":
-			/*int userid=Integer.parseInt(request.getParameter("userid"));
-			//String y = request.getParameter("userid");
-			List<Course> listCourse = new CourseDAO().getListCourse(userid);
-	        request.setAttribute("listCourse", y);
-	        //if(listCourse==null)
-	        	response.getWriter().write(y);
-	       // else
-	        	//response.getWriter().write("load ds khóa học thành công!");
-			//break;
-*/		}
+		case "deletecourse":
+			long CourseDAO;
+			CourseDAO=Long.parseLong(request.getParameter("courseID_delete"));
+			f = courseDAO.deleteCourse(CourseDAO);
+			if(f)
+			{
+				
+				response.getWriter().write("Delete success!");
+			}
+			else
+			{
+			//session.removeAttribute("user");
+				response.getWriter().write("Delete unsuccessful!");
+			}
+			break;
+		}
 	
 	}
 

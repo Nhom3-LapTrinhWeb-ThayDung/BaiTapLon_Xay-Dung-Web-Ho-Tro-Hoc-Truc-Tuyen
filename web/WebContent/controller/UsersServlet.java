@@ -86,8 +86,6 @@ public class UsersServlet extends HttpServlet {
 				f = usersDAO.insertUser(users);
 				if(f)
 				{
-					session.setAttribute("user_info", user_info);
-					session.setAttribute("user", users);
 					url="index.jsp";
 				}
 				
@@ -126,13 +124,13 @@ public class UsersServlet extends HttpServlet {
 			f = usersDAO.doimk(user_name, newpass1);
 			if(f)
 			{
-				response.getWriter().write("Đổi mật khẩu thành công!");
+				response.getWriter().write("Ä�á»•i máº­t kháº©u thĂ nh cĂ´ng");
 				//errorStr="Ä�á»•i máº­t kháº©u thĂ nh cĂ´ng";
 				///request.setAttribute("errorStr", errorStr);
 			}
 			else
 			{
-				response.getWriter().write("Đổi mật khẩu không thành công!");
+				response.getWriter().write("Ä�á»•i máº­t kháº©u khĂ´ng thĂ nh cĂ´ng");
 				//errorStr="Ä�á»•i máº­t kháº©u khĂ´ng thĂ nh cĂ´ng";
 				//request.setAttribute("errorStr", errorStr);
 			}
@@ -165,6 +163,21 @@ public class UsersServlet extends HttpServlet {
 			{
 				//session.removeAttribute("user");
 				response.getWriter().write("update unsuccessful!");
+			}
+			break;
+		case "deleteuser_userinfo":
+			long UserID_1;
+			UserID_1=Long.parseLong(request.getParameter("userid_delete"));
+			f = user_infoDAO.deleteUser_info(UserID_1);
+			if(f)
+			{
+				
+				response.getWriter().write("Delete success!");
+			}
+			else
+			{
+			//session.removeAttribute("user");
+				response.getWriter().write("Delete unsuccessful!");
 			}
 			break;
 		case "updateuser":

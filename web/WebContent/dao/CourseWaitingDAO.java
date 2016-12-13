@@ -126,45 +126,6 @@ public class CourseWaitingDAO {
 		}
 		return false;
 	}
-	
-	public boolean deleteWaiting(long course_waiting_id)
-	{
-		Connection con = DBConnect.getConnecttion();
-		String sql = "DELETE FROM course_waiting WHERE course_waiting_id ='"+course_waiting_id+"'";
-		PreparedStatement ps;
-		try{
-			ps = (PreparedStatement) con.prepareCall(sql);
-			
-			ps.executeUpdate();
-			
-			return true;
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	public boolean insertCouser_user(long course_waiting_id,long course_id ,long user_id)
-	{
-		Connection con = DBConnect.getConnecttion();
-		String sql = "insert into course_user values(?,?)";
-		String sql1 = "DELETE FROM course_waiting WHERE course_waiting_id ='"+course_waiting_id+"'";
-		PreparedStatement ps;
-		PreparedStatement ps1;
-		try {
-			ps = (PreparedStatement) con.prepareCall(sql);
-			ps.setLong(1, user_id);
-			ps.setLong(2, course_id);
-			ps.executeUpdate();
-			
-			ps1 = (PreparedStatement) con.prepareCall(sql1);
-			ps1.executeUpdate();
-			return true;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
 	//Lấy teacher
 	public User_info getteacher(long course_id) {
         try {
@@ -248,5 +209,26 @@ public class CourseWaitingDAO {
         }
         return null;
     }
+	public boolean insertCouser_user(long course_waiting_id,long course_id ,long user_id)
+	{
+		Connection con = DBConnect.getConnecttion();
+		String sql = "insert into course_user values(?,?)";
+		String sql1 = "DELETE FROM course_waiting WHERE course_waiting_id ='"+course_waiting_id+"'";
+		PreparedStatement ps;
+		PreparedStatement ps1;
+		try {
+			ps = (PreparedStatement) con.prepareCall(sql);
+			ps.setLong(1, user_id);
+			ps.setLong(2, course_id);
+			ps.executeUpdate();
+			
+			ps1 = (PreparedStatement) con.prepareCall(sql1);
+			ps1.executeUpdate();
+			return true;
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

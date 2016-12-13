@@ -61,6 +61,9 @@ public class SubmitExerciseServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		String url = "";
     	boolean f;
     	int i=0;
@@ -73,6 +76,7 @@ public class SubmitExerciseServlet extends HttpServlet {
 		String course_id="";
 		String file="";
 		String description="";
+		String section_id="";
 		Exercise_User exu1= new Exercise_User();
 		Exercise_User exu = new Exercise_User();
 		Exercise e = new Exercise();
@@ -141,7 +145,8 @@ public class SubmitExerciseServlet extends HttpServlet {
                     		file = item.getString();
                     	if(i==4)
                     		description = item.getString();
-                    		
+                    	if(i==5)
+                    		section_id = item.getString();
                     }
                     
                    } 
@@ -175,7 +180,7 @@ public class SubmitExerciseServlet extends HttpServlet {
         	exu.setTimesubmit(new Timestamp(new Date().getTime()));
         	exu.setDescription(description);
         	f = exuDAO.nopbai(exu);
-        	//url="/Chi-Tiet-Bai-Tap.jsp?course_id="+course_id+"&exercise_id="+exercise_id;
+        	url="Chi-Tiet-Bai-Tap.jsp?course_id="+course_id+"&section_id="+section_id+"&exercise_id="+exercise_id;
         	break;
         case "suabai":
         	exu.setResult_id(exu1.getResult_id());
@@ -191,10 +196,11 @@ public class SubmitExerciseServlet extends HttpServlet {
         	exu.setReview(exu1.getReview());
         	exu.setScore(exu1.getScore());
         	f = exuDAO.suabai(exu);
+        	url="Chi-Tiet-Bai-Tap.jsp?course_id="+course_id+"&section_id="+section_id+"&exercise_id="+exercise_id;
         	break;
         }
         // redirects client to message page
-        request.setAttribute("message",i+"-"+ srcname+"-"+file+"-"+exercise_id+"-"+course_id+"-"+description+"-"+command+"-"+uf.getId());
+        /*request.setAttribute("message",i+"-"+ srcname+"-"+file+"-"+exercise_id+"-"+course_id+"-"+description+"-"+command+"-"+uf.getId());*/
         response.sendRedirect(url);
 	}
 

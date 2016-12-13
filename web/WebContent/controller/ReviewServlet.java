@@ -77,6 +77,7 @@ public class ReviewServlet extends HttpServlet {
 				else
 				{
 					errorStr="Ðánh giá không thành công!";
+					/*url = review_id+"-"+ Integer.parseInt(as.getAnswer())+"-"+ as.getNumber();*/
 				}
     		}
         }
@@ -88,6 +89,8 @@ public class ReviewServlet extends HttpServlet {
 			url = "khoahoc2.jsp?course_id="+course_id;
 		else
 			url = "Review.jsp?course_id="+course_id;
+			/*url =review_id +"="+ student.getId()+"="+ course_id+"="+ teacher.getId()+"="+ opinion;
+			url = url;*/
         request.setAttribute("errorStr", errorStr);
         response.sendRedirect(url);
         /*RequestDispatcher dispatcher;

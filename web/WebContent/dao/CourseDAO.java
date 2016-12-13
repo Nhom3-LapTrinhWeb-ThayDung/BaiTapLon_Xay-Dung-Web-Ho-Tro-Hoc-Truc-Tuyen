@@ -154,36 +154,7 @@ public class CourseDAO {
         }
         return null;
     }
-    public List<CoursewaitingUser> getListCoursewaiting(){
-    	
-    	try {
-        	Connection conn = DBConnect.getConnecttion();
-            String sql = "SELECT * From course,course_waiting,user_info where course.course_id= course_waiting.course_id and course_waiting.user_id=user_info.id";
-            ps = conn.prepareStatement(sql);
-            rs = ps.executeQuery();
-             
-            List<CoursewaitingUser> listCoursewaiting = new ArrayList<CoursewaitingUser>();
-            while (rs.next()) {
-            	CoursewaitingUser u = new CoursewaitingUser();
-            	
-            	u.setCourse_waiting_id(rs.getLong("course_waiting_id"));
-            	u.setUser_id(rs.getLong("user_id"));
-            	u.setCourse_id(rs.getLong("course_id"));
-            	u.setCourse_name(rs.getString("course_name"));
-            	u.setCourse_startdate(rs.getString("course_startdate"));
-            	u.setCourse_enddate(rs.getString("course_enddate"));
-            	u.setCourse_place(rs.getString("course_place"));
-            	u.setTen(rs.getString("ten"));
-            	u.setSodienthoai(rs.getString("course_place"));
-            	listCoursewaiting.add(u);
-            }
-            conn.close();
-            return listCoursewaiting;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+	
 	// Láº¥y ra danh sĂ¡ch khĂ³a há»�c cá»§a user
     public List<Course> getListCourse(long userid) {
         try {
@@ -446,7 +417,37 @@ public class CourseDAO {
 		}
 		return false;
 	}
-    public boolean deleteCourse(long courseID)
+public List<CoursewaitingUser> getListCoursewaiting(){
+    	
+    	try {
+        	Connection conn = DBConnect.getConnecttion();
+            String sql = "SELECT * From course,course_waiting,user_info where course.course_id= course_waiting.course_id and course_waiting.user_id=user_info.id";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+             
+            List<CoursewaitingUser> listCoursewaiting = new ArrayList<CoursewaitingUser>();
+            while (rs.next()) {
+            	CoursewaitingUser u = new CoursewaitingUser();
+            	
+            	u.setCourse_waiting_id(rs.getLong("course_waiting_id"));
+            	u.setUser_id(rs.getLong("user_id"));
+            	u.setCourse_id(rs.getLong("course_id"));
+            	u.setCourse_name(rs.getString("course_name"));
+            	u.setCourse_startdate(rs.getString("course_startdate"));
+            	u.setCourse_enddate(rs.getString("course_enddate"));
+            	u.setCourse_place(rs.getString("course_place"));
+            	u.setTen(rs.getString("ten"));
+            	u.setSodienthoai(rs.getString("course_place"));
+            	listCoursewaiting.add(u);
+            }
+            conn.close();
+            return listCoursewaiting;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	public boolean deleteCourse(long courseID)
 	{
 		Connection con = DBConnect.getConnecttion();
 		String sql = "DELETE FROM course WHERE course_id ='"+courseID+"'";
@@ -455,7 +456,7 @@ public class CourseDAO {
 			ps = (PreparedStatement) con.prepareCall(sql);
 			
 			ps.executeUpdate();
-
+	
 			return true;
 		}catch (SQLException e) {
 			e.printStackTrace();

@@ -93,30 +93,12 @@ public class CourseWaitingServlet extends HttpServlet {
 			url="";
 
 			String course_waiting_id = request.getParameter("course_waiting_id");
-			String course_id = request.getParameter("course_id");
 			f = coursewaitingDAO.delete(Long.parseLong(course_waiting_id));
 			if(f)
 				response.getWriter().write("thành công!");
-				url="khoahoc2.jsp?course_id="+course_id;
-			rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
-			break;
-		case "deletecoursewaiting":
-			String course_waiting_id1 = request.getParameter("course_waiting_id");
-			f = coursewaitingDAO.deleteWaiting(Long.parseLong(course_waiting_id1));
-			if(f)
-			{
-				response.getWriter().write("Delete success!");
-			}
 			else
 				response.getWriter().write("không thành công!");
-			{
-			//session.removeAttribute("user");
-				response.getWriter().write("Delete unsuccessful!");
-			}
 			break;
-
-			
 		case "acceptcoursewaiting":
 			String course_waiting_idacp = request.getParameter("course_waiting_id");
 			String course_idacp = request.getParameter("course_id");
@@ -136,7 +118,6 @@ public class CourseWaitingServlet extends HttpServlet {
 				response.getWriter().write("Accept unsuccessful!");
 			}
 			break;
-
 		}
 	}
 }
