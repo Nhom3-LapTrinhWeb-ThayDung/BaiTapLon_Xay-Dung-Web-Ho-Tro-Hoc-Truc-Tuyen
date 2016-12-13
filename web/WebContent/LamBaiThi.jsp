@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/support_face.css" type="text/css">
 <link rel="stylesheet" href="css/home.css" type="text/css">
 
-<title>BÀI TEST IQ SỐ 1 - ViettelStudy</title>
+<title>Thi Trắc Nghiệm online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
 <script type="text/javascript" async=""
@@ -23,7 +23,7 @@
 <script type="text/javascript" src="js/overlay2.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
 <body>
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("quiz_id")!=null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("quiz_id")==null)
 {
 		response.sendRedirect("index.jsp");
 }

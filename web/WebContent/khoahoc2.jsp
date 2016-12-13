@@ -53,7 +53,7 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("course_id")!=null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("course_id")==null)
 {
 		response.sendRedirect("index.jsp");
 }

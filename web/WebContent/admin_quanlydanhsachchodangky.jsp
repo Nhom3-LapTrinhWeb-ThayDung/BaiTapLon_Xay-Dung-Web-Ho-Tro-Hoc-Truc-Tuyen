@@ -52,6 +52,13 @@
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || ((User_info)session.getAttribute("user_info")).getQuyen()!=0 )
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -259,7 +266,7 @@ fbq('track', "PageView");</script>
         	}
         	function acceptcoursewaiting(coursewaiting_id,course_id,userid)
         	{
-        		if(confirm("Xóa đăng ký khóa học "+course_id+". Đồng ý ?")==true)
+        		if(confirm("Chấp nhận học viên vào khóa học "+course_id+". Đồng ý ?")==true)
 				{                        
 	               	 $.post('CourseWaitingServlet', {'command': "acceptcoursewaiting",
 	           				'course_waiting_id':coursewaiting_id,
@@ -416,4 +423,5 @@ $('.persion-tab-lnk').click(function() {
         <a class="close"></a>  
         <div class="box-popup" id="box_popup"></div>
     </div>
+    <%} %>
 </body></html>

@@ -53,6 +53,13 @@
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || ((User_info)session.getAttribute("user_info")).getQuyen()!=0 )
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -357,7 +364,7 @@ fbq('track', "PageView");</script>
 	               	          
 	               	           
                          }); 
-                         $('#deleteuser'+<%=student.getUserID()%>).click(function(){
+                         $('#user'+<%=student.getUserID()%>).click(function(){
 	                         {
 	                        	 if(confirm("Xóa user "+$('#updateuserten'+<%=student.getUserID()%>).val()+". Đồng ý?")==true)
 	     								{                        
@@ -378,7 +385,7 @@ fbq('track', "PageView");</script>
                           <!-- Modal -->
                         </div>
                         
-                        <div class="modal-footer"
+                        <div class="modal-footer">
                        
                           <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Đóng</button>
                        
@@ -439,9 +446,9 @@ fbq('track', "PageView");</script>
 						<span class="sp-left">Quyền:</span> <span class="sp-right">
 						<select name="quyen"
 						id="addquyen" class="bpt-sl-date">
-									<option selected="selected" value="0">Admin</option>
+									<option value="0">Admin</option>
 									<option value="1">Giảng viên</option>
-									<option value="2">Học viên</option>
+									<option selected="selected" value="2">Học viên</option>
 							</select> 
 							</span>
                           </br>
@@ -583,8 +590,7 @@ fbq('track', "PageView");</script>
 									<option value="2008">2008</option>
 									<option value="2009">2009</option>
 									<option value="2010">2010</option>
-									<option value="2011">2011</option>
-
+									<option value="2011" selected = "selected">2011</option>
 							</select>
 							</span> 
 							
@@ -764,7 +770,7 @@ fbq('track', "PageView");</script>
             				  $('#thangsinh').val()+ $('#ngaysinh').val()+ $('#name').val()+
             				  $('#sdt').val()+ $('#username-register').val()+ $('#pass-register').val())
 		        		  $.post('UsersServlet', {'command': "insert",'email-register':$('#email-register').val(),'gioitinh':$('#gioitinh').val(),
-		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
+		        			  'namsinh':$('#namsinh').val(),'thangsinh':$('#thangsinh').val(),'ngaysinh':$('#ngaysinh').val(),'name':$('#name').val(),'sdt':$('#sdt').val(),
 		        			  'username-register':$('#username-register').val(),'pass-register':$('#pass-register').val()}, function (data) {
 		                  	if(data=="")
 		                  		window.location.href="index.jsp";
@@ -1274,14 +1280,14 @@ function refreshCaptcha(capchaid, capchlength) {
   
                     <div class="bpc-row">
                         <span class="sp-left">Số điện thoại</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)">
+                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" >
                             <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
                             <input type="hidden" name="login$hfDem" id="login_hfDem">
                         </span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Mật khẩu</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)"></span>
+                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" ></span>
                     </div>
                     
                     <div class="bpc-row">
@@ -1498,5 +1504,5 @@ function EnterKeyPress(id,e) {
 }
 
 </script>
-
+<%} %>
 </body></html>

@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("quiz_id")!=null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("quiz_id")==null)
 {
 		response.sendRedirect("index.jsp");
 }

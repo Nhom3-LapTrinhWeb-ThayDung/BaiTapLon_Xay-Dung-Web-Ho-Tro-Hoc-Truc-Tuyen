@@ -51,6 +51,13 @@
     <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || ((User_info)session.getAttribute("user_info")).getQuyen()!=0 )
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 <form name="form1" method="post" action="http://viettelstudy.vn/canhan.html" id="form1" enctype="multipart/form-data">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -475,14 +482,14 @@ $('.persion-tab-lnk').click(function() {
   
                     <div class="bpc-row">
                         <span class="sp-left">Số điện thoại</span> <span class="sp-right">
-                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)">
+                            <input name="login$txtTaiKhoan" type="text" maxlength="15" id="login_txtTaiKhoan" class="bpc-txt" >
                             <input type="hidden" name="login$hfISMSDN" id="login_hfISMSDN">
                             <input type="hidden" name="login$hfDem" id="login_hfDem">
                         </span>
                     </div>
                     <div class="bpc-row">
                         <span class="sp-left">Mật khẩu</span> <span class="sp-right">
-                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt" autocomplete="off" onkeypress="return clickButton(event,&#39;login_btnDangNhap&#39;)"></span>
+                            <input name="login$txtmatKhau" type="password" maxlength="30" id="login_txtmatKhau" class="bpc-txt""></span>
                     </div>
                     
                     <div class="bpc-row">
@@ -671,4 +678,5 @@ function EnterKeyPress(id,e) {
    }
 }
 </script>
+<%} %>
 </body></html>
