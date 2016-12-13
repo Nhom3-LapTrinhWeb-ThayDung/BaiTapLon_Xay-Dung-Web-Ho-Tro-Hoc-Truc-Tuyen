@@ -118,11 +118,15 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tHeader$Widget$G
 
 
 <%@include file="//includes/header.jsp" %>
+<%@include file="//includes/overlaylogin.jsp" %>
+
 <%
 			CourseDAO courseDAO = new CourseDAO();
 			CourseWaitingDAO coursewaitingDAO = new CourseWaitingDAO();
 			User_info teacher = new User_info();
-			List<Course> listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
+			List<Course> listcoursewaiting = new ArrayList<Course>();
+			if(user_info!=null)
+				listcoursewaiting = coursewaitingDAO.getListCourseWaiting(user_info.getId());
 			Outline outline = new Outline();
 			String 	course_id="";
 %>
@@ -557,12 +561,14 @@ fbq('track', "PageView");</script>
                             <input type="submit" name="login$btnDangNhap" value="Đăng nhập" onclick="btnDangNhap_OnClientClick();" id="login_btnDangNhap" class="bpt-lnk-save btn-login">
                             <input type="hidden" name="TokenCSRF_Login" value="861C1C176546B26167F6E71624FC5090FF6A020C86DD08965B9A4D78ECF3BC62571BA5DDC0E3D858BED2D9CB8A6AB57C63717C9C78439D42777006E989CC4EBB">
                             -->
-
+					
                             <input type="button" onclick="btndangkyclick('<%=course.getCourse_id() %>','<%=course.getCourse_name() %>')"  value="Đăng ký" id="btndangky" name="btndangky" class="bpt-lnk-save btn-login">
+                        	
                         </span>
 
 						<script type="text/javascript">
                             function btndangkyclick(course_id, name) {
+                            	<%if(user_info!=null){%>
                             	var quyen = <%=user_info.getQuyen()%>;
                             	if(quyen == 2)
                            		{
@@ -576,8 +582,9 @@ fbq('track', "PageView");</script>
                                		}
                            		}
                             	else alert("Chỉ có học viên mới có quyền đăng ký khóa học này !");
-                            	
-                            	
+                            	<%}else{%>
+                            	alert("Bạn vui lòng đăng nhập để đăng ký khóa học này !");
+                            	<%}%>
                             }
                         </script>
 						

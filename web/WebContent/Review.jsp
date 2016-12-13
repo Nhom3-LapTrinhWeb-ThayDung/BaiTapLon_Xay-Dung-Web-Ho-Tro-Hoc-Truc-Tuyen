@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || request.getParameter("course_id")!=null)
 {
 		response.sendRedirect("index.jsp");
 }
@@ -160,7 +160,7 @@ else
 				<!-- nút nộp bài -->
             <div class="bm-test-again">					
                 <input type="hidden" name="TokenCSRF_Thi_NopBai" value="A01BDD2E459BCE3EF490BC2F9FF779880D17A320D13D9E7BB97908E2942997EBEE17A055CBAEA4D61F0CB4C1EB87D52969CACF8D3107C2C4600139D3DD11ADB7">
-                <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" href="javascript:__doPostBack()">
+                <a onclick="if ( ! FinishConfirmation()) return false;" id="ctl15_btnNopBai" class="bm-test-again-lnk" href="">
             		GỬI ĐÁNH GIÁ
                 </a>
                 <input type="submit" name="ctl15$btn" value="" id="ctl15_btn" style="border-width:0px;height:0px;width:0px;">
@@ -197,15 +197,16 @@ else
 				<!-- Thông báo chính thức nộp bài -->
 				<script type="text/javascript">
 					function FinishConfirmation() {
-						var line_alert = document.getElementById('line_alert');
-						line_alert.style.visibility = 'hidden';
+						<%if(user_info.getQuyen()==2){%>
 						if (confirm("Gửi đánh giá. Đồng ý?") == true) {
 							$('#form1').submit();
-							document.getElementById('ctl15_btnNopBai').style.visibility = 'hidden';
 							return true;
 						} else {
 							return false;
 						}
+						<%}else{%>
+							alert('Chỉ học viên của khóa học mới được đánh giá!');
+						<%}%>
 					}
 				</script>
 

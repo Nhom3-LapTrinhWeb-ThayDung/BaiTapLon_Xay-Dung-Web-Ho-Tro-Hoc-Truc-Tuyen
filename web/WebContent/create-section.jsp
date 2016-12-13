@@ -35,7 +35,7 @@
 </head>
 <body>
 
-<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || ((User_info)session.getAttribute("user_info")).getQuyen()!=1 || request.getParameter("course_id")!=null)
 {
 		response.sendRedirect("index.jsp");
 }

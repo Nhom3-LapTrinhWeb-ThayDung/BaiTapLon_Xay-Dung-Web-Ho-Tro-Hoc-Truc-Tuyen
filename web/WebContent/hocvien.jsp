@@ -42,7 +42,13 @@
 
 </head>
 <body>
-
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null || ((User_info)session.getAttribute("user_info")).getQuyen()!=2 )
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
 
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -1465,5 +1471,5 @@ function EnterKeyPress(id,e) {
 }
 
 </script>
-
+<%} %>
 </body></html>

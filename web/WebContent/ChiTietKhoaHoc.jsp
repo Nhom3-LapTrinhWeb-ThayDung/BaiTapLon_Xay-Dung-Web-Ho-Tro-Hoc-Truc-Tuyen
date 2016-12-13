@@ -32,6 +32,13 @@
 <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+<%		if(session.getAttribute("user")==null || session.getAttribute("user_info")==null)
+{
+		response.sendRedirect("index.jsp");
+}
+else
+{
+%>
     <!-- <form name="form1" method="post" action="/ky-nang-mem/thi-thu-vao-lop-10-mon-toan-hoc-all.html" id="form1">-->
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
@@ -1119,6 +1126,7 @@ Sys.Application.add_init(function() {
 //]]>
 </script>
 </form>
+<%} %>
 </body>
 </html>
 

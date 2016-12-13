@@ -67,7 +67,7 @@
 							<span class="sp-left">Password</span> <span class="sp-right">
 								<input name="password" type="password" maxlength="30"
 								id="password" class="bpc-txt" autocomplete="off"
-								onkeypress="return clickButton(event,'login_btnDangNhap')">
+								onkeypress="return clickButton(event,'btnDangNhap')">
 							</span>
 						</div>
 
@@ -129,7 +129,7 @@
 							</span>
 						</div>
 						<div class="bpc-row" style="margin-top: 0px;">
-							<span class="sp-left"></span><span class="sp-right"> <a id="login_btnDangNhap" class="bpt-lnk-save btn-login" onclick="btnlogin()">
+							<span class="sp-left"></span><span class="sp-right"> <a id="btnDangNhap" class="bpt-lnk-save btn-login" onclick="btnlogin()">
 							login</a> <input type="hidden"
 								name="command" value="login">
 							</span>
@@ -988,6 +988,7 @@
             }
         });
     });
+ </script>
  <script type="text/javascript">
     function clickButton(e, buttonid) {
         var evt = e ? e : window.event;
